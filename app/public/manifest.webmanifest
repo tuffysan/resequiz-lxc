@@ -1,12 +1,18 @@
 {
-  "name": "Resequiz – Online & Offline",
+  "name": "Resequiz Offline – Quiz för resan",
   "short_name": "Resequiz",
-  "start_url": "/",
+  "id": "/resequiz-offline-v24",
+  "start_url": "/offline.html?installed=1",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#111827",
+  "orientation": "any",
+  "background_color": "#070a12",
   "theme_color": "#070a12",
-  "description": "Resequiz med live gruppspel och komplett offline-läge.",
+  "description": "Komplett resequiz med 2 588 frågor, highscore och offline-läge.",
+  "categories": [
+    "games",
+    "entertainment"
+  ],
   "icons": [
     {
       "src": "/icons/icon-192.png",
@@ -19,6 +25,30 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Spela offline",
+      "short_name": "Offline",
+      "url": "/offline.html",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Spela online",
+      "short_name": "Online",
+      "url": "/online.html",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ]
 }

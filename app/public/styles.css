@@ -60,3 +60,261 @@ body.game-show-mode .timer{font-size:42px}
 .hof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}.hof-section{padding:12px;border-radius:18px;background:var(--surface2);border:1px solid var(--line)}.hof-section h3{margin:4px 4px 10px}.achievement-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.player-achievements{padding:15px;border:1px solid var(--line);border-radius:18px;background:var(--surface2)}.achievement{display:flex;flex-direction:column;gap:4px;padding:10px 12px;margin:8px 0;border-radius:13px;background:rgba(124,58,237,.10);border:1px solid rgba(167,139,250,.16)}.achievement span{color:var(--muted);font-size:13px}
 
 .server-warning{border-color:rgba(239,68,68,.45);background:rgba(239,68,68,.09);color:#fecaca}.server-warning span{color:#fca5a5}
+
+/* v2.4 offline installation */
+.compact-hero{padding-bottom:28px}.connection-pill{font-size:12px;font-weight:800;color:var(--muted);padding:8px 11px;border:1px solid var(--line);border-radius:999px}.connection-pill.ok{color:#86efac}.connection-pill.warn{color:#fbbf24}.install-wizard{text-align:center}.offline-status{margin:14px auto 0;display:flex;align-items:center;justify-content:center;gap:9px;color:var(--muted);font-size:14px}.status-dot{width:9px;height:9px;border-radius:50%;background:#64748b;display:inline-block}.status-dot.good{background:var(--good);box-shadow:0 0 16px rgba(34,197,94,.45)}.status-dot.bad{background:var(--bad)}.install-grid .portal-card{min-height:300px}.modal-overlay{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.72);display:grid;place-items:center;padding:18px;backdrop-filter:blur(10px)}.modal-card{position:relative;width:min(620px,100%);max-height:88vh;overflow:auto}.modal-close{position:absolute;right:14px;top:14px}.guide-steps{padding-left:22px;line-height:1.65}.guide-steps li{padding:6px 0}.install-actions{display:flex;gap:10px;flex-wrap:wrap}.install-actions>*{flex:1;min-width:220px;text-align:center}
+
+/* =========================================================
+   Resequiz v2.5 — Light Professional Theme
+   ========================================================= */
+:root{
+  --bg:#f6f7f4;
+  --bg2:#eef2ef;
+  --surface:#ffffff;
+  --surface2:#f7f9f7;
+  --surface3:#edf3f1;
+  --text:#17201f;
+  --muted:#65716f;
+  --faint:#8b9693;
+  --line:#dfe6e2;
+  --accent:#176b68;
+  --accent2:#245f83;
+  --cyan:#3b7f8d;
+  --good:#257a54;
+  --bad:#b94747;
+  --warn:#9a6a19;
+  --radius:16px;
+  --radius-sm:11px;
+  --shadow:0 14px 34px rgba(34,54,50,.08);
+  --shadow-soft:0 5px 18px rgba(34,54,50,.06)
+}
+html{background:var(--bg)}
+body{
+  color:var(--text);
+  background:
+    radial-gradient(900px 420px at 4% -15%,rgba(23,107,104,.08),transparent 65%),
+    radial-gradient(760px 420px at 100% -10%,rgba(36,95,131,.055),transparent 60%),
+    var(--bg);
+  font-family:"Segoe UI",Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  letter-spacing:-.005em
+}
+.app-shell{width:min(1080px,100%);padding:0 22px 48px}
+.topbar{
+  min-height:70px;
+  padding:12px 0;
+  background:rgba(246,247,244,.9);
+  border-bottom:1px solid rgba(223,230,226,.7);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px)
+}
+.brand h1,h1{font-weight:680;letter-spacing:-.025em;color:var(--text)}
+.eyebrow{
+  color:var(--accent);
+  letter-spacing:.13em;
+  font-weight:750;
+  font-size:10px
+}
+.card{
+  background:rgba(255,255,255,.94);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-soft);
+  border-radius:var(--radius)
+}
+.hero{
+  background:linear-gradient(145deg,#fff 0%,#f4f8f6 100%);
+  border-color:#d8e3df;
+  box-shadow:var(--shadow);
+  padding:clamp(30px,5vw,58px)
+}
+.hero h2{
+  color:#17201f;
+  font-size:clamp(34px,5.2vw,58px);
+  line-height:1.02;
+  letter-spacing:-.045em;
+  font-weight:700
+}
+.hero p{color:#5f6d69;font-size:17px;line-height:1.7;max-width:680px}
+.hero-mark{
+  width:52px;height:52px;border-radius:13px;
+  display:grid;place-items:center;
+  background:#e4efec;
+  border:1px solid #cfe0db;
+  color:var(--accent);
+  font-weight:800;
+  font-size:15px;
+  letter-spacing:.08em;
+  margin-bottom:20px
+}
+.hero-icon{background:#e4efec!important;color:var(--accent)!important;box-shadow:none!important}
+.badge{
+  color:#315a57!important;
+  background:#e9f1ef!important;
+  border:1px solid #d2e2de!important;
+  box-shadow:none!important;
+  font-weight:700!important;
+  letter-spacing:.09em!important
+}
+.portal{gap:18px}
+.portal-grid{gap:16px}
+.portal-card{
+  padding:26px;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease
+}
+.portal-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#cadad5}
+.portal-card h2{font-size:25px;letter-spacing:-.03em}
+.portal-card p{color:var(--muted);line-height:1.65}
+.mode-icon{
+  width:max-content;
+  padding:7px 10px;
+  margin-bottom:18px;
+  border-radius:8px;
+  background:#edf3f1;
+  color:#52716b;
+  border:1px solid #dce8e4;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.1em
+}
+.big{font-size:18px!important;color:var(--accent)!important}
+.primary,.secondary,.danger{
+  min-height:48px;
+  border-radius:11px!important;
+  font-weight:680!important;
+  letter-spacing:-.01em;
+  box-shadow:none!important;
+  transition:transform .12s ease,box-shadow .15s ease,background .15s ease,border-color .15s ease
+}
+.primary{
+  color:#fff!important;
+  background:var(--accent)!important;
+  border:1px solid var(--accent)!important
+}
+.primary:hover{background:#125e5b!important;box-shadow:0 8px 18px rgba(23,107,104,.16)!important}
+.primary:active,.secondary:active{transform:translateY(1px)}
+.secondary{
+  background:#fff!important;
+  color:#30413e!important;
+  border:1px solid #ccd8d4!important
+}
+.secondary:hover{background:#f5f8f6!important;border-color:#b9cac4!important}
+.icon-btn{
+  background:#fff!important;
+  color:#43524f!important;
+  border:1px solid #d7e0dd!important;
+  box-shadow:none!important;
+  border-radius:11px!important
+}
+.sound-toggle{font-size:12px!important;font-weight:700!important;width:auto!important;padding:0 13px!important}
+input,select{
+  background:#fff!important;
+  color:var(--text)!important;
+  border:1px solid #cfdad6!important;
+  border-radius:11px!important;
+  box-shadow:0 1px 2px rgba(25,40,37,.02)!important
+}
+input:focus,select:focus{
+  border-color:#73a6a0!important;
+  box-shadow:0 0 0 3px rgba(23,107,104,.09)!important;
+  outline:none
+}
+.category,.choice-card,.answer{
+  background:#fff!important;
+  border:1px solid #d7e0dd!important;
+  color:var(--text)!important;
+  box-shadow:none!important;
+  border-radius:13px!important
+}
+.category:hover,.choice-card:hover,.answer:hover{border-color:#aec6c0!important;background:#f9fbfa!important}
+.category.active,.choice-card.active{
+  background:#e8f1ef!important;
+  border-color:#78a9a2!important;
+  color:#174c49!important;
+  box-shadow:inset 0 0 0 1px #78a9a2!important
+}
+.answer{min-height:64px!important;font-size:16px!important}
+.answer.correct{background:#e7f4ec!important;border-color:#76ad8d!important;color:#1f6244!important}
+.answer.wrong{background:#f8eaea!important;border-color:#cf8d8d!important;color:#8a3636!important}
+.question{
+  color:#16201e!important;
+  font-weight:680!important;
+  letter-spacing:-.03em!important
+}
+.question-media{
+  background:#f7f9f7!important;
+  border:1px solid #dfe7e4!important;
+  box-shadow:none!important
+}
+.game-show-card{
+  background:#fff!important;
+  border-color:#d9e2df!important;
+  box-shadow:var(--shadow)!important
+}
+.turn-badge,.mini-pill,.score-pill,.connection-pill{
+  background:#f2f6f4!important;
+  color:#40514d!important;
+  border:1px solid #dbe4e1!important;
+  box-shadow:none!important
+}
+.progress{background:#e8eeeb!important}
+.progress>div{background:var(--accent)!important}
+.timer{color:#315f5a!important}
+.feedback.good{background:#edf7f1!important;border-color:#c9e6d4!important;color:#255d43!important}
+.feedback.bad{background:#fbefef!important;border-color:#edd0d0!important;color:#873d3d!important}
+.rank-row{
+  background:#fff!important;
+  border:1px solid #e0e7e4!important;
+  border-radius:12px!important;
+  box-shadow:none!important
+}
+.rank{color:#66736f!important}
+.points{color:#245f5b!important;font-weight:720!important}
+.stat.card{background:#fff!important}
+.stat strong{color:#1c5f5b!important}
+.feature-grid>div{
+  background:#f8faf8!important;
+  border:1px solid #e0e8e5!important;
+  border-radius:13px!important;
+  box-shadow:none!important
+}
+.feature-grid>div>span{font-size:14px!important}
+.feature-symbol{
+  display:inline-grid!important;place-items:center;
+  min-width:34px;height:28px;padding:0 7px;
+  border-radius:7px;background:#e7f0ed;color:#32645f;
+  border:1px solid #d4e3df;
+  font-weight:800;font-size:10px!important;letter-spacing:.05em
+}
+.install-note,.install-wizard{background:#fff!important}
+.offline-status{background:#f3f6f4!important;border-color:#dce5e2!important;color:#53625f!important}
+.status-dot,.online-dot{background:#4b8b75!important;box-shadow:none!important}
+.modal-overlay{background:rgba(30,40,37,.35)!important;backdrop-filter:blur(5px)}
+.modal-card{box-shadow:0 24px 70px rgba(31,46,42,.2)!important}
+.footer{color:#7b8784!important}
+.achievement{
+  background:#f4f7f5!important;
+  border-color:#dde6e2!important
+}
+.player-achievements{background:#fafbfa!important;border-color:#e0e7e4!important}
+
+/* Fullscreen game-show remains polished rather than neon */
+body.game-show-active{background:#eef2ef!important}
+:fullscreen .game-show-card,.game-show-card:fullscreen{
+  background:#fff!important;
+  color:var(--text)!important
+}
+
+/* More restrained avatars */
+.avatar-option{
+  background:#fff!important;border-color:#dce4e1!important;
+  filter:saturate(.78)
+}
+.avatar-option.selected{background:#edf4f2!important;border-color:#6d9d96!important;box-shadow:inset 0 0 0 1px #6d9d96!important}
+
+/* Responsive polish */
+@media(max-width:640px){
+  .app-shell{padding-left:14px;padding-right:14px}
+  .hero{padding:28px 22px}
+  .hero h2{font-size:36px}
+  .portal-card{padding:22px}
+  .topbar{min-height:64px}
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f6f7f4">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Installera Resequiz Offline</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+<header class="topbar"><a class="icon-btn" href="index.html" aria-label="Tillbaka">‹</a><div class="brand"><div class="eyebrow">RESEQUIZ OFFLINE</div><h1>Ta med spelet</h1></div><div id="netBadge" class="connection-pill">kontrollerar…</div></header>
+<main class="portal">
+<section class="card hero compact-hero"><div class="hero-mark">RQ</div><div class="badge">MOBIL · SURFPLATTA · DATOR</div><h2>Installera en gång.<br>Spela utan internet.</h2><p>Hela spelet och alla 2 588 frågor sparas på enheten. Highscore och spelhistorik sparas lokalt.</p></section>
+<section class="card install-wizard"><div class="eyebrow">REKOMMENDERAT</div><h2 id="deviceTitle">Installera på den här enheten</h2><p id="deviceHelp" class="muted">Vi känner av din enhet och visar rätt metod.</p><button id="installApp" class="primary xl">Installera Resequiz</button><div id="installStatus" class="offline-status"><span class="status-dot"></span><span>Kontrollerar offline-stöd…</span></div></section>
+<div class="portal-grid install-grid">
+<section class="card portal-card"><div class="mode-icon">iOS</div><div class="eyebrow">IPHONE / IPAD</div><h2>Lägg till på hemskärmen</h2><p>Öppna denna sida i Safari, tryck <b>Dela</b> och välj <b>Lägg till på hemskärmen</b>. Starta sedan Resequiz från ikonen.</p><button class="secondary show-ios-guide">Visa steg</button></section>
+<section class="card portal-card"><div class="mode-icon">ANDROID</div><div class="eyebrow">ANDROID</div><h2>Installera som app</h2><p>I Chrome väljer du <b>Installera app</b> eller <b>Lägg till på startskärmen</b>. Frågebanken finns därefter offline.</p><button class="secondary show-android-guide">Visa steg</button></section>
+<section class="card portal-card"><div class="mode-icon">DESKTOP</div><div class="eyebrow">WINDOWS / MAC / LINUX</div><h2>Installera eller ladda ner</h2><p>Installera PWA:n i Chrome/Edge, eller ladda ner en enda fristående HTML-fil som fungerar helt utan server.</p><a class="secondary" href="downloads/Resequiz-Offline-Standalone.html" download>Ladda ner fristående spel</a></section>
+<section class="card portal-card"><div class="mode-icon">ZIP</div><div class="eyebrow">OFFLINEPAKET</div><h2>ZIP-version</h2><p>Innehåller HTML, frågebank, ikoner och startfil. Bra för USB-minne eller för att kopiera till flera datorer.</p><a class="secondary" href="downloads/Resequiz-Offline.zip" download>Ladda ner ZIP</a></section>
+</div>
+<section class="card"><div class="eyebrow">TESTA INNAN RESAN</div><h3>Kontrollera att offline-läget fungerar</h3><p class="muted">Installera först. Öppna sedan spelet en gång, stäng av Wi‑Fi/mobildata och starta Resequiz igen.</p><a class="primary" href="offline.html">Öppna offline-spelet</a></section>
+</main><footer class="footer">2 588 frågor · 14 kategorier · Offline highscore · Ingen inloggning</footer>
+</div>
+<div id="guideModal" class="modal-overlay hidden"><div class="card modal-card"><button id="closeGuide" class="icon-btn modal-close">×</button><div id="guideContent"></div></div></div>
+<script src="install.js?v=250"></script>
+</body></html>

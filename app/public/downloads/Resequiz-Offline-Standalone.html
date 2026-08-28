@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f6f7f4" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Resequiz Deluxe</title>
+  <style>:root{
+  --bg:#070a12;--bg2:#0c1220;--surface:#111827;--surface2:#172033;--surface3:#1d2940;
+  --text:#f8fafc;--muted:#94a3b8;--faint:#64748b;--line:rgba(148,163,184,.16);
+  --accent:#7c3aed;--accent2:#2563eb;--cyan:#06b6d4;--good:#22c55e;--bad:#ef4444;--warn:#f59e0b;
+  --radius:22px;--radius-sm:15px;--shadow:0 20px 60px rgba(0,0,0,.28);--shadow-soft:0 10px 28px rgba(0,0,0,.18)
+}
+*{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth}body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:
+radial-gradient(900px 500px at 15% -10%,rgba(124,58,237,.22),transparent 60%),
+radial-gradient(800px 500px at 100% 0,rgba(37,99,235,.16),transparent 55%),var(--bg);-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit}button,a{-webkit-tap-highlight-color:transparent}.hidden{display:none!important}
+.app-shell{width:min(980px,100%);margin:0 auto;padding:0 16px 38px}.topbar{position:sticky;top:0;z-index:30;min-height:72px;display:flex;align-items:center;gap:12px;padding:10px 0;background:linear-gradient(180deg,rgba(7,10,18,.96) 75%,rgba(7,10,18,0));backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.brand{flex:1;min-width:0}.eyebrow{font-size:10px;font-weight:900;letter-spacing:.18em;color:#a78bfa;text-transform:uppercase}.brand h1,h1{font-size:20px;line-height:1.15;margin:3px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}h2{font-size:clamp(28px,6vw,46px);letter-spacing:-.035em;line-height:1.02;margin:9px 0 14px}h3{font-size:18px;letter-spacing:-.015em;margin:0 0 14px}p{line-height:1.55}.muted,.section-sub{color:var(--muted)}.section-sub{margin:-7px 0 14px}
+.icon-btn{flex:0 0 auto;width:44px;height:44px;display:grid;place-items:center;border-radius:14px;border:1px solid var(--line);background:rgba(17,24,39,.78);color:var(--text);font-size:20px;text-decoration:none;cursor:pointer;box-shadow:var(--shadow-soft)}
+.card{position:relative;background:linear-gradient(150deg,rgba(23,32,51,.92),rgba(12,18,32,.94));border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin:14px 0;box-shadow:var(--shadow-soft);overflow:hidden}.card::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(135deg,rgba(255,255,255,.035),transparent 35%)}
+.hero{text-align:center;padding:38px 24px}.hero-icon{width:86px;height:86px;margin:0 auto 14px;display:grid;place-items:center;border-radius:28px;background:linear-gradient(145deg,rgba(124,58,237,.25),rgba(37,99,235,.14));border:1px solid rgba(167,139,250,.24);font-size:42px;box-shadow:0 14px 35px rgba(76,29,149,.18)}.hero p{max-width:650px;margin:0 auto 24px;color:var(--muted);font-size:16px}.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(124,58,237,.15);border:1px solid rgba(167,139,250,.3);color:#c4b5fd;font-size:10px;font-weight:900;letter-spacing:.14em}
+.primary,.secondary,.danger{min-height:50px;border-radius:15px;padding:13px 16px;border:0;font-weight:850;font-size:15px;cursor:pointer;transition:transform .14s ease,filter .14s ease,background .14s ease,border-color .14s ease}.primary{color:#fff;background:linear-gradient(100deg,var(--accent),var(--accent2));box-shadow:0 12px 30px rgba(79,70,229,.28)}.primary.xl{min-height:56px;font-size:16px}.secondary{color:var(--text);background:rgba(30,41,59,.72);border:1px solid rgba(148,163,184,.20)}.danger{color:#fecdd3;background:rgba(127,29,29,.22);border:1px solid rgba(244,63,94,.28)}.primary:hover,.secondary:hover,.danger:hover{filter:brightness(1.08)}.primary:active,.secondary:active,.danger:active,.answer:active,.category:active,.mode-card:active{transform:scale(.985)}button:disabled{opacity:.42;cursor:not-allowed;filter:none}.cta-stack{display:grid;gap:9px;max-width:440px;margin:0 auto}.cta-stack .secondary{margin:0}a.primary,a.secondary{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat{margin:0;padding:17px 8px;text-align:center}.stat strong{display:block;font-size:26px;letter-spacing:-.03em}.stat span{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:800}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.feature-grid>div{min-height:105px;padding:14px;border-radius:17px;background:rgba(15,23,42,.68);border:1px solid var(--line)}.feature-grid span{display:block;font-size:25px;margin-bottom:8px}.feature-grid b{display:block;font-size:14px}.feature-grid small{display:block;margin-top:3px;color:var(--muted);line-height:1.35}
+.setup-grid,.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.settings-grid label{display:block;font-size:12px;font-weight:850;color:#cbd5e1}.settings-grid label span{display:block;margin:0 0 7px}.player-row{display:grid;grid-template-columns:38px 1fr 42px;gap:9px;align-items:center;margin:9px 0}.player-num{width:36px;height:36px;display:grid;place-items:center;border-radius:12px;background:rgba(124,58,237,.16);border:1px solid rgba(167,139,250,.22);color:#c4b5fd;font-weight:900}.player-row input,input,select{width:100%;min-height:48px;padding:11px 13px;border-radius:13px;border:1px solid rgba(148,163,184,.22);outline:none;background:#0b1220;color:var(--text);transition:border-color .15s,box-shadow .15s}input:focus,select:focus{border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.16)}input::placeholder{color:#64748b}.remove-btn{height:40px;border-radius:12px;border:1px solid rgba(244,63,94,.24);background:rgba(127,29,29,.22);color:#fda4af;font-size:20px}
+.mode-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.mode-card{position:relative;min-height:93px;padding:15px;border-radius:17px;border:1px solid var(--line);background:rgba(15,23,42,.72);color:var(--text);text-align:left;cursor:pointer}.mode-card.active{border-color:rgba(167,139,250,.7);background:linear-gradient(145deg,rgba(124,58,237,.20),rgba(37,99,235,.10));box-shadow:inset 0 0 0 1px rgba(124,58,237,.34)}.mode-card.active::after{content:"✓";position:absolute;top:12px;right:12px;width:23px;height:23px;display:grid;place-items:center;border-radius:999px;background:#7c3aed;color:#fff;font-size:12px;font-weight:900}.mode-card strong{display:block;padding-right:28px;font-size:14px}.mode-card small{display:block;margin-top:5px;color:var(--muted);line-height:1.35}
+.category-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.category{position:relative;display:flex;align-items:center;gap:11px;min-height:65px;padding:11px 12px;border-radius:16px;border:1px solid var(--line);background:rgba(15,23,42,.66);color:var(--text);text-align:left;cursor:pointer}.category.active{border-color:rgba(124,58,237,.72);background:rgba(124,58,237,.14);box-shadow:inset 0 0 0 1px rgba(124,58,237,.24)}.category.active::after{content:"✓";margin-left:auto;width:21px;height:21px;display:grid;place-items:center;border-radius:50%;background:#7c3aed;font-size:11px;font-weight:900}.category .emoji{font-size:24px}.category b{font-size:13px}.category small{color:var(--muted);font-size:11px}
+.switchrow{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}.switchrow:last-child{border-bottom:0}.switch{flex:0 0 auto;width:52px;height:30px;padding:3px;border:0;border-radius:999px;background:#334155;cursor:pointer}.switch::after{content:"";display:block;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.25);transition:.18s}.switch.on{background:linear-gradient(90deg,#7c3aed,#2563eb)}.switch.on::after{transform:translateX(22px)}
+.game-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.turn-badge{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:999px;background:rgba(124,58,237,.12);border:1px solid rgba(167,139,250,.2);color:#ddd6fe;font-size:12px;font-weight:900}.progress{height:6px;margin:14px 0 6px;border-radius:999px;background:rgba(148,163,184,.13);overflow:hidden}.progress>div{height:100%;border-radius:inherit;background:linear-gradient(90deg,#06b6d4,#7c3aed,#2563eb);transition:width .3s ease}.question-media{min-height:128px;margin:15px 0;display:grid;place-items:center;padding:18px;border-radius:20px;background:linear-gradient(145deg,rgba(15,23,42,.95),rgba(30,41,59,.72));border:1px solid var(--line);font-size:70px;text-align:center}.question-media .symbol{font-size:86px}.question-media .mini{font-size:20px}.question{max-width:800px;margin:18px 0 20px;font-size:clamp(22px,5vw,34px);line-height:1.18;letter-spacing:-.025em;font-weight:900}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answer{position:relative;min-height:78px;padding:14px 15px;border-radius:17px;border:1px solid rgba(148,163,184,.20);background:rgba(15,23,42,.78);color:var(--text);font-size:15px;font-weight:760;text-align:left;cursor:pointer;transition:transform .12s,border-color .12s,background .12s}.answer:hover{border-color:rgba(167,139,250,.45);background:rgba(30,41,59,.95)}.answer span{display:inline-grid;place-items:center;width:27px;height:27px;margin-right:8px;border-radius:9px;background:rgba(124,58,237,.15);color:#c4b5fd;font-weight:950}.answer.selected{outline:3px solid rgba(96,165,250,.55);border-color:#60a5fa;background:rgba(37,99,235,.12)}.answer.correct{background:rgba(22,101,52,.32);border-color:rgba(34,197,94,.75)}.answer.wrong{background:rgba(127,29,29,.30);border-color:rgba(239,68,68,.72)}.answer.hidden-answer{visibility:hidden}.feedback{margin-top:14px;padding:15px 16px;border-radius:16px;background:rgba(15,23,42,.75);border:1px solid var(--line);line-height:1.5}.feedback.good{background:rgba(20,83,45,.26);border-color:rgba(34,197,94,.45)}.feedback.bad{background:rgba(127,29,29,.24);border-color:rgba(239,68,68,.42)}
+.timer-wrap{min-width:62px;text-align:right}.timer{font-size:25px;font-weight:950;letter-spacing:-.04em}.timer.danger{color:#f87171;animation:pulse .65s infinite alternate}@keyframes pulse{to{transform:scale(1.08)}}.powerbar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.power{min-height:43px;border-radius:13px;border:1px solid var(--line);background:rgba(30,41,59,.78);color:#fff;font-size:12px;font-weight:800}.power.used{opacity:.35;text-decoration:line-through}.score-strip{display:flex;gap:8px;overflow:auto;padding:1px 1px 4px;scrollbar-width:none}.score-strip::-webkit-scrollbar{display:none}.score-pill{flex:0 0 auto;min-width:128px;padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(15,23,42,.70)}.score-pill.current{border-color:rgba(6,182,212,.55);background:rgba(6,182,212,.09)}.score-pill b,.score-pill span{display:block}.score-pill b{font-size:13px}.score-pill span{margin-top:3px;color:var(--muted);font-size:11px}
+.winner{text-align:center;padding:34px 20px}.trophy{font-size:70px;filter:drop-shadow(0 14px 20px rgba(245,158,11,.18))}.leaderboard{display:grid;gap:8px}.rank-row,.player-live{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:10px;padding:12px;border-radius:15px;background:rgba(15,23,42,.72);border:1px solid var(--line)}.rank{font-size:22px;text-align:center}.points{font-weight:950}.confetti{font-size:25px;letter-spacing:6px}.party-card{text-align:center;padding:30px 20px}.party-card .party-icon{font-size:64px}.party-prompt{margin:20px 0;font-size:clamp(22px,5vw,32px);line-height:1.24;font-weight:900}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px}.mini-pill{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;border:1px solid var(--line);background:rgba(15,23,42,.72);font-size:12px;color:#cbd5e1}.mini-pill input{width:auto;min-height:auto;accent-color:#7c3aed}.toast{position:fixed;left:50%;bottom:24px;z-index:99;transform:translateX(-50%);padding:11px 16px;border-radius:999px;background:#111827;border:1px solid rgba(148,163,184,.24);box-shadow:var(--shadow);font-weight:800}
+.footer{text-align:center;padding:20px 0 0;color:#64748b;font-size:11px}.room-code{margin:8px 0;font-size:clamp(42px,12vw,68px);letter-spacing:.16em;font-weight:950;text-align:center;background:linear-gradient(90deg,#c4b5fd,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent}.player-live{display:flex;justify-content:space-between;grid-template-columns:none;margin:7px 0}.host-tag{display:inline-flex;margin-left:5px;padding:3px 6px;border-radius:999px;background:rgba(245,158,11,.14);border:1px solid rgba(245,158,11,.2);color:#fcd34d;font-size:9px;font-weight:900;letter-spacing:.08em}.online-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}.join-row{display:grid;gap:9px}.statusline{text-align:center;color:var(--muted);font-size:13px}.answer-status{text-align:center;color:var(--muted);font-size:12px}.correct-answer{margin:12px 0;padding:15px 16px;border-radius:16px;background:rgba(34,197,94,.10);border:1px solid rgba(34,197,94,.22)}.copybtn{display:block;width:100%;max-width:300px;margin:9px auto 0}.connection{font-size:11px;font-weight:800;white-space:nowrap}.connection.good{color:#86efac}.connection.bad{color:#fca5a5}
+.portal{max-width:920px;margin:0 auto;padding:8px 0}.portal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.portal-card{display:flex;flex-direction:column;min-height:260px;padding:24px}.portal-card .big{width:56px;height:56px;display:grid;place-items:center;margin-bottom:10px;border-radius:17px;background:rgba(124,58,237,.12);font-size:28px}.portal-card h2{font-size:25px;margin:6px 0 8px}.portal-card p{flex:1;margin:0 0 16px;color:var(--muted)}.portal-card .primary{width:100%}.online-dot{display:inline-block;width:8px;height:8px;margin-right:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.10)}.install-note{margin-top:12px}.install-note .install-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}.install-note .secondary{margin:0;width:100%}
+@media(max-width:720px){.app-shell{padding-left:12px;padding-right:12px}.hero{padding:31px 17px}.portal-grid{grid-template-columns:1fr}.portal-card{min-height:auto}.stat-grid{grid-template-columns:1fr 1fr}.feature-grid{grid-template-columns:1fr 1fr}.setup-grid,.settings-grid{grid-template-columns:1fr}.answers{grid-template-columns:1fr}.card{padding:16px}.question-media{min-height:110px}.install-note .install-actions{grid-template-columns:1fr}.topbar{min-height:64px}.brand h1{font-size:18px}}
+@media(max-width:430px){.mode-grid,.category-grid,.feature-grid{grid-template-columns:1fr}.online-actions{grid-template-columns:1fr}.hero-icon{width:76px;height:76px;border-radius:24px;font-size:36px}.stat strong{font-size:23px}.question{font-size:23px}.answer{min-height:70px}.room-code{letter-spacing:.12em}}
+
+/* v2.1 avatars, QR join and game-show mode */
+.avatar-picker{margin-top:15px;padding-top:14px;border-top:1px solid var(--line)}
+.avatar-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:7px;margin-top:9px}
+.avatar-choice,.player-avatar-btn{border:1px solid var(--line);background:rgba(15,23,42,.82);color:#fff;cursor:pointer;transition:.15s}
+.avatar-choice{aspect-ratio:1;border-radius:13px;font-size:23px}
+.avatar-choice:hover,.avatar-choice.active{transform:translateY(-1px);border-color:rgba(167,139,250,.8);background:rgba(124,58,237,.18);box-shadow:0 0 0 2px rgba(124,58,237,.12)}
+.avatar-player-row{grid-template-columns:48px 1fr 42px}
+.player-avatar-btn{width:46px;height:46px;border-radius:14px;font-size:25px}
+.avatar-inline{display:inline-grid;place-items:center;margin-right:5px}
+.qr-wrap{display:flex;align-items:center;justify-content:center;gap:14px;width:min(390px,100%);margin:12px auto 4px;padding:12px;border-radius:18px;background:#fff;color:#111827;text-align:left}
+.qr-wrap img{width:112px;height:112px;border-radius:8px;image-rendering:pixelated}.qr-wrap .muted{color:#64748b}
+.game-show-toolbar{display:flex;justify-content:flex-end;margin:-4px -4px 3px}.game-show-full{font-size:20px}
+body.game-show-mode{overflow:auto;background:#05070d}
+body.game-show-mode .topbar,body.game-show-mode .footer{display:none}
+body.game-show-mode .app-shell{width:100%;max-width:none;padding:0}
+body.game-show-mode .online-shell,body.game-show-mode #app{width:min(1180px,100%);margin:0 auto;padding:18px}
+body.game-show-mode .game-show-card{min-height:calc(100vh - 36px);display:flex;flex-direction:column;justify-content:center;padding:clamp(20px,4vw,56px);border-radius:28px;background:radial-gradient(circle at 15% 0,rgba(124,58,237,.18),transparent 36%),linear-gradient(150deg,#101827,#090d17)}
+body.game-show-mode .question{font-size:clamp(30px,5vw,62px);max-width:1050px;margin:clamp(18px,3vh,38px) 0}
+body.game-show-mode .answer{min-height:clamp(82px,13vh,132px);font-size:clamp(18px,2.1vw,28px);padding:20px 24px}
+body.game-show-mode .answer span{width:38px;height:38px;border-radius:12px;font-size:18px}
+body.game-show-mode .question-media{min-height:170px;font-size:100px}
+body.game-show-mode .question-media .symbol{font-size:120px}
+body.game-show-mode .game-head{font-size:18px}
+body.game-show-mode .timer{font-size:42px}
+@media(max-width:560px){.avatar-grid{grid-template-columns:repeat(4,1fr)}.qr-wrap{flex-direction:column;text-align:center}.qr-wrap img{width:132px;height:132px}body.game-show-mode .online-shell,body.game-show-mode #app{padding:8px}body.game-show-mode .game-show-card{min-height:calc(100vh - 16px);padding:18px 14px;border-radius:20px}}
+
+.achievement-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}.player-achievements{padding:16px;border:1px solid var(--line);border-radius:18px;background:var(--surface2)}.achievement{display:flex;flex-direction:column;gap:4px;padding:10px 12px;margin:8px 0;border-radius:13px;background:rgba(124,58,237,.10);border:1px solid rgba(167,139,250,.16)}.achievement span{color:var(--muted);font-size:13px}
+
+/* v2.3 persistent online Hall of Fame */
+.hof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}.hof-section{padding:12px;border-radius:18px;background:var(--surface2);border:1px solid var(--line)}.hof-section h3{margin:4px 4px 10px}.achievement-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.player-achievements{padding:15px;border:1px solid var(--line);border-radius:18px;background:var(--surface2)}.achievement{display:flex;flex-direction:column;gap:4px;padding:10px 12px;margin:8px 0;border-radius:13px;background:rgba(124,58,237,.10);border:1px solid rgba(167,139,250,.16)}.achievement span{color:var(--muted);font-size:13px}
+
+.server-warning{border-color:rgba(239,68,68,.45);background:rgba(239,68,68,.09);color:#fecaca}.server-warning span{color:#fca5a5}
+
+/* v2.4 offline installation */
+.compact-hero{padding-bottom:28px}.connection-pill{font-size:12px;font-weight:800;color:var(--muted);padding:8px 11px;border:1px solid var(--line);border-radius:999px}.connection-pill.ok{color:#86efac}.connection-pill.warn{color:#fbbf24}.install-wizard{text-align:center}.offline-status{margin:14px auto 0;display:flex;align-items:center;justify-content:center;gap:9px;color:var(--muted);font-size:14px}.status-dot{width:9px;height:9px;border-radius:50%;background:#64748b;display:inline-block}.status-dot.good{background:var(--good);box-shadow:0 0 16px rgba(34,197,94,.45)}.status-dot.bad{background:var(--bad)}.install-grid .portal-card{min-height:300px}.modal-overlay{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.72);display:grid;place-items:center;padding:18px;backdrop-filter:blur(10px)}.modal-card{position:relative;width:min(620px,100%);max-height:88vh;overflow:auto}.modal-close{position:absolute;right:14px;top:14px}.guide-steps{padding-left:22px;line-height:1.65}.guide-steps li{padding:6px 0}.install-actions{display:flex;gap:10px;flex-wrap:wrap}.install-actions>*{flex:1;min-width:220px;text-align:center}
+
+/* =========================================================
+   Resequiz v2.5 — Light Professional Theme
+   ========================================================= */
+:root{
+  --bg:#f6f7f4;
+  --bg2:#eef2ef;
+  --surface:#ffffff;
+  --surface2:#f7f9f7;
+  --surface3:#edf3f1;
+  --text:#17201f;
+  --muted:#65716f;
+  --faint:#8b9693;
+  --line:#dfe6e2;
+  --accent:#176b68;
+  --accent2:#245f83;
+  --cyan:#3b7f8d;
+  --good:#257a54;
+  --bad:#b94747;
+  --warn:#9a6a19;
+  --radius:16px;
+  --radius-sm:11px;
+  --shadow:0 14px 34px rgba(34,54,50,.08);
+  --shadow-soft:0 5px 18px rgba(34,54,50,.06)
+}
+html{background:var(--bg)}
+body{
+  color:var(--text);
+  background:
+    radial-gradient(900px 420px at 4% -15%,rgba(23,107,104,.08),transparent 65%),
+    radial-gradient(760px 420px at 100% -10%,rgba(36,95,131,.055),transparent 60%),
+    var(--bg);
+  font-family:"Segoe UI",Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  letter-spacing:-.005em
+}
+.app-shell{width:min(1080px,100%);padding:0 22px 48px}
+.topbar{
+  min-height:70px;
+  padding:12px 0;
+  background:rgba(246,247,244,.9);
+  border-bottom:1px solid rgba(223,230,226,.7);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px)
+}
+.brand h1,h1{font-weight:680;letter-spacing:-.025em;color:var(--text)}
+.eyebrow{
+  color:var(--accent);
+  letter-spacing:.13em;
+  font-weight:750;
+  font-size:10px
+}
+.card{
+  background:rgba(255,255,255,.94);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-soft);
+  border-radius:var(--radius)
+}
+.hero{
+  background:linear-gradient(145deg,#fff 0%,#f4f8f6 100%);
+  border-color:#d8e3df;
+  box-shadow:var(--shadow);
+  padding:clamp(30px,5vw,58px)
+}
+.hero h2{
+  color:#17201f;
+  font-size:clamp(34px,5.2vw,58px);
+  line-height:1.02;
+  letter-spacing:-.045em;
+  font-weight:700
+}
+.hero p{color:#5f6d69;font-size:17px;line-height:1.7;max-width:680px}
+.hero-mark{
+  width:52px;height:52px;border-radius:13px;
+  display:grid;place-items:center;
+  background:#e4efec;
+  border:1px solid #cfe0db;
+  color:var(--accent);
+  font-weight:800;
+  font-size:15px;
+  letter-spacing:.08em;
+  margin-bottom:20px
+}
+.hero-icon{background:#e4efec!important;color:var(--accent)!important;box-shadow:none!important}
+.badge{
+  color:#315a57!important;
+  background:#e9f1ef!important;
+  border:1px solid #d2e2de!important;
+  box-shadow:none!important;
+  font-weight:700!important;
+  letter-spacing:.09em!important
+}
+.portal{gap:18px}
+.portal-grid{gap:16px}
+.portal-card{
+  padding:26px;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease
+}
+.portal-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#cadad5}
+.portal-card h2{font-size:25px;letter-spacing:-.03em}
+.portal-card p{color:var(--muted);line-height:1.65}
+.mode-icon{
+  width:max-content;
+  padding:7px 10px;
+  margin-bottom:18px;
+  border-radius:8px;
+  background:#edf3f1;
+  color:#52716b;
+  border:1px solid #dce8e4;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.1em
+}
+.big{font-size:18px!important;color:var(--accent)!important}
+.primary,.secondary,.danger{
+  min-height:48px;
+  border-radius:11px!important;
+  font-weight:680!important;
+  letter-spacing:-.01em;
+  box-shadow:none!important;
+  transition:transform .12s ease,box-shadow .15s ease,background .15s ease,border-color .15s ease
+}
+.primary{
+  color:#fff!important;
+  background:var(--accent)!important;
+  border:1px solid var(--accent)!important
+}
+.primary:hover{background:#125e5b!important;box-shadow:0 8px 18px rgba(23,107,104,.16)!important}
+.primary:active,.secondary:active{transform:translateY(1px)}
+.secondary{
+  background:#fff!important;
+  color:#30413e!important;
+  border:1px solid #ccd8d4!important
+}
+.secondary:hover{background:#f5f8f6!important;border-color:#b9cac4!important}
+.icon-btn{
+  background:#fff!important;
+  color:#43524f!important;
+  border:1px solid #d7e0dd!important;
+  box-shadow:none!important;
+  border-radius:11px!important
+}
+.sound-toggle{font-size:12px!important;font-weight:700!important;width:auto!important;padding:0 13px!important}
+input,select{
+  background:#fff!important;
+  color:var(--text)!important;
+  border:1px solid #cfdad6!important;
+  border-radius:11px!important;
+  box-shadow:0 1px 2px rgba(25,40,37,.02)!important
+}
+input:focus,select:focus{
+  border-color:#73a6a0!important;
+  box-shadow:0 0 0 3px rgba(23,107,104,.09)!important;
+  outline:none
+}
+.category,.choice-card,.answer{
+  background:#fff!important;
+  border:1px solid #d7e0dd!important;
+  color:var(--text)!important;
+  box-shadow:none!important;
+  border-radius:13px!important
+}
+.category:hover,.choice-card:hover,.answer:hover{border-color:#aec6c0!important;background:#f9fbfa!important}
+.category.active,.choice-card.active{
+  background:#e8f1ef!important;
+  border-color:#78a9a2!important;
+  color:#174c49!important;
+  box-shadow:inset 0 0 0 1px #78a9a2!important
+}
+.answer{min-height:64px!important;font-size:16px!important}
+.answer.correct{background:#e7f4ec!important;border-color:#76ad8d!important;color:#1f6244!important}
+.answer.wrong{background:#f8eaea!important;border-color:#cf8d8d!important;color:#8a3636!important}
+.question{
+  color:#16201e!important;
+  font-weight:680!important;
+  letter-spacing:-.03em!important
+}
+.question-media{
+  background:#f7f9f7!important;
+  border:1px solid #dfe7e4!important;
+  box-shadow:none!important
+}
+.game-show-card{
+  background:#fff!important;
+  border-color:#d9e2df!important;
+  box-shadow:var(--shadow)!important
+}
+.turn-badge,.mini-pill,.score-pill,.connection-pill{
+  background:#f2f6f4!important;
+  color:#40514d!important;
+  border:1px solid #dbe4e1!important;
+  box-shadow:none!important
+}
+.progress{background:#e8eeeb!important}
+.progress>div{background:var(--accent)!important}
+.timer{color:#315f5a!important}
+.feedback.good{background:#edf7f1!important;border-color:#c9e6d4!important;color:#255d43!important}
+.feedback.bad{background:#fbefef!important;border-color:#edd0d0!important;color:#873d3d!important}
+.rank-row{
+  background:#fff!important;
+  border:1px solid #e0e7e4!important;
+  border-radius:12px!important;
+  box-shadow:none!important
+}
+.rank{color:#66736f!important}
+.points{color:#245f5b!important;font-weight:720!important}
+.stat.card{background:#fff!important}
+.stat strong{color:#1c5f5b!important}
+.feature-grid>div{
+  background:#f8faf8!important;
+  border:1px solid #e0e8e5!important;
+  border-radius:13px!important;
+  box-shadow:none!important
+}
+.feature-grid>div>span{font-size:14px!important}
+.feature-symbol{
+  display:inline-grid!important;place-items:center;
+  min-width:34px;height:28px;padding:0 7px;
+  border-radius:7px;background:#e7f0ed;color:#32645f;
+  border:1px solid #d4e3df;
+  font-weight:800;font-size:10px!important;letter-spacing:.05em
+}
+.install-note,.install-wizard{background:#fff!important}
+.offline-status{background:#f3f6f4!important;border-color:#dce5e2!important;color:#53625f!important}
+.status-dot,.online-dot{background:#4b8b75!important;box-shadow:none!important}
+.modal-overlay{background:rgba(30,40,37,.35)!important;backdrop-filter:blur(5px)}
+.modal-card{box-shadow:0 24px 70px rgba(31,46,42,.2)!important}
+.footer{color:#7b8784!important}
+.achievement{
+  background:#f4f7f5!important;
+  border-color:#dde6e2!important
+}
+.player-achievements{background:#fafbfa!important;border-color:#e0e7e4!important}
+
+/* Fullscreen game-show remains polished rather than neon */
+body.game-show-active{background:#eef2ef!important}
+:fullscreen .game-show-card,.game-show-card:fullscreen{
+  background:#fff!important;
+  color:var(--text)!important
+}
+
+/* More restrained avatars */
+.avatar-option{
+  background:#fff!important;border-color:#dce4e1!important;
+  filter:saturate(.78)
+}
+.avatar-option.selected{background:#edf4f2!important;border-color:#6d9d96!important;box-shadow:inset 0 0 0 1px #6d9d96!important}
+
+/* Responsive polish */
+@media(max-width:640px){
+  .app-shell{padding-left:14px;padding-right:14px}
+  .hero{padding:28px 22px}
+  .hero h2{font-size:36px}
+  .portal-card{padding:22px}
+  .topbar{min-height:64px}
+}
+</style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button id="homeBtn" class="icon-btn hidden" aria-label="Hem">⌂</button>
+      <div class="brand"><div class="eyebrow">RESEQUIZ OFFLINE</div><h1>Vem kan mest?</h1></div>
+      <button id="soundBtn" class="icon-btn sound-toggle" aria-label="Ljud av/på">Ljud</button>
+    </header>
+    <main id="app"></main>
+    <footer class="footer">Offline · Mobilvänligt · Ingen inloggning · En mobil räcker</footer>
+  </div>
+  <template id="startTemplate">
+    <section class="card hero">
+      <div class="hero-mark">RQ</div>
+      <div class="badge">OFFLINE</div>
+      <h2>Redo när resan börjar</h2>
+      <p>Välj spelare, spelläge och kategorier. Sedan är ni igång på några sekunder – helt utan internet.</p>
+      <div class="cta-stack">
+        <button class="primary xl" data-action="new-game">Nytt spel</button>
+        <button class="secondary hidden" data-action="continue-game">Fortsätt spela</button>
+      </div>
+    </section>
+    <section class="stat-grid">
+      <div class="stat card"><strong id="qCount">2 588</strong><span>frågor</span></div>
+      <div class="stat card"><strong>14</strong><span>kategorier</span></div>
+      <div class="stat card"><strong>4</strong><span>spellägen</span></div>
+      <div class="stat card"><strong>3</strong><span>power-ups</span></div>
+    </section>
+    <section class="card">
+      <h3>Allt du behöver för resan</h3>
+      <div class="feature-grid">
+        <div><span class="feature-symbol">02</span><b>Lagspel</b><small>2–4 lag tävlar.</small></div>
+        <div><span class="feature-symbol">30s</span><b>Timer</b><small>10–30 sekunder.</small></div>
+        <div><span class="feature-symbol">VIS</span><b>Bildfrågor</b><small>Flaggor och symboler offline.</small></div>
+        <div><span class="feature-symbol">+</span><b>Power-ups</b><small>50/50, dubbel och sköld.</small></div>
+        <div><span class="feature-symbol">x3</span><b>Streak</b><small>Rätt i rad ger bonus.</small></div>
+        <div><span class="feature-symbol">GRP</span><b>Party</b><small>Roliga reseutmaningar.</small></div>
+      </div>
+    </section>
+  </template>
+  <script>/* Resequiz Deluxe question bank. All questions are generated locally for offline use. */
+const QUIZ_QUESTIONS=[];
+let _qid=0;
+function Q(c,q,a,r,f,d='medium',visual=''){QUIZ_QUESTIONS.push({id:`q${++_qid}`,c,q,a,r,f,d,visual});}
+function pickDistractors(pool,answer,n=3){const arr=[...new Set(pool.filter(x=>x!==answer))];let out=[];for(let i=0;i<arr.length&&out.length<n;i++){const idx=(answer.length*7+i*11+_qid*3)%arr.length;const v=arr[idx];if(!out.includes(v))out.push(v);}for(const v of arr)if(out.length<n&&!out.includes(v))out.push(v);return out.slice(0,n)}
+function shuffledOptions(correct,distractors){const a=[correct,...distractors];const shift=_qid%4;const rotated=a.slice(shift).concat(a.slice(0,shift));return {a:rotated,r:rotated.indexOf(correct)}}
+function MQ(c,q,correct,pool,f,d='medium',visual=''){const {a,r}=shuffledOptions(correct,pickDistractors(pool,correct));Q(c,q,a,r,f,d,visual)}
+
+const countries=[
+['Sverige','Stockholm','🇸🇪'],['Norge','Oslo','🇳🇴'],['Danmark','Köpenhamn','🇩🇰'],['Finland','Helsingfors','🇫🇮'],['Island','Reykjavík','🇮🇸'],
+['Tyskland','Berlin','🇩🇪'],['Frankrike','Paris','🇫🇷'],['Spanien','Madrid','🇪🇸'],['Portugal','Lissabon','🇵🇹'],['Italien','Rom','🇮🇹'],
+['Grekland','Aten','🇬🇷'],['Irland','Dublin','🇮🇪'],['Storbritannien','London','🇬🇧'],['Nederländerna','Amsterdam','🇳🇱'],['Belgien','Bryssel','🇧🇪'],
+['Österrike','Wien','🇦🇹'],['Schweiz','Bern','🇨🇭'],['Polen','Warszawa','🇵🇱'],['Tjeckien','Prag','🇨🇿'],['Ungern','Budapest','🇭🇺'],
+['Kroatien','Zagreb','🇭🇷'],['Slovenien','Ljubljana','🇸🇮'],['Serbien','Belgrad','🇷🇸'],['Rumänien','Bukarest','🇷🇴'],['Bulgarien','Sofia','🇧🇬'],
+['Estland','Tallinn','🇪🇪'],['Lettland','Riga','🇱🇻'],['Litauen','Vilnius','🇱🇹'],['Kanada','Ottawa','🇨🇦'],['USA','Washington, D.C.','🇺🇸'],
+['Mexiko','Mexico City','🇲🇽'],['Brasilien','Brasília','🇧🇷'],['Argentina','Buenos Aires','🇦🇷'],['Chile','Santiago','🇨🇱'],['Peru','Lima','🇵🇪'],
+['Japan','Tokyo','🇯🇵'],['Sydkorea','Seoul','🇰🇷'],['Kina','Peking','🇨🇳'],['Indien','New Delhi','🇮🇳'],['Thailand','Bangkok','🇹🇭'],
+['Vietnam','Hanoi','🇻🇳'],['Australien','Canberra','🇦🇺'],['Nya Zeeland','Wellington','🇳🇿'],['Egypten','Kairo','🇪🇬'],['Kenya','Nairobi','🇰🇪'],
+['Marocko','Rabat','🇲🇦'],['Turkiet','Ankara','🇹🇷'],['Saudiarabien','Riyadh','🇸🇦'],['Förenade Arabemiraten','Abu Dhabi','🇦🇪'],['Sydafrika','Pretoria','🇿🇦']
+];
+const cn=countries.map(x=>x[0]), caps=countries.map(x=>x[1]);
+for(const [country,capital,flag] of countries){
+  MQ('Världen',`Vad heter huvudstaden i ${country}?`,capital,caps,`${capital} är huvudstad i ${country}.`,'easy');
+  MQ('Världen',`${capital} är huvudstad i vilket land?`,country,cn,`${capital} är huvudstad i ${country}.`,'medium');
+  MQ('Världen','Vilket land har den här flaggan?',country,cn,`Flaggan tillhör ${country}.`,'easy',flag);
+}
+
+const elements=[
+['Väte','H'],['Helium','He'],['Litium','Li'],['Kol','C'],['Kväve','N'],['Syre','O'],['Natrium','Na'],['Magnesium','Mg'],['Aluminium','Al'],['Kisel','Si'],
+['Fosfor','P'],['Svavel','S'],['Klor','Cl'],['Kalium','K'],['Kalcium','Ca'],['Järn','Fe'],['Koppar','Cu'],['Zink','Zn'],['Silver','Ag'],['Tenn','Sn'],
+['Jod','I'],['Guld','Au'],['Kvicksilver','Hg'],['Bly','Pb'],['Neon','Ne'],['Argon','Ar'],['Nickel','Ni'],['Kobolt','Co'],['Platina','Pt'],['Uran','U']
+];
+const en=elements.map(x=>x[0]), es=elements.map(x=>x[1]);
+for(const [name,sym] of elements){
+  MQ('Allmänbildning',`Vilket grundämne har beteckningen ${sym}?`,name,en,`${sym} är den kemiska beteckningen för ${name}.`,'medium');
+  MQ('Allmänbildning',`Vilken kemisk beteckning har ${name}?`,sym,es,`${name} har den kemiska beteckningen ${sym}.`,'hard');
+}
+
+const sweden=[
+['Sveriges huvudstad','Stockholm'],['Sveriges näst största stad','Göteborg'],['Sveriges tredje största stad','Malmö'],['Sveriges största sjö','Vänern'],['Sveriges näst största sjö','Vättern'],
+['staden där Turning Torso ligger','Malmö'],['staden där Liseberg ligger','Göteborg'],['staden där Uppsala universitet ligger','Uppsala'],['staden där Örebro slott ligger','Örebro'],['staden där Domkyrkan i Lund ligger','Lund'],
+['landskapet där Visby ligger','Gotland'],['landskapet där Mora ligger','Dalarna'],['landskapet där Kalmar ligger','Småland'],['landskapet där Ystad ligger','Skåne'],['landskapet där Karlstad ligger','Värmland'],
+['bron mellan Malmö och Danmark','Öresundsbron'],['Sveriges högsta berg','Kebnekaise'],['ön där Visby ligger','Gotland'],['ön som nås via Ölandsbron','Öland'],['svenska högtiden med majstång','Midsommar']
+];
+const swAns=[...new Set(sweden.map(x=>x[1]))];
+for(const [clue,answer] of sweden) MQ('Sverige',`Vad är ${clue}?`,answer,swAns,`${answer} är rätt svar på frågan om ${clue}.`,'easy');
+
+const sportFacts=[
+['Hur många spelare har ett fotbollslag normalt på planen?','11',['9','10','12'],'Elva spelare inklusive målvakten.'],
+['Vilken sport förknippas med Wimbledon?','Tennis',['Golf','Cricket','Rugby'],'Wimbledon är en Grand Slam-turnering i tennis.'],
+['Hur långt är ett maraton?','42,195 km',['21,097 km','40 km','50 km'],'Den officiella maratondistansen är 42,195 km.'],
+['Vilken färg har totalledarens tröja i Tour de France?','Gul',['Grön','Röd','Blå'],'Totalledaren bär den gula tröjan.'],
+['Hur många ringar finns i den olympiska symbolen?','5',['4','6','7'],'Den olympiska symbolen har fem ringar.'],
+['I vilken sport används birdie och eagle?','Golf',['Tennis','Baseboll','Ishockey'],'Birdie och eagle är golfresultat i förhållande till par.'],
+['Hur många poäng är en touchdown värd före extrapoäng?','6',['3','5','7'],'En touchdown ger sex poäng.'],
+['Vilken sport spelas i NHL?','Ishockey',['Basket','Baseboll','Amerikansk fotboll'],'NHL är en professionell ishockeyliga.'],
+['Vad heter spelaren som försvarar målet i fotboll?','Målvakt',['Libero','Center','Setter'],'Målvakten försvarar målet.'],
+['Vilka grenar hör till alpin skidåkning?','Slalom och störtlopp',['Sprint och jaktstart','Halfpipe och slopestyle','Fristil och grekisk-romersk'],'Slalom och störtlopp är alpina skidgrenar.'],
+['Hur många set krävs för seger i bäst av fem?','3',['2','4','5'],'Först till tre set vinner bäst av fem.'],
+['I vilken sport används en puck?','Ishockey',['Handboll','Volleyboll','Tennis'],'En puck används i ishockey.'],
+['Hur många hål har en standardrunda golf?','18',['9','12','21'],'En standardrunda består av 18 hål.'],
+['Vilket redskap används för en slam dunk?','Basketboll',['Tennisboll','Golfboll','Puck'],'En slam dunk görs i basket.'],
+['Hur många perioder spelas normalt i ishockey?','3',['2','4','5'],'En ishockeymatch spelas normalt i tre perioder.'],
+['Vilken sport har positionen quarterback?','Amerikansk fotboll',['Rugby union','Baseboll','Basket'],'Quarterback är en nyckelposition i amerikansk fotboll.'],
+['Vad heter noll poäng i tennis?','Love',['Nil','Blank','Zero'],'I tennis kallas noll poäng love.'],
+['Vilken sport använder en pommel horse?','Gymnastik',['Ridsport','Fäktning','Brottning'],'Pommel horse är bygelhäst i artistisk gymnastik.'],
+['Vilken sport har en velodrom?','Bancykling',['Simning','Rodd','Skidskytte'],'En velodrom är en bana för bancykling.'],
+['Vad kallas tre mål av samma spelare i en match?','Hattrick',['Grand slam','Triple-double','Ace'],'Tre mål av samma spelare kallas hattrick.']
+];
+for(const [q,correct,wrong,f] of sportFacts)Q('Sport',q,[correct,...wrong],0,f,'medium');
+
+const foodFacts=[
+['Vad är huvudingrediensen i guacamole?','Avokado',['Tomat','Gurka','Ärta']],['Vad är tofu främst gjort av?','Sojabönor',['Ris','Potatis','Havre']],['Vad är hummus huvudsakligen gjort av?','Kikärtor',['Linser','Majs','Potatis']],
+['Vilken ost används klassiskt på pizza Margherita?','Mozzarella',['Cheddar','Brie','Gouda']],['Vilken frukt torkas till russin?','Druvor',['Plommon','Fikon','Aprikoser']],['Vilken krydda ger ofta curry gul färg?','Gurkmeja',['Kanel','Oregano','Muskot']],
+['Vad heter den italienska desserten med kaffe och mascarpone?','Tiramisu',['Cannoli','Gelato','Semifreddo']],['Vilken nöt används traditionellt i pesto genovese?','Pinjenöt',['Jordnöt','Pekannöt','Macadamianöt']],['Från vilket land förknippas sushi främst?','Japan',['Thailand','Kina','Vietnam']],
+['Vilken dryck görs av rostade kaffebönor?','Kaffe',['Te','Cider','Kakao']],['Vilken grönsak används i surkål?','Vitkål',['Morot','Rödbeta','Selleri']],['Vad är polenta huvudsakligen gjort av?','Majs',['Ris','Vete','Havre']],
+['Vilket land förknippas paella med?','Spanien',['Italien','Portugal','Grekland']],['Vilket land förknippas tacos starkast med?','Mexiko',['Peru','Brasilien','Chile']],['Vad är feta traditionellt för typ av livsmedel?','Ost',['Bröd','Korv','Dessert']],
+['Vilken citrusfrukt är gul?','Citron',['Lime','Blodapelsin','Pomelo']],['Vad består maräng främst av?','Äggvita och socker',['Mjöl och smör','Mjölk och kakao','Potatis och salt']],['Vad är gnocchi ofta gjort av?','Potatis',['Majs','Kikärtor','Råg']],
+['Vilken böna används till traditionell falafel ofta tillsammans med eller istället för kikärtor?','Bondböna',['Kakaoböna','Vaniljböna','Kaffeböna']],['Vilken dryck är espresso?','Koncentrerat kaffe',['Kolsyrat vatten','Svart te','Varm choklad']]
+];
+for(const [q,c,w] of foodFacts)Q('Mat & dryck',q,[c,...w],0,`${c} är rätt svar.`,'easy');
+
+const musicFacts=[
+['Hur många strängar har en vanlig gitarr?','6',['4','5','8']],['Vilket instrument har svarta och vita tangenter?','Piano',['Fiol','Trumpet','Trummor']],['Vad kallas personen som leder en orkester?','Dirigent',['Producent','Solist','Tekniker']],
+['Vilken instrumentfamilj tillhör trumpet?','Bleckblås',['Träblås','Stråk','Slagverk']],['Vilken instrumentfamilj tillhör fiol?','Stråkinstrument',['Bleckblås','Träblås','Slagverk']],['Vilket tecken höjer en ton ett halvt tonsteg?','Korsförtecken',['B-förtecken','Paus','Fermat']],
+['Hur många tangenter har ett standardpiano normalt?','88',['61','76','96']],['Vad kallas en sång utan instrumentalt ackompanjemang?','A cappella',['Crescendo','Legato','Rubato']],['Vilket instrument förknippas starkt med Louis Armstrong?','Trumpet',['Fiol','Harpa','Oboe']],
+['Vilken grupp bestod av John, Paul, George och Ringo?','The Beatles',['Queen','ABBA','U2']],['Vilken svensk grupp vann Eurovision 1974 med Waterloo?','ABBA',['Roxette','Ace of Base','Europe']],['Vilket instrument har pedaler, strängar och ofta en triangulär ram?','Harpa',['Cello','Tuba','Klarinett']],
+['Vad betyder forte i musik?','Starkt',['Svagt','Snabbt','Långsamt']],['Vad betyder piano som dynamisk beteckning?','Svagt',['Starkt','Mycket snabbt','Hackigt']],['Vad kallas musikens hastighet?','Tempo',['Tonart','Klang','Stämma']],
+['Vilken klav används ofta för högre toner?','Diskantklav',['Basklav','Altklav','Neutral klav']],['Vilket instrument använder ett munstycke med ett enkelt rörblad?','Klarinett',['Trumpet','Trombon','Valthorn']],['Vilken typ av ensemble består typiskt av två violiner, viola och cello?','Stråkkvartett',['Brassband','Pianotrio','Storband']],
+['Vad kallas upprepning av en musikdel?','Repris',['Kadens','Intervall','Arpeggio']],['Vilket instrument har vanligtvis 47 strängar i konsertversion?','Harpa',['Gitarr','Mandolin','Banjo']]
+];
+for(const [q,c,w] of musicFacts)Q('Musik',q,[c,...w],0,`${c} är rätt svar.`,'medium');
+
+const filmFacts=[
+['Vilken filmserie har figuren Darth Vader?','Star Wars',['Star Trek','Alien','Matrix']],['Vilken figur säger ofta "To infinity and beyond" i Toy Story?','Buzz Lightyear',['Woody','Rex','Slinky']],['Vilken film handlar om en haj utanför Amity Island?','Hajen',['Titanic','King Kong','Twister']],
+['Vilken färg har Shrek?','Grön',['Blå','Lila','Orange']],['Vilket djur är Simba i Lejonkungen?','Lejon',['Tiger','Gepard','Varg']],['Vilket yrke har Indiana Jones?','Arkeolog',['Pilot','Läkare','Advokat']],
+['Vilken trollkarlsskola går Harry Potter på?','Hogwarts',['Narnia','Nevermore','Camelot']],['Vad heter snögubben i Frost?','Olof',['Sven','Kristoffer','Hans']],['Vilken superhjälte är Bruce Wayne?','Batman',['Superman','Iron Man','Spider-Man']],
+['Vilken superhjälte är Clark Kent?','Superman',['Batman','Thor','Hulk']],['Vilken filmserie följer agenten James Bond?','007',['Mission: Impossible','Bourne','Jack Reacher']],['Vad heter cowboydockan i Toy Story?','Woody',['Buzz','Andy','Rex']],
+['Vilket skepp sjunker i filmen Titanic?','Titanic',['Britannic','Bismarck','Endeavour']],['Vilken färg har Minions oftast?','Gul',['Grön','Röd','Blå']],['Vilken filmfigur är en arkeolog med fedora och piska?','Indiana Jones',['Rocky Balboa','John McClane','Marty McFly']],
+['Vad heter hobiten som bär ringen till Mordor?','Frodo',['Gandalf','Aragorn','Legolas']],['Vilken stad skyddas av Batman?','Gotham City',['Metropolis','Springfield','Hill Valley']],['Vilket århundrade utspelar sig inte Star Wars uttryckligen på jorden?','Det anges inte',['1900-talet','2000-talet','2100-talet']],
+['Vilken genre tillhör filmen Jurassic Park främst?','Science fiction/äventyr',['Romantisk komedi','Musikal','Western']],['Vilken filmfigur är en ogre?','Shrek',['Nemo','Wall-E','Bambi']]
+];
+for(const [q,c,w] of filmFacts)Q('Film & TV',q,[c,...w],0,`${c} är rätt svar.`,'easy');
+
+const oddFacts=[
+['Hur många hjärtan har en bläckfisk?','3',['1','2','4']],['Vilken färg har isbjörnens hud under pälsen?','Svart',['Vit','Rosa','Grå']],['Vad kallas riktningen rakt ned från en observatör?','Nadir',['Zenit','Horisont','Ekvator']],
+['Vilket finger har normalt två falanger?','Tummen',['Pekfingret','Långfingret','Lillfingret']],['Vilket djur har fingeravtryck som kan likna människans?','Koala',['Zebra','Kamel','Delfin']],['Vilken planet har ett dygn längre än sitt år?','Venus',['Mars','Jupiter','Neptunus']],
+['Vilken bokstav används inte i någon nuvarande grundämnessymbol?','J',['K','V','Y']],['Hur många nollor har en miljard?','9',['6','12','15']],['Vad kallas rädsla för spindlar?','Araknofobi',['Akrofobi','Klaustrofobi','Agorafobi']],
+['Vilket stort landdjur kan inte hoppa på vanligt sätt?','Elefant',['Tiger','Känguru','Get']],['Vilket djur kan vila stående tack vare en särskild benmekanik?','Häst',['Katt','Kanin','Utter']],['Vilket är det största nu levande djuret?','Blåval',['Afrikansk elefant','Valhaj','Kaskelot']],
+['Vilket är det största nu levande landdjuret?','Afrikansk elefant',['Blåval','Flodhäst','Giraff']],['Vilket däggdjur kan verkligen flyga?','Fladdermus',['Flygekorre','Pingvin','Struts']],['Vilket djur är känt för att kunna ändra hudfärg för kamouflage och signalering?','Kameleont',['Koala','Bäver','Mullvad']],
+['Hur många ben har en spindel?','8',['6','10','12']],['Hur många armar har en vanlig bläckfisk?','8',['6','10','12']],['Vilket djur bygger bäverdammar?','Bäver',['Utter','Grävling','Mård']],['Vad är en axolotl?','En salamander',['En fågel','En fisk','En insekt']],
+['Vilket djur har den längsta halsen bland nu levande landdjur?','Giraff',['Kamel','Struts','Lama']]
+];
+for(const [q,c,w] of oddFacts)Q('Onödigt vetande',q,[c,...w],0,`${c} är rätt svar.`,'medium');
+
+const generalFacts=[
+['Vilken planet är närmast solen?','Merkurius',['Venus','Jorden','Mars']],['Vilken planet är störst i solsystemet?','Jupiter',['Saturnus','Jorden','Neptunus']],['Hur många kontinenter brukar man räkna med?','7',['5','6','8']],
+['Hur många sidor har en hexagon?','6',['5','7','8']],['Hur många grader är en rät vinkel?','90',['45','120','180']],['Vad är H₂O?','Vatten',['Syre','Salt','Väte']],
+['Vilket organ pumpar blodet runt kroppen?','Hjärtat',['Lungan','Levern','Njuren']],['Vilket språk talas främst i Brasilien?','Portugisiska',['Spanska','Franska','Italienska']],['Vilken gas behöver människor för cellandningen?','Syre',['Kväve','Helium','Neon']],
+['Vad kallas jordens naturliga satellit?','Månen',['Solen','Mars','Venus']],['Vilken är den största oceanen?','Stilla havet',['Atlanten','Indiska oceanen','Norra ishavet']],['Hur många minuter är en timme?','60',['50','90','100']],
+['Hur många sekunder är en minut?','60',['30','100','120']],['Vilket tal kommer efter 999?','1000',['990','1001','9999']],['Vilken färg får man normalt av blått och gult i subtraktiv färgblandning?','Grön',['Lila','Orange','Röd']],
+['Vad heter processen där växter använder ljus för att bilda kemisk energi?','Fotosyntes',['Fermentation','Destillation','Erosion']],['Vilken metall är flytande nära rumstemperatur?','Kvicksilver',['Järn','Aluminium','Koppar']],['Vilken del av växten tar främst upp vatten från marken?','Rötterna',['Blommorna','Frukten','Fröna']],
+['Vilken stjärna ligger närmast jorden?','Solen',['Polstjärnan','Sirius','Vega']],['Vad mäts i grader Celsius?','Temperatur',['Hastighet','Massa','Längd']]
+];
+for(const [q,c,w] of generalFacts)Q('Allmänbildning',q,[c,...w],0,`${c} är rätt svar.`,'easy');
+
+/* 180 arithmetic/reasoning questions: deterministic and all unique. */
+for(let i=1;i<=60;i++){
+  const a=7+i,b=3+(i%17),ans=a+b;Q('Allmänbildning',`Vad blir ${a} + ${b}?`,[String(ans),String(ans+1),String(ans-2),String(ans+5)],0,`${a} + ${b} = ${ans}.`,i<20?'easy':'medium');
+}
+for(let i=1;i<=60;i++){
+  const a=40+i,b=2+(i%19),ans=a-b;Q('Allmänbildning',`Vad blir ${a} − ${b}?`,[String(ans),String(ans+2),String(ans-1),String(ans+6)],0,`${a} − ${b} = ${ans}.`,i<20?'easy':'medium');
+}
+for(let i=1;i<=60;i++){
+  const a=2+i,b=2+((i*3)%11),ans=a*b;Q('Allmänbildning',`Vad blir ${a} × ${b}?`,[String(ans),String(ans+a),String(ans-b),String(ans+2)],0,`${a} × ${b} = ${ans}.`,i<20?'easy':'medium');
+}
+
+
+
+/* ===== Resequiz v2 expansion =====
+   Deterministic question generators keep the extended bank large, offline-capable
+   and objectively verifiable. Every generated question gets a unique id. */
+function V2Q(c,q,correct,wrong,f,d='medium',visual=''){Q(c,q,[String(correct),...wrong.map(String)],0,f,d,visual)}
+
+/* Extra general knowledge: percentages and exact division. */
+for(let i=1;i<=150;i++){
+  const base=20+i*20, pct=[10,20,25,50][i%4], ans=base*pct/100;
+  V2Q('Allmänbildning',`Hur mycket är ${pct} % av ${base}?`,ans,[ans+5,Math.max(0,ans-5),base-pct],`${pct} % av ${base} = ${ans}.`,i<45?'easy':'medium');
+}
+for(let i=1;i<=150;i++){
+  const d=2+(i%11), ans=3+i, n=d*ans;
+  V2Q('Allmänbildning',`Vad blir ${n} ÷ ${d}?`,ans,[ans+1,ans-1,ans+d],`${n} ÷ ${d} = ${ans}.`,i<50?'easy':'medium');
+}
+
+/* Extra 'Onödigt vetande': exact time conversions. */
+for(let i=1;i<=100;i++){
+  const minutes=i+1, seconds=minutes*60;
+  V2Q('Onödigt vetande',`Hur många sekunder går det på ${minutes} minuter?`,`${seconds} sekunder`,[`${seconds+60} sekunder`,`${Math.max(60,seconds-60)} sekunder`,`${minutes*100} sekunder`],`${minutes} × 60 = ${seconds} sekunder.`,'easy');
+}
+
+/* Science & technology: binary, powers and simple physics calculations. */
+for(let i=1;i<=100;i++){
+  const n=2+(i%9), add=i, ans=2**n+add;
+  V2Q('Vetenskap & teknik',`Vad blir 2 upphöjt till ${n}, plus ${add}?`,ans,[ans+2,ans-1,ans+4],`2^${n} + ${add} = ${ans}.`,n<=5?'easy':'medium');
+}
+for(let i=1;i<=100;i++){
+  const speed=20+i, hours=1+(i%5), ans=speed*hours;
+  V2Q('Vetenskap & teknik',`Ett föremål rör sig med ${speed} km/h i ${hours} timmar. Hur långt färdas det?`,`${ans} km`,[`${ans+speed} km`,`${Math.max(speed,ans-speed)} km`,`${speed+hours} km`],`Sträcka = hastighet × tid = ${speed} × ${hours} = ${ans} km.`,'medium');
+}
+for(let i=1;i<=100;i++){
+  const bytes=32+i*8, bits=bytes*8;
+  V2Q('Vetenskap & teknik',`${bytes} byte motsvarar hur många bitar?`,`${bits} bitar`,[`${bytes} bitar`,`${bits/2} bitar`,`${bits*2} bitar`],`En byte är 8 bitar, alltså ${bytes} × 8 = ${bits} bitar.`,'medium');
+}
+
+/* History: determine century from a concrete year. */
+for(let i=0;i<300;i++){
+  const year=1001+i*3, century=Math.floor((year-1)/100)+1;
+  V2Q('Historia',`Vilket århundrade tillhör år ${year}?`,`${century}:e århundradet`,[`${century-1}:e århundradet`,`${century+1}:e århundradet`,`${century+2}:e århundradet`],`År ${year} ligger i ${century}:e århundradet.`,'medium');
+}
+
+/* 80/90/00-talet: identify the decade, with only exact calendar facts. */
+for(let year=1980;year<=2009;year++){
+  const dec=year<1990?'80-talet':year<2000?'90-talet':'00-talet';
+  const others=['70-talet','80-talet','90-talet','00-talet','10-talet'].filter(x=>x!==dec).slice(0,3);
+  V2Q('80/90/00-talet',`Vilket årtionde tillhör ${year}?`,dec,others,`${year} tillhör ${dec}.`,'easy');
+  V2Q('80/90/00-talet',`Om något hände år ${year}, under vilket decennium hände det?`,dec,others,`Årtalet ${year} ligger under ${dec}.`,'easy');
+  V2Q('80/90/00-talet',`Vilken period innehåller årtalet ${year}?`,dec,others,`${year} ingår i ${dec}.`,'easy');
+}
+
+/* Film & TV: frame-rate calculations. */
+for(let i=1;i<=100;i++){
+  const fps=[24,25,30,50][i%4], sec=2+i, frames=fps*sec;
+  V2Q('Film & TV',`En video spelas in med ${fps} bilder per sekund. Hur många bildrutor blir det på ${sec} sekunder?`,frames,[frames+fps,frames-fps,fps+sec],`${fps} × ${sec} = ${frames} bildrutor.`,'medium');
+}
+
+/* Music: beats-per-minute calculations. */
+for(let i=1;i<=100;i++){
+  const bpm=50+i, mins=1+(i%5), beats=bpm*mins;
+  V2Q('Musik',`En låt går i ${bpm} BPM. Hur många pulsslag går på ${mins} minuter?`,beats,[beats+bpm,Math.max(bpm,beats-bpm),bpm+mins],`${bpm} slag/minut × ${mins} minuter = ${beats} slag.`,'medium');
+}
+
+/* Food & drink: Swedish kitchen unit conversions. */
+for(let i=1;i<=100;i++){
+  const dl=i, ml=dl*100;
+  V2Q('Mat & dryck',`${dl} dl motsvarar hur många milliliter?`,`${ml} ml`,[`${dl*10} ml`,`${ml+100} ml`,`${Math.max(100,ml-100)} ml`],`1 dl = 100 ml, alltså ${dl} dl = ${ml} ml.`,'easy');
+}
+
+/* Sport: deterministic scoring arithmetic. */
+for(let i=1;i<=100;i++){
+  const two=i, three=1+((i*3)%7), score=two*2+three*3;
+  V2Q('Sport',`Ett basketlag gör ${two} tvåpoängare och ${three} trepoängare. Hur många poäng blir det?`,score,[score+2,score-2,two+three],`${two} × 2 + ${three} × 3 = ${score} poäng.`,'medium');
+}
+
+/* Football: match score and league-point calculations. */
+for(let i=1;i<=75;i++){
+  const wins=i, draws=i%5, points=wins*3+draws;
+  V2Q('Fotboll',`Ett lag har ${wins} segrar och ${draws} oavgjorda matcher. Hur många poäng ger det med 3 poäng för seger och 1 för oavgjort?`,`${points} poäng`,[`${points+2} poäng`,`${Math.max(0,points-2)} poäng`,`${wins+draws} poäng`],`${wins} × 3 + ${draws} × 1 = ${points} poäng.`,'medium');
+}
+for(let i=1;i<=75;i++){
+  const home=(i-1)%15, away=Math.floor((i-1)/15), total=home+away;
+  V2Q('Fotboll',`En fotbollsmatch slutar ${home}–${away}. Hur många mål gjordes totalt?`,`${total} mål`,[`${Math.abs(home-away)} mål`,`${total+1} mål`,`${Math.max(0,total-1)} mål`],`${home} + ${away} = ${total} mål.`,'easy');
+}
+
+/* Animals & nature: stable biological classes. */
+const animalGroups={
+  'Däggdjur':['Hund','Katt','Häst','Ko','Elefant','Blåval','Delfin','Fladdermus','Igelkott','Älg','Ren','Lejon','Tiger','Giraff','Zebra','Kanin','Ekorre','Isbjörn','Säl','Utter'],
+  'Fåglar':['Örn','Uggla','Pingvin','Struts','Svan','Korp','Skata','Falk','Flamingo','Pelikan','Stork','Mås','Talgoxe','Domherre','Påfågel','Kalkon','Höna','And','Gås','Albatross'],
+  'Reptiler':['Krokodil','Alligator','Kobra','Huggorm','Boaorm','Leguan','Kameleont','Gecko','Sköldpadda','Varan'],
+  'Fiskar':['Lax','Torsk','Sill','Gädda','Abborre','Tonfisk','Makrill','Karp','Haj','Ål'],
+  'Insekter':['Myra','Bi','Geting','Fjäril','Myrslända','Gräshoppa','Nyckelpiga','Skalbagge','Trollslända','Mygga']
+};
+const groupNames=Object.keys(animalGroups);
+for(const [group,animals] of Object.entries(animalGroups)){
+  for(const animal of animals){
+    const wrong=groupNames.filter(x=>x!==group).slice(0,3);
+    V2Q('Djur & natur',`Vilken djurgrupp tillhör ${animal}?`,group,wrong,`${animal} tillhör gruppen ${group.toLowerCase()}.`,'easy');
+  }
+}
+
+/* Travel: reuse the verified country/capital dataset in new travel-specific wording. */
+for(const [country,capital,flag] of countries){
+  MQ('Resor',`Du landar i ${capital}. Vilket land har du rest till?`,country,cn,`${capital} ligger i ${country}.`,'easy',flag);
+  MQ('Resor',`Vilken huvudstad ska du resa till om resmålet är ${country}?`,capital,caps,`${capital} är huvudstad i ${country}.`,'easy');
+}
+
+/* Sweden: exact currency arithmetic, useful on a Swedish travel quiz. */
+for(let i=1;i<=100;i++){
+  const notes=[20,50,100,200,500][i%5], count=i+1, total=notes*count;
+  V2Q('Sverige',`Du har ${count} stycken ${notes}-kronorsbelopp. Hur många kronor är det totalt?`,`${total} kr`,[`${total+notes} kr`,`${Math.max(notes,total-notes)} kr`,`${notes+count} kr`],`${count} × ${notes} = ${total} kronor.`,'easy');
+}
+
+
+/* Ensure every question has four distinct options, including legacy questions. */
+for(const q of QUIZ_QUESTIONS){
+  const used=new Set();
+  for(let i=0;i<q.a.length;i++){
+    let label=String(q.a[i]);
+    if(!used.has(label)){used.add(label);continue;}
+    const m=String(q.a[q.r]).match(/^(-?\d+(?:[.,]\d+)?)\s*(.*)$/);
+    if(m){
+      const base=Number(m[1].replace(',','.')), suffix=m[2]; let step=1;
+      do{label=String(base+step)+(suffix?` ${suffix}`:'');step++;}while(used.has(label));
+    }else{
+      const fallbacks=['Inget av de övriga','Ett annat alternativ','Ingen av dessa'];
+      label=fallbacks.find(x=>!used.has(x))||`Alternativ ${i+1}`;
+    }
+    q.a[i]=label;used.add(label);
+  }
+}
+
+
+/* v2.2 extra visual + useless knowledge */
+const visualTrivia=[['🦥','Sengångare',['Utter','Bäver','Tvättbjörn']],['🦦','Utter',['Sengångare','Bäver','Mullvad']],['🦔','Igelkott',['Piggsvin','Bäver','Mullvad']],['🦩','Flamingo',['Stork','Trana','Pelikan']],['🦚','Påfågel',['Fasan','Kalkon','Struts']],['🦡','Grävling',['Mård','Bäver','Tvättbjörn']],['🦨','Skunk',['Grävling','Mård','Utter']],['🦙','Lama',['Alpacka','Kamel','Get']],['🦘','Känguru',['Wallaby','Koala','Vombat']],['🦛','Flodhäst',['Noshörning','Tapir','Vildsvin']],['🥝','Kiwi',['Lime','Avokado','Fikon']],['🍍','Ananas',['Mango','Papaya','Granatäpple']],['🥨','Pretzel',['Croissant','Bagel','Våffla']],['🥟','Dumpling',['Taco','Sushi','Falafel']],['🪃','Bumerang',['Frisbee','Slangbella','Paddel']],['🪗','Dragspel',['Piano','Munspel','Orgel']],['🪕','Banjo',['Gitarr','Mandolin','Ukulele']],['🪀','Jojo',['Snurra','Kula','Diabolo']],['🛺','Autorickshaw',['Taxi','Moped','Spårvagn']],['🚠','Kabinvagn',['Spårvagn','Monorail','Bergbana']]];
+for(const [visual,correct,wrong] of visualTrivia)V2Q('Onödigt vetande','Vad föreställer bilden?',correct,wrong,`Bilden föreställer ${correct.toLowerCase()}.`,'easy',visual);
+for(const [country,capital,flag] of countries){MQ('Onödigt vetande','Vilket land har den här flaggan?',country,cn,`Flaggan tillhör ${country}.`,'medium',flag);MQ('Resor','Vilken huvudstad hör till landet vars flagga visas?',capital,caps,`${capital} är huvudstad i ${country}.`,'medium',flag);}
+const uselessFacts=[['Hur många hjärtan har en bläckfisk?','3',['1','2','4'],'En bläckfisk har tre hjärtan.'],['Vilket däggdjur kan verkligen flyga med aktiv vingflykt?','Fladdermus',['Flygekorre','Kaguang','Sockerflygare'],'Fladdermöss är de enda däggdjuren med verklig aktiv flykt.'],['Vilken färg har en isbjörns hud under pälsen?','Svart',['Vit','Rosa','Grå'],'Isbjörnens hud är svart.'],['Vilket djur har fingeravtryck som kan likna människans?','Koala',['Känguru','Panda','Sengångare'],'Koalor har mycket människolika fingeravtryck.'],['Vilken fågel kan flyga baklänges?','Kolibri',['Svala','Falk','Albatross'],'Kolibrier kan aktivt flyga baklänges.'],['Vilken planet har ett dygn som är längre än sitt år?','Venus',['Mars','Jupiter','Merkurius'],'Venus roterar långsammare än den kretsar runt solen.'],['Vilken planet har vulkanen Olympus Mons?','Mars',['Venus','Jorden','Merkurius'],'Olympus Mons ligger på Mars.'],['Vilket djur kan inte hoppa?','Elefant',['Giraff','Känguru','Get'],'Elefanter kan inte hoppa med alla fyra fötter från marken samtidigt.'],['Vilket land förknippas med de första papperspengarna?','Kina',['Italien','Egypten','Grekland'],'Papperspengar utvecklades tidigt i Kina.'],['Vilken bokstav används inte i någon nuvarande kemisk grundämnessymbol?','J',['Q','X','Z'],'J används inte i någon nuvarande grundämnessymbol.'],['Hur många prickar finns totalt på en vanlig sexsidig tärning?','21',['18','24','36'],'1+2+3+4+5+6 = 21.'],['Hur många minuter är exakt en vecka?','10 080',['9 600','10 800','11 200'],'7 × 24 × 60 = 10 080 minuter.'],['Hur många sekunder är exakt ett dygn?','86 400',['84 600','86 000','88 400'],'24 × 60 × 60 = 86 400 sekunder.'],['Hur många små rutor finns på ett schackbräde?','64',['48','72','81'],'8 × 8 = 64.'],['Hur många kort finns i en standardkortlek utan jokrar?','52',['48','54','56'],'En standardkortlek har 52 kort.'],['Hur många tangenter har ett standardpiano normalt?','88',['76','84','92'],'Ett standardpiano har normalt 88 tangenter.'],['Hur många sidor har en dodekagon?','12',['10','11','14'],'En dodekagon är en tolvhörning.'],['Vilket av dessa är botaniskt ett bär?','Banan',['Jordgubbe','Hallon','Körsbär'],'Botaniskt klassas bananen som ett bär.'],['Vad är en jordnöt botaniskt?','Baljväxt',['Trädnöt','Bär','Rotfrukt'],'Jordnöten tillhör baljväxterna.'],['Vilken metall är flytande vid vanlig rumstemperatur?','Kvicksilver',['Järn','Aluminium','Koppar'],'Kvicksilver är flytande vid vanlig rumstemperatur.'],['Vilket grundämne är vanligast i universum?','Väte',['Syre','Helium','Kol'],'Väte är det vanligaste grundämnet.'],['Vilken gas utgör störst andel av jordens atmosfär?','Kväve',['Syre','Koldioxid','Argon'],'Kväve utgör ungefär 78 procent.'],['Hur många ben har en spindel?','8',['6','10','12'],'Spindeldjur har åtta ben.'],['Vilken del av kroppen har människans minsta ben?','Örat',['Handen','Foten','Näsan'],'Hörselbenen finns i mellanörat.'],['Vad heter människans minsta ben?','Stigbygeln',['Hammaren','Armbågsbenet','Nyckelbenet'],'Stigbygeln är människans minsta ben.'],['Vilket är människans största organ?','Huden',['Levern','Lungan','Hjärnan'],'Huden är kroppens största organ.'],['Vilken del av ögat saknar normalt blodkärl?','Hornhinnan',['Näthinnan','Iris','Linsen'],'Hornhinnan är normalt blodkärlsfri.'],['Vilken färg har flamingoungar när de kläcks?','Gråvita',['Rosa','Blå','Svarta'],'Flamingoungar är gråvita och blir rosa senare.']];for(const [q,correct,wrong,f] of uselessFacts)V2Q('Onödigt vetande',q,correct,wrong,f,'medium');
+
+const partyPrompts=[
+'Vem i gruppen skulle mest sannolikt glömma sitt pass hemma?',
+'Vem skulle klara sig bäst en vecka utan mobil?',
+'Vem skulle först börja sjunga högt i bilen?',
+'Vem skulle mest sannolikt boka fel datum på hotellet?',
+'Vem skulle vinna en tävling i att hitta bästa restaurangen?',
+'Vem skulle kunna somna först på ett nattåg?',
+'Vem skulle prata med en främling först?',
+'Vem skulle packa mest onödiga saker?',
+'Vem skulle hitta tillbaka utan GPS?',
+'Vem skulle köpa den konstigaste souveniren?',
+'Vem skulle mest sannolikt missa avfarten?',
+'Vem skulle börja planera nästa resa redan under den här?',
+'Vem skulle vara bäst reseledare?',
+'Vem skulle våga prova den märkligaste maträtten?',
+'Vem skulle ta flest bilder under resan?',
+'Vem skulle vara mest morgonpigg på semestern?',
+'Vem skulle kunna pruta bäst på en marknad?',
+'Vem skulle glömma var bilen parkerades?',
+'Vem skulle vinna en spontan karaoketävling?',
+'Vem skulle vara bäst på att hålla gruppens budget?'
+];
+
+window.QUIZ_QUESTIONS=QUIZ_QUESTIONS;
+window.PARTY_PROMPTS=partyPrompts;
+</script>
+  <script>const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const app=$('#app');
+const categories=[['Allmänbildning','🧠'],['Sverige','🇸🇪'],['Världen','🌍'],['Historia','🏛️'],['Sport','🏅'],['Fotboll','⚽'],['Musik','🎵'],['Film & TV','🎬'],['Mat & dryck','🍕'],['Vetenskap & teknik','🔬'],['Djur & natur','🦊'],['80/90/00-talet','📼'],['Onödigt vetande','🤯'],['Resor','✈️']];
+const AVATARS=['😀','😎','🤩','🥳','🤠','🦊','🐼','🐯','🦁','🐸','🦄','🤖','👻','🚀','⚽','🎸'];
+let sound=true,timerId=null;
+let state=blankState();
+function blankState(){return {players:[],selected:categories.map(x=>x[0]),totalQuestions:20,mode:'classic',difficulty:'mixed',timer:0,powerups:true,visual:true,deck:[],index:0,currentPlayer:0,answered:false,activePower:null,partyIndex:0};}
+function player(name){return {name,avatar:AVATARS[Math.floor(Math.random()*AVATARS.length)],score:0,streak:0,bestStreak:0,correct:0,answeredCount:0,categoryStats:{},visualCorrect:0,visualAnswered:0,votes:0,power:{fifty:false,double:false,shield:false}}}
+function esc(s){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function save(){localStorage.setItem('resequiz-deluxe-state',JSON.stringify(state))}function load(){try{return JSON.parse(localStorage.getItem('resequiz-deluxe-state'))}catch{return null}}function clearSave(){localStorage.removeItem('resequiz-deluxe-state')}
+function shuffle(a){const x=[...a];for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x}
+function getSeenQuestions(){try{return new Set(JSON.parse(localStorage.getItem('resequiz-v2-seen')||'[]'))}catch{return new Set()}}
+function markQuestionsSeen(ids){const seen=getSeenQuestions();ids.forEach(id=>seen.add(id));const arr=[...seen];localStorage.setItem('resequiz-v2-seen',JSON.stringify(arr.slice(-5000)))}
+function stopTimer(){if(timerId){clearInterval(timerId);timerId=null}}
+function beep(ok=true){if(!sound)return;try{const ctx=new(window.AudioContext||window.webkitAudioContext)(),o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.frequency.value=ok?700:180;g.gain.value=.045;o.start();setTimeout(()=>{o.stop();ctx.close()},ok?110:230)}catch{}}
+function toast(msg){const n=document.createElement('div');n.className='toast';n.textContent=msg;document.body.append(n);setTimeout(()=>n.remove(),1500)}
+function registerSW(){if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{})}
+
+function renderStart(){stopTimer();$('#homeBtn').classList.add('hidden');app.innerHTML=$('#startTemplate').innerHTML;$('#qCount').textContent=QUIZ_QUESTIONS.length+'+';const saved=load();if(saved?.players?.length)$('[data-action="continue-game"]').classList.remove('hidden');$('[data-action="new-game"]').onclick=renderSetup;$('[data-action="continue-game"]').onclick=()=>{state=saved;state.players.forEach(p=>p.power=p.power||{fifty:false,double:false,shield:false});state.answered=false;state.mode==='party'?renderParty():renderGame()}}
+
+function renderSetup(){stopTimer();$('#homeBtn').classList.remove('hidden');state=blankState();state.players=[player('Spelare 1'),player('Spelare 2')];drawSetup()}
+function drawSetup(){
+ app.innerHTML=`
+ <section class="card"><h3>1. Välj spelläge</h3><div class="mode-grid">
+ ${modeCard('classic','🎯 Klassisk','Turas om och samla poäng.')}${modeCard('teams','👥 Lag','2–4 lag tävlar mot varandra.')}${modeCard('speed','⚡ Snabbspel','10 sekunder per fråga + tidsbonus.')}${modeCard('party','🎉 Party','Vem är mest trolig? Rösta på varandra.')}
+ </div></section>
+ <section class="card"><h3>2. ${state.mode==='teams'?'Lag':'Spelare'}</h3><p class="section-sub">${state.mode==='teams'?'Lägg till 2–4 lag.':'Lägg till 2–10 spelare.'}</p><div id="players"></div><button id="addPlayer" class="secondary">+ Lägg till ${state.mode==='teams'?'lag':'spelare'}</button></section>
+ ${state.mode==='party'?'':quizSettingsHtml()}
+ <section class="card"><button id="startGame" class="primary xl">${state.mode==='party'?'Starta party 🎉':'Starta quiz 🚀'}</button><button id="back" class="secondary">Tillbaka</button></section>`;
+ drawPlayers();
+ $$('.mode-card').forEach(b=>b.onclick=()=>changeMode(b.dataset.mode));
+ $('#addPlayer').onclick=()=>{const max=state.mode==='teams'?4:10;if(state.players.length<max){state.players.push(player(`${state.mode==='teams'?'Lag':'Spelare'} ${state.players.length+1}`));drawPlayers()}};
+ if(state.mode!=='party')bindSettings();
+ $('#startGame').onclick=startGame;$('#back').onclick=renderStart;
+}
+function modeCard(id,title,txt){return `<button class="mode-card ${state.mode===id?'active':''}" data-mode="${id}"><strong>${title}</strong><small>${txt}</small></button>`}
+function changeMode(m){const wasTeam=state.mode==='teams';state.mode=m;const isTeam=m==='teams';if(wasTeam!==isTeam){state.players=(isTeam?[player('Lag 1'),player('Lag 2')]:[player('Spelare 1'),player('Spelare 2')])}if(m==='speed')state.timer=10;drawSetup()}
+function drawPlayers(){const wrap=$('#players');if(!wrap)return;const max=state.mode==='teams'?4:10;wrap.innerHTML=state.players.map((p,i)=>`<div class="player-row avatar-player-row"><button class="player-avatar-btn" data-av="${i}" title="Byt avatar">${p.avatar||'😀'}</button><input data-i="${i}" maxlength="20" value="${esc(p.name)}"><button class="remove-btn" data-rm="${i}" ${state.players.length<=2?'disabled':''}>×</button></div>`).join('');$$('input',wrap).forEach(x=>x.oninput=e=>state.players[+e.target.dataset.i].name=e.target.value.trim()||`${state.mode==='teams'?'Lag':'Spelare'} ${+e.target.dataset.i+1}`);$$('[data-av]',wrap).forEach(b=>b.onclick=()=>{const p=state.players[+b.dataset.av],i=AVATARS.indexOf(p.avatar||'😀');p.avatar=AVATARS[(i+1)%AVATARS.length];b.textContent=p.avatar});$$('[data-rm]',wrap).forEach(b=>b.onclick=()=>{if(state.players.length>2){state.players.splice(+b.dataset.rm,1);drawPlayers()}});$('#addPlayer')?.toggleAttribute('disabled',state.players.length>=max)}
+function quizSettingsHtml(){return `<section class="card"><h3>3. Kategorier</h3><div class="category-grid">${categories.map(([n,e])=>`<button class="category ${state.selected.includes(n)?'active':''}" data-cat="${n}"><span class="emoji">${e}</span><span><b>${n}</b><br><small>${QUIZ_QUESTIONS.filter(q=>q.c===n).length} frågor</small></span></button>`).join('')}</div></section>
+<section class="card"><h3>4. Inställningar</h3><div class="settings-grid"><label><span>Antal frågor</span><select id="questionCount"><option>10</option><option>20</option><option>30</option><option>50</option><option>100</option><option value="all">Alla tillgängliga</option></select></label><label><span>Svårighetsgrad</span><select id="difficulty"><option value="mixed">Blandad</option><option value="easy">Lätt</option><option value="medium">Medel</option><option value="hard">Svår</option></select></label><label><span>Timer</span><select id="timer"><option value="0">Av</option><option value="10">10 sek</option><option value="15">15 sek</option><option value="20">20 sek</option><option value="30">30 sek</option></select></label></div><div class="switchrow"><span><b>⚡ Power-ups</b><br><small class="muted">50/50, dubbla poäng och streak-sköld</small></span><button id="powerSwitch" class="switch ${state.powerups?'on':''}" aria-label="Power-ups"></button></div><div class="switchrow"><span><b>🖼️ Visuella frågor</b><br><small class="muted">Flaggor och symbolfrågor</small></span><button id="visualSwitch" class="switch ${state.visual?'on':''}" aria-label="Visuella frågor"></button></div></section>`}
+function bindSettings(){
+ $('#questionCount').value=String(state.totalQuestions);$('#difficulty').value=state.difficulty;$('#timer').value=String(state.mode==='speed'?10:state.timer);if(state.mode==='speed')$('#timer').disabled=true;
+ $('#questionCount').onchange=e=>state.totalQuestions=e.target.value==='all'?'all':+e.target.value;$('#difficulty').onchange=e=>state.difficulty=e.target.value;$('#timer').onchange=e=>state.timer=+e.target.value;
+ $('#powerSwitch').onclick=e=>{state.powerups=!state.powerups;e.currentTarget.classList.toggle('on',state.powerups)};$('#visualSwitch').onclick=e=>{state.visual=!state.visual;e.currentTarget.classList.toggle('on',state.visual)};
+ $$('.category').forEach(b=>b.onclick=()=>{const c=b.dataset.cat;if(state.selected.includes(c)){if(state.selected.length===1)return;state.selected=state.selected.filter(x=>x!==c)}else state.selected.push(c);drawSetup()});
+}
+function startGame(){state.players.forEach((p,i)=>{p.avatar=p.avatar||AVATARS[i%AVATARS.length];p.name=p.name||`${state.mode==='teams'?'Lag':'Spelare'} ${i+1}`;p.score=0;p.streak=0;p.bestStreak=0;p.correct=0;p.answeredCount=0;p.categoryStats={};p.visualCorrect=0;p.visualAnswered=0;p.votes=0;p.power={fifty:false,double:false,shield:false}});state.index=0;state.currentPlayer=0;state.answered=false;state.activePower=null;if(state.mode==='party'){state.partyIndex=0;save();return renderParty()}let pool=QUIZ_QUESTIONS.filter(q=>state.selected.includes(q.c));if(state.difficulty!=='mixed')pool=pool.filter(q=>q.d===state.difficulty);if(!state.visual)pool=pool.filter(q=>!q.visual);if(pool.length<5){toast('För få frågor – blandar in fler svårighetsgrader');pool=QUIZ_QUESTIONS.filter(q=>state.selected.includes(q.c)&&(!q.visual||state.visual))}const seen=getSeenQuestions();const fresh=shuffle(pool.filter(q=>!seen.has(q.id))),oldSeen=shuffle(pool.filter(q=>seen.has(q.id)));pool=[...fresh,...oldSeen];const count=state.totalQuestions==='all'?pool.length:Math.min(+state.totalQuestions,pool.length);state.deck=pool.slice(0,count).map(q=>{const opts=shuffle(q.a.map((label,idx)=>({label,correct:idx===q.r})));return {...q,opts}});markQuestionsSeen(state.deck.map(q=>q.id));if(state.mode==='speed')state.timer=10;save();renderGame()}
+
+function renderGame(){stopTimer();if(state.index>=state.deck.length)return renderFinal();$('#homeBtn').classList.remove('hidden');const q=state.deck[state.index],p=state.players[state.currentPlayer];state.answered=false;state.activePower=null;app.innerHTML=`<section class="card game-show-card"><div class="game-show-toolbar"><button id="fullscreenBtn" class="icon-btn game-show-full" title="Fullskärm">⛶</button></div><div class="game-head"><div><div class="turn-badge"><span class="avatar-inline">${esc(p.avatar||'😀')}</span>${state.mode==='teams'?'Lag':'Tur'}: ${esc(p.name)}</div><div class="muted" style="margin-top:7px">${esc(q.c)} · ${diffLabel(q.d)} · Fråga ${state.index+1}/${state.deck.length}</div></div>${state.timer?'<div class="timer-wrap"><div id="timer" class="timer">'+state.timer+'</div><small class="muted">sek</small></div>':''}</div><div class="progress"><div style="width:${state.index/state.deck.length*100}%"></div></div>${q.visual?`<div class="question-media"><div class="symbol">${q.visual}</div></div>`:''}<div class="question">${esc(q.q)}</div><div class="answers">${q.opts.map((o,i)=>`<button class="answer" data-answer="${i}"><span>${String.fromCharCode(65+i)}.</span>${esc(o.label)}</button>`).join('')}</div>${state.powerups?powerBar(p):''}<div id="feedback"></div></section>${scoreStrip()}`;
+ $$('[data-answer]').forEach(b=>b.onclick=()=>answer(+b.dataset.answer));$$('[data-power]').forEach(b=>b.onclick=()=>usePower(b.dataset.power));bindFullscreen();if(state.timer)startTimer(state.timer)}
+function bindFullscreen(){const b=$('#fullscreenBtn');if(!b)return;b.onclick=async()=>{try{if(!document.fullscreenElement){await document.documentElement.requestFullscreen();document.body.classList.add('game-show-mode')}else{await document.exitFullscreen();document.body.classList.remove('game-show-mode')}}catch{document.body.classList.toggle('game-show-mode')}}}
+document.addEventListener('fullscreenchange',()=>document.body.classList.toggle('game-show-mode',!!document.fullscreenElement));
+function diffLabel(d){return d==='easy'?'Lätt':d==='hard'?'Svår':'Medel'}
+function powerBar(p){return `<div class="powerbar"><button class="power ${p.power.fifty?'used':''}" data-power="fifty" ${p.power.fifty?'disabled':''}>✂️ 50/50</button><button class="power ${p.power.double?'used':''}" data-power="double" ${p.power.double?'disabled':''}>✖️2 Dubbla</button><button class="power ${p.power.shield?'used':''}" data-power="shield" ${p.power.shield?'disabled':''}>🛡️ Sköld</button></div>`}
+function usePower(type){if(state.answered)return;const p=state.players[state.currentPlayer];if(p.power[type])return;if(type==='fifty'){const q=state.deck[state.index],wrong=q.opts.map((o,i)=>!o.correct?i:null).filter(i=>i!==null);shuffle(wrong).slice(0,2).forEach(i=>$(`[data-answer="${i}"]`).classList.add('hidden-answer'));p.power.fifty=true;toast('Två felaktiga svar borttagna')}else{state.activePower=type;p.power[type]=true;toast(type==='double'?'Nästa rätt svar ger dubbla poäng!':'Skölden räddar din streak vid fel!')}$$('[data-power]').forEach(b=>{if(b.dataset.power===type){b.disabled=true;b.classList.add('used')}});save()}
+function startTimer(seconds){let left=seconds;const el=$('#timer');timerId=setInterval(()=>{left--;if(el){el.textContent=left;el.classList.toggle('danger',left<=5)}if(left<=0){stopTimer();answer(-1,0)}},1000);state.timeLeft=seconds}
+function answer(idx,timeOverride){if(state.answered)return;state.answered=true;let remaining=0;if(state.timer){const el=$('#timer');remaining=timeOverride??(+el?.textContent||0)}stopTimer();const q=state.deck[state.index],p=state.players[state.currentPlayer],chosen=idx>=0?q.opts[idx]:null,correctIndex=q.opts.findIndex(o=>o.correct),buttons=$$('[data-answer]');buttons.forEach(b=>b.disabled=true);buttons[correctIndex]?.classList.add('correct');const isCorrect=!!chosen?.correct;p.answeredCount=(p.answeredCount||0)+1;p.categoryStats=p.categoryStats||{};const cs=p.categoryStats[q.c]||(p.categoryStats[q.c]={correct:0,total:0});cs.total++;if(q.visual)p.visualAnswered=(p.visualAnswered||0)+1;if(isCorrect){cs.correct++;if(q.visual)p.visualCorrect=(p.visualCorrect||0)+1;p.streak++;p.bestStreak=Math.max(p.bestStreak||0,p.streak);p.correct++;const base=q.d==='hard'?200:q.d==='medium'?150:100,streakBonus=Math.min((p.streak-1)*25,125),speedBonus=state.mode==='speed'?remaining*5:0,mult=state.activePower==='double'?2:1,gain=(base+streakBonus+speedBonus)*mult;p.score+=gain;beep(true);showFeedback(`✅ Rätt! +${gain} poäng`,q.f,true,p)}else{if(idx>=0)buttons[idx]?.classList.add('wrong');const shield=state.activePower==='shield';if(!shield)p.streak=0;beep(false);showFeedback(idx<0?'⏰ Tiden är ute!':'❌ Inte riktigt!',q.f,false,p,shield)}save()}
+function showFeedback(title,text,good,p,shield=false){$('#feedback').innerHTML=`<div class="feedback ${good?'good':'bad'}"><b>${title}</b><br>${esc(text)}${good&&p.streak>=2?`<br><b>🔥 Streak ${p.streak}</b>`:''}${shield?'<br><b>🛡️ Skölden räddade din streak!</b>':''}</div><button id="next" class="primary" style="margin-top:10px">${state.index===state.deck.length-1?'Visa resultat 🏆':'Nästa fråga →'}</button>`;$('#next').onclick=nextQuestion}
+function nextQuestion(){state.index++;state.currentPlayer=(state.currentPlayer+1)%state.players.length;state.answered=false;state.activePower=null;save();renderGame()}
+function scoreStrip(){return `<section class="card"><div class="score-strip">${state.players.map((p,i)=>`<div class="score-pill ${i===state.currentPlayer?'current':''}"><b>${esc(p.avatar||'😀')} ${esc(p.name)}</b><span>⭐ ${p.score} · 🔥 ${p.streak} · ✅ ${p.correct}</span></div>`).join('')}</div></section>`}
+
+function renderParty(){stopTimer();$('#homeBtn').classList.remove('hidden');if(state.partyIndex>=PARTY_PROMPTS.length)return renderPartyFinal();const prompt=PARTY_PROMPTS[state.partyIndex];app.innerHTML=`<section class="card party-card"><div class="party-icon">🎉</div><div class="eyebrow">PARTY · ${state.partyIndex+1}/${PARTY_PROMPTS.length}</div><div class="party-prompt">${esc(prompt)}</div><p class="muted">Diskutera snabbt – tryck sedan på personen som får flest röster.</p><div class="answers">${state.players.map((p,i)=>`<button class="answer" data-vote="${i}">${esc(p.avatar||'😀')} ${esc(p.name)}</button>`).join('')}</div><button id="skipParty" class="secondary">Hoppa över</button></section><section class="card"><div class="pill-row">${state.players.map(p=>`<span class="mini-pill">${esc(p.avatar||'😀')} ${esc(p.name)} · ${p.votes||0} röster</span>`).join('')}</div></section>`;$$('[data-vote]').forEach(b=>b.onclick=()=>{state.players[+b.dataset.vote].votes=(state.players[+b.dataset.vote].votes||0)+1;state.partyIndex++;save();renderParty()});$('#skipParty').onclick=()=>{state.partyIndex++;save();renderParty()}}
+function renderPartyFinal(){const sorted=[...state.players].sort((a,b)=>(b.votes||0)-(a.votes||0)),top=sorted[0];app.innerHTML=`<section class="card winner"><div class="trophy">🎉</div><div class="eyebrow">PARTYKLAR</div><h2>${esc(top.name)} fick flest röster!</h2><p class="muted">Det betyder mest av allt att ${esc(top.name)} blev resans huvudperson.</p></section><section class="card"><div class="leaderboard">${sorted.map((p,i)=>`<div class="rank-row"><div class="rank">${i+1}</div><div><b>${esc(p.avatar||'😀')} ${esc(p.name)}</b></div><div class="points">${p.votes||0} röster</div></div>`).join('')}</div><button id="partyAgain" class="primary">🔁 Kör igen</button><button id="new" class="secondary">Nytt spel</button></section>`;$('#partyAgain').onclick=()=>{state.players.forEach(p=>p.votes=0);state.partyIndex=0;save();renderParty()};$('#new').onclick=renderSetup}
+function playerAwards(p){const cats=Object.entries(p.categoryStats||{}).filter(([,v])=>v.total).map(([name,v])=>({name,rate:v.correct/v.total,correct:v.correct,total:v.total})).sort((a,b)=>b.rate-a.rate||b.correct-a.correct),best=cats[0],acc=p.answeredCount?Math.round(p.correct/p.answeredCount*100):0,out=[];if(best)out.push(`🎯 Bäst på ${best.name}: ${best.correct}/${best.total} (${Math.round(best.rate*100)}%)`);if(p.visualAnswered)out.push(`🖼️ Bildfrågor: ${p.visualCorrect||0}/${p.visualAnswered} (${Math.round((p.visualCorrect||0)/p.visualAnswered*100)}%)`);out.push(`🔥 Bästa streak: ${p.bestStreak||0}`);out.push(`📈 Träffsäkerhet: ${acc}%`);return out}function saveHighscores(players){let h=[];try{h=JSON.parse(localStorage.getItem('resequiz-highscores')||'[]')}catch{};for(const p of players)h.push({name:p.name,avatar:p.avatar,score:p.score,correct:p.correct,total:p.answeredCount||state.deck.length,bestStreak:p.bestStreak||0,categoryStats:p.categoryStats||{},visualCorrect:p.visualCorrect||0,visualAnswered:p.visualAnswered||0,stamp:new Date().toISOString()});h.sort((x,y)=>y.score-x.score);localStorage.setItem('resequiz-highscores',JSON.stringify(h.slice(0,100)))}function highscoreHtml(){let h=[];try{h=JSON.parse(localStorage.getItem('resequiz-highscores')||'[]')}catch{};if(!h.length)return '<p class="muted">Ingen historik ännu.</p>';const top=h.slice(0,10),cat={};for(const x of h)for(const [c,v] of Object.entries(x.categoryStats||{})){if(v.total<2)continue;const rate=v.correct/v.total;if(!cat[c]||rate>cat[c].rate)cat[c]={...v,rate,name:x.name,avatar:x.avatar}}return `<div class="achievement-grid"><div><h3>🏆 Toppresultat</h3>${top.map((x,i)=>`<div class="rank-row"><div class="rank">${i+1}</div><div><b>${esc(x.avatar||'😀')} ${esc(x.name)}</b><br><small class="muted">${x.correct}/${x.total} rätt · streak ${x.bestStreak}</small></div><div class="points">${x.score} p</div></div>`).join('')}</div><div><h3>🌟 Kategorimästare</h3>${Object.entries(cat).sort((a,b)=>b[1].rate-a[1].rate).slice(0,8).map(([c,x])=>`<div class="achievement"><b>${esc(x.avatar||'😀')} ${esc(x.name)}</b><span>${esc(c)} · ${Math.round(x.rate*100)}% (${x.correct}/${x.total})</span></div>`).join('')}</div></div>`}
+function renderFinal(){stopTimer();const sorted=[...state.players].sort((a,b)=>b.score-a.score),top=sorted[0].score,winners=sorted.filter(p=>p.score===top);saveHighscores(sorted);app.innerHTML=`<section class="card winner"><div class="confetti">✨🎊✨</div><div class="trophy">🏆</div><div class="eyebrow">SPELET ÄR SLUT</div><h2>${winners.length===1?esc(winners[0].name)+' vinner!':'Det blev oavgjort!'}</h2></section><section class="card"><h3>Slutställning</h3><div class="leaderboard">${sorted.map((p,i)=>`<div class="rank-row"><div class="rank">${['🥇','🥈','🥉'][i]||i+1}</div><div><b>${esc(p.avatar||'😀')} ${esc(p.name)}</b><br><small class="muted">${p.correct} rätt · streak ${p.bestStreak||0}</small></div><div class="points">${p.score} p</div></div>`).join('')}</div></section><section class="card"><div class="eyebrow">VAD VAR NI BÄST PÅ?</div><div class="achievement-grid">${sorted.map(p=>`<div class="player-achievements"><h3>${esc(p.avatar||'😀')} ${esc(p.name)}</h3>${playerAwards(p).map(x=>`<div class="achievement">${esc(x)}</div>`).join('')}</div>`).join('')}</div></section><section class="card"><div class="eyebrow">HIGHSCORE</div>${highscoreHtml()}<button id="rematch" class="primary">🔁 Revansch</button><button id="new" class="secondary">✨ Nytt spel</button><button id="home" class="secondary">Hem</button></section>`;$('#rematch').onclick=()=>startGame();$('#new').onclick=renderSetup;$('#home').onclick=()=>{clearSave();renderStart()}}
+
+$('#soundBtn').onclick=()=>{sound=!sound;$('#soundBtn').textContent=sound?'🔊':'🔇'};$('#homeBtn').onclick=()=>{stopTimer();if(confirm('Gå tillbaka till startsidan? Ditt pågående spel sparas.'))renderStart()};registerSW();renderStart();
+</script>
+</body>
+</html>

@@ -101,3 +101,16 @@ Online-klienten använder nu en säker UUID-fallback som fungerar även på vanl
 
 ## v2.3.2 – online diagnostics
 Online-vyn renderas även om Socket.IO inte går att nå och visar tydligt serverfel. Uppdateringsscriptet uppdaterar nu även Nginx/systemd och verifierar både /health och Socket.IO efter restart.
+
+
+## v2.4 – Offline installation
+- `/install.html` känner av mobil, surfplatta eller dator och visar rätt installationsmetod.
+- PWA-installationen startar direkt i offline-spelet och precachar hela frågebanken.
+- iPhone/iPad får instruktioner för **Lägg till på hemskärmen** i Safari.
+- Android/Chrome och desktop Chrome/Edge kan installera spelet som app.
+- `/downloads/Resequiz-Offline-Standalone.html` är en enda fristående fil med hela spelet.
+- `/downloads/Resequiz-Offline.zip` kan kopieras till dator/USB och köras utan server.
+
+
+## v2.5 – Light Professional UI
+Gränssnittet har gjorts om till ett ljusare och mer professionellt uttryck med neutral typografi, diskreta skuggor, blågrön accent, mindre dekorativa emojis och tydligare kontroller. Alla online/offline-funktioner är oförändrade.

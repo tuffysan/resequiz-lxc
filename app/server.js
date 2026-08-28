@@ -72,9 +72,9 @@ function settleRound(r){
 function finishGame(r){clearRoundTimer(r);r.phase='finished';if(!r.persisted){persistGame(r);r.persisted=true}io.to(r.code).emit('gameOver',{room:roomPublic(r),hostSessionId:r.hostSessionId,hall:hallOfFame()})}
 
 app.use(express.static(PUBLIC,{maxAge:'1h'}));
-app.get('/health',(req,res)=>res.json({ok:true,version:'2.3.2',rooms:rooms.size,questions:QUESTIONS.length,categories:CATEGORY_COUNTS}));
+app.get('/health',(req,res)=>res.json({ok:true,version:'2.4.0',rooms:rooms.size,questions:QUESTIONS.length,categories:CATEGORY_COUNTS}));
 app.get('/api/qr',(req,res)=>{const text=String(req.query.text||'').slice(0,500);if(!text)return res.status(400).send('text required');res.type('png');const q=spawn('qrencode',['-t','PNG','-o','-','-s','7','-m','2',text]);q.stdout.pipe(res);q.on('error',()=>res.status(500).end());q.on('close',c=>{if(c!==0&&!res.headersSent)res.status(500).end()})});
-app.get('/api/questions/meta',(req,res)=>res.json({version:'2.3.2',questions:QUESTIONS.length,categories:CATEGORY_COUNTS,difficulties:['easy','medium','hard']}));
+app.get('/api/questions/meta',(req,res)=>res.json({version:'2.4.0',questions:QUESTIONS.length,categories:CATEGORY_COUNTS,difficulties:['easy','medium','hard']}));
 app.get('/api/highscores',(req,res)=>res.json(hallOfFame()));
 
 io.on('connection',socket=>{
