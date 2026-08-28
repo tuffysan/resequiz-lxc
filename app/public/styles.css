@@ -58,3 +58,5 @@ body.game-show-mode .timer{font-size:42px}
 
 /* v2.3 persistent online Hall of Fame */
 .hof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}.hof-section{padding:12px;border-radius:18px;background:var(--surface2);border:1px solid var(--line)}.hof-section h3{margin:4px 4px 10px}.achievement-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.player-achievements{padding:15px;border:1px solid var(--line);border-radius:18px;background:var(--surface2)}.achievement{display:flex;flex-direction:column;gap:4px;padding:10px 12px;margin:8px 0;border-radius:13px;background:rgba(124,58,237,.10);border:1px solid rgba(167,139,250,.16)}.achievement span{color:var(--muted);font-size:13px}
+
+.server-warning{border-color:rgba(239,68,68,.45);background:rgba(239,68,68,.09);color:#fecaca}.server-warning span{color:#fca5a5}
