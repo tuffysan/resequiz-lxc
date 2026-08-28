@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#070a12" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Resequiz Deluxe</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button id="homeBtn" class="icon-btn hidden" aria-label="Hem">⌂</button>
+      <div class="brand"><div class="eyebrow">RESEQUIZ OFFLINE</div><h1>Vem kan mest?</h1></div>
+      <button id="soundBtn" class="icon-btn" aria-label="Ljud av/på">🔊</button>
+    </header>
+    <main id="app"></main>
+    <footer class="footer">Offline · Mobilvänligt · Ingen inloggning · En mobil räcker</footer>
+  </div>
+  <template id="startTemplate">
+    <section class="card hero">
+      <div class="hero-icon">Q</div>
+      <div class="badge">OFFLINE DELUXE</div>
+      <h2>Redo när resan börjar</h2>
+      <p>Välj spelare, spelläge och kategorier. Sedan är ni igång på några sekunder – helt utan internet.</p>
+      <div class="cta-stack">
+        <button class="primary xl" data-action="new-game">Nytt spel</button>
+        <button class="secondary hidden" data-action="continue-game">Fortsätt spela</button>
+      </div>
+    </section>
+    <section class="stat-grid">
+      <div class="stat card"><strong id="qCount">2 440</strong><span>frågor</span></div>
+      <div class="stat card"><strong>14</strong><span>kategorier</span></div>
+      <div class="stat card"><strong>4</strong><span>spellägen</span></div>
+      <div class="stat card"><strong>3</strong><span>power-ups</span></div>
+    </section>
+    <section class="card">
+      <h3>Allt du behöver för resan</h3>
+      <div class="feature-grid">
+        <div><span>👥</span><b>Lagspel</b><small>2–4 lag tävlar.</small></div>
+        <div><span>⏱️</span><b>Timer</b><small>10–30 sekunder.</small></div>
+        <div><span>🖼️</span><b>Bildfrågor</b><small>Flaggor och symboler offline.</small></div>
+        <div><span>⚡</span><b>Power-ups</b><small>50/50, dubbel och sköld.</small></div>
+        <div><span>🔥</span><b>Streak</b><small>Rätt i rad ger bonus.</small></div>
+        <div><span>🎉</span><b>Party</b><small>Roliga reseutmaningar.</small></div>
+      </div>
+    </section>
+  </template>
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

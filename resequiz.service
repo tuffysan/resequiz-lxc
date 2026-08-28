@@ -1,0 +1,21 @@
+[Unit]
+Description=Resequiz realtime server
+After=network.target
+
+[Service]
+Type=simple
+User=resequiz
+Group=resequiz
+WorkingDirectory=/opt/resequiz
+Environment=NODE_ENV=production
+Environment=PORT=3000
+Environment=RESEQUIZ_DATA_DIR=/var/lib/resequiz
+ReadWritePaths=/var/lib/resequiz
+ExecStart=/usr/bin/node /opt/resequiz/server.js
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
