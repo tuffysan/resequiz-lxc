@@ -1,7 +1,8 @@
 const A=document.getElementById('onlineApp'), C=document.getElementById('conn');
 const socket=io({transports:['websocket','polling']});
 const AVATARS=['😀','😎','🤩','🥳','🤠','🦊','🐼','🐯','🦁','🐸','🦄','🤖','👻','🚀','⚽','🎸'];
-let me={sessionId:localStorage.getItem('rq-session')||crypto.randomUUID(),name:localStorage.getItem('rq-name')||'',avatar:localStorage.getItem('rq-avatar')||'😀',code:localStorage.getItem('rq-room')||'',hostToken:localStorage.getItem('rq-host')||''};
+function makeSessionId(){try{if(globalThis.crypto&&typeof globalThis.crypto.randomUUID==='function')return globalThis.crypto.randomUUID()}catch{};try{if(globalThis.crypto&&typeof globalThis.crypto.getRandomValues==='function'){const b=new Uint8Array(16);globalThis.crypto.getRandomValues(b);b[6]=(b[6]&15)|64;b[8]=(b[8]&63)|128;return [...b].map((x,i)=>([4,6,8,10].includes(i)?'-':'')+x.toString(16).padStart(2,'0')).join('')}}catch{};return 'rq-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,12)}
+let me={sessionId:localStorage.getItem('rq-session')||makeSessionId(),name:localStorage.getItem('rq-name')||'',avatar:localStorage.getItem('rq-avatar')||'😀',code:localStorage.getItem('rq-room')||'',hostToken:localStorage.getItem('rq-host')||''};
 localStorage.setItem('rq-session',me.sessionId); let room=null, question=null, answered=false;
 const esc=s=>String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
 socket.on('connect',()=>{C.textContent='● ansluten';C.className='connection good'; if(me.code&&me.name) socket.emit('rejoin',{...me},r=>{if(r?.ok){room=r.room;renderRoom()}else showEntry()})});

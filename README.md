@@ -93,3 +93,7 @@ Fler bildfrågor och Onödigt vetande. Offline-läget visar personliga styrkor, 
 
 ## v2.3 – permanent online Hall of Fame
 Online-spel sparar nu statistik i `/var/lib/resequiz/highscores.json`, separat från appkoden så uppdateringar inte raderar historiken. Hall of Fame visar högsta poäng, flest vinster, bäst träffsäkerhet, längsta streak, bildmästare, Onödigt vetande-kung och kategorimästare.
+
+
+## v2.3.1 – HTTP/LAN-fix
+Online-klienten använder nu en säker UUID-fallback som fungerar även på vanlig HTTP-adress i lokalt nätverk, exempelvis `http://192.168.x.x`. `online.js` cache-bustas för att undvika att webbläsaren återanvänder den äldre klienten.
