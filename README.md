@@ -114,3 +114,7 @@ Online-vyn renderas även om Socket.IO inte går att nå och visar tydligt serve
 
 ## v2.5 – Light Professional UI
 Gränssnittet har gjorts om till ett ljusare och mer professionellt uttryck med neutral typografi, diskreta skuggor, blågrön accent, mindre dekorativa emojis och tydligare kontroller. Alla online/offline-funktioner är oförändrade.
+
+
+## v2.6 – Clear & Readable UI
+Ny högkontrastdesign med vit bakgrund, mörk text, större typsnitt, tydliga formulärfält, stora svarsknappar och enklare visuell hierarki. Fokus ligger på läsbarhet och användbarhet på mobil, surfplatta och dator.
