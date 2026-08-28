@@ -7,50 +7,45 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Resequiz</title>
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=500">
 </head>
 <body>
   <div class="app-shell">
     <header class="topbar">
       <div class="brand"><div class="eyebrow">RESEQUIZ</div><h1>Quiz för hela resan</h1></div>
     </header>
-    <main class="portal">
-      <section class="card hero">
-        <div class="hero-icon">Q</div>
-        <div class="badge">ONLINE + OFFLINE</div>
-        <h2>Spela tillsammans.<br>Var ni än är.</h2>
-        <p>Starta ett livequiz där alla svarar på sin egen mobil, eller spela offline när ni saknar internet. Enkelt att starta, snabbt att förstå.</p>
-      </section>
+    <main class="portal ux-home">
+  <section class="card hero ux-hero">
+    <div class="hero-icon">Q</div>
+    <div class="badge">RESEQUIZ 5.2</div>
+    <h2>Quizkväll på 30 sekunder.</h2>
+    <p>En person startar. Alla andra skannar QR-koden. Sedan är det bara att spela.</p>
+    <div class="home-primary-actions">
+      <a class="primary xl home-main" href="online.html?action=create">🎮 Starta quizkväll</a>
+      <a class="secondary xl" href="online.html?action=join">📱 Gå med i spel</a>
+    </div>
+    <div class="home-trust"><span>✓ Ingen registrering</span><span>✓ Mobil + TV</span><span>✓ Lag eller individuellt</span></div>
+  </section>
 
-      <div class="portal-grid">
-        <section class="card portal-card">
-          <div class="big">●</div>
-          <div class="eyebrow">FLERA ENHETER</div>
-          <h2>Spela online</h2>
-          <p><span class="online-dot"></span>Skapa ett rum, dela fyrsiffrig kod och låt alla svara i realtid från sin egen enhet.</p>
-          <a class="primary xl" href="online.html">Starta online-spel</a>
-        </section>
-        <section class="card portal-card">
-          <div class="big">↓</div>
-          <div class="eyebrow">UTAN INTERNET</div>
-          <h2>Spela offline</h2>
-          <p>Hela frågebanken följer med. Perfekt i bilen, på flyget, tåget eller när uppkopplingen är dålig.</p>
-          <a class="primary xl" href="offline.html">Starta offline-spel</a>
-        </section>
-      </div>
+  <section class="quick-how">
+    <div><b>1</b><span>Starta</span><small>Välj namn och skapa rum</small></div>
+    <div><b>2</b><span>Bjud in</span><small>Visa QR-koden på TV:n</small></div>
+    <div><b>3</b><span>Spela</span><small>Resequiz sköter resten</small></div>
+  </section>
 
-      <section class="card install-note">
-        <div class="eyebrow">TA MED SPELET</div>
-        <h3>Installera eller ladda ner för offline</h3>
-        <p class="muted">Mobil, surfplatta eller dator. Hela frågebanken och highscore följer med och fungerar utan internet.</p>
-        <div class="install-actions">
-          <a class="primary" href="install.html">Installera / ladda ner</a>
-          <a class="secondary" href="offline.html">Testa offline nu</a>
-        </div>
-      </section>
-    </main>
-    <footer class="footer">2 588 frågor · 14 kategorier · Online + offline</footer>
+  <section class="card home-more">
+    <button id="moreToggle" class="secondary home-more-btn" aria-expanded="false">Fler sätt att spela ▾</button>
+    <div id="moreOptions" class="home-more-options hidden">
+      <a href="offline.html"><b>✈️ Spela offline</b><small>En enhet, utan internet</small></a>
+      <a href="history.html"><b>🏆 Resultat & profiler</b><small>Historik, rivaliteter och liga</small></a>
+      <a href="admin.html"><b>✏️ Skapa egna frågor</b><small>Quiz-editor och media</small></a>
+      <a href="studio.html"><b>🎬 Quiz Studio</b><small>Bygg egna Game Night-upplägg</small></a>
+      <a href="install.html"><b>⬇️ Installera appen</b><small>PWA och offlinepaket</small></a>
+    </div>
+  </section>
+</main>
+    <footer class="footer">4 199+ frågor · 17 kategorier · byggd för mobilen, TV:n och soffan</footer>
   </div>
-  <script>if('serviceWorker'in navigator) navigator.serviceWorker.register('./sw.js?v=270').catch(()=>{});</script>
-</body>
+  <script>document.getElementById('moreToggle').onclick=()=>{const b=document.getElementById('moreToggle'),x=document.getElementById('moreOptions'),open=x.classList.toggle('hidden');b.setAttribute('aria-expanded',String(!open));b.textContent=open?'Fler sätt att spela ▾':'Dölj alternativ ▴'};</script>
+<script src="pwa.js?v=500"></script></body>
 </html>

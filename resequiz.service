@@ -10,6 +10,7 @@ WorkingDirectory=/opt/resequiz
 Environment=NODE_ENV=production
 Environment=PORT=3000
 Environment=RESEQUIZ_DATA_DIR=/var/lib/resequiz
+EnvironmentFile=-/etc/resequiz.env
 ReadWritePaths=/var/lib/resequiz
 ExecStart=/usr/bin/node /opt/resequiz/server.js
 Restart=always

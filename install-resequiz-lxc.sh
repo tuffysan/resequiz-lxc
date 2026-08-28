@@ -39,7 +39,7 @@ for _ in {1..30}; do
   sleep 2
 done
 
-pct exec "$CTID" -- bash -lc 'export DEBIAN_FRONTEND=noninteractive; apt-get update; apt-get install -y nodejs npm nginx ca-certificates curl qrencode; useradd --system --home /opt/resequiz --shell /usr/sbin/nologin resequiz 2>/dev/null || true; mkdir -p /opt/resequiz /var/lib/resequiz; chown resequiz:resequiz /var/lib/resequiz'
+pct exec "$CTID" -- bash -lc 'export DEBIAN_FRONTEND=noninteractive; apt-get update; apt-get install -y nodejs npm nginx ca-certificates curl qrencode; useradd --system --home /opt/resequiz --shell /usr/sbin/nologin resequiz 2>/dev/null || true; mkdir -p /opt/resequiz /var/lib/resequiz /var/lib/resequiz/media; chown -R resequiz:resequiz /var/lib/resequiz; KEY=$(head -c 48 /dev/urandom | base64 | tr -dc A-Za-z0-9 | head -c 24); echo "RESEQUIZ_ADMIN_KEY=$KEY" > /etc/resequiz.env; chmod 640 /etc/resequiz.env'
 
 tar -C "$SCRIPT_DIR/app" -czf /tmp/resequiz-app.tgz .
 pct push "$CTID" /tmp/resequiz-app.tgz /tmp/resequiz-app.tgz
@@ -61,6 +61,9 @@ echo " Webb:        http://${IP:-CONTAINER-IP}/"
 echo " Online:      http://${IP:-CONTAINER-IP}/online.html"
 echo " Offline/PWA: http://${IP:-CONTAINER-IP}/offline.html"
 echo " Health:      http://${IP:-CONTAINER-IP}/health"
+echo " Admin:       http://${IP:-CONTAINER-IP}/admin.html"
+echo -n " Adminnyckel: "
+pct exec "$CTID" -- bash -lc '. /etc/resequiz.env; echo "$RESEQUIZ_ADMIN_KEY"'
 echo "============================================================"
 echo "Tips: För PWA-installation över Internet bör du lägga HTTPS framför"
 echo "tjänsten, t.ex. via din befintliga reverse proxy. På lokalt nätverk"

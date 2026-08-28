@@ -1,25 +1,13 @@
-# Lägg upp Resequiz v2 på GitHub
+# Publicera Resequiz 5.2 – Director Edition
 
-Packa upp ZIP-filen, öppna PowerShell/terminal i repomappen och kör:
+Packa upp ZIP-filen och ersätt innehållet i roten på GitHub-repot.
 
-```powershell
-git init
-git branch -M main
-git add .
-git commit -m "Resequiz v2 - 2440 questions, online and offline"
-gh repo create resequiz-lxc --public --source=. --remote=origin --push
-```
-
-Om repot redan finns:
-
-```powershell
-git add .
-git commit -m "Upgrade to Resequiz v2"
-git push origin main
-```
-
-Därefter installeras den från Proxmox med:
+Uppdatera sedan LXC:n:
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/tuffysan/resequiz-lxc/main/install-from-github.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/tuffysan/resequiz-lxc/main/update-from-github.sh)"
 ```
+
+Kontrollera därefter `/health`; versionen ska vara `5.2.0`.
+
+Data i `/var/lib/resequiz` bevaras.
