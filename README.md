@@ -110,3 +110,10 @@ Online-vyn renderas även om Socket.IO inte går att nå och visar tydligt serve
 - Android/Chrome och desktop Chrome/Edge kan installera spelet som app.
 - `/downloads/Resequiz-Offline-Standalone.html` är en enda fristående fil med hela spelet.
 - `/downloads/Resequiz-Offline.zip` kan kopieras till dator/USB och köras utan server.
+
+
+## v2.7 maintenance fix
+- `/health` reports `2.7.0`.
+- `package.json` uses `2.7.0`.
+- update script reports v2.7.
+- `systemctl daemon-reload` runs automatically before Resequiz is restarted.
