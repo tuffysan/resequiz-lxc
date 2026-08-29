@@ -1,0 +1,23 @@
+{
+  "version": "14.3.0",
+  "generatedAt": "2026-08-29T06:14:21.913785+00:00",
+  "activeQuestions": 7772,
+  "verifiedActive": 7772,
+  "restoredThisPass": 171,
+  "quarantineRemaining": 1415,
+  "restoredByCategory": {
+    "Allmänbildning": 22,
+    "Sverige": 20,
+    "Sport": 20,
+    "Mat & dryck": 20,
+    "Vetenskap & teknik": 89
+  },
+  "sources": [
+    "IUPAC Periodic Table",
+    "IOC Olympic symbol references",
+    "Wimbledon official site",
+    "Livsmedelsverket",
+    "Sweden official/public references"
+  ],
+  "policy": "Only questions checked in this pass were restored. Remaining quarantine is preserved."
+}

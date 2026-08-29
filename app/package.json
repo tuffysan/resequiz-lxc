@@ -1,17 +1,27 @@
 {
   "name": "resequiz-server",
-  "version": "9.0.0",
+  "version": "16.3.0",
   "private": true,
   "type": "commonjs",
   "scripts": {
     "start": "node server.js",
     "test": "node tests/smoke.js",
-    "test:e2e": "node tests/e2e.js"
+    "test:e2e": "node tests/e2e.js",
+    "test:lab": "node tests/lab.js",
+    "test:stress": "node tests/stress.js",
+    "test:bank": "node tests/question-bank-audit.js",
+    "test:semantic": "node tests/semantic-audit.js",
+    "test:quality": "node tests/question-excellence.js",
+    "test:hardening": "node tests/hardening.js",
+    "test:chaos": "node tests/chaos-lab.js",
+    "test:fact-report": "node tests/fact-verification.js",
+    "test:16": "node tests/v16-experience.js"
   },
   "dependencies": {
     "express": "^4.21.2",
     "socket.io": "^4.8.1",
     "exceljs": "^4.4.0",
-    "socket.io-client": "^4.8.1"
+    "socket.io-client": "^4.8.1",
+    "better-sqlite3": "^11.8.1"
   }
 }

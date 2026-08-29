@@ -45,7 +45,7 @@ set -euo pipefail
 export DEBIAN_FRONTEND=noninteractive LANG=C.UTF-8 LC_ALL=C.UTF-8
 printf "LANG=C.UTF-8\nLC_ALL=C.UTF-8\n" > /etc/default/locale
 apt-get update
-apt-get install -y nodejs npm nginx ca-certificates curl qrencode
+apt-get install -y nodejs npm nginx ca-certificates curl qrencode build-essential python3
 useradd --system --home /opt/resequiz --shell /usr/sbin/nologin resequiz 2>/dev/null || true
 mkdir -p /opt/resequiz /var/lib/resequiz /var/lib/resequiz/media
 chown -R resequiz:resequiz /var/lib/resequiz

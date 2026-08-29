@@ -1,0 +1,27 @@
+{
+  "version": "14.4.0",
+  "activeQuestions": 8320,
+  "restored": 548,
+  "permanentlyRetired": 322,
+  "remainingQuarantine": 545,
+  "restoredByCategory": {
+    "Resor": 100,
+    "Allmänbildning": 60,
+    "Bildrunda": 340,
+    "Musikquiz": 48
+  },
+  "retiredByCategory": {
+    "Vetenskap & teknik": 22,
+    "Mat & dryck": 100,
+    "Sport": 100,
+    "Sverige": 100
+  },
+  "remainingByCategory": {
+    "Musik": 120,
+    "Film & TV": 120,
+    "Onödigt vetande": 224,
+    "Djur & natur": 70,
+    "80/90/00-talet": 11
+  },
+  "policy": "Restore only media/structured questions with reproducible local verification; permanently retire mechanical filler; keep unresolved knowledge questions quarantined."
+}

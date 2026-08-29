@@ -1,0 +1,16 @@
+{
+  "version": "14.5.0",
+  "activeQuestions": 8459,
+  "activatedFromQuarantine": 139,
+  "retiredThisPass": 406,
+  "retiredTotal": 728,
+  "remainingQuarantine": 0,
+  "categoriesActivated": {
+    "80/90/00-talet": 11,
+    "Djur & natur": 70,
+    "Film & TV": 20,
+    "Musik": 20,
+    "Onödigt vetande": 18
+  },
+  "principle": "Zero quarantine achieved by verifying useful knowledge questions and permanently retiring mechanical/repetitive/low-value material; no mass promotion."
+}

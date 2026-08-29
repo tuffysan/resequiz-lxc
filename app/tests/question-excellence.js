@@ -1,0 +1,4 @@
+const fs=require('fs'),path=require('path');
+const qs=JSON.parse(fs.readFileSync(path.join(__dirname,'..','data','questions.json'),'utf8'));
+let errors=[];const ids=new Set();for(const q of qs){if(ids.has(q.id))errors.push(`duplicate id ${q.id}`);ids.add(q.id);if(!q.factKey)errors.push(`missing factKey ${q.id}`);if(!q.family)errors.push(`missing family ${q.id}`);if(!q.subtype)errors.push(`missing subtype ${q.id}`);if(!Array.isArray(q.a)||q.a.length<2||q.r<0||q.r>=q.a.length)errors.push(`invalid answers ${q.id}`)}
+const counts=qs.reduce((m,q)=>(m[q.c]=(m[q.c]||0)+1,m),{});console.log(JSON.stringify({ok:!errors.length,questions:qs.length,uniqueIds:ids.size,categories:counts,factKeys:new Set(qs.map(q=>q.factKey)).size,families:new Set(qs.map(q=>q.family)).size,errors:errors.slice(0,20)},null,2));if(errors.length)process.exit(1);

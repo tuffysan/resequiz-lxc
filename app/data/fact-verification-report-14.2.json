@@ -1,0 +1,38 @@
+{
+  "version": "14.2.0",
+  "generatedAt": "2026-08-29T06:10:02.290863+00:00",
+  "activeQuestions": 7601,
+  "verifiedActive": 7601,
+  "needsReviewActive": 0,
+  "quarantinedUnverified": 1586,
+  "newlyVerified14_2": 367,
+  "newMethods": {
+    "chemistry": 117,
+    "travel": 250
+  },
+  "activeByCategory": {
+    "Världen": 2255,
+    "Allmänbildning": 58,
+    "Resor": 250,
+    "Vetenskap & teknik": 59,
+    "Hjärngympa": 4937,
+    "Historia": 17,
+    "Fotboll": 25
+  },
+  "quarantinedByCategory": {
+    "Allmänbildning": 82,
+    "Sverige": 120,
+    "Sport": 120,
+    "Mat & dryck": 120,
+    "Musik": 120,
+    "Film & TV": 120,
+    "Onödigt vetande": 224,
+    "Vetenskap & teknik": 111,
+    "Djur & natur": 70,
+    "Resor": 100,
+    "Bildrunda": 340,
+    "Musikquiz": 48,
+    "80/90/00-talet": 11
+  },
+  "policy": "Only questions with a recorded verification method are active. Unresolved questions are quarantined, not deleted."
+}

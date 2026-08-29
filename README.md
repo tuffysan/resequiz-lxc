@@ -1,4 +1,14 @@
-## Resequiz 9.0 – Smart Quiz Engine
+# Resequiz
+
+## 14.0 – Ultimate
+
+Se `ULTIMATE-14.0.md` och `RELEASE-NOTES-14.0.md`. Fokus: Question Health, server-authoritative/idempotent multiplayer, Quizmaster 3, scoring transparency och UX-polish.
+
+## 12.1 Question Quality Overhaul
+
+12.1 reduces the bank from 13,002 to 10,614 questions by removing low-quality generated template series, repeated fact pairs and mechanically generated arithmetic/conversion items. Retained Sweden expansion questions were given plausible distractors. See `QUESTION-QUALITY-OVERHAUL-12.1.md`.
+
+# 9.0 – Smart Quiz Engine
 
 See `SMART-QUIZ-ENGINE-9.0.md` for the quality, recovery, host-migration, Quiz DNA, Admin Center and E2E improvements.
 
@@ -111,3 +121,47 @@ Version 8.0 fokuserar på att göra spelet smartare bakom kulisserna och enklare
 - **Diagnostik** finns på `/api/diagnostics` för snabb kontroll av version, uptime, minne och datakatalog.
 
 Målet är att fler funktioner ska skötas automatiskt, medan huvudflödet för användaren hålls så enkelt som möjligt.
+
+## Resequiz 11.0 – The Quiz Platform
+10.0 fokuserar på kvalitet och långsiktig drift: Confidence Score, full frågerevision, karantän, Smart Quiz Composer, Quiz Rating, gruppminne och `.rqbackup`. Se `QUIZ-PLATFORM-10.0.md`.
+
+## 11.0 – Product Hardening
+
+11.0 lägger till SQLite/WAL med migrering och JSON-fallback, Quizmaster Console, `.rqpack`, tolerant fritext, förbättrad tillgänglighet/haptik, stress-test samt en konkret frågebanksrenovering. Se `PRODUCT-HARDENING-11.0.md`.
+
+## 12.0 – Ultimate Experience
+See `ULTIMATE-EXPERIENCE-12.0.md`. Highlights: persistent global no-repeat, Quizmaster Console 2.0, final-show hidden standings, semantic audit, and backup verification.
+
+
+## 13.0 Game Night
+Se `GAME-NIGHT-13.0.md` för semantic no-repeat, Question Families, Team Night, Risk Final, Year in Review och Quality Assistant.
+
+## 14.1 – Verified Core
+
+14.1 rensar 1 469 lågkvalitativa mallfrågor och inför reproducerbar faktaverifiering. 7 234 av 9 187 aktiva frågor är verifierade; resterande 1 953 visas som `Needs review` tills de kontrollerats på riktigt. Historia och Fotboll har fått 42 nya källkontrollerade ersättningsfrågor. Se `FACT-VERIFICATION-14.1.md`.
+
+
+## 14.2 Verified Active Bank
+Only verified questions are active: **7601**. **1586** unresolved questions are quarantined rather than presented as verified. See `VERIFIED-ACTIVE-BANK-14.2.md`.
+
+
+## 14.3 Source Verification
+171 additional sourced questions restored; 1415 remain quarantined. See `SOURCE-VERIFICATION-14.3.md`.
+
+
+## 14.4 Media Verified
+Se `MEDIA-VERIFICATION-14.4.md` och `RELEASE-NOTES-14.4.md`.
+
+
+## 14.5 – Verified & Curated
+Final quarantine pass: 8459 active questions, 0 in quarantine. See `FINAL-CURATION-14.5.md`.
+
+## 15.2 – Adaptive Game Show + Hardening
+
+15.x bygger vidare på den verifierade 14.5-banken med Auto-Pilot, adaptiv svårighet, Question Health/feedback, kollaborativ Team Night med roterande kapten, specialrundor och production-hardening. Se `ADAPTIVE-GAME-ENGINE-15.0.md`, `GAME-SHOW-15.1.md` och `PRODUCTION-HARDENING-15.2.md`.
+
+## 16.3 – Effortless / Intelligence / Game Show / Resilience
+
+16.x gör standardvägen enklare: **Starta quizkväll** öppnar Auto-Pilot, förstagångsanvändaren får en kort onboarding och avancerade val ligger kvar under fler alternativ. Question Health har utökats med discrimination/distraktor-signaler. Team Night, Estimate, Risk Final, awards, Year in Review, backup/restore och recovery behålls och hårdtestas via 16.x-testsviten.
+
+Se `EFFORTLESS-16.0.md`, `QUESTION-INTELLIGENCE-16.1.md`, `GAME-SHOW-16.2.md` och `RESILIENCE-16.3.md`.
