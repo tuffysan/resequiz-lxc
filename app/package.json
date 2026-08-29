@@ -1,35 +1,17 @@
 {
-  "name": "resequiz-server",
-  "version": "18.0.4",
+  "name": "resequiz-mobile-first",
+  "version": "19.0.0",
   "private": true,
-  "type": "commonjs",
+  "description": "Mobile-first travel quiz for solo and realtime multiplayer",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "node tests/smoke.js",
-    "test:e2e": "node tests/e2e.js",
-    "test:lab": "node tests/lab.js",
-    "test:stress": "node tests/stress.js",
-    "test:bank": "node tests/question-bank-audit.js",
-    "test:semantic": "node tests/semantic-audit.js",
-    "test:quality": "node tests/question-excellence.js",
-    "test:hardening": "node tests/hardening.js",
-    "test:chaos": "node tests/chaos-lab.js",
-    "test:fact-report": "node tests/fact-verification.js",
-    "test:16": "node tests/v16-experience.js",
-    "test:leagues": "node tests/leagues.js",
-    "test:unique-facts": "node tests/unique-fact-coverage.js",
-    "test:admin-auth": "node tests/admin-account-auth.js",
-    "test:highscore": "node tests/highscore-history.js",
-    "test:research": "node tests/question-research.js",
-    "test:discovery": "node tests/category-discovery.js",
-    "test:wheel": "node tests/team-wheel.js",
-    "test:storage": "node tests/storage-safe.js",
-    "test:admin-performance": "node tests/admin-dashboard-performance.js"
+    "dev": "node --watch server.js",
+    "test": "node --test tests/*.test.js"
   },
+  "engines": { "node": ">=20" },
   "dependencies": {
-    "express": "^4.21.2",
-    "socket.io": "^4.8.1",
-    "exceljs": "^4.4.0",
-    "socket.io-client": "^4.8.1"
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1"
   }
 }

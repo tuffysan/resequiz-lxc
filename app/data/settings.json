@@ -1,0 +1,6 @@
+{
+  "title": "Resequiz",
+  "defaultQuestionCount": 10,
+  "defaultSeconds": 30,
+  "allowGuestAdmin": true
+}

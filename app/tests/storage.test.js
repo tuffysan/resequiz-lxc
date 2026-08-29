@@ -1,0 +1,2 @@
+const test=require('node:test');const assert=require('node:assert/strict');const fs=require('fs');const os=require('os');const path=require('path');const {readJson,writeJsonAtomic}=require('../storage');
+test('atomic json roundtrip',()=>{const dir=fs.mkdtempSync(path.join(os.tmpdir(),'rq-'));const f=path.join(dir,'x.json');writeJsonAtomic(f,{ok:true,n:2});assert.deepEqual(readJson(f,null),{ok:true,n:2})});

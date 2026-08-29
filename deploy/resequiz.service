@@ -1,0 +1,23 @@
+[Unit]
+Description=Resequiz mobile-first realtime server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/resequiz
+Environment=NODE_ENV=production
+Environment=PORT=3000
+Environment=RESEQUIZ_DATA_DIR=/var/lib/resequiz
+ExecStart=/usr/bin/node /opt/resequiz/server.js
+Restart=always
+RestartSec=3
+User=resequiz
+Group=resequiz
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ReadWritePaths=/var/lib/resequiz
+
+[Install]
+WantedBy=multi-user.target
