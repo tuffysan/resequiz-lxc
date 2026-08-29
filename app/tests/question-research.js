@@ -8,7 +8,7 @@ assert(server.includes("sourceType:clean(req.body?._verificationSourceType"),'ve
 assert(admin.includes('Leta nya frågor'),'research UI missing');
 assert(admin.includes('Använd som utkast'),'draft workflow missing');
 assert(admin.includes('_verificationSource'),'source save missing');
-assert(html.includes('18.0.0'),'admin version missing');
+assert(html.includes('18.0.1'),'admin version missing');
 console.log('Question Research: OK');
 console.log('  Wikidata structured-source lookup: OK');
 console.log('  Existing factKey/prompt filtering: OK');

@@ -1,6 +1,6 @@
 {
   "name": "resequiz-server",
-  "version": "18.0.0",
+  "version": "18.0.1",
   "private": true,
   "type": "commonjs",
   "scripts": {
@@ -22,13 +22,13 @@
     "test:highscore": "node tests/highscore-history.js",
     "test:research": "node tests/question-research.js",
     "test:discovery": "node tests/category-discovery.js",
-    "test:wheel": "node tests/team-wheel.js"
+    "test:wheel": "node tests/team-wheel.js",
+    "test:storage": "node tests/storage-safe.js"
   },
   "dependencies": {
     "express": "^4.21.2",
     "socket.io": "^4.8.1",
     "exceljs": "^4.4.0",
-    "socket.io-client": "^4.8.1",
-    "better-sqlite3": "^11.8.1"
+    "socket.io-client": "^4.8.1"
   }
 }

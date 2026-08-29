@@ -43,7 +43,7 @@ const ACTIVE_ROOMS_FILE=path.join(DATA_DIR,'active-rooms.json');
 const QUARANTINE_FILE=path.join(DATA_DIR,'question-quarantine.json');
 const GROUPS_FILE=path.join(DATA_DIR,'groups.json');
 const ADMIN_AUTH_FILE=path.join(DATA_DIR,'admin-auth.json');
-const APP_VERSION = '18.0.0';
+const APP_VERSION = '18.0.1';
 const ADMIN_KEY=String(process.env.RESEQUIZ_ADMIN_KEY||'').trim();
 const storage=createStorage(DATA_DIR);
 
@@ -84,7 +84,7 @@ function catalogueSummary(force=false){
 }
 function invalidateCatalogueCache(){catalogueCache.at=0}
 function httpsJson(url,timeoutMs=8000){
- return new Promise((resolve,reject)=>{let done=false;const req=https.get(url,{headers:{'User-Agent':'Resequiz/18.0.0 (verified-question-research)','Accept':'application/json'}},res=>{let body='';res.setEncoding('utf8');res.on('data',c=>{body+=c;if(body.length>3*1024*1024){req.destroy(new Error('Svar från källan var för stort.'))}});res.on('end',()=>{if(done)return;done=true;if(res.statusCode<200||res.statusCode>=300)return reject(new Error(`Källan svarade HTTP ${res.statusCode}.`));try{resolve(JSON.parse(body))}catch{reject(new Error('Källan returnerade ogiltig JSON.'))}})});req.setTimeout(timeoutMs,()=>req.destroy(new Error('Källan svarade inte i tid.')));req.on('error',e=>{if(done)return;done=true;reject(e)})})
+ return new Promise((resolve,reject)=>{let done=false;const req=https.get(url,{headers:{'User-Agent':'Resequiz/18.0.1 (verified-question-research)','Accept':'application/json'}},res=>{let body='';res.setEncoding('utf8');res.on('data',c=>{body+=c;if(body.length>3*1024*1024){req.destroy(new Error('Svar från källan var för stort.'))}});res.on('end',()=>{if(done)return;done=true;if(res.statusCode<200||res.statusCode>=300)return reject(new Error(`Källan svarade HTTP ${res.statusCode}.`));try{resolve(JSON.parse(body))}catch{reject(new Error('Källan returnerade ogiltig JSON.'))}})});req.setTimeout(timeoutMs,()=>req.destroy(new Error('Källan svarade inte i tid.')));req.on('error',e=>{if(done)return;done=true;reject(e)})})
 }
 const researchCache=new Map();
 function wdClaimValue(entity,prop){const claims=entity?.claims?.[prop];if(!Array.isArray(claims))return null;for(const c of claims){const v=c?.mainsnak?.datavalue?.value;if(v!==undefined&&v!==null)return v}return null}
@@ -843,5 +843,6 @@ let loopTick=Date.now();
 setInterval(()=>{const now=Date.now(),lag=now-loopTick-5000;loopTick=now;if(lag>2000)console.warn(`[event-loop-lag] ${lag}ms`);},5000).unref();
 setInterval(()=>{try{storage.cleanupReceipts(24)}catch{}},60*60*1000).unref();
 setInterval(()=>{for(const [c,r] of rooms){if(r.players.length&&!r.players.some(p=>p.connected)&&r.phase==='lobby'){clearTimer(r);rooms.delete(c)}}},15*60*1000).unref();
-process.on('SIGTERM',()=>{persistActiveRooms();server.close(()=>process.exit(0))});process.on('SIGINT',()=>{persistActiveRooms();server.close(()=>process.exit(0))});
+function gracefulShutdown(signal){console.log(`[shutdown] ${signal}`);try{persistActiveRooms()}catch{};const hard=setTimeout(()=>{try{storage.close()}catch{};process.exit(0)},2500);hard.unref?.();try{io.close()}catch{};try{server.close(()=>{clearTimeout(hard);try{storage.close()}catch{};process.exit(0)})}catch{clearTimeout(hard);try{storage.close()}catch{};process.exit(0)}}
+process.on('SIGTERM',()=>gracefulShutdown('SIGTERM'));process.on('SIGINT',()=>gracefulShutdown('SIGINT'));
 server.listen(PORT,'0.0.0.0',()=>console.log(`Resequiz ${APP_VERSION} listening on ${PORT}`));

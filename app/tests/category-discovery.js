@@ -10,5 +10,5 @@ ok(server.includes("rateLimit('question-discovery'"),'rate limiting');
 ok(admin.includes('runCategoryDiscovery'),'admin discovery UI handler');
 ok(admin.includes('discoveryCategory'),'category picker');
 ok(admin.includes('data-discovery-use'),'candidate-to-draft flow');
-ok(html.includes('18.0.0'),'version');
+ok(html.includes('18.0.1'),'version');
 console.log('OK category discovery markers');
