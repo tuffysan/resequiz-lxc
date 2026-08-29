@@ -1,8 +1,8 @@
 {
   "name": "quiz",
-  "version": "23.0.0",
+  "version": "24.0.0",
   "private": true,
-  "description": "Quiz 23.0.0 – Game Experience, Smart Review, player insights, safer upgrades and enhanced multiplayer controls",
+  "description": "Quiz 24.0.0 – Social & Visual: leagues, seasons, social leaderboard, celebrations and polished game experience",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

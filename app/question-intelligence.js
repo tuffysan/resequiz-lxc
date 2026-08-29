@@ -73,4 +73,17 @@ function wordingQuality(q){
  if(/\b(\w+)\s+\1\b/i.test(clean))reasons.push('upprepat ord');
  return reasons;
 }
-module.exports={cleanQuestionText,normalizeText,similarity,deriveFactKey,answerQuality,wordingQuality};
+
+function inferSubtopic(q){
+ const c=safe(q.category||q.c),t=normalizeText(q.question||q.q),src=normalizeText(q.source||q.sourceUrl||'');
+ const rules={
+  'Sport':[['Fotboll',/fotboll|champions league|premier league|allsvenskan|mål|uefa|fifa/],['Olympiskt',/olymp|os |olympis/],['Racketsport',/tennis|badminton|padel/]],
+  'Musik':[['Artister & band',/artist|band|sångare|gitarrist|komponer|album|låt/],['Instrument & teori',/instrument|piano|gitarr|ton|ackord|crescendo|symfoni/]],
+  'Historia':[['Sverige',/sverige|svensk|stockholm|kung|drottning/],['Världshistoria',/krig|romarrik|revolution|president|kejsar/]],
+  'Världen':[['Geografi',/land|huvudstad|flod|berg|hav|ö|stad/]],'Resor':[['Geografi',/land|huvudstad|stad|ö|flyg|resmål/]],
+  'Vetenskap & teknik':[['Naturvetenskap',/fysik|kemi|atom|planet|biologi|cell/],['Teknik',/dator|internet|program|teknik|uppfann/]]};
+ for(const [name,re] of rules[c]||[])if(re.test(t+' '+src))return name;return safe(q.subtopic)||'Allmänt';
+}
+function distractorQuality(q){const a=(q.answers||q.a||[]).map(safe),ci=Number(q.correct??q.r),reasons=[];if(a.length<3)return ['för få distraktorer'];const types=a.map(x=>/^\d{3,4}$/.test(x)?'year':/^\d+(?:[,.]\d+)?(?:\s*[%a-zåäö]+)?$/i.test(x)?'number':x.split(/\s+/).length>4?'long':'text');const majority=types.sort((x,y)=>types.filter(z=>z===y).length-types.filter(z=>z===x).length)[0];if(types[ci]&&types[ci]!==majority)reasons.push('rätt svar har annan typ än distraktorerna');const lens=a.map(x=>x.length),med=[...lens].sort((x,y)=>x-y)[Math.floor(lens.length/2)]||1;if(lens[ci]>med*2.4&&lens[ci]-med>12)reasons.push('rätt svar är tydligt längst');return reasons}
+function qualityScore(q,metric={}){let score=100;const reasons=[...wordingQuality(q),...answerQuality(q),...distractorQuality(q)];score-=reasons.length*12;if(!(q.verified||q.source||q.sourceUrl||q.verification))score-=8;if(!safe(q.factKey))score-=5;const shown=Number(metric.times_shown)||0,rate=shown?Number(metric.times_correct||0)/shown:null;if(shown>=10&&(rate<.12||rate>.985)){score-=12;reasons.push('extrem svarsfrekvens')}if(Number(metric.reported)>=2){score-=20;reasons.push('flera rapporter')}return {score:Math.max(0,Math.min(100,score)),reasons:[...new Set(reasons)],subtopic:inferSubtopic(q)}}
+module.exports={cleanQuestionText,normalizeText,similarity,deriveFactKey,answerQuality,wordingQuality,distractorQuality,qualityScore,inferSubtopic};

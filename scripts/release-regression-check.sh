@@ -37,12 +37,30 @@ grep -q 'deriveFactKey' "$ROOT/app/question-intelligence.js" || fail 'factKey-mo
 grep -q 'similarity' "$ROOT/app/question-intelligence.js" || fail 'semantisk dubblettkontroll saknas'
 grep -q 'adaptiveQuestions' "$ROOT/app/server.js" || fail 'adaptiv repetition saknas'
 
-echo 'Release regression check: OK – Quiz 23.0 core features present'
+echo 'Release regression check: OK – Quiz 24.0 core features present'
 # Quiz 23.0 regression markers
-grep -q "23.0.0" "$ROOT/app/package.json"
+grep -q "24.0.0" "$ROOT/app/package.json"
 grep -q "review_schedule" "$ROOT/app/database.js"
 grep -q "/api/users/insights" "$ROOT/app/server.js"
 grep -q "SQLite preflight OK" "$ROOT/scripts/install-in-lxc.sh"
 grep -q "Rollback utförd" "$ROOT/scripts/install-in-lxc.sh"
 grep -q "Game Experience" "$ROOT/app/public/js/home.js"
 grep -q "combo-badge" "$ROOT/app/public/js/play.js"
+
+grep -q 'qualityScore' "$ROOT/app/question-intelligence.js"
+grep -q '/api/users/knowledge-map' "$ROOT/app/server.js"
+grep -q '/api/admin/quality/v3' "$ROOT/app/server.js"
+grep -q 'inferSubtopic' "$ROOT/app/question-intelligence.js"
+
+grep -q 'room:answer-lock' "$ROOT/app/server.js"
+grep -q 'room:skip' "$ROOT/app/server.js"
+grep -q 'room:bonus' "$ROOT/app/server.js"
+grep -q 'room:team' "$ROOT/app/server.js"
+
+grep -q '/api/league' "$ROOT/app/server.js"
+grep -q 'league_points' "$ROOT/app/database.js"
+grep -q 'Quiz League' "$ROOT/app/public/js/home.js"
+grep -q 'release-gate.sh' <(find "$ROOT/scripts" -maxdepth 1 -type f -printf '%f\n')
+
+grep -q 'room:sudden-death' "$ROOT/app/server.js"
+grep -q 'remainingMs' "$ROOT/app/server.js"

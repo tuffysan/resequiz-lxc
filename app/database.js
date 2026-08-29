@@ -5,7 +5,7 @@ try{({DatabaseSync}=require('node:sqlite'))}catch{}
 
 function columns(db,table){try{return new Set(db.prepare(`PRAGMA table_info(${table})`).all().map(x=>String(x.name)))}catch{return new Set()}}
 function ensureColumn(db,table,name,definition){if(columns(db,table).has(name))return false;db.exec(`ALTER TABLE ${table} ADD COLUMN ${name} ${definition}`);return true}
-function ensureSchemaInfo(db){db.exec('CREATE TABLE IF NOT EXISTS schema_info(version INTEGER NOT NULL)');const row=db.prepare('SELECT COUNT(*) n FROM schema_info').get();if(!row.n)db.prepare('INSERT INTO schema_info(version) VALUES(?)').run(2300);else db.prepare('UPDATE schema_info SET version=?').run(2300)}
+function ensureSchemaInfo(db){db.exec('CREATE TABLE IF NOT EXISTS schema_info(version INTEGER NOT NULL)');const row=db.prepare('SELECT COUNT(*) n FROM schema_info').get();if(!row.n)db.prepare('INSERT INTO schema_info(version) VALUES(?)').run(2400);else db.prepare('UPDATE schema_info SET version=?').run(2400)}
 
 function migrate(db){
   db.exec(`
@@ -15,6 +15,7 @@ function migrate(db){
     CREATE TABLE IF NOT EXISTS achievements(user_id TEXT NOT NULL,badge_id TEXT NOT NULL,earned_at TEXT NOT NULL,PRIMARY KEY(user_id,badge_id));
     CREATE TABLE IF NOT EXISTS daily_attempts(user_id TEXT NOT NULL,day_key TEXT NOT NULL,result_id TEXT NOT NULL,score REAL,total REAL,played_at TEXT NOT NULL,PRIMARY KEY(user_id,day_key));
     CREATE TABLE IF NOT EXISTS duel_index(id TEXT PRIMARY KEY,creator_user_id TEXT,category TEXT,difficulty TEXT,format TEXT,created_at TEXT,status TEXT);
+    CREATE TABLE IF NOT EXISTS league_points(user_id TEXT NOT NULL,week_key TEXT NOT NULL,xp INTEGER NOT NULL DEFAULT 0,games INTEGER NOT NULL DEFAULT 0,updated_at TEXT,PRIMARY KEY(user_id,week_key));
     CREATE TABLE IF NOT EXISTS review_schedule(
       user_id TEXT NOT NULL, fact_key TEXT NOT NULL, question_id TEXT, category TEXT,
       interval_days REAL NOT NULL DEFAULT 0, ease REAL NOT NULL DEFAULT 2.3,
@@ -34,6 +35,7 @@ function migrate(db){
     CREATE INDEX IF NOT EXISTS ix_result_mode ON result_index(mode);
     CREATE INDEX IF NOT EXISTS ix_history_user ON question_history(user_id,played_at);
     CREATE INDEX IF NOT EXISTS ix_history_question ON question_history(question_id,played_at);
+    CREATE INDEX IF NOT EXISTS ix_league_week ON league_points(week_key,xp DESC);
     CREATE INDEX IF NOT EXISTS ix_review_due ON review_schedule(user_id,due_at);
     CREATE INDEX IF NOT EXISTS ix_review_category ON review_schedule(user_id,category,due_at);
   `);

@@ -112,7 +112,7 @@ const {openQuizDb}=require('/opt/resequiz/database.js');
 const db=openQuizDb(dir);
 if(!db)throw new Error('SQLite är inte tillgängligt');
 const v=db.prepare('SELECT version FROM schema_info LIMIT 1').get()?.version;
-if(v!==2300)throw new Error(`Fel schemasversion efter preflight: ${v}`);
+if(v!==2400)throw new Error(`Fel schemasversion efter preflight: ${v}`);
 db.close();
 console.log('SQLite preflight OK, schema',v);
 NODE
