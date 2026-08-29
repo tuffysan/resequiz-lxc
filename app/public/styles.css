@@ -226,7 +226,7 @@ html[data-theme="light"] .secondary,html[data-theme="light"] .mode-card,html[dat
 html[data-theme="light"] input,html[data-theme="light"] select{background:#fff;color:var(--text)}
 .rq-settings-button{position:fixed;right:16px;bottom:16px;z-index:1000;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--surface2);color:var(--text);font-size:23px;box-shadow:var(--shadow);cursor:pointer}.rq-settings-panel{position:fixed;right:16px;bottom:74px;z-index:1001;width:min(320px,calc(100vw - 32px));padding:16px;border:1px solid var(--line);border-radius:18px;background:var(--surface);color:var(--text);box-shadow:var(--shadow)}.rq-settings-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.rq-settings-head button{border:0;background:transparent;color:var(--text);font-size:26px;cursor:pointer}.rq-settings-panel label{display:block;margin:11px 0;font-size:12px;font-weight:850}.rq-settings-panel select{margin-top:6px}.rq-settings-panel small{display:block;color:var(--muted);line-height:1.4}
 
-/* 17.6.2 clearer administration access */
+/* 17.7.0 clearer administration access */
 .admin-access{display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0 13px;border:1px solid var(--line);border-radius:14px;background:var(--surface2);color:var(--text);font-weight:850;text-decoration:none;box-shadow:var(--shadow-soft)}
 .admin-access:hover{border-color:rgba(139,92,246,.55);background:var(--surface3)}
 .admin-option{border-color:rgba(139,92,246,.38)!important;background:linear-gradient(135deg,rgba(124,58,237,.12),rgba(37,99,235,.08))!important}
