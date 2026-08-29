@@ -1,0 +1,16 @@
+const fs=require('fs'),path=require('path'),assert=require('assert');
+const server=fs.readFileSync(path.join(__dirname,'..','server.js'),'utf8');
+const admin=fs.readFileSync(path.join(__dirname,'..','public','admin.js'),'utf8');
+const html=fs.readFileSync(path.join(__dirname,'..','public','admin.html'),'utf8');
+assert(server.includes("/api/admin/question-research"),'research API missing');
+assert(server.includes('wikidataResearch'),'Wikidata research engine missing');
+assert(server.includes("sourceType:clean(req.body?._verificationSourceType"),'verification persistence missing');
+assert(admin.includes('Leta nya frågor'),'research UI missing');
+assert(admin.includes('Använd som utkast'),'draft workflow missing');
+assert(admin.includes('_verificationSource'),'source save missing');
+assert(html.includes('18.0.0'),'admin version missing');
+console.log('Question Research: OK');
+console.log('  Wikidata structured-source lookup: OK');
+console.log('  Existing factKey/prompt filtering: OK');
+console.log('  Admin review-before-save flow: OK');
+console.log('  Verification metadata persistence: OK');

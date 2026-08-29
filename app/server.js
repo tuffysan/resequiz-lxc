@@ -5,6 +5,7 @@ const fs=require('fs');
 const path=require('path');
 const {spawn}=require('child_process');
 const crypto=require('crypto');
+const https=require('https');
 const ExcelJS=require('exceljs');
 const {createStorage}=require('./storage');
 
@@ -42,7 +43,7 @@ const ACTIVE_ROOMS_FILE=path.join(DATA_DIR,'active-rooms.json');
 const QUARANTINE_FILE=path.join(DATA_DIR,'question-quarantine.json');
 const GROUPS_FILE=path.join(DATA_DIR,'groups.json');
 const ADMIN_AUTH_FILE=path.join(DATA_DIR,'admin-auth.json');
-const APP_VERSION = '17.7.4';
+const APP_VERSION = '18.0.0';
 const ADMIN_KEY=String(process.env.RESEQUIZ_ADMIN_KEY||'').trim();
 const storage=createStorage(DATA_DIR);
 
@@ -82,16 +83,91 @@ function catalogueSummary(force=false){
   return catalogueCache;
 }
 function invalidateCatalogueCache(){catalogueCache.at=0}
+function httpsJson(url,timeoutMs=8000){
+ return new Promise((resolve,reject)=>{let done=false;const req=https.get(url,{headers:{'User-Agent':'Resequiz/18.0.0 (verified-question-research)','Accept':'application/json'}},res=>{let body='';res.setEncoding('utf8');res.on('data',c=>{body+=c;if(body.length>3*1024*1024){req.destroy(new Error('Svar från källan var för stort.'))}});res.on('end',()=>{if(done)return;done=true;if(res.statusCode<200||res.statusCode>=300)return reject(new Error(`Källan svarade HTTP ${res.statusCode}.`));try{resolve(JSON.parse(body))}catch{reject(new Error('Källan returnerade ogiltig JSON.'))}})});req.setTimeout(timeoutMs,()=>req.destroy(new Error('Källan svarade inte i tid.')));req.on('error',e=>{if(done)return;done=true;reject(e)})})
+}
+const researchCache=new Map();
+function wdClaimValue(entity,prop){const claims=entity?.claims?.[prop];if(!Array.isArray(claims))return null;for(const c of claims){const v=c?.mainsnak?.datavalue?.value;if(v!==undefined&&v!==null)return v}return null}
+function wdEntityId(v){return v&&typeof v==='object'&&/^Q\d+$/.test(String(v.id||''))?String(v.id):''}
+function wdYear(v){const t=v&&typeof v==='object'?String(v.time||''):'';const m=t.match(/^([+-])(\d{4,})-/);if(!m)return '';const y=String(Number(m[2]));return m[1]==='-'?`${y} f.Kr.`:y}
+async function wikidataResearch(query,category='Allmänbildning',lang='sv',limit=12){
+ const safeLang=['sv','en','de','es'].includes(lang)?lang:'sv',q=String(query||'').trim().slice(0,120),cat=clean(category||'Allmänbildning',50),max=Math.max(3,Math.min(24,+limit||12));if(q.length<2)throw new Error('Ange minst två tecken i sökordet.');
+ const cacheKey=`${safeLang}|${cat}|${q.toLocaleLowerCase('sv-SE')}|${max}`,cached=researchCache.get(cacheKey);if(cached&&Date.now()-cached.at<10*60*1000)return cached.data;
+ const api='https://www.wikidata.org/w/api.php',searchUrl=`${api}?action=wbsearchentities&search=${encodeURIComponent(q)}&language=${safeLang}&uselang=${safeLang}&format=json&limit=${Math.min(12,max)}&origin=*`,search=await httpsJson(searchUrl),ids=(search.search||[]).map(x=>x.id).filter(x=>/^Q\d+$/.test(x));if(!ids.length)return {query:q,category:cat,language:safeLang,source:'Wikidata',items:[],skippedExisting:0};
+ const entUrl=`${api}?action=wbgetentities&ids=${ids.join('|')}&props=labels|descriptions|claims&languages=${safeLang}|en&languagefallback=1&format=json&origin=*`,entData=await httpsJson(entUrl),entities=entData.entities||{};
+ const props=['P36','P37','P30','P17','P19','P106','P57','P50','P175','P136','P641','P112','P159','P138','P495','P364','P740'];
+ const linked=new Set();for(const e of Object.values(entities))for(const p of props){const id=wdEntityId(wdClaimValue(e,p));if(id)linked.add(id)}
+ let labels={};if(linked.size){const batches=[...linked].slice(0,80),labelUrl=`${api}?action=wbgetentities&ids=${batches.join('|')}&props=labels&languages=${safeLang}|en&languagefallback=1&format=json&origin=*`,ld=await httpsJson(labelUrl);for(const [id,e] of Object.entries(ld.entities||{}))labels[id]=e.labels?.[safeLang]?.value||e.labels?.en?.value||id}
+ const templates={
+  P36:(x,a)=>({q:`Vad heter huvudstaden i ${x}?`,f:`${a} är huvudstad i ${x}.`,subtype:'capital'}),
+  P37:(x,a)=>({q:`Vilket språk är ett officiellt språk i ${x}?`,f:`${a} är ett officiellt språk i ${x}.`,subtype:'language'}),
+  P30:(x,a)=>({q:`På vilken kontinent ligger ${x}?`,f:`${x} ligger i ${a}.`,subtype:'continent'}),
+  P17:(x,a)=>({q:`I vilket land ligger eller hör ${x} hemma?`,f:`${x} är kopplat till ${a}.`,subtype:'country'}),
+  P19:(x,a)=>({q:`Var föddes ${x}?`,f:`${x} föddes i ${a}.`,subtype:'birthplace'}),
+  P106:(x,a)=>({q:`Vilket yrke eller vilken roll är ${x} känd för?`,f:`${x} är känd som ${a}.`,subtype:'occupation'}),
+  P57:(x,a)=>({q:`Vem regisserade ${x}?`,f:`${a} är regissör för ${x}.`,subtype:'director'}),
+  P50:(x,a)=>({q:`Vem skrev ${x}?`,f:`${a} anges som författare till ${x}.`,subtype:'author'}),
+  P175:(x,a)=>({q:`Vilken artist eller grupp framför ${x}?`,f:`${a} anges som artist för ${x}.`,subtype:'performer'}),
+  P136:(x,a)=>({q:`Vilken genre förknippas ${x} med?`,f:`${x} klassificeras som ${a}.`,subtype:'genre'}),
+  P641:(x,a)=>({q:`Vilken sport förknippas ${x} med?`,f:`${x} förknippas med ${a}.`,subtype:'sport'}),
+  P112:(x,a)=>({q:`Vem grundade ${x}?`,f:`${a} anges som grundare av ${x}.`,subtype:'founder'}),
+  P159:(x,a)=>({q:`Var har ${x} sitt huvudkontor?`,f:`${x} har sitt huvudkontor i ${a}.`,subtype:'headquarters'}),
+  P138:(x,a)=>({q:`Vad eller vem är ${x} uppkallad efter?`,f:`${x} är uppkallad efter ${a}.`,subtype:'named-after'}),
+  P495:(x,a)=>({q:`Vilket ursprungsland har ${x}?`,f:`${x} har ${a} som ursprungsland.`,subtype:'origin-country'}),
+  P364:(x,a)=>({q:`Vilket är originalspråket för ${x}?`,f:`Originalspråket för ${x} är ${a}.`,subtype:'original-language'}),
+  P740:(x,a)=>({q:`Var bildades ${x}?`,f:`${x} bildades i ${a}.`,subtype:'formation-place'})
+ };
+ const existing=allQuestions(),promptSet=new Set(existing.map(x=>normalizeText(x.q))),factSet=new Set(existing.map(x=>String(x.factKey||'')).filter(Boolean)),items=[];let skippedExisting=0;
+ for(const id of ids){const e=entities[id];if(!e||e.missing!==undefined)continue;const label=e.labels?.[safeLang]?.value||e.labels?.en?.value||id,description=e.descriptions?.[safeLang]?.value||e.descriptions?.en?.value||'';let perEntity=0;
+  for(const [prop,builder] of Object.entries(templates)){if(items.length>=max||perEntity>=3)break;const raw=wdClaimValue(e,prop),answerId=wdEntityId(raw);if(!answerId)continue;const answer=labels[answerId];if(!answer||answer===answerId||normalizeText(answer)===normalizeText(label))continue;const built=builder(label,answer),factKey=`wikidata.${id}.${prop}.${answerId}`;if(promptSet.has(normalizeText(built.q))||factSet.has(factKey)){skippedExisting++;continue}items.push({id:`${id}-${prop}-${answerId}`,entityId:id,property:prop,category:cat,q:built.q,correct:answer,explanation:built.f,description,difficulty:'medium',factKey,family:`wikidata.${id}.${prop}`,subtype:built.subtype,source:`https://www.wikidata.org/wiki/${id}`,sourceLabel:`Wikidata · ${label}`,verified:true});perEntity++}
+  for(const [prop,labelText] of [['P571','grundades eller skapades'],['P577','publicerades eller hade premiär']]){if(items.length>=max||perEntity>=3)break;const year=wdYear(wdClaimValue(e,prop));if(!year)continue;const question=prop==='P571'?`Vilket år grundades eller skapades ${label}?`:`Vilket år publicerades eller hade ${label} premiär?`,factKey=`wikidata.${id}.${prop}.${year.replace(/\W/g,'')}`;if(promptSet.has(normalizeText(question))||factSet.has(factKey)){skippedExisting++;continue}items.push({id:`${id}-${prop}-${year}`,entityId:id,property:prop,category:cat,q:question,correct:year,explanation:`Enligt Wikidatas strukturerade data ${labelText} ${label} år ${year}.`,description,difficulty:'medium',factKey,family:`wikidata.${id}.${prop}`,subtype:'year',source:`https://www.wikidata.org/wiki/${id}`,sourceLabel:`Wikidata · ${label}`,verified:true});perEntity++}
+ }
+ const data={query:q,category:cat,language:safeLang,source:'Wikidata structured data',retrievedAt:new Date().toISOString(),items,skippedExisting};researchCache.set(cacheKey,{at:Date.now(),data});if(researchCache.size>80){const oldest=[...researchCache.entries()].sort((a,b)=>a[1].at-b[1].at).slice(0,20);oldest.forEach(([k])=>researchCache.delete(k))}return data
+}
+
+const CATEGORY_DISCOVERY_SEEDS={
+ 'Sverige':['Sverige historia','svenska uppfinningar','svenska författare','svenska artister','svenska idrottare','svenska städer','svenska företag','svenska kungar','svenska Nobelpristagare','svenska filmer','svenska byggnader','svenska naturreservat'],
+ 'Historia':['romarriket','antikens Grekland','medeltiden','renässansen','franska revolutionen','första världskriget','andra världskriget','vikingatiden','egyptiska faraoner','historiska uppfinningar','historiska ledare','arkeologiska fynd'],
+ 'Fotboll':['fotbolls-VM','fotbolls-EM','UEFA Champions League','svenska fotbollsklubbar','Premier League','La Liga','Serie A','Bundesliga','fotbollsspelare','fotbollsarenor','fotbollstränare','damfotboll'],
+ 'Sport':['olympiska spelen','friidrott','ishockey','tennis','handboll','basket','motorsport','skidåkning','simning','cykling','golf','världsrekord sport'],
+ 'Mat & dryck':['svenska maträtter','italiensk mat','fransk mat','asiatisk mat','ostar','bakverk','kryddor','frukter','grönsaker','kaffe','te','matlagningstekniker'],
+ 'Musik':['popmusik','rockmusik','jazz','klassisk musik','svenska artister','musikgrupper','låtskrivare','musikalbum','musikinstrument','musikpriser','festivaler','kompositörer'],
+ 'Musikquiz':['svenska låtar','poplåtar','rocklåtar','Eurovision låtar','Melodifestivalen','klassiska hits','musikgrupper','sångare','låtskrivare','album','duetter','filmmusik'],
+ 'Film & TV':['Oscarvinnare','svenska filmer','klassiska filmer','TV-serier','filmregissörer','skådespelare','animerade filmer','science fiction film','komedifilm','dramafilm','TV-program','filmfestivaler'],
+ 'Djur & natur':['däggdjur','fåglar','reptiler','hajar','valar','insekter','träd','blommor','nationalparker','berg','floder','naturfenomen'],
+ 'Vetenskap & teknik':['astronomi','rymdfart','fysik','kemi','biologi','medicin','datorhistoria','internet','programmering','uppfinningar','robotik','energi'],
+ 'Allmänbildning':['Nobelpriset','berömda personer','uppfinningar','arkitektur','litteratur','konst','geografi','vetenskap','språk','ekonomi','kultur','internationella organisationer'],
+ 'Resor':['världsarv','turistattraktioner','flygplatser','järnvägar','öar','stränder','nationalparker','museer','monument','semesterorter','vandringsleder','kända hotell'],
+ 'Bildrunda':['kända byggnader','landmärken','djurarter','konstverk','flaggor','fordon','musikinstrument','maträtter','växter','sportarenor','statyer','tekniska prylar'],
+ 'Onödigt vetande':['udda uppfinningar','världsrekord','märkliga djur','ovanliga traditioner','kuriosa historia','märkliga lagar','rekord byggnader','ovanliga ord','kända missöden','vardagsföremål historia','udda vetenskap','popkultur kuriosa'],
+ '80/90/00-talet':['1980-talet musik','1980-talet film','1980-talet teknik','1990-talet musik','1990-talet film','1990-talet TV','1990-talet teknik','2000-talet musik','2000-talet film','2000-talet TV','2000-talet teknik','retrospel']
+};
+function discoverySeeds(category){const cat=clean(category||'Allmänbildning',50);return CATEGORY_DISCOVERY_SEEDS[cat]||[cat,`${cat} historia`,`${cat} kända personer`,`${cat} rekord`,`${cat} Sverige`,`${cat} internationellt`]} 
+async function categoryQuestionDiscovery(category='Allmänbildning',lang='sv',limit=30){
+ const cat=clean(category||'Allmänbildning',50),safeLang=['sv','en','de','es'].includes(lang)?lang:'sv',max=Math.max(8,Math.min(80,+limit||30)),seeds=discoverySeeds(cat),items=[],seen=new Set(),topics=[];let skippedExisting=0,failedSeeds=0;
+ const perSeed=Math.max(6,Math.min(18,Math.ceil(max/Math.min(seeds.length,8))+3));
+ for(const seed of seeds){if(items.length>=max)break;try{const r=await wikidataResearch(seed,cat,safeLang,perSeed);topics.push({seed,found:r.items.length});skippedExisting+=r.skippedExisting||0;for(const x of r.items||[]){if(items.length>=max)break;if(seen.has(x.factKey))continue;seen.add(x.factKey);items.push({...x,discoveredFrom:seed})}}catch(e){failedSeeds++;topics.push({seed,found:0,error:String(e.message||e)})}}
+ return {category:cat,language:safeLang,source:'Wikidata structured data',retrievedAt:new Date().toISOString(),items,skippedExisting,topics,failedSeeds,seedsTried:topics.length};
+}
+
 function baseWithOverrides(includeDisabled=false){
   const overrides=readJson(OVERRIDE_FILE,{});
   return BASE_QUESTIONS.map((raw,i)=>normalizeQuestion({...raw,...(overrides[raw.id]||{}),id:raw.id},i)).filter(q=>includeDisabled||q.enabled!==false);
 }
-function allQuestions(){
+let questionCatalogueCache={at:0,value:null};
+function invalidateQuestionCatalogue(){questionCatalogueCache.at=0;questionCatalogueCache.value=null;invalidateCatalogueCache()}
+function allQuestions(force=false){
+  const now=Date.now();
+  // Building the full catalogue means normalising 22k+ questions and reading
+  // several persistence files. Never do that for every Socket.IO room update.
+  if(!force&&questionCatalogueCache.value&&now-questionCatalogueCache.at<30000)return questionCatalogueCache.value;
   const quarantined=new Set(readJson(QUARANTINE_FILE,[]));
   const base=baseWithOverrides(false).filter(q=>!quarantined.has(q.id));
   const custom=readJson(CUSTOM_FILE,[]).map((q,i)=>normalizeQuestion(q,i)).filter(x=>x.enabled!==false&&!quarantined.has(x.id));
   const ids=new Set();
-  return [...base,...custom].filter(q=>q.q&&q.a.length>=2&&!ids.has(q.id)&&ids.add(q.id));
+  const value=[...base,...custom].filter(q=>q.q&&q.a.length>=2&&!ids.has(q.id)&&ids.add(q.id));
+  questionCatalogueCache={at:now,value};
+  return value;
 }
 function categoryCounts(qs=allQuestions()){return qs.reduce((m,q)=>{m[q.c]=(m[q.c]||0)+1;return m},{})}
 function questionMetrics(){const x=readJson(QUESTION_METRICS_FILE,{});return x&&typeof x==='object'?x:{}}
@@ -298,7 +374,7 @@ function specialPool(type){if(type==='connections')return CONNECTION_QUESTIONS;i
 function freshStats(){return {correct:0,total:0,streak:0,bestStreak:0,visualCorrect:0,visualTotal:0,uselessCorrect:0,uselessTotal:0,responseTotalMs:0,responseCount:0,riskWon:0,riskLost:0,buzzWins:0,powerupsUsed:0,categories:{}}}
 function pct(n,d){return d?Math.round(n/d*100):0}
 function readHistory(){const x=readJson(HIGHSCORE_FILE,[]);return Array.isArray(x)?x:[]}
-function writeHistory(h){writeJson(HIGHSCORE_FILE,h.slice(-10000))}
+function writeHistory(h){writeJson(HIGHSCORE_FILE,h.slice(-10000));invalidateHallOfFame()}
 function historyFromGames(){
  const games=readJson(GAMES_FILE,[]),out=[];
  for(const g of games){
@@ -312,13 +388,19 @@ function effectiveHistory(){
  for(const e of [...fromGames,...stored]){const key=`${e.gameId||e.at||''}|${e.sessionId||String(e.name||'').toLowerCase()}`;by.set(key,e)}
  return [...by.values()].sort((a,b)=>Date.parse(a.at||0)-Date.parse(b.at||0));
 }
-function hallOfFame(){
+let hallOfFameCache={at:0,value:null};
+function hallOfFame(force=false){
+ const now=Date.now();
+ if(!force&&hallOfFameCache.value&&now-hallOfFameCache.at<10000)return hallOfFameCache.value;
  const h=effectiveHistory(),by={};
  for(const e of h){const k=(e.sessionId||e.name||'').toLowerCase();const a=by[k]||(by[k]={sessionId:e.sessionId,name:e.name,avatar:e.avatar||'😀',games:0,wins:0,totalScore:0,bestScore:0,correct:0,total:0,bestStreak:0,visualCorrect:0,visualTotal:0,responseTotalMs:0,responseCount:0,categories:{}});a.games++;a.wins+=e.win?1:0;a.totalScore+=e.score||0;a.bestScore=Math.max(a.bestScore,e.score||0);a.correct+=e.correct||0;a.total+=e.total||0;a.bestStreak=Math.max(a.bestStreak,e.bestStreak||0);a.visualCorrect+=e.visualCorrect||0;a.visualTotal+=e.visualTotal||0;a.responseTotalMs+=e.responseTotalMs||0;a.responseCount+=e.responseCount||0;for(const [c,v] of Object.entries(e.categories||{})){const z=a.categories[c]||(a.categories[c]={correct:0,total:0});z.correct+=v.correct||0;z.total+=v.total||0}}
  const all=Object.values(by).map(a=>({...a,accuracy:pct(a.correct,a.total),avgResponseMs:a.responseCount?Math.round(a.responseTotalMs/a.responseCount):null}));
  const best=(arr,cmp)=>arr.slice().sort(cmp).slice(0,10);
- return {games:new Set(h.map(x=>x.gameId)).size,players:all.length,highestScores:best(all,(a,b)=>b.bestScore-a.bestScore),mostWins:best(all,(a,b)=>b.wins-a.wins),bestAccuracy:best(all.filter(a=>a.total>=10),(a,b)=>b.accuracy-a.accuracy),bestStreak:best(all,(a,b)=>b.bestStreak-a.bestStreak),fastest:best(all.filter(a=>a.responseCount>=5),(a,b)=>a.avgResponseMs-b.avgResponseMs),lastGames:h.slice(-20).reverse()};
+ const value={games:new Set(h.map(x=>x.gameId)).size,players:all.length,highestScores:best(all,(a,b)=>b.bestScore-a.bestScore),mostWins:best(all,(a,b)=>b.wins-a.wins),bestAccuracy:best(all.filter(a=>a.total>=10),(a,b)=>b.accuracy-a.accuracy),bestStreak:best(all,(a,b)=>b.bestStreak-a.bestStreak),fastest:best(all.filter(a=>a.responseCount>=5),(a,b)=>a.avgResponseMs-b.avgResponseMs),lastGames:h.slice(-20).reverse()};
+ hallOfFameCache={at:now,value};
+ return value;
 }
+function invalidateHallOfFame(){hallOfFameCache.at=0;hallOfFameCache.value=null}
 
 function achievementsFor(r,p){
  const a=[],acc=p.stats.total?Math.round(p.stats.correct/p.stats.total*100):0,avg=p.stats.responseCount?Math.round(p.stats.responseTotalMs/p.stats.responseCount):999999;
@@ -391,7 +473,7 @@ restoreActiveRooms();
 function findPlayer(r,sid){return r.players.find(p=>p.sessionId===sid)}
 function clearTimer(r){const t=timers.get(r.code);if(t){clearTimeout(t);timers.delete(r.code)}const d=directorTimers.get(r.code);if(d){clearTimeout(d);directorTimers.delete(r.code)}}
 function teamStandings(r){const m=new Map();for(const p of r.players){if(!p.team)continue;const x=m.get(p.team)||{name:p.team,totalScore:0,score:0,players:0};x.totalScore+=p.score;x.players++;m.set(p.team,x)}for(const x of m.values())x.score=r.settings?.teamScoring==='sum'?x.totalScore:Math.round(x.totalScore/Math.max(1,x.players));return [...m.values()].sort((a,b)=>b.score-a.score||b.totalScore-a.totalScore||a.name.localeCompare(b.name))}
-function roomPublic(r){return {code:r.code,phase:r.phase,hostSessionId:r.hostSessionId,mode:r.mode,teamNames:r.teamNames,teams:teamStandings(r),buzzerWinner:r.buzzerWinner||'',players:r.players.map(p=>({sessionId:p.sessionId,name:p.name,avatar:p.avatar,team:p.team||'',score:p.score,connected:p.connected,powerups:p.powerups||{},stats:{correct:p.stats.correct,total:p.stats.total,bestStreak:p.stats.bestStreak},captain:!!p.captain,profileStrength:profileStrength(p.sessionId,p.name)})),teamPowerups:r.teamPowerups||{},settings:r.settings,currentQuestion:['question','paused'].includes(r.phase)?r.currentPublic:null,round:r.round,rounds:r.rounds,questionStats:r.questionStats,paused:r.paused,recovered:!!r.recovered,connection:{connected:r.players.filter(p=>p.connected).length,total:r.players.length},answerProgress:{answered:r.answers?.size||0,total:(r.settings?.teamCollaborative?r.teamNames.filter(n=>r.players.some(p=>p.team===n&&p.connected)).length:r.players.length)},finalHidden:!!(r.settings?.finalHiddenStandings&&r.round===r.rounds&&r.phase!=='finished'),meta:{questions:allQuestions().length,categories:categoryCounts(),maxPlayers:100,packs:allPacks(),gamePlans:allGamePlans(),tournaments:readJson(TOURNAMENT_FILE,[]).filter(t=>t.active!==false).map(t=>({id:t.id,name:t.name})),leagues:readJson(LEAGUES_FILE,[]).filter(l=>l.active!==false).map(l=>({id:l.id,name:l.name}))}}}
+function roomPublic(r){return {code:r.code,phase:r.phase,hostSessionId:r.hostSessionId,mode:r.mode,teamNames:r.teamNames,teams:teamStandings(r),buzzerWinner:r.buzzerWinner||'',players:r.players.map(p=>({sessionId:p.sessionId,name:p.name,avatar:p.avatar,team:p.team||'',score:p.score,connected:p.connected,powerups:p.powerups||{},stats:{correct:p.stats.correct,total:p.stats.total,bestStreak:p.stats.bestStreak},captain:!!p.captain,profileStrength:profileStrength(p.sessionId,p.name)})),teamPowerups:r.teamPowerups||{},settings:r.settings,currentQuestion:['question','paused'].includes(r.phase)?r.currentPublic:null,round:r.round,rounds:r.rounds,questionStats:r.questionStats,paused:r.paused,recovered:!!r.recovered,connection:{connected:r.players.filter(p=>p.connected).length,total:r.players.length},answerProgress:{answered:r.answers?.size||0,total:(r.settings?.teamCollaborative?r.teamNames.filter(n=>r.players.some(p=>p.team===n&&p.connected)).length:r.players.length)},finalHidden:!!(r.settings?.finalHiddenStandings&&r.round===r.rounds&&r.phase!=='finished'),meta:{questions:catalogueSummary().questions,categories:catalogueSummary().categories,maxPlayers:100,packs:allPacks(),gamePlans:allGamePlans(),tournaments:readJson(TOURNAMENT_FILE,[]).filter(t=>t.active!==false).map(t=>({id:t.id,name:t.name})),leagues:readJson(LEAGUES_FILE,[]).filter(l=>l.active!==false).map(l=>({id:l.id,name:l.name}))}}}
 function emitRoom(r){r.updatedAt=new Date().toISOString();scheduleRoomPersist();io.to(r.code).emit('roomState',roomPublic(r))}
 function makeRoom(name,sid){let c;do c=roomCode();while(rooms.has(c));const r={code:c,hostToken:token(),hostSessionId:sid,phase:'lobby',mode:'individual',teamNames:['Lag 1','Lag 2'],players:[{sessionId:sid,name,avatar:'😀',team:'',score:0,connected:true,socketId:null,stats:freshStats(),roundScores:[],powerups:{fifty:1,double:1,shield:1}}],deck:[],index:0,answers:new Map(),seen:new Set(),settings:{count:20,timer:15,difficulty:'mixed',categories:[],roundSize:5,finalBonusCount:5,pack:'',screenMode:'all',gamePlan:'',profile:'ultimate',powerups:true,teamScoring:'average',director:true,drama:true,autoTeams:true,teamPowerups:true,audioQuestions:false,smartDifficulty:true,environment:'public',directorLevel:3,noRepeatDays:180,finalHiddenStandings:true},round:1,rounds:4,current:null,currentPublic:null,questionStartedAt:0,questionStats:[],paused:false,persisted:false,tiebreak:false,lastResult:null,lastGameOver:null,buzzerWinner:'',roundName:'',midRanks:null,events:[]};rooms.set(c,r);return r}
 
@@ -611,6 +693,8 @@ app.get('/api/qr',(req,res)=>{const text=String(req.query.text||'').slice(0,500)
 
 // Admin/editor
 app.get('/api/year-review',(req,res)=>{const year=Math.max(2020,Math.min(2100,+req.query.year||new Date().getFullYear())),games=readJson(GAMES_FILE,[]).filter(g=>new Date(g.at).getFullYear()===year),players={};let questions=0;for(const g of games){questions+=(g.questionStats||[]).length;for(const p of g.players||[]){const k=p.sessionId||p.name,x=players[k]||(players[k]={name:p.name,avatar:p.avatar,games:0,wins:0,points:0,correct:0,total:0});x.games++;x.points+=p.score||0;x.correct+=p.stats?.correct||0;x.total+=p.stats?.total||0;const top=Math.max(...(g.players||[]).map(z=>z.score||0));if((p.score||0)===top)x.wins++}}const ranking=Object.values(players).sort((a,b)=>b.wins-a.wins||b.points-a.points);res.json({year,games:games.length,uniquePlayers:ranking.length,questionsPlayed:questions,champion:ranking[0]||null,ranking:ranking.slice(0,20)})});
+app.get('/api/admin/question-research',rateLimit('question-research',30,10*60*1000),requireAdmin,async(req,res)=>{try{const data=await wikidataResearch(req.query.q,req.query.category,req.query.lang,req.query.limit);res.json({ok:true,...data})}catch(e){console.warn('[question-research]',e.message);res.status(502).json({ok:false,error:`Kunde inte söka verifierade källor: ${e.message}`})}});
+app.get('/api/admin/question-discovery',rateLimit('question-discovery',12,10*60*1000),requireAdmin,async(req,res)=>{try{const data=await categoryQuestionDiscovery(req.query.category,req.query.lang,req.query.limit);res.json({ok:true,...data})}catch(e){console.warn('[question-discovery]',e.message);res.status(502).json({ok:false,error:`Automatisk kategorisökning misslyckades: ${e.message}`})}});
 app.post('/api/admin/quality-assistant',requireAdmin,(req,res)=>{const raw=req.body||{},q=normalizeQuestion({...raw,id:'preview'}),issues=[],similar=allQuestions().map(x=>({id:x.id,q:x.q,c:x.c,score:(()=>{const a=new Set(normalizeText(q.q).split(' ')),b=new Set(normalizeText(x.q).split(' '));let n=0;for(const w of a)if(w.length>3&&b.has(w))n++;return n})()})).filter(x=>x.score>=3).sort((a,b)=>b.score-a.score).slice(0,5);if(q.q.length<15)issues.push('Frågan är mycket kort.');if(q.a.length<3)issues.push('Använd helst minst tre svarsalternativ.');if(new Set(q.a.map(normalizeText)).size!==q.a.length)issues.push('Duplicerade svarsalternativ.');if(q.a.some(x=>x.length<2))issues.push('Ett svarsalternativ är för kort.');const lens=q.a.map(x=>x.length),correct=lens[q.r]||0,avg=lens.reduce((a,b)=>a+b,0)/Math.max(1,lens.length);if(correct>avg*1.8&&correct>18)issues.push('Rätt svar är mycket längre än distraktorerna och kan avslöja facit.');res.json({ok:true,score:Math.max(0,100-issues.length*18-Math.min(25,similar.length*4)),issues,similar,preview:q})});
 app.get('/api/admin/diagnostics-download',requireAdmin,(req,res)=>{const payload={generatedAt:new Date().toISOString(),version:APP_VERSION,uptimeSeconds:Math.round(process.uptime()),memory:process.memoryUsage(),storage:storage.status(),rooms:[...rooms.values()].map(r=>({code:r.code,phase:r.phase,players:r.players.length,connected:r.players.filter(p=>p.connected).length,round:r.round,rounds:r.rounds})),questionCounts:categoryCounts(),features:{semanticNoRepeat:true,questionFamilies:true,teamNight:true,riskFinal:true,yearInReview:true,adaptiveDifficulty:true,questionHealth:true,autoPilot:true,teamCollaboration:true,playerFeedback:true}};res.setHeader('Content-Disposition',`attachment; filename=Resequiz-Diagnostics-${new Date().toISOString().slice(0,10)}.json`);res.json(payload)});
 app.get('/api/admin/status',(req,res)=>{const auth=adminAuth();res.json({configured:!!auth,keyConfigured:!!ADMIN_KEY,authenticated:validAdminSession(req),username:validAdminSession(req)?adminSessions.get(cookieValue(req,'rq_admin_session'))?.username||'admin':null,version:APP_VERSION})});
@@ -643,8 +727,8 @@ app.post('/api/admin/question-audit/:id/approve',requireAdmin,(req,res)=>{const 
 app.get('/api/admin/update-status',requireAdmin,(req,res)=>res.json({ok:true,enabled:process.env.RESEQUIZ_ALLOW_WEB_UPDATE==='1',version:APP_VERSION,command:'/usr/local/sbin/update-resequiz.sh'}));
 app.post('/api/admin/update',rateLimit('webupdate',2,10*60*1000),requireAdmin,(req,res)=>{if(process.env.RESEQUIZ_ALLOW_WEB_UPDATE!=='1')return res.status(403).json({ok:false,error:'Webbuppdatering är avstängd. Sätt RESEQUIZ_ALLOW_WEB_UPDATE=1 för att aktivera den.'});const cmd='/usr/local/sbin/update-resequiz.sh';if(!fs.existsSync(cmd))return res.status(404).json({ok:false,error:'Updateringsskriptet finns inte på '+cmd});const child=spawn(cmd,[],{detached:true,stdio:'ignore'});child.unref();res.json({ok:true,started:true,message:'Backup, uppdatering och health check startades.'})});
 app.get('/api/admin/questions',rateLimit('admin',120,60*1000),requireAdmin,(req,res)=>res.json(readJson(CUSTOM_FILE,[])));
-app.post('/api/admin/questions',requireAdmin,(req,res)=>{const arr=readJson(CUSTOM_FILE,[]),q=normalizeQuestion({...req.body,id:`custom-${Date.now()}-${crypto.randomBytes(3).toString('hex')}`});if(!q.q||q.a.length<2)return res.status(400).json({ok:false,error:'Fråga och minst två svar krävs.'});arr.push(q);writeJson(CUSTOM_FILE,arr);res.json({ok:true,question:q})});
-app.put('/api/admin/questions/:id',requireAdmin,(req,res)=>{const arr=readJson(CUSTOM_FILE,[]),i=arr.findIndex(x=>x.id===req.params.id);if(i<0)return res.status(404).json({ok:false});arr[i]=normalizeQuestion({...arr[i],...req.body,id:arr[i].id});writeJson(CUSTOM_FILE,arr);res.json({ok:true,question:arr[i]})});
+app.post('/api/admin/questions',requireAdmin,(req,res)=>{const arr=readJson(CUSTOM_FILE,[]),q=normalizeQuestion({...req.body,id:`custom-${Date.now()}-${crypto.randomBytes(3).toString('hex')}`});if(!q.q||q.a.length<2)return res.status(400).json({ok:false,error:'Fråga och minst två svar krävs.'});arr.push(q);writeJson(CUSTOM_FILE,arr);invalidateCatalogueCache();const source=clean(req.body?._verificationSource,300);if(source){const all=readJson(QUESTION_VERIFICATION_FILE,{});all[q.id]={status:'verified',source,sourceType:clean(req.body?._verificationSourceType||'structured-web-source',80),notes:clean(req.body?._verificationNotes||'Källstödd kandidat granskad och sparad av administratör.',500),verifiedAt:new Date().toISOString(),validUntil:null,verifiedBy:clean(req.body?._verifiedBy||'admin-research',80)};writeJson(QUESTION_VERIFICATION_FILE,all)}res.json({ok:true,question:q,verified:!!source})});
+app.put('/api/admin/questions/:id',requireAdmin,(req,res)=>{const arr=readJson(CUSTOM_FILE,[]),i=arr.findIndex(x=>x.id===req.params.id);if(i<0)return res.status(404).json({ok:false});arr[i]=normalizeQuestion({...arr[i],...req.body,id:arr[i].id});writeJson(CUSTOM_FILE,arr);invalidateCatalogueCache();const source=clean(req.body?._verificationSource,300);if(source){const all=readJson(QUESTION_VERIFICATION_FILE,{});all[arr[i].id]={status:'verified',source,sourceType:clean(req.body?._verificationSourceType||'structured-web-source',80),notes:clean(req.body?._verificationNotes||'Källstödd kandidat granskad och sparad av administratör.',500),verifiedAt:new Date().toISOString(),validUntil:null,verifiedBy:clean(req.body?._verifiedBy||'admin-research',80)};writeJson(QUESTION_VERIFICATION_FILE,all)}res.json({ok:true,question:arr[i],verified:!!source})});
 app.delete('/api/admin/questions/:id',requireAdmin,(req,res)=>{let arr=readJson(CUSTOM_FILE,[]);const n=arr.length;arr=arr.filter(x=>x.id!==req.params.id);writeJson(CUSTOM_FILE,arr);res.json({ok:arr.length<n})});
 app.post('/api/admin/import',requireAdmin,(req,res)=>{if(!Array.isArray(req.body))return res.status(400).json({ok:false,error:'Skicka en JSON-array.'});const arr=readJson(CUSTOM_FILE,[]);let n=0;for(const raw of req.body.slice(0,5000)){const q=normalizeQuestion({...raw,id:`custom-${Date.now()}-${n}-${crypto.randomBytes(3).toString('hex')}`},n);if(q.q&&q.a.length>=2){arr.push(q);n++}}writeJson(CUSTOM_FILE,arr);res.json({ok:true,imported:n})});
 app.post('/api/admin/media',requireAdmin,(req,res)=>{try{const raw=String(req.body?.data||''),m=raw.match(/^data:([^;]+);base64,(.+)$/);if(!m)return res.status(400).json({ok:false,error:'Ogiltig fil.'});const mime=m[1],buf=Buffer.from(m[2],'base64');if(buf.length>6*1024*1024)return res.status(400).json({ok:false,error:'Max 6 MB.'});const ext=mime.includes('png')?'png':mime.includes('jpeg')?'jpg':mime.includes('webp')?'webp':mime.includes('mpeg')?'mp3':mime.includes('ogg')?'ogg':mime.includes('wav')?'wav':'bin';const name=`${Date.now()}-${crypto.randomBytes(4).toString('hex')}.${ext}`;fs.writeFileSync(path.join(MEDIA_DIR,name),buf);res.json({ok:true,url:'/media/'+name,mime,size:buf.length})}catch(e){res.status(500).json({ok:false,error:e.message})}});

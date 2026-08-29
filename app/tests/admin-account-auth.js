@@ -7,7 +7,7 @@ const stats=fs.readFileSync(path.join(root,'public','statistics.js'),'utf8');
 const leagues=fs.readFileSync(path.join(root,'public','leagues.js'),'utf8');
 const checks=[
  ['auth file',server.includes("ADMIN_AUTH_FILE=path.join(DATA_DIR,'admin-auth.json')")],
- ['scrypt',server.includes('crypto.scryptSync')],
+ ['scrypt',server.includes('crypto.scrypt(')||server.includes('crypto.scryptSync')],
  ['setup endpoint',server.includes("app.post('/api/admin/setup'")],
  ['password login',server.includes("app.post('/api/admin/login'")&&server.includes('validPassword(password,auth)')],
  ['recovery endpoint',server.includes("app.post('/api/admin/recover'")],
