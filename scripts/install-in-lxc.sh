@@ -10,10 +10,24 @@ if ! command -v node >/dev/null || [ "$(node -p 'process.versions.node.split(`.`
 fi
 id resequiz >/dev/null 2>&1 || useradd --system --home /nonexistent --shell /usr/sbin/nologin resequiz
 mkdir -p "$APP" "$DATA"
+# Preserve legacy media assets before deployment.
+rm -rf /tmp/quiz-media-keep
+if [ -d "$APP/public/media-packs" ]; then
+  mkdir -p /tmp/quiz-media-keep; cp -a "$APP/public/media-packs" /tmp/quiz-media-keep/
+else
+  MEDIA_SOURCE="$(find /opt /var/backups /root -maxdepth 6 -type d -path '*/public/media-packs' 2>/dev/null | head -1 || true)"
+  if [ -n "$MEDIA_SOURCE" ]; then mkdir -p /tmp/quiz-media-keep; cp -a "$MEDIA_SOURCE" /tmp/quiz-media-keep/media-packs; fi
+fi
 # Preserve an already migrated bank and detect the legacy v18 bank before deployment.
 if [ -f "$DATA/questions.json" ]; then cp "$DATA/questions.json" /tmp/rq-questions.keep; fi
 if [ -f "$APP/data/questions.json" ]; then cp "$APP/data/questions.json" /tmp/rq-legacy-questions.json; fi
+if ! grep -q '"visual"' /tmp/rq-legacy-questions.json 2>/dev/null; then
+  LEGACY_SOURCE="$(find /opt /var/backups /root -maxdepth 6 -type f -name questions.json -size +1M 2>/dev/null | while read -r f; do grep -q '"visual"' "$f" 2>/dev/null && { echo "$f"; break; }; done)"
+  if [ -n "$LEGACY_SOURCE" ]; then cp "$LEGACY_SOURCE" /tmp/rq-legacy-questions.json; fi
+fi
 rsync -a --delete --exclude data/ "$SRC/" "$APP/"
+mkdir -p "$APP/data"
+cp "$SRC/data/child-questions.json" "$APP/data/child-questions.json"
 cd "$APP"
 if [ -f package-lock.json ]; then npm ci --omit=dev; else npm install --omit=dev; fi
 for f in questions.json results.json settings.json; do [ -f "$DATA/$f" ] || cp "$SRC/data/$f" "$DATA/$f"; done
@@ -22,8 +36,13 @@ if [ -f /tmp/rq-questions.keep ]; then
 elif [ -f /tmp/rq-legacy-questions.json ]; then
   node "$(dirname "$0")/import-legacy-questions.js" /tmp/rq-legacy-questions.json "$DATA/questions.json"
 fi
+# Restore legacy question image metadata that v19.0-19.3 importers did not preserve.
+if [ -f /tmp/rq-legacy-questions.json ]; then node "$(dirname "$0")/repair-legacy-question-media.js" "$DATA/questions.json" /tmp/rq-legacy-questions.json || true; fi
+if [ -d /tmp/quiz-media-keep/media-packs ]; then mkdir -p "$APP/public"; cp -a /tmp/quiz-media-keep/media-packs "$APP/public/"; fi
 chown -R resequiz:resequiz "$APP" "$DATA"
 cp "$(dirname "$0")/../deploy/resequiz.service" /etc/systemd/system/resequiz.service
 systemctl daemon-reload; systemctl enable --now resequiz
 sleep 2
 curl -fsS http://127.0.0.1:3000/health; echo
+ADMIN_CONFIGURED="$(node -e 'const fs=require("fs");try{const a=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));process.stdout.write(a.passwordHash?"yes":"no")}catch(e){process.stdout.write("no")}' "$DATA/admin-auth.json")"
+if [ "$ADMIN_CONFIGURED" = "no" ]; then echo; echo "Admin installationsnyckel: $(cat "$DATA/admin-setup-key")"; fi

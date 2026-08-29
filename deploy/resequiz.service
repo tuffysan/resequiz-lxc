@@ -1,5 +1,5 @@
 [Unit]
-Description=Resequiz mobile-first realtime server v19.1
+Description=Quiz realtime server
 After=network-online.target
 Wants=network-online.target
 

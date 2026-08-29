@@ -1,0 +1,5442 @@
+[
+  {
+    "id": "kids-theme-001",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket djur säger mjau?",
+    "answers": [
+      "Katt",
+      "Hund",
+      "Ko",
+      "Häst"
+    ],
+    "correct": 0,
+    "explanation": "Katten säger mjau."
+  },
+  {
+    "id": "kids-theme-002",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket djur har en lång snabel?",
+    "answers": [
+      "Elefant",
+      "Kanin",
+      "Hund",
+      "Pingvin"
+    ],
+    "correct": 0,
+    "explanation": "Elefanten har en lång snabel."
+  },
+  {
+    "id": "kids-theme-003",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket djur bor ofta i en bikupa?",
+    "answers": [
+      "Bi",
+      "Fjäril",
+      "Myra",
+      "Spindel"
+    ],
+    "correct": 0,
+    "explanation": "Bin bor tillsammans i bikupor."
+  },
+  {
+    "id": "kids-theme-004",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket djur kan spinna när det är nöjt?",
+    "answers": [
+      "Katt",
+      "Häst",
+      "Ko",
+      "Anka"
+    ],
+    "correct": 0,
+    "explanation": "Katter kan spinna."
+  },
+  {
+    "id": "kids-theme-005",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket djur säger vov?",
+    "answers": [
+      "Hund",
+      "Katt",
+      "Får",
+      "Höna"
+    ],
+    "correct": 0,
+    "explanation": "Hunden säger vov."
+  },
+  {
+    "id": "kids-theme-006",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket djur har svartvita ränder?",
+    "answers": [
+      "Zebra",
+      "Giraff",
+      "Lejon",
+      "Elefant"
+    ],
+    "correct": 0,
+    "explanation": "Zebran har svartvita ränder."
+  },
+  {
+    "id": "kids-theme-007",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket djur är känt för sin långa hals?",
+    "answers": [
+      "Giraff",
+      "Zebra",
+      "Noshörning",
+      "Krokodil"
+    ],
+    "correct": 0,
+    "explanation": "Giraffen har en mycket lång hals."
+  },
+  {
+    "id": "kids-theme-008",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket djur lever i vatten och har fenor?",
+    "answers": [
+      "Fisk",
+      "Kanin",
+      "Häst",
+      "Katt"
+    ],
+    "correct": 0,
+    "explanation": "Fiskar lever i vatten och har fenor."
+  },
+  {
+    "id": "kids-theme-009",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket djur bär ofta sitt hus på ryggen?",
+    "answers": [
+      "Snigel",
+      "Fågel",
+      "Räv",
+      "Groda"
+    ],
+    "correct": 0,
+    "explanation": "Snigeln har sitt skal på ryggen."
+  },
+  {
+    "id": "kids-theme-010",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket djur hoppar och har långa öron?",
+    "answers": [
+      "Kanin",
+      "Ko",
+      "Gris",
+      "Höna"
+    ],
+    "correct": 0,
+    "explanation": "Kaniner har långa öron och kan hoppa."
+  },
+  {
+    "id": "kids-theme-011",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket djur är världens största landdjur?",
+    "answers": [
+      "Afrikansk elefant",
+      "Giraff",
+      "Flodhäst",
+      "Noshörning"
+    ],
+    "correct": 0,
+    "explanation": "Den afrikanska elefanten är det största landdjuret."
+  },
+  {
+    "id": "kids-theme-012",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad kallas en grodas unge?",
+    "answers": [
+      "Grodyngel",
+      "Kalv",
+      "Kulting",
+      "Kyckling"
+    ],
+    "correct": 0,
+    "explanation": "En grodas unge kallas grodyngel."
+  },
+  {
+    "id": "kids-theme-013",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket djur bygger dammar i vattendrag?",
+    "answers": [
+      "Bäver",
+      "Utter",
+      "Räv",
+      "Hare"
+    ],
+    "correct": 0,
+    "explanation": "Bävrar bygger dammar av bland annat grenar."
+  },
+  {
+    "id": "kids-theme-014",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket däggdjur kan flyga på riktigt?",
+    "answers": [
+      "Fladdermus",
+      "Flygekorre",
+      "Pingvin",
+      "Struts"
+    ],
+    "correct": 0,
+    "explanation": "Fladdermöss är de enda däggdjuren som kan aktivt flyga."
+  },
+  {
+    "id": "kids-theme-015",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket djur har åtta ben?",
+    "answers": [
+      "Spindel",
+      "Myra",
+      "Bi",
+      "Skalbagge"
+    ],
+    "correct": 0,
+    "explanation": "Spindlar har åtta ben."
+  },
+  {
+    "id": "kids-theme-016",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket djur kallas ofta skogens konung i Sverige?",
+    "answers": [
+      "Älg",
+      "Rådjur",
+      "Räv",
+      "Varg"
+    ],
+    "correct": 0,
+    "explanation": "Älgen kallas ofta skogens konung."
+  },
+  {
+    "id": "kids-theme-017",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad äter en panda främst?",
+    "answers": [
+      "Bambu",
+      "Fisk",
+      "Gräsfrön",
+      "Insekter"
+    ],
+    "correct": 0,
+    "explanation": "Jättepandor äter främst bambu."
+  },
+  {
+    "id": "kids-theme-018",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilken fågel kan inte flyga och lever i Antarktis?",
+    "answers": [
+      "Pingvin",
+      "Mås",
+      "Svala",
+      "Örn"
+    ],
+    "correct": 0,
+    "explanation": "Flera pingvinarter lever i Antarktis och kan inte flyga."
+  },
+  {
+    "id": "kids-theme-019",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket djur kan ändra färg för att smälta in?",
+    "answers": [
+      "Kameleont",
+      "Zebra",
+      "Delfin",
+      "Igelkott"
+    ],
+    "correct": 0,
+    "explanation": "Kameleonter kan ändra färg."
+  },
+  {
+    "id": "kids-theme-020",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket djur har ett hårt skal och går ofta långsamt?",
+    "answers": [
+      "Sköldpadda",
+      "Ekorre",
+      "Varg",
+      "Papegoja"
+    ],
+    "correct": 0,
+    "explanation": "Sköldpaddor har ett skyddande skal."
+  },
+  {
+    "id": "kids-theme-021",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilket är världens största djur?",
+    "answers": [
+      "Blåval",
+      "Afrikansk elefant",
+      "Vithaj",
+      "Giraff"
+    ],
+    "correct": 0,
+    "explanation": "Blåvalen är världens största djur."
+  },
+  {
+    "id": "kids-theme-022",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad kallas djur som äter både växter och kött?",
+    "answers": [
+      "Allätare",
+      "Växtätare",
+      "Rovdjur",
+      "Nedbrytare"
+    ],
+    "correct": 0,
+    "explanation": "Allätare äter både växt- och animalisk föda."
+  },
+  {
+    "id": "kids-theme-023",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken djurgrupp tillhör grodor?",
+    "answers": [
+      "Groddjur",
+      "Reptiler",
+      "Däggdjur",
+      "Fåglar"
+    ],
+    "correct": 0,
+    "explanation": "Grodor är groddjur."
+  },
+  {
+    "id": "kids-theme-024",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Hur många hjärtan har en bläckfisk?",
+    "answers": [
+      "Tre",
+      "Ett",
+      "Två",
+      "Fyra"
+    ],
+    "correct": 0,
+    "explanation": "Bläckfiskar har tre hjärtan."
+  },
+  {
+    "id": "kids-theme-025",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilket djur är snabbast på land?",
+    "answers": [
+      "Gepard",
+      "Lejon",
+      "Häst",
+      "Gasell"
+    ],
+    "correct": 0,
+    "explanation": "Geparden är det snabbaste landdjuret."
+  },
+  {
+    "id": "kids-theme-026",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilket sinne använder fladdermöss ofta för att hitta i mörker?",
+    "answers": [
+      "Ekolokalisering",
+      "Smak",
+      "Färgseende",
+      "Magnetism"
+    ],
+    "correct": 0,
+    "explanation": "Många fladdermöss använder ekolokalisering."
+  },
+  {
+    "id": "kids-theme-027",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilket av dessa djur är ett pungdjur?",
+    "answers": [
+      "Känguru",
+      "Tiger",
+      "Panda",
+      "Zebra"
+    ],
+    "correct": 0,
+    "explanation": "Kängurun är ett pungdjur."
+  },
+  {
+    "id": "kids-theme-028",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad kallas en grupp vargar?",
+    "answers": [
+      "Flock",
+      "Stim",
+      "Svärm",
+      "Hjord endast"
+    ],
+    "correct": 0,
+    "explanation": "Vargar lever ofta i flockar."
+  },
+  {
+    "id": "kids-theme-029",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilket djur har den längsta halsen?",
+    "answers": [
+      "Giraff",
+      "Kamel",
+      "Häst",
+      "Struts"
+    ],
+    "correct": 0,
+    "explanation": "Giraffen har längst hals av landdjuren."
+  },
+  {
+    "id": "kids-theme-030",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilket havsdjur är ett däggdjur?",
+    "answers": [
+      "Delfin",
+      "Torsk",
+      "Haj",
+      "Bläckfisk"
+    ],
+    "correct": 0,
+    "explanation": "Delfinen är ett däggdjur och andas luft."
+  },
+  {
+    "id": "kids-theme-031",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilket vetenskapligt namn har människan?",
+    "answers": [
+      "Homo sapiens",
+      "Pan troglodytes",
+      "Canis lupus",
+      "Felis catus"
+    ],
+    "correct": 0,
+    "explanation": "Människans vetenskapliga namn är Homo sapiens."
+  },
+  {
+    "id": "kids-theme-032",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad innebär att ett djur är endemiskt?",
+    "answers": [
+      "Det finns naturligt bara i ett visst område",
+      "Det lever i alla världsdelar",
+      "Det är alltid tamt",
+      "Det är nattaktivt"
+    ],
+    "correct": 0,
+    "explanation": "En endemisk art har ett naturligt begränsat utbredningsområde."
+  },
+  {
+    "id": "kids-theme-033",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken djurgrupp har fjädrar?",
+    "answers": [
+      "Fåglar",
+      "Däggdjur",
+      "Reptiler",
+      "Groddjur"
+    ],
+    "correct": 0,
+    "explanation": "Fjädrar är unika för fåglar."
+  },
+  {
+    "id": "kids-theme-034",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken process använder vissa ödlor för att släppa svansen vid fara?",
+    "answers": [
+      "Autotomi",
+      "Fotosyntes",
+      "Metamorfos",
+      "Dvala"
+    ],
+    "correct": 0,
+    "explanation": "Autotomi innebär att djuret kan släppa en kroppsdel, exempelvis svansen."
+  },
+  {
+    "id": "kids-theme-035",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilket av dessa är ett kloakdjur?",
+    "answers": [
+      "Näbbdjur",
+      "Koala",
+      "Känguru",
+      "Delfin"
+    ],
+    "correct": 0,
+    "explanation": "Näbbdjuret är ett äggläggande kloakdjur."
+  },
+  {
+    "id": "kids-theme-036",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad kallas omvandlingen från larv till vuxen insekt?",
+    "answers": [
+      "Metamorfos",
+      "Migration",
+      "Mutation",
+      "Ekolokalisering"
+    ],
+    "correct": 0,
+    "explanation": "Metamorfos är utvecklingen genom tydligt olika livsstadier."
+  },
+  {
+    "id": "kids-theme-037",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilket rovdjur tillhör kattdjuren?",
+    "answers": [
+      "Lodjur",
+      "Varg",
+      "Räv",
+      "Järv"
+    ],
+    "correct": 0,
+    "explanation": "Lodjuret är ett kattdjur."
+  },
+  {
+    "id": "kids-theme-038",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken struktur hjälper fiskar att ta upp syre ur vatten?",
+    "answers": [
+      "Gälar",
+      "Lungblåsor",
+      "Fjädrar",
+      "Hudplattor"
+    ],
+    "correct": 0,
+    "explanation": "Fiskar använder gälar för gasutbyte."
+  },
+  {
+    "id": "kids-theme-039",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är en herbivor?",
+    "answers": [
+      "Ett växtätande djur",
+      "Ett köttätande djur",
+      "Ett djur som bara äter insekter",
+      "Ett nattaktivt djur"
+    ],
+    "correct": 0,
+    "explanation": "Herbivor betyder växtätare."
+  },
+  {
+    "id": "kids-theme-040",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken art är människans närmaste nu levande släkting tillsammans med bonobon?",
+    "answers": [
+      "Schimpans",
+      "Gorilla",
+      "Orangutang",
+      "Gibbon"
+    ],
+    "correct": 0,
+    "explanation": "Schimpanser och bonoboer är våra närmaste nu levande släktingar."
+  },
+  {
+    "id": "kids-theme-041",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket land bor vi i?",
+    "answers": [
+      "Sverige",
+      "Norge",
+      "Spanien",
+      "Japan"
+    ],
+    "correct": 0,
+    "explanation": "Sverige är landet vi bor i."
+  },
+  {
+    "id": "kids-theme-042",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad heter Sveriges huvudstad?",
+    "answers": [
+      "Stockholm",
+      "Malmö",
+      "Göteborg",
+      "Uppsala"
+    ],
+    "correct": 0,
+    "explanation": "Stockholm är Sveriges huvudstad."
+  },
+  {
+    "id": "kids-theme-043",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad kallas det stora blå området på en karta?",
+    "answers": [
+      "Hav",
+      "Berg",
+      "Öken",
+      "Skog"
+    ],
+    "correct": 0,
+    "explanation": "Stora blå områden på kartor visar ofta hav."
+  },
+  {
+    "id": "kids-theme-044",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket land är känt för Eiffeltornet?",
+    "answers": [
+      "Frankrike",
+      "Sverige",
+      "Danmark",
+      "Finland"
+    ],
+    "correct": 0,
+    "explanation": "Eiffeltornet står i Paris i Frankrike."
+  },
+  {
+    "id": "kids-theme-045",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilken planet bor vi på?",
+    "answers": [
+      "Jorden",
+      "Mars",
+      "Venus",
+      "Jupiter"
+    ],
+    "correct": 0,
+    "explanation": "Vi bor på planeten Jorden."
+  },
+  {
+    "id": "kids-theme-046",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad heter landet väster om Sverige?",
+    "answers": [
+      "Norge",
+      "Finland",
+      "Polen",
+      "Island"
+    ],
+    "correct": 0,
+    "explanation": "Norge ligger väster om Sverige."
+  },
+  {
+    "id": "kids-theme-047",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket väderstreck är högst upp på de flesta kartor?",
+    "answers": [
+      "Norr",
+      "Söder",
+      "Öster",
+      "Väster"
+    ],
+    "correct": 0,
+    "explanation": "Norr visas oftast uppåt på kartor."
+  },
+  {
+    "id": "kids-theme-048",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket land har formen av en stövel på kartan?",
+    "answers": [
+      "Italien",
+      "Kanada",
+      "Japan",
+      "Sverige"
+    ],
+    "correct": 0,
+    "explanation": "Italien brukar beskrivas som stövelformat."
+  },
+  {
+    "id": "kids-theme-049",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad heter Sveriges största ö?",
+    "answers": [
+      "Gotland",
+      "Öland",
+      "Ven",
+      "Orust"
+    ],
+    "correct": 0,
+    "explanation": "Gotland är Sveriges största ö."
+  },
+  {
+    "id": "kids-theme-050",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilken världsdel ligger Sverige i?",
+    "answers": [
+      "Europa",
+      "Afrika",
+      "Asien",
+      "Sydamerika"
+    ],
+    "correct": 0,
+    "explanation": "Sverige ligger i Europa."
+  },
+  {
+    "id": "kids-theme-051",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad heter Frankrikes huvudstad?",
+    "answers": [
+      "Paris",
+      "Rom",
+      "Madrid",
+      "Berlin"
+    ],
+    "correct": 0,
+    "explanation": "Paris är Frankrikes huvudstad."
+  },
+  {
+    "id": "kids-theme-052",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilken är Europas största ö?",
+    "answers": [
+      "Storbritannien",
+      "Gotland",
+      "Kreta",
+      "Sicilien"
+    ],
+    "correct": 0,
+    "explanation": "Storbritannien är Europas största ö."
+  },
+  {
+    "id": "kids-theme-053",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilken flod rinner genom Egypten?",
+    "answers": [
+      "Nilen",
+      "Amazonas",
+      "Donau",
+      "Mississippi"
+    ],
+    "correct": 0,
+    "explanation": "Nilen rinner genom Egypten."
+  },
+  {
+    "id": "kids-theme-054",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilken världsdel är störst?",
+    "answers": [
+      "Asien",
+      "Europa",
+      "Afrika",
+      "Australien"
+    ],
+    "correct": 0,
+    "explanation": "Asien är den största världsdelen."
+  },
+  {
+    "id": "kids-theme-055",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket land ligger direkt öster om Sverige?",
+    "answers": [
+      "Finland",
+      "Norge",
+      "Island",
+      "Irland"
+    ],
+    "correct": 0,
+    "explanation": "Finland ligger öster om Sverige."
+  },
+  {
+    "id": "kids-theme-056",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad heter Spaniens huvudstad?",
+    "answers": [
+      "Madrid",
+      "Barcelona",
+      "Lissabon",
+      "Sevilla"
+    ],
+    "correct": 0,
+    "explanation": "Madrid är Spaniens huvudstad."
+  },
+  {
+    "id": "kids-theme-057",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket hav ligger mellan Sverige och Finland?",
+    "answers": [
+      "Östersjön",
+      "Medelhavet",
+      "Nordsjön",
+      "Svarta havet"
+    ],
+    "correct": 0,
+    "explanation": "Östersjön ligger mellan Sverige och Finland."
+  },
+  {
+    "id": "kids-theme-058",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "I vilken världsdel ligger Kenya?",
+    "answers": [
+      "Afrika",
+      "Asien",
+      "Europa",
+      "Nordamerika"
+    ],
+    "correct": 0,
+    "explanation": "Kenya ligger i Afrika."
+  },
+  {
+    "id": "kids-theme-059",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad heter världens största ocean?",
+    "answers": [
+      "Stilla havet",
+      "Atlanten",
+      "Indiska oceanen",
+      "Norra ishavet"
+    ],
+    "correct": 0,
+    "explanation": "Stilla havet är störst."
+  },
+  {
+    "id": "kids-theme-060",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket land har Tokyo som huvudstad?",
+    "answers": [
+      "Japan",
+      "Kina",
+      "Thailand",
+      "Sydkorea"
+    ],
+    "correct": 0,
+    "explanation": "Tokyo är Japans huvudstad."
+  },
+  {
+    "id": "kids-theme-061",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken bergskedja går genom bland annat Schweiz?",
+    "answers": [
+      "Alperna",
+      "Anderna",
+      "Himalaya",
+      "Klippiga bergen"
+    ],
+    "correct": 0,
+    "explanation": "Alperna sträcker sig genom Schweiz och flera andra europeiska länder."
+  },
+  {
+    "id": "kids-theme-062",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken är Afrikas största ö?",
+    "answers": [
+      "Madagaskar",
+      "Sicilien",
+      "Island",
+      "Sri Lanka"
+    ],
+    "correct": 0,
+    "explanation": "Madagaskar är Afrikas största ö."
+  },
+  {
+    "id": "kids-theme-063",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken huvudstad ligger vid floden Thames?",
+    "answers": [
+      "London",
+      "Paris",
+      "Wien",
+      "Prag"
+    ],
+    "correct": 0,
+    "explanation": "London ligger vid Themsen."
+  },
+  {
+    "id": "kids-theme-064",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilket land har flest invånare i Sydamerika?",
+    "answers": [
+      "Brasilien",
+      "Chile",
+      "Peru",
+      "Argentina"
+    ],
+    "correct": 0,
+    "explanation": "Brasilien har störst befolkning i Sydamerika."
+  },
+  {
+    "id": "kids-theme-065",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken öken ligger i norra Afrika?",
+    "answers": [
+      "Sahara",
+      "Gobi",
+      "Atacama",
+      "Kalahari"
+    ],
+    "correct": 0,
+    "explanation": "Sahara ligger i norra Afrika."
+  },
+  {
+    "id": "kids-theme-066",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilket land gränsar både till Sverige och Ryssland?",
+    "answers": [
+      "Finland",
+      "Norge",
+      "Danmark",
+      "Estland"
+    ],
+    "correct": 0,
+    "explanation": "Finland gränsar till både Sverige och Ryssland."
+  },
+  {
+    "id": "kids-theme-067",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad heter Italiens huvudstad?",
+    "answers": [
+      "Rom",
+      "Milano",
+      "Neapel",
+      "Venedig"
+    ],
+    "correct": 0,
+    "explanation": "Rom är Italiens huvudstad."
+  },
+  {
+    "id": "kids-theme-068",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken kontinent ligger helt på södra halvklotet?",
+    "answers": [
+      "Antarktis",
+      "Europa",
+      "Nordamerika",
+      "Asien"
+    ],
+    "correct": 0,
+    "explanation": "Antarktis ligger helt på södra halvklotet."
+  },
+  {
+    "id": "kids-theme-069",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilket land ligger staden Marrakech i?",
+    "answers": [
+      "Marocko",
+      "Egypten",
+      "Spanien",
+      "Portugal"
+    ],
+    "correct": 0,
+    "explanation": "Marrakech ligger i Marocko."
+  },
+  {
+    "id": "kids-theme-070",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken kanal förbinder Medelhavet med Röda havet?",
+    "answers": [
+      "Suezkanalen",
+      "Panamakanalen",
+      "Göta kanal",
+      "Kielkanalen"
+    ],
+    "correct": 0,
+    "explanation": "Suezkanalen förbinder Medelhavet och Röda havet."
+  },
+  {
+    "id": "kids-theme-071",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken är världens största ö om Australien räknas som kontinent?",
+    "answers": [
+      "Grönland",
+      "Nya Guinea",
+      "Borneo",
+      "Madagaskar"
+    ],
+    "correct": 0,
+    "explanation": "Grönland är världens största ö enligt denna indelning."
+  },
+  {
+    "id": "kids-theme-072",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilket land omger Lesotho helt?",
+    "answers": [
+      "Sydafrika",
+      "Namibia",
+      "Botswana",
+      "Zimbabwe"
+    ],
+    "correct": 0,
+    "explanation": "Lesotho är helt omgivet av Sydafrika."
+  },
+  {
+    "id": "kids-theme-073",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilket sund skiljer Sverige från Danmark mellan Helsingborg och Helsingör?",
+    "answers": [
+      "Öresund",
+      "Kattegatt",
+      "Skagerrak",
+      "Kvarken"
+    ],
+    "correct": 0,
+    "explanation": "Öresund ligger mellan Helsingborg och Helsingör."
+  },
+  {
+    "id": "kids-theme-074",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken flod passerar Budapest?",
+    "answers": [
+      "Donau",
+      "Rhen",
+      "Seine",
+      "Po"
+    ],
+    "correct": 0,
+    "explanation": "Donau rinner genom Budapest."
+  },
+  {
+    "id": "kids-theme-075",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilket land har både en kust mot Atlanten och Medelhavet?",
+    "answers": [
+      "Marocko",
+      "Österrike",
+      "Serbien",
+      "Ungern"
+    ],
+    "correct": 0,
+    "explanation": "Marocko har kust mot både Atlanten och Medelhavet."
+  },
+  {
+    "id": "kids-theme-076",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken är världens högsta bergstopp över havet?",
+    "answers": [
+      "Mount Everest",
+      "K2",
+      "Kilimanjaro",
+      "Mont Blanc"
+    ],
+    "correct": 0,
+    "explanation": "Mount Everest är högst över havet."
+  },
+  {
+    "id": "kids-theme-077",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken huvudstad ligger längst norrut av Oslo, Stockholm, Helsingfors och Köpenhamn?",
+    "answers": [
+      "Helsingfors",
+      "Oslo",
+      "Stockholm",
+      "Köpenhamn"
+    ],
+    "correct": 0,
+    "explanation": "Helsingfors ligger något nordligare än de övriga alternativen."
+  },
+  {
+    "id": "kids-theme-078",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken är den största sjön helt inom Sverige?",
+    "answers": [
+      "Vänern",
+      "Vättern",
+      "Mälaren",
+      "Hjälmaren"
+    ],
+    "correct": 0,
+    "explanation": "Vänern är Sveriges största sjö."
+  },
+  {
+    "id": "kids-theme-079",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken tidslinje används som utgångspunkt för longitud 0°?",
+    "answers": [
+      "Greenwichmeridianen",
+      "Ekvatorn",
+      "Kräftans vändkrets",
+      "Datumgränsen"
+    ],
+    "correct": 0,
+    "explanation": "Nollmeridianen går genom Greenwich."
+  },
+  {
+    "id": "kids-theme-080",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken huvudstad ligger i Nya Zeeland?",
+    "answers": [
+      "Wellington",
+      "Auckland",
+      "Sydney",
+      "Canberra"
+    ],
+    "correct": 0,
+    "explanation": "Wellington är Nya Zeelands huvudstad."
+  },
+  {
+    "id": "kids-theme-081",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad använder spelarna mest för att sparka bollen?",
+    "answers": [
+      "Fötterna",
+      "Händerna",
+      "Armbågarna",
+      "Hjälmen"
+    ],
+    "correct": 0,
+    "explanation": "I fotboll spelar utespelarna främst bollen med fötterna."
+  },
+  {
+    "id": "kids-theme-082",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Hur ser en vanlig fotboll ut?",
+    "answers": [
+      "Rund",
+      "Fyrkantig",
+      "Trekantig",
+      "Platt"
+    ],
+    "correct": 0,
+    "explanation": "En fotboll är rund."
+  },
+  {
+    "id": "kids-theme-083",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad försöker lagen göra för att få poäng?",
+    "answers": [
+      "Göra mål",
+      "Byta skor",
+      "Springa av planen",
+      "Sitta ner"
+    ],
+    "correct": 0,
+    "explanation": "Lag får poäng genom att göra mål."
+  },
+  {
+    "id": "kids-theme-084",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vem får använda händerna i eget straffområde?",
+    "answers": [
+      "Målvakten",
+      "Alla spelare",
+      "Domaren i spelet",
+      "Publiken"
+    ],
+    "correct": 0,
+    "explanation": "Målvakten får använda händerna i eget straffområde."
+  },
+  {
+    "id": "kids-theme-085",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Hur många mål har varje lag att försvara på planen?",
+    "answers": [
+      "Ett",
+      "Två",
+      "Tre",
+      "Fyra"
+    ],
+    "correct": 0,
+    "explanation": "Varje lag försvarar ett mål."
+  },
+  {
+    "id": "kids-theme-086",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket kort betyder att en spelare varnas?",
+    "answers": [
+      "Gult kort",
+      "Blått kort",
+      "Grönt kort",
+      "Vitt kort"
+    ],
+    "correct": 0,
+    "explanation": "Gult kort används som varning."
+  },
+  {
+    "id": "kids-theme-087",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad heter personen som dömer matchen?",
+    "answers": [
+      "Domare",
+      "Tränare",
+      "Kapten",
+      "Speaker"
+    ],
+    "correct": 0,
+    "explanation": "Domaren leder matchen och tillämpar reglerna."
+  },
+  {
+    "id": "kids-theme-088",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad händer när bollen går helt över mållinjen mellan stolparna?",
+    "answers": [
+      "Det blir mål",
+      "Det blir inkast",
+      "Matchen slutar alltid",
+      "Det blir hörna automatiskt"
+    ],
+    "correct": 0,
+    "explanation": "Det blir mål när bollen passerar mållinjen mellan stolparna enligt reglerna."
+  },
+  {
+    "id": "kids-theme-089",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad har spelarna på fötterna?",
+    "answers": [
+      "Fotbollsskor",
+      "Skridskor",
+      "Simfötter",
+      "Skidor"
+    ],
+    "correct": 0,
+    "explanation": "Fotbollsspelare använder fotbollsskor."
+  },
+  {
+    "id": "kids-theme-090",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilken form har ett fotbollsmål framifrån ungefär?",
+    "answers": [
+      "Rektangel",
+      "Cirkel",
+      "Triangel",
+      "Stjärna"
+    ],
+    "correct": 0,
+    "explanation": "Målramen är rektangulär."
+  },
+  {
+    "id": "kids-theme-091",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Hur många spelare har ett lag normalt på planen när matchen startar?",
+    "answers": [
+      "11",
+      "9",
+      "10",
+      "12"
+    ],
+    "correct": 0,
+    "explanation": "Ett lag har normalt 11 spelare på planen."
+  },
+  {
+    "id": "kids-theme-092",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad kallas det när bollen går över sidlinjen?",
+    "answers": [
+      "Inkast",
+      "Straff",
+      "Avspark",
+      "Frispark alltid"
+    ],
+    "correct": 0,
+    "explanation": "Spelet återupptas med inkast när bollen går över sidlinjen."
+  },
+  {
+    "id": "kids-theme-093",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Hur lång är en vanlig seniormatch utan tilläggstid?",
+    "answers": [
+      "90 minuter",
+      "60 minuter",
+      "80 minuter",
+      "100 minuter"
+    ],
+    "correct": 0,
+    "explanation": "En seniormatch spelas normalt i två halvlekar om 45 minuter."
+  },
+  {
+    "id": "kids-theme-094",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad kallas sparken från hörnet?",
+    "answers": [
+      "Hörna",
+      "Straff",
+      "Avspark",
+      "Inkast"
+    ],
+    "correct": 0,
+    "explanation": "En hörnspark kallas ofta hörna."
+  },
+  {
+    "id": "kids-theme-095",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilken kroppsdel får en utespelare normalt inte medvetet spela bollen med?",
+    "answers": [
+      "Handen",
+      "Foten",
+      "Huvudet",
+      "Bröstet"
+    ],
+    "correct": 0,
+    "explanation": "Utespelare får normalt inte avsiktligt spela bollen med hand eller arm."
+  },
+  {
+    "id": "kids-theme-096",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad heter området framför målet där målvakten får ta bollen med händerna?",
+    "answers": [
+      "Straffområdet",
+      "Mittcirkeln",
+      "Hörnområdet",
+      "Tekniska området"
+    ],
+    "correct": 0,
+    "explanation": "Målvakten får använda händerna i det egna straffområdet."
+  },
+  {
+    "id": "kids-theme-097",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad visas vid utvisning?",
+    "answers": [
+      "Rött kort",
+      "Gult kort",
+      "Grönt kort",
+      "Vitt kort"
+    ],
+    "correct": 0,
+    "explanation": "Rött kort innebär utvisning."
+  },
+  {
+    "id": "kids-theme-098",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad heter starten av en halvlek?",
+    "answers": [
+      "Avspark",
+      "Inkast",
+      "Hörna",
+      "Straff"
+    ],
+    "correct": 0,
+    "explanation": "En halvlek börjar med avspark."
+  },
+  {
+    "id": "kids-theme-099",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad kallas spelaren som står närmast motståndarnas mål och ofta ska göra mål?",
+    "answers": [
+      "Anfallare",
+      "Målvakt",
+      "Domare",
+      "Materialare"
+    ],
+    "correct": 0,
+    "explanation": "Anfallare har ofta huvuduppgift att skapa och göra mål."
+  },
+  {
+    "id": "kids-theme-100",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad kallas spelaren som skyddar det egna målet?",
+    "answers": [
+      "Målvakt",
+      "Ytter",
+      "Forward",
+      "Domare"
+    ],
+    "correct": 0,
+    "explanation": "Målvakten försvarar målet."
+  },
+  {
+    "id": "kids-theme-101",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Hur långt är det från straffpunkten till mållinjen enligt reglerna ungefär?",
+    "answers": [
+      "11 meter",
+      "5 meter",
+      "16 meter",
+      "25 meter"
+    ],
+    "correct": 0,
+    "explanation": "Straffpunkten ligger 11 meter från mållinjen."
+  },
+  {
+    "id": "kids-theme-102",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad betyder offside i stora drag?",
+    "answers": [
+      "En anfallare är otillåtet långt fram när bollen spelas",
+      "Bollen går över sidlinjen",
+      "Målvakten håller bollen",
+      "Domaren blåser av halvleken"
+    ],
+    "correct": 0,
+    "explanation": "Offsideregeln begränsar anfallares position när en lagkamrat spelar bollen."
+  },
+  {
+    "id": "kids-theme-103",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken organisation ansvarar för fotbolls-VM för landslag?",
+    "answers": [
+      "FIFA",
+      "UEFA endast",
+      "IOC",
+      "NHL"
+    ],
+    "correct": 0,
+    "explanation": "FIFA arrangerar herrarnas och damernas fotbolls-VM."
+  },
+  {
+    "id": "kids-theme-104",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Hur många halvlekar har en vanlig fotbollsmatch?",
+    "answers": [
+      "Två",
+      "En",
+      "Tre",
+      "Fyra"
+    ],
+    "correct": 0,
+    "explanation": "En vanlig match består av två halvlekar."
+  },
+  {
+    "id": "kids-theme-105",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad kallas en passning som direkt leder till mål?",
+    "answers": [
+      "Assist",
+      "Offside",
+      "Hörna",
+      "Tackling"
+    ],
+    "correct": 0,
+    "explanation": "En målgivande passning kallas assist."
+  },
+  {
+    "id": "kids-theme-106",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad händer om en cupmatch måste avgöras efter oavgjort och förlängning?",
+    "answers": [
+      "Straffsparksläggning kan användas",
+      "Matchen räknas alltid oavgjord",
+      "Publiken röstar",
+      "Flest hörnor vinner"
+    ],
+    "correct": 0,
+    "explanation": "I många utslagsmatcher används straffsparksläggning om det fortfarande är oavgjort."
+  },
+  {
+    "id": "kids-theme-107",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken position spelar oftast längst bak förutom målvakten?",
+    "answers": [
+      "Försvarare",
+      "Anfallare",
+      "Centerforward",
+      "Domare"
+    ],
+    "correct": 0,
+    "explanation": "Försvarare spelar normalt i den bakre delen av laget."
+  },
+  {
+    "id": "kids-theme-108",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad är ett hattrick?",
+    "answers": [
+      "Tre mål av samma spelare i en match",
+      "Tre gula kort",
+      "Tre hörnor i rad",
+      "Tre byten"
+    ],
+    "correct": 0,
+    "explanation": "Hattrick betyder normalt tre mål av samma spelare i en match."
+  },
+  {
+    "id": "kids-theme-109",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad kallas extra speltid som domaren lägger till i en halvlek?",
+    "answers": [
+      "Tilläggstid",
+      "Paus",
+      "Timeout",
+      "Övertid alltid"
+    ],
+    "correct": 0,
+    "explanation": "Tilläggstid kompenserar bland annat för avbrott."
+  },
+  {
+    "id": "kids-theme-110",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken europeisk turnering spelas mellan framstående klubblag?",
+    "answers": [
+      "UEFA Champions League",
+      "Fotbolls-VM",
+      "Copa América",
+      "Allsvenskan"
+    ],
+    "correct": 0,
+    "explanation": "UEFA Champions League är en europeisk klubblagsturnering."
+  },
+  {
+    "id": "kids-theme-111",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad står VAR för i fotboll?",
+    "answers": [
+      "Video Assistant Referee",
+      "Virtual Action Replay",
+      "Verified Athletic Result",
+      "Video Arena Rule"
+    ],
+    "correct": 0,
+    "explanation": "VAR står för Video Assistant Referee."
+  },
+  {
+    "id": "kids-theme-112",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilket regelverk publicerar IFAB?",
+    "answers": [
+      "Laws of the Game",
+      "FIFA-rankingen",
+      "Klubbarnas löneavtal",
+      "VM-gruppindelningen"
+    ],
+    "correct": 0,
+    "explanation": "IFAB ansvarar för fotbollens Laws of the Game."
+  },
+  {
+    "id": "kids-theme-113",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "När kan offside inte dömas direkt från ett inkast?",
+    "answers": [
+      "Vid mottagning direkt från inkast",
+      "Aldrig",
+      "Endast i första halvlek",
+      "Bara om målvakten kastar"
+    ],
+    "correct": 0,
+    "explanation": "En spelare kan inte bestraffas för offside när bollen tas emot direkt från inkast."
+  },
+  {
+    "id": "kids-theme-114",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad innebär fördel i domarspråk?",
+    "answers": [
+      "Spelet får fortsätta trots förseelse om det gynnar laget som utsattes",
+      "Laget får två mål",
+      "Domaren byts ut",
+      "Matchen förlängs automatiskt"
+    ],
+    "correct": 0,
+    "explanation": "Domaren kan tillämpa fördel när ett avbrott skulle missgynna det utsatta laget."
+  },
+  {
+    "id": "kids-theme-115",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Hur många poäng ger normalt en seger i en seriematch?",
+    "answers": [
+      "3",
+      "1",
+      "2",
+      "4"
+    ],
+    "correct": 0,
+    "explanation": "En seger ger normalt tre poäng."
+  },
+  {
+    "id": "kids-theme-116",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är en defensiv mittfältare?",
+    "answers": [
+      "En mittfältare med stort defensivt ansvar",
+      "En reservmålvakt",
+      "En linjedomare",
+      "En renodlad centerforward"
+    ],
+    "correct": 0,
+    "explanation": "En defensiv mittfältare arbetar mycket med bollvinster och skydd framför backlinjen."
+  },
+  {
+    "id": "kids-theme-117",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad betyder nollan i uttrycket hålla nollan?",
+    "answers": [
+      "Att laget inte släpper in något mål",
+      "Att laget inte skjuter",
+      "Att matchen avbryts",
+      "Att ingen får kort"
+    ],
+    "correct": 0,
+    "explanation": "Att hålla nollan betyder att inte släppa in mål."
+  },
+  {
+    "id": "kids-theme-118",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är målskillnad?",
+    "answers": [
+      "Gjorda mål minus insläppta mål",
+      "Antal vinster minus förluster",
+      "Antal hörnor",
+      "Antal gula kort"
+    ],
+    "correct": 0,
+    "explanation": "Målskillnad beräknas som gjorda mål minus insläppta mål."
+  },
+  {
+    "id": "kids-theme-119",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilket kort följer normalt efter två gula kort till samma spelare i samma match?",
+    "answers": [
+      "Rött kort",
+      "Ett tredje gult",
+      "Grönt kort",
+      "Inget kort"
+    ],
+    "correct": 0,
+    "explanation": "Två gula kort till samma spelare leder normalt till rött kort."
+  },
+  {
+    "id": "kids-theme-120",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är en frispark?",
+    "answers": [
+      "En återstart efter vissa regelbrott",
+      "En paus för vatten",
+      "Ett spelarbyte",
+      "En typ av inkast"
+    ],
+    "correct": 0,
+    "explanation": "Frispark är en av spelets återstarter efter regelbrott."
+  },
+  {
+    "id": "kids-theme-121",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad behöver en blomma för att växa?",
+    "answers": [
+      "Vatten",
+      "Godis",
+      "Plast",
+      "Sandpapper"
+    ],
+    "correct": 0,
+    "explanation": "Växter behöver bland annat vatten."
+  },
+  {
+    "id": "kids-theme-122",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilken årstid kommer efter vintern?",
+    "answers": [
+      "Vår",
+      "Höst",
+      "Sommar",
+      "Vinter igen"
+    ],
+    "correct": 0,
+    "explanation": "Efter vintern kommer våren."
+  },
+  {
+    "id": "kids-theme-123",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Var växer löv?",
+    "answers": [
+      "På träd och buskar",
+      "På moln",
+      "På stenar",
+      "I havet"
+    ],
+    "correct": 0,
+    "explanation": "Löv växer på träd och buskar."
+  },
+  {
+    "id": "kids-theme-124",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad lyser på himlen på dagen?",
+    "answers": [
+      "Solen",
+      "Månen alltid",
+      "En ficklampa",
+      "En gatlykta"
+    ],
+    "correct": 0,
+    "explanation": "Solen lyser på dagen."
+  },
+  {
+    "id": "kids-theme-125",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad faller ofta från moln när det regnar?",
+    "answers": [
+      "Vattendroppar",
+      "Stenar",
+      "Löv",
+      "Sand"
+    ],
+    "correct": 0,
+    "explanation": "Regn består av vattendroppar."
+  },
+  {
+    "id": "kids-theme-126",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilken färg har gräs oftast?",
+    "answers": [
+      "Grönt",
+      "Rosa",
+      "Svart",
+      "Orange"
+    ],
+    "correct": 0,
+    "explanation": "Friskt gräs är oftast grönt."
+  },
+  {
+    "id": "kids-theme-127",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad kan smälta när det blir varmt?",
+    "answers": [
+      "Is",
+      "Sten",
+      "Trä",
+      "Sand"
+    ],
+    "correct": 0,
+    "explanation": "Is smälter till vatten när den värms."
+  },
+  {
+    "id": "kids-theme-128",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad kallas fruset vatten?",
+    "answers": [
+      "Is",
+      "Ånga",
+      "Regn",
+      "Dimma"
+    ],
+    "correct": 0,
+    "explanation": "Fruset vatten är is."
+  },
+  {
+    "id": "kids-theme-129",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilken årstid faller många löv från träden?",
+    "answers": [
+      "Höst",
+      "Vår",
+      "Sommar",
+      "Vinter endast"
+    ],
+    "correct": 0,
+    "explanation": "Många lövträd tappar sina löv på hösten."
+  },
+  {
+    "id": "kids-theme-130",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad kan man se på himlen efter regn och solsken?",
+    "answers": [
+      "Regnbåge",
+      "Snöboll",
+      "Berg",
+      "Vulkan"
+    ],
+    "correct": 0,
+    "explanation": "En regnbåge kan synas när solljus bryts i vattendroppar."
+  },
+  {
+    "id": "kids-theme-131",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad kallas processen när vatten blir till ånga?",
+    "answers": [
+      "Avdunstning",
+      "Frysning",
+      "Smältning",
+      "Kondensation"
+    ],
+    "correct": 0,
+    "explanation": "När flytande vatten blir gas sker avdunstning."
+  },
+  {
+    "id": "kids-theme-132",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad behöver växter från solen för fotosyntesen?",
+    "answers": [
+      "Ljus",
+      "Snö",
+      "Vind",
+      "Ljud"
+    ],
+    "correct": 0,
+    "explanation": "Växter använder ljusenergi i fotosyntesen."
+  },
+  {
+    "id": "kids-theme-133",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket lager av jorden går vi på?",
+    "answers": [
+      "Jordskorpan",
+      "Kärnan",
+      "Mantelns mitt",
+      "Atmosfären"
+    ],
+    "correct": 0,
+    "explanation": "Vi lever på jordskorpan."
+  },
+  {
+    "id": "kids-theme-134",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad kallas vatten som faller som iskristaller?",
+    "answers": [
+      "Snö",
+      "Dagg",
+      "Dimma",
+      "Ånga"
+    ],
+    "correct": 0,
+    "explanation": "Snö består av iskristaller."
+  },
+  {
+    "id": "kids-theme-135",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilken gas andas människor in för att leva?",
+    "answers": [
+      "Syre",
+      "Koldioxid",
+      "Helium",
+      "Väte"
+    ],
+    "correct": 0,
+    "explanation": "Människor behöver syre för cellandningen."
+  },
+  {
+    "id": "kids-theme-136",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad kallas en lång period med mycket lite regn?",
+    "answers": [
+      "Torka",
+      "Storm",
+      "Flod",
+      "Åska"
+    ],
+    "correct": 0,
+    "explanation": "Torka innebär långvarig brist på nederbörd."
+  },
+  {
+    "id": "kids-theme-137",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad är solen?",
+    "answers": [
+      "En stjärna",
+      "En planet",
+      "En måne",
+      "En komet"
+    ],
+    "correct": 0,
+    "explanation": "Solen är en stjärna."
+  },
+  {
+    "id": "kids-theme-138",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad kallas smält sten som kommer ut ur en vulkan?",
+    "answers": [
+      "Lava",
+      "Is",
+      "Lera",
+      "Grus"
+    ],
+    "correct": 0,
+    "explanation": "Magma som når jordytan kallas lava."
+  },
+  {
+    "id": "kids-theme-139",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket naturfenomen hörs ofta efter en blixt?",
+    "answers": [
+      "Åska",
+      "Dimma",
+      "Dagg",
+      "Norrsken"
+    ],
+    "correct": 0,
+    "explanation": "Åskmuller hör ihop med blixtar."
+  },
+  {
+    "id": "kids-theme-140",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad kallas en stor samling träd?",
+    "answers": [
+      "Skog",
+      "Öken",
+      "Glaciär",
+      "Savann alltid"
+    ],
+    "correct": 0,
+    "explanation": "En skog är ett område med många träd."
+  },
+  {
+    "id": "kids-theme-141",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad är fotosyntes?",
+    "answers": [
+      "När växter använder ljus för att bilda energirika ämnen",
+      "När vatten fryser",
+      "När djur sover",
+      "När sten smälter"
+    ],
+    "correct": 0,
+    "explanation": "Fotosyntes omvandlar ljusenergi och bygger bland annat socker."
+  },
+  {
+    "id": "kids-theme-142",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken gas tar växter upp vid fotosyntesen?",
+    "answers": [
+      "Koldioxid",
+      "Syre",
+      "Kväve endast",
+      "Helium"
+    ],
+    "correct": 0,
+    "explanation": "Växter tar upp koldioxid vid fotosyntesen."
+  },
+  {
+    "id": "kids-theme-143",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad orsakar tidvatten främst?",
+    "answers": [
+      "Månens gravitation",
+      "Vind enbart",
+      "Moln",
+      "Jordens magnetfält"
+    ],
+    "correct": 0,
+    "explanation": "Månens gravitation är den viktigaste orsaken till tidvatten."
+  },
+  {
+    "id": "kids-theme-144",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad kallas gränsen där två tektoniska plattor möts?",
+    "answers": [
+      "Plattgräns",
+      "Ekvator",
+      "Vattendelare",
+      "Polcirkel"
+    ],
+    "correct": 0,
+    "explanation": "Tektoniska plattor möts vid plattgränser."
+  },
+  {
+    "id": "kids-theme-145",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad är en glaciär?",
+    "answers": [
+      "En stor ismassa som rör sig långsamt",
+      "En varm källa",
+      "En sanddyn",
+      "En vulkan"
+    ],
+    "correct": 0,
+    "explanation": "En glaciär är en långsamt rörlig massa av is."
+  },
+  {
+    "id": "kids-theme-146",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken del av en växt tar oftast upp vatten ur marken?",
+    "answers": [
+      "Rötterna",
+      "Blommorna",
+      "Frukten",
+      "Fröna"
+    ],
+    "correct": 0,
+    "explanation": "Rötterna tar upp vatten och mineraler."
+  },
+  {
+    "id": "kids-theme-147",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad kallas vattenånga som blir flytande vatten?",
+    "answers": [
+      "Kondensation",
+      "Avdunstning",
+      "Sublimering",
+      "Förbränning"
+    ],
+    "correct": 0,
+    "explanation": "När gas blir vätska sker kondensation."
+  },
+  {
+    "id": "kids-theme-148",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken energikälla driver vattnets kretslopp mest?",
+    "answers": [
+      "Solen",
+      "Månen",
+      "Jordens kärna",
+      "Vindkraftverk"
+    ],
+    "correct": 0,
+    "explanation": "Solenergi driver avdunstning och därmed vattnets kretslopp."
+  },
+  {
+    "id": "kids-theme-149",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad mäter en termometer?",
+    "answers": [
+      "Temperatur",
+      "Vindriktning",
+      "Luftfuktighet endast",
+      "Nederbörd"
+    ],
+    "correct": 0,
+    "explanation": "En termometer mäter temperatur."
+  },
+  {
+    "id": "kids-theme-150",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken typ av berg bildas när magma eller lava stelnar?",
+    "answers": [
+      "Magmatisk bergart",
+      "Sedimentär bergart alltid",
+      "Metamorf bergart alltid",
+      "Torv"
+    ],
+    "correct": 0,
+    "explanation": "Magmatiska bergarter bildas när smälta bergarter stelnar."
+  },
+  {
+    "id": "kids-theme-151",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad beskriver växthuseffekten?",
+    "answers": [
+      "Atmosfärens gaser håller kvar en del värmestrålning",
+      "Jorden skapar extra solstrålning",
+      "Haven slutar avdunsta",
+      "Syre blir till kväve"
+    ],
+    "correct": 0,
+    "explanation": "Växthusgaser absorberar och återutstrålar värmestrålning."
+  },
+  {
+    "id": "kids-theme-152",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är biologisk mångfald?",
+    "answers": [
+      "Variation av arter, gener och ekosystem",
+      "Bara antalet träd",
+      "Endast antalet rovdjur",
+      "Hur varmt ett område är"
+    ],
+    "correct": 0,
+    "explanation": "Biologisk mångfald omfattar variation på flera biologiska nivåer."
+  },
+  {
+    "id": "kids-theme-153",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken process frigör energi ur glukos i celler?",
+    "answers": [
+      "Cellandning",
+      "Fotosyntes",
+      "Kondensation",
+      "Erosion"
+    ],
+    "correct": 0,
+    "explanation": "Cellandning frigör användbar energi ur energirika ämnen."
+  },
+  {
+    "id": "kids-theme-154",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är pH 7 ungefär vid rumstemperatur?",
+    "answers": [
+      "Neutralt",
+      "Starkt surt",
+      "Starkt basiskt",
+      "Radioaktivt"
+    ],
+    "correct": 0,
+    "explanation": "pH 7 räknas som neutralt i vanligt vatten vid ungefär rumstemperatur."
+  },
+  {
+    "id": "kids-theme-155",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad kallas nedbrytning och borttransport av berg och jord?",
+    "answers": [
+      "Erosion",
+      "Fotosyntes",
+      "Kondensation",
+      "Fusion"
+    ],
+    "correct": 0,
+    "explanation": "Erosion nöter och transporterar material."
+  },
+  {
+    "id": "kids-theme-156",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilket atmosfärslager innehåller ozonlagret främst?",
+    "answers": [
+      "Stratosfären",
+      "Troposfären endast",
+      "Mesosfären",
+      "Exosfären"
+    ],
+    "correct": 0,
+    "explanation": "Ozonlagret finns främst i stratosfären."
+  },
+  {
+    "id": "kids-theme-157",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är en näringskedja?",
+    "answers": [
+      "En modell över vem som äter vem i ett ekosystem",
+      "En lista över mineraler",
+      "Ett vädersystem",
+      "En bergskedja"
+    ],
+    "correct": 0,
+    "explanation": "Näringskedjor visar överföring av energi mellan organismer."
+  },
+  {
+    "id": "kids-theme-158",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är en förnybar energikälla?",
+    "answers": [
+      "En energikälla som återskapas naturligt i användbar takt",
+      "En energikälla som alltid är fossil",
+      "En energikälla som bara kan användas en gång",
+      "En energikälla utan energiflöde"
+    ],
+    "correct": 0,
+    "explanation": "Sol, vind och vatten är exempel på förnybara energiflöden."
+  },
+  {
+    "id": "kids-theme-159",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken gas är vanligast i jordens atmosfär?",
+    "answers": [
+      "Kväve",
+      "Syre",
+      "Koldioxid",
+      "Argon"
+    ],
+    "correct": 0,
+    "explanation": "Kväve utgör cirka 78 procent av atmosfären."
+  },
+  {
+    "id": "kids-theme-160",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad kallas den långsiktiga genomsnittliga väderbilden i ett område?",
+    "answers": [
+      "Klimat",
+      "Väder",
+      "Prognos",
+      "Vindby"
+    ],
+    "correct": 0,
+    "explanation": "Klimat beskriver vädermönster över lång tid."
+  },
+  {
+    "id": "kids-theme-161",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad är 1 + 1?",
+    "answers": [
+      "2",
+      "3",
+      "1",
+      "4"
+    ],
+    "correct": 0,
+    "explanation": "1 + 1 = 2."
+  },
+  {
+    "id": "kids-theme-162",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad är 2 + 1?",
+    "answers": [
+      "3",
+      "4",
+      "2",
+      "5"
+    ],
+    "correct": 0,
+    "explanation": "2 + 1 = 3."
+  },
+  {
+    "id": "kids-theme-163",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad är 2 + 2?",
+    "answers": [
+      "4",
+      "5",
+      "3",
+      "6"
+    ],
+    "correct": 0,
+    "explanation": "2 + 2 = 4."
+  },
+  {
+    "id": "kids-theme-164",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad är 3 + 1?",
+    "answers": [
+      "4",
+      "5",
+      "3",
+      "6"
+    ],
+    "correct": 0,
+    "explanation": "3 + 1 = 4."
+  },
+  {
+    "id": "kids-theme-165",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad är 3 + 2?",
+    "answers": [
+      "5",
+      "6",
+      "4",
+      "7"
+    ],
+    "correct": 0,
+    "explanation": "3 + 2 = 5."
+  },
+  {
+    "id": "kids-theme-166",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad är 4 + 1?",
+    "answers": [
+      "5",
+      "6",
+      "4",
+      "7"
+    ],
+    "correct": 0,
+    "explanation": "4 + 1 = 5."
+  },
+  {
+    "id": "kids-theme-167",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad är 4 + 2?",
+    "answers": [
+      "6",
+      "7",
+      "5",
+      "8"
+    ],
+    "correct": 0,
+    "explanation": "4 + 2 = 6."
+  },
+  {
+    "id": "kids-theme-168",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad är 5 + 1?",
+    "answers": [
+      "6",
+      "7",
+      "5",
+      "8"
+    ],
+    "correct": 0,
+    "explanation": "5 + 1 = 6."
+  },
+  {
+    "id": "kids-theme-169",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad är 5 + 2?",
+    "answers": [
+      "7",
+      "8",
+      "6",
+      "9"
+    ],
+    "correct": 0,
+    "explanation": "5 + 2 = 7."
+  },
+  {
+    "id": "kids-theme-170",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad är 6 + 1?",
+    "answers": [
+      "7",
+      "8",
+      "6",
+      "9"
+    ],
+    "correct": 0,
+    "explanation": "6 + 1 = 7."
+  },
+  {
+    "id": "kids-theme-171",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad är 7 + 5?",
+    "answers": [
+      "12",
+      "13",
+      "11",
+      "14"
+    ],
+    "correct": 0,
+    "explanation": "7 + 5 = 12."
+  },
+  {
+    "id": "kids-theme-172",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad är 8 + 4?",
+    "answers": [
+      "12",
+      "13",
+      "11",
+      "14"
+    ],
+    "correct": 0,
+    "explanation": "8 + 4 = 12."
+  },
+  {
+    "id": "kids-theme-173",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad är 9 + 6?",
+    "answers": [
+      "15",
+      "16",
+      "14",
+      "17"
+    ],
+    "correct": 0,
+    "explanation": "9 + 6 = 15."
+  },
+  {
+    "id": "kids-theme-174",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad är 10 + 7?",
+    "answers": [
+      "17",
+      "18",
+      "16",
+      "19"
+    ],
+    "correct": 0,
+    "explanation": "10 + 7 = 17."
+  },
+  {
+    "id": "kids-theme-175",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad är 12 + 5?",
+    "answers": [
+      "17",
+      "18",
+      "16",
+      "19"
+    ],
+    "correct": 0,
+    "explanation": "12 + 5 = 17."
+  },
+  {
+    "id": "kids-theme-176",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad är 14 + 3?",
+    "answers": [
+      "17",
+      "18",
+      "16",
+      "19"
+    ],
+    "correct": 0,
+    "explanation": "14 + 3 = 17."
+  },
+  {
+    "id": "kids-theme-177",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad är 15 + 5?",
+    "answers": [
+      "20",
+      "21",
+      "19",
+      "22"
+    ],
+    "correct": 0,
+    "explanation": "15 + 5 = 20."
+  },
+  {
+    "id": "kids-theme-178",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad är 16 + 4?",
+    "answers": [
+      "20",
+      "21",
+      "19",
+      "22"
+    ],
+    "correct": 0,
+    "explanation": "16 + 4 = 20."
+  },
+  {
+    "id": "kids-theme-179",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad är 18 + 2?",
+    "answers": [
+      "20",
+      "21",
+      "19",
+      "22"
+    ],
+    "correct": 0,
+    "explanation": "18 + 2 = 20."
+  },
+  {
+    "id": "kids-theme-180",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad är 20 + 5?",
+    "answers": [
+      "25",
+      "26",
+      "24",
+      "27"
+    ],
+    "correct": 0,
+    "explanation": "20 + 5 = 25."
+  },
+  {
+    "id": "kids-theme-181",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad är 24 + 7?",
+    "answers": [
+      "31",
+      "32",
+      "30",
+      "33"
+    ],
+    "correct": 0,
+    "explanation": "24 + 7 = 31."
+  },
+  {
+    "id": "kids-theme-182",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad är 36 ÷ 9?",
+    "answers": [
+      "4",
+      "5",
+      "3",
+      "6"
+    ],
+    "correct": 0,
+    "explanation": "36 ÷ 9 = 4."
+  },
+  {
+    "id": "kids-theme-183",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad är 48 ÷ 12?",
+    "answers": [
+      "4",
+      "5",
+      "3",
+      "6"
+    ],
+    "correct": 0,
+    "explanation": "48 ÷ 12 = 4."
+  },
+  {
+    "id": "kids-theme-184",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad är 56 ÷ 8?",
+    "answers": [
+      "7",
+      "8",
+      "6",
+      "9"
+    ],
+    "correct": 0,
+    "explanation": "56 ÷ 8 = 7."
+  },
+  {
+    "id": "kids-theme-185",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad är 72 ÷ 9?",
+    "answers": [
+      "8",
+      "9",
+      "7",
+      "10"
+    ],
+    "correct": 0,
+    "explanation": "72 ÷ 9 = 8."
+  },
+  {
+    "id": "kids-theme-186",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad är 81 ÷ 9?",
+    "answers": [
+      "9",
+      "10",
+      "8",
+      "11"
+    ],
+    "correct": 0,
+    "explanation": "81 ÷ 9 = 9."
+  },
+  {
+    "id": "kids-theme-187",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad är 96 ÷ 12?",
+    "answers": [
+      "8",
+      "9",
+      "7",
+      "10"
+    ],
+    "correct": 0,
+    "explanation": "96 ÷ 12 = 8."
+  },
+  {
+    "id": "kids-theme-188",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad är 125 ÷ 25?",
+    "answers": [
+      "5",
+      "6",
+      "4",
+      "7"
+    ],
+    "correct": 0,
+    "explanation": "125 ÷ 25 = 5."
+  },
+  {
+    "id": "kids-theme-189",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad är 144 ÷ 12?",
+    "answers": [
+      "12",
+      "13",
+      "11",
+      "14"
+    ],
+    "correct": 0,
+    "explanation": "144 ÷ 12 = 12."
+  },
+  {
+    "id": "kids-theme-190",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad är 200 ÷ 40?",
+    "answers": [
+      "5",
+      "6",
+      "4",
+      "7"
+    ],
+    "correct": 0,
+    "explanation": "200 ÷ 40 = 5."
+  },
+  {
+    "id": "kids-theme-191",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är 15 − 4?",
+    "answers": [
+      "11",
+      "12",
+      "10",
+      "13"
+    ],
+    "correct": 0,
+    "explanation": "15 − 4 = 11."
+  },
+  {
+    "id": "kids-theme-192",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är 18 − 7?",
+    "answers": [
+      "11",
+      "12",
+      "10",
+      "13"
+    ],
+    "correct": 0,
+    "explanation": "18 − 7 = 11."
+  },
+  {
+    "id": "kids-theme-193",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är 25 − 12?",
+    "answers": [
+      "13",
+      "14",
+      "12",
+      "15"
+    ],
+    "correct": 0,
+    "explanation": "25 − 12 = 13."
+  },
+  {
+    "id": "kids-theme-194",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är 32 − 15?",
+    "answers": [
+      "17",
+      "18",
+      "16",
+      "19"
+    ],
+    "correct": 0,
+    "explanation": "32 − 15 = 17."
+  },
+  {
+    "id": "kids-theme-195",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är 45 − 18?",
+    "answers": [
+      "27",
+      "28",
+      "26",
+      "29"
+    ],
+    "correct": 0,
+    "explanation": "45 − 18 = 27."
+  },
+  {
+    "id": "kids-theme-196",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är 64 − 27?",
+    "answers": [
+      "37",
+      "38",
+      "36",
+      "39"
+    ],
+    "correct": 0,
+    "explanation": "64 − 27 = 37."
+  },
+  {
+    "id": "kids-theme-197",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är 75 − 28?",
+    "answers": [
+      "47",
+      "48",
+      "46",
+      "49"
+    ],
+    "correct": 0,
+    "explanation": "75 − 28 = 47."
+  },
+  {
+    "id": "kids-theme-198",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är 90 − 35?",
+    "answers": [
+      "55",
+      "56",
+      "54",
+      "57"
+    ],
+    "correct": 0,
+    "explanation": "90 − 35 = 55."
+  },
+  {
+    "id": "kids-theme-199",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är 120 − 45?",
+    "answers": [
+      "75",
+      "76",
+      "74",
+      "77"
+    ],
+    "correct": 0,
+    "explanation": "120 − 45 = 75."
+  },
+  {
+    "id": "kids-theme-200",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är 150 − 65?",
+    "answers": [
+      "85",
+      "86",
+      "84",
+      "87"
+    ],
+    "correct": 0,
+    "explanation": "150 − 65 = 85."
+  },
+  {
+    "id": "kids-theme-201",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilken färg har Musse Piggs shorts oftast i den klassiska versionen?",
+    "answers": [
+      "Röda",
+      "Blå",
+      "Gröna",
+      "Lila"
+    ],
+    "correct": 0,
+    "explanation": "Musse Pigg avbildas klassiskt med röda shorts."
+  },
+  {
+    "id": "kids-theme-202",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad heter snögubben i Frost?",
+    "answers": [
+      "Olaf",
+      "Sven",
+      "Kristoffer",
+      "Hans"
+    ],
+    "correct": 0,
+    "explanation": "Olaf är snögubben i Frost."
+  },
+  {
+    "id": "kids-theme-203",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket djur är Simba i Lejonkungen?",
+    "answers": [
+      "Lejon",
+      "Tiger",
+      "Björn",
+      "Zebra"
+    ],
+    "correct": 0,
+    "explanation": "Simba är ett lejon."
+  },
+  {
+    "id": "kids-theme-204",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad tappar Askungen på balen?",
+    "answers": [
+      "En glassko",
+      "En hatt",
+      "En bok",
+      "En krona"
+    ],
+    "correct": 0,
+    "explanation": "Askungen tappar en glassko."
+  },
+  {
+    "id": "kids-theme-205",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad heter cowboyen i Toy Story?",
+    "answers": [
+      "Woody",
+      "Buzz",
+      "Rex",
+      "Nemo"
+    ],
+    "correct": 0,
+    "explanation": "Woody är cowboydockan i Toy Story."
+  },
+  {
+    "id": "kids-theme-206",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilken fisk är huvudperson i Hitta Nemo?",
+    "answers": [
+      "Nemo",
+      "Dory",
+      "Bambi",
+      "Dumbo"
+    ],
+    "correct": 0,
+    "explanation": "Nemo är clownfisken som filmen handlar om."
+  },
+  {
+    "id": "kids-theme-207",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad heter elefanten med mycket stora öron?",
+    "answers": [
+      "Dumbo",
+      "Bambi",
+      "Pluto",
+      "Stitch"
+    ],
+    "correct": 0,
+    "explanation": "Dumbo är elefanten med de stora öronen."
+  },
+  {
+    "id": "kids-theme-208",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket djur är Bambi?",
+    "answers": [
+      "Hjort",
+      "Hund",
+      "Katt",
+      "Lejon"
+    ],
+    "correct": 0,
+    "explanation": "Bambi är ett hjortdjur."
+  },
+  {
+    "id": "kids-theme-209",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad heter prinsessan med mycket långt magiskt hår i Trassel?",
+    "answers": [
+      "Rapunzel",
+      "Ariel",
+      "Jasmine",
+      "Tiana"
+    ],
+    "correct": 0,
+    "explanation": "Rapunzel har mycket långt magiskt hår."
+  },
+  {
+    "id": "kids-theme-210",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad heter Musse Piggs flickvän?",
+    "answers": [
+      "Mimmi Pigg",
+      "Kajsa Anka",
+      "Elsa",
+      "Vaiana"
+    ],
+    "correct": 0,
+    "explanation": "Mimmi Pigg är Musse Piggs partner."
+  },
+  {
+    "id": "kids-theme-211",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad heter Buzz i efternamn i Toy Story?",
+    "answers": [
+      "Lightyear",
+      "Skywalker",
+      "Ranger",
+      "Star"
+    ],
+    "correct": 0,
+    "explanation": "Figuren heter Buzz Lightyear."
+  },
+  {
+    "id": "kids-theme-212",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilken prinsessa har en tiger som heter Rajah?",
+    "answers": [
+      "Jasmine",
+      "Ariel",
+      "Belle",
+      "Mulan"
+    ],
+    "correct": 0,
+    "explanation": "Rajah är Jasmines tiger i Aladdin."
+  },
+  {
+    "id": "kids-theme-213",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad heter havsguden och Ariels pappa i Den lilla sjöjungfrun?",
+    "answers": [
+      "Kung Triton",
+      "Zeus",
+      "Hades",
+      "Mufasa"
+    ],
+    "correct": 0,
+    "explanation": "Kung Triton är Ariels pappa."
+  },
+  {
+    "id": "kids-theme-214",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilken film handlar om systrarna Elsa och Anna?",
+    "answers": [
+      "Frost",
+      "Modig",
+      "Encanto",
+      "Vaiana"
+    ],
+    "correct": 0,
+    "explanation": "Elsa och Anna är huvudfigurer i Frost."
+  },
+  {
+    "id": "kids-theme-215",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad heter björnen i Djungelboken?",
+    "answers": [
+      "Baloo",
+      "Bagheera",
+      "Shere Khan",
+      "Kaa"
+    ],
+    "correct": 0,
+    "explanation": "Baloo är björnen i Djungelboken."
+  },
+  {
+    "id": "kids-theme-216",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket djur är Pumbaa i Lejonkungen?",
+    "answers": [
+      "Vårtsvin",
+      "Surikat",
+      "Hyena",
+      "Lejon"
+    ],
+    "correct": 0,
+    "explanation": "Pumbaa är ett vårtsvin."
+  },
+  {
+    "id": "kids-theme-217",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad heter flickan i Lilo & Stitch?",
+    "answers": [
+      "Lilo",
+      "Nani",
+      "Elsa",
+      "Mabel"
+    ],
+    "correct": 0,
+    "explanation": "Lilo är flickan som blir vän med Stitch."
+  },
+  {
+    "id": "kids-theme-218",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilken film har familjen Madrigal?",
+    "answers": [
+      "Encanto",
+      "Coco",
+      "Bilar",
+      "Zootropolis"
+    ],
+    "correct": 0,
+    "explanation": "Familjen Madrigal står i centrum för Encanto."
+  },
+  {
+    "id": "kids-theme-219",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad heter racerbilen i Bilar?",
+    "answers": [
+      "Blixten McQueen",
+      "Bärgarn",
+      "Doc Hudson",
+      "Sally"
+    ],
+    "correct": 0,
+    "explanation": "Blixten McQueen är huvudpersonen i Bilar."
+  },
+  {
+    "id": "kids-theme-220",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "easy",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilken figur är en blå utomjording?",
+    "answers": [
+      "Stitch",
+      "Olaf",
+      "Pluto",
+      "Bambi"
+    ],
+    "correct": 0,
+    "explanation": "Stitch är en blå utomjordisk figur."
+  },
+  {
+    "id": "kids-theme-221",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad heter landet där Frost utspelar sig?",
+    "answers": [
+      "Arendal",
+      "Agrabah",
+      "Atlantica",
+      "Corona"
+    ],
+    "correct": 0,
+    "explanation": "Frost utspelar sig i kungariket Arendal."
+  },
+  {
+    "id": "kids-theme-222",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken Pixarfilm utspelar sig till stor del i en värld av de döda?",
+    "answers": [
+      "Coco",
+      "Upp",
+      "Bilar",
+      "Modig"
+    ],
+    "correct": 0,
+    "explanation": "Coco handlar om Miguel och de dödas land."
+  },
+  {
+    "id": "kids-theme-223",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad heter känslan som är blå i Insidan ut?",
+    "answers": [
+      "Vemod",
+      "Glädje",
+      "Ilska",
+      "Rädsla"
+    ],
+    "correct": 0,
+    "explanation": "Vemod är den blå känslan i Insidan ut."
+  },
+  {
+    "id": "kids-theme-224",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad heter familjens robot i Big Hero 6?",
+    "answers": [
+      "Baymax",
+      "Wall-E",
+      "EVE",
+      "R2-D2"
+    ],
+    "correct": 0,
+    "explanation": "Baymax är vårdroboten i Big Hero 6."
+  },
+  {
+    "id": "kids-theme-225",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken film följer polisen Judy Hopps?",
+    "answers": [
+      "Zootropolis",
+      "Raya och den sista draken",
+      "Encanto",
+      "Bilar 2"
+    ],
+    "correct": 0,
+    "explanation": "Judy Hopps är polis i Zootropolis."
+  },
+  {
+    "id": "kids-theme-226",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad heter den stora ballongflygande huset-filmen från Pixar?",
+    "answers": [
+      "Upp",
+      "Framåt",
+      "Själen",
+      "Luca"
+    ],
+    "correct": 0,
+    "explanation": "Upp handlar bland annat om Carl och ett hus som lyfts av ballonger."
+  },
+  {
+    "id": "kids-theme-227",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken figur säger ofta att han vill bli en riktig pojke?",
+    "answers": [
+      "Pinocchio",
+      "Dumbo",
+      "Simba",
+      "Tarzan"
+    ],
+    "correct": 0,
+    "explanation": "Pinocchio önskar bli en riktig pojke."
+  },
+  {
+    "id": "kids-theme-228",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "I vilken film finns roboten WALL-E?",
+    "answers": [
+      "WALL-E",
+      "Ratatouille",
+      "Elementärt",
+      "Monsters, Inc."
+    ],
+    "correct": 0,
+    "explanation": "WALL-E är huvudroboten i filmen med samma namn."
+  },
+  {
+    "id": "kids-theme-229",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken Disneyhjältinna seglar över havet för att rädda sitt folk?",
+    "answers": [
+      "Vaiana",
+      "Belle",
+      "Törnrosa",
+      "Askungen"
+    ],
+    "correct": 0,
+    "explanation": "Vaiana ger sig ut på havet för att hjälpa sitt folk."
+  },
+  {
+    "id": "kids-theme-230",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "medium",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad heter monstervännen till Mike Wazowski?",
+    "answers": [
+      "Sulley",
+      "Randall",
+      "Roz",
+      "Boo"
+    ],
+    "correct": 0,
+    "explanation": "James P. Sullivan, kallad Sulley, är Mikes vän."
+  },
+  {
+    "id": "kids-theme-231",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken Pixarfilm var studions första långfilm?",
+    "answers": [
+      "Toy Story",
+      "Hitta Nemo",
+      "Bilar",
+      "Upp"
+    ],
+    "correct": 0,
+    "explanation": "Toy Story från 1995 var Pixars första långfilm."
+  },
+  {
+    "id": "kids-theme-232",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken Shakespearepjäs har tydliga likheter med handlingen i Lejonkungen?",
+    "answers": [
+      "Hamlet",
+      "Macbeth",
+      "Othello",
+      "Stormen"
+    ],
+    "correct": 0,
+    "explanation": "Lejonkungen brukar jämföras med Hamlet genom familjekonflikten och tronföljden."
+  },
+  {
+    "id": "kids-theme-233",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad heter restaurangen där Remy vill laga mat i Ratatouille?",
+    "answers": [
+      "Gusteaus",
+      "Tianas Palace",
+      "Pizza Planet",
+      "Chez Remy endast"
+    ],
+    "correct": 0,
+    "explanation": "Gusteaus är restaurangen i Ratatouille."
+  },
+  {
+    "id": "kids-theme-234",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken figur är kapten på Svarta Pärlan i Pirates of the Caribbean?",
+    "answers": [
+      "Jack Sparrow",
+      "Will Turner",
+      "Hector Barbossa alltid",
+      "Davy Jones"
+    ],
+    "correct": 0,
+    "explanation": "Jack Sparrow är starkt förknippad med Svarta Pärlan och är dess kapten under delar av serien."
+  },
+  {
+    "id": "kids-theme-235",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad heter den fiktiva staden i Big Hero 6?",
+    "answers": [
+      "San Fransokyo",
+      "Metroville",
+      "Zootopia",
+      "Monstropolis"
+    ],
+    "correct": 0,
+    "explanation": "Big Hero 6 utspelar sig i San Fransokyo."
+  },
+  {
+    "id": "kids-theme-236",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilket instrument spelar Miguel i Coco?",
+    "answers": [
+      "Gitarr",
+      "Piano",
+      "Fiol",
+      "Trumpet"
+    ],
+    "correct": 0,
+    "explanation": "Miguel spelar gitarr."
+  },
+  {
+    "id": "kids-theme-237",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad heter huvudpersonen i Mulan?",
+    "answers": [
+      "Fa Mulan",
+      "Mei Lee",
+      "Raya",
+      "Asha"
+    ],
+    "correct": 0,
+    "explanation": "Huvudpersonen heter Fa Mulan."
+  },
+  {
+    "id": "kids-theme-238",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken Disneyfilm bygger på berättelsen om en träpojke?",
+    "answers": [
+      "Pinocchio",
+      "Bambi",
+      "Dumbo",
+      "Tarzan"
+    ],
+    "correct": 0,
+    "explanation": "Pinocchio bygger på berättelsen om träpojken som får liv."
+  },
+  {
+    "id": "kids-theme-239",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken film innehåller figuren Maleficent som antagonist i den animerade klassikern?",
+    "answers": [
+      "Törnrosa",
+      "Snövit",
+      "Askungen",
+      "Aladdin"
+    ],
+    "correct": 0,
+    "explanation": "Maleficent är den centrala antagonisten i Törnrosa."
+  },
+  {
+    "id": "kids-theme-240",
+    "category": "Barnquiz",
+    "topic": "Disney/barnfilm",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad heter cowboyens häst i Toy Story 2?",
+    "answers": [
+      "Bullseye",
+      "Maximus",
+      "Pegasus",
+      "Khan"
+    ],
+    "correct": 0,
+    "explanation": "Bullseye är Woodys häst i Toy Story 2."
+  },
+  {
+    "id": "kids-001",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket djur säger mjau?",
+    "answers": [
+      "Katt",
+      "Hund",
+      "Ko",
+      "Häst"
+    ],
+    "correct": 0,
+    "explanation": "Katten säger mjau.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-002",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilken färg har en mogen banan oftast?",
+    "answers": [
+      "Gul",
+      "Blå",
+      "Lila",
+      "Svart"
+    ],
+    "correct": 0,
+    "explanation": "En mogen banan är oftast gul.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-003",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Hur många ben har en hund?",
+    "answers": [
+      "Fyra",
+      "Två",
+      "Sex",
+      "Åtta"
+    ],
+    "correct": 0,
+    "explanation": "En hund har fyra ben.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-004",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad använder du för att se med?",
+    "answers": [
+      "Ögonen",
+      "Öronen",
+      "Näsan",
+      "Händerna"
+    ],
+    "correct": 0,
+    "explanation": "Vi ser med ögonen.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-005",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket av dessa kan flyga?",
+    "answers": [
+      "Fågel",
+      "Fisk",
+      "Katt",
+      "Snigel"
+    ],
+    "correct": 0,
+    "explanation": "De flesta fåglar kan flyga.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-006",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad kommer efter 3?",
+    "answers": [
+      "4",
+      "2",
+      "6",
+      "8"
+    ],
+    "correct": 0,
+    "explanation": "Efter 3 kommer 4.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-007",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilken årstid är oftast varmast i Sverige?",
+    "answers": [
+      "Sommar",
+      "Vinter",
+      "Höst",
+      "Vår"
+    ],
+    "correct": 0,
+    "explanation": "Sommaren är normalt varmast.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-008",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad behöver du när det regnar?",
+    "answers": [
+      "Paraply",
+      "Solglasögon",
+      "Badboll",
+      "Skidor"
+    ],
+    "correct": 0,
+    "explanation": "Ett paraply skyddar mot regn.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-009",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket fordon går på räls?",
+    "answers": [
+      "Tåg",
+      "Båt",
+      "Cykel",
+      "Flygplan"
+    ],
+    "correct": 0,
+    "explanation": "Tåg färdas på räls.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-010",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket djur bor i havet?",
+    "answers": [
+      "Delfin",
+      "Lejon",
+      "Häst",
+      "Kanin"
+    ],
+    "correct": 0,
+    "explanation": "Delfinen lever i havet.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-011",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Hur många fingrar har de flesta människor på två händer?",
+    "answers": [
+      "10",
+      "5",
+      "8",
+      "12"
+    ],
+    "correct": 0,
+    "explanation": "Fem fingrar på varje hand blir tio.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-012",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilken form är en boll mest lik?",
+    "answers": [
+      "Rund",
+      "Fyrkantig",
+      "Triangulär",
+      "Platt"
+    ],
+    "correct": 0,
+    "explanation": "En boll är rund.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-013",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad lyser på himlen på dagen?",
+    "answers": [
+      "Solen",
+      "Månen bara",
+      "En lampa",
+      "En TV"
+    ],
+    "correct": 0,
+    "explanation": "Solen lyser på dagen.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-014",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket är en frukt?",
+    "answers": [
+      "Äpple",
+      "Morot",
+      "Potatis",
+      "Broccoli"
+    ],
+    "correct": 0,
+    "explanation": "Äpple är en frukt.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-015",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad säger kon?",
+    "answers": [
+      "Mu",
+      "Mjau",
+      "Vov",
+      "Kuckeliku"
+    ],
+    "correct": 0,
+    "explanation": "Kon säger mu.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-016",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad använder man för att borsta tänderna?",
+    "answers": [
+      "Tandborste",
+      "Kam",
+      "Sked",
+      "Penna"
+    ],
+    "correct": 0,
+    "explanation": "Tänder borstas med tandborste.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-017",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket tal är störst?",
+    "answers": [
+      "5",
+      "2",
+      "1",
+      "3"
+    ],
+    "correct": 0,
+    "explanation": "5 är störst av talen.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-018",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vad är motsatsen till kallt?",
+    "answers": [
+      "Varmt",
+      "Blött",
+      "Mörkt",
+      "Litet"
+    ],
+    "correct": 0,
+    "explanation": "Varmt är motsatsen till kallt.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-019",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Vilket djur har lång hals?",
+    "answers": [
+      "Giraff",
+      "Mus",
+      "Groda",
+      "Igelkott"
+    ],
+    "correct": 0,
+    "explanation": "Giraffen är känd för sin långa hals.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-020",
+    "category": "Barnquiz",
+    "difficulty": "easy",
+    "ageMin": 4,
+    "ageMax": 6,
+    "question": "Var sover man oftast?",
+    "answers": [
+      "I en säng",
+      "I en kastrull",
+      "På en cykel",
+      "I ett kylskåp"
+    ],
+    "correct": 0,
+    "explanation": "En säng är gjord för att sova i.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-021",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad heter Sveriges huvudstad?",
+    "answers": [
+      "Stockholm",
+      "Göteborg",
+      "Malmö",
+      "Uppsala"
+    ],
+    "correct": 0,
+    "explanation": "Stockholm är Sveriges huvudstad.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-022",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Hur mycket är 5 + 4?",
+    "answers": [
+      "9",
+      "8",
+      "10",
+      "7"
+    ],
+    "correct": 0,
+    "explanation": "5 + 4 = 9.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-023",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilken planet bor vi på?",
+    "answers": [
+      "Jorden",
+      "Mars",
+      "Venus",
+      "Jupiter"
+    ],
+    "correct": 0,
+    "explanation": "Vi bor på planeten Jorden.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-024",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Hur många dagar har en vecka?",
+    "answers": [
+      "7",
+      "5",
+      "10",
+      "12"
+    ],
+    "correct": 0,
+    "explanation": "En vecka har sju dagar.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-025",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket djur är störst?",
+    "answers": [
+      "Elefant",
+      "Katt",
+      "Kanin",
+      "Mus"
+    ],
+    "correct": 0,
+    "explanation": "Elefanten är störst av alternativen.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-026",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket hav ligger mellan Sverige och Finland?",
+    "answers": [
+      "Östersjön",
+      "Medelhavet",
+      "Atlanten",
+      "Röda havet"
+    ],
+    "correct": 0,
+    "explanation": "Östersjön ligger mellan bland annat Sverige och Finland.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-027",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Hur mycket är 12 − 5?",
+    "answers": [
+      "7",
+      "6",
+      "8",
+      "5"
+    ],
+    "correct": 0,
+    "explanation": "12 − 5 = 7.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-028",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad kallas vatten som har frusit?",
+    "answers": [
+      "Is",
+      "Ånga",
+      "Regn",
+      "Dimma"
+    ],
+    "correct": 0,
+    "explanation": "Fruset vatten kallas is.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-029",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket språk talas främst i Spanien?",
+    "answers": [
+      "Spanska",
+      "Italienska",
+      "Tyska",
+      "Norska"
+    ],
+    "correct": 0,
+    "explanation": "Spanska är huvudspråket i Spanien.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-030",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket instrument har svarta och vita tangenter?",
+    "answers": [
+      "Piano",
+      "Trumma",
+      "Trumpet",
+      "Fiol"
+    ],
+    "correct": 0,
+    "explanation": "Ett piano har svarta och vita tangenter.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-031",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilken världsdel ligger Sverige i?",
+    "answers": [
+      "Europa",
+      "Asien",
+      "Afrika",
+      "Sydamerika"
+    ],
+    "correct": 0,
+    "explanation": "Sverige ligger i Europa.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-032",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Hur många minuter är en timme?",
+    "answers": [
+      "60",
+      "30",
+      "100",
+      "45"
+    ],
+    "correct": 0,
+    "explanation": "En timme är 60 minuter.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-033",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad heter den röda planeten?",
+    "answers": [
+      "Mars",
+      "Jorden",
+      "Saturnus",
+      "Merkurius"
+    ],
+    "correct": 0,
+    "explanation": "Mars kallas den röda planeten.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-034",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket av dessa är ett däggdjur?",
+    "answers": [
+      "Val",
+      "Haj",
+      "Lax",
+      "Bläckfisk"
+    ],
+    "correct": 0,
+    "explanation": "Valar är däggdjur.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-035",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad blir 3 × 4?",
+    "answers": [
+      "12",
+      "7",
+      "10",
+      "14"
+    ],
+    "correct": 0,
+    "explanation": "3 × 4 = 12.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-036",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket land är känt för pyramiderna i Giza?",
+    "answers": [
+      "Egypten",
+      "Sverige",
+      "Japan",
+      "Kanada"
+    ],
+    "correct": 0,
+    "explanation": "Pyramiderna i Giza ligger i Egypten.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-037",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilken färg får man ofta om man blandar blått och gult?",
+    "answers": [
+      "Grönt",
+      "Rött",
+      "Rosa",
+      "Brunt"
+    ],
+    "correct": 0,
+    "explanation": "Blått och gult ger vanligtvis grönt i enkel färgblandning.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-038",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad använder växter bland annat från solen?",
+    "answers": [
+      "Ljus",
+      "Snö",
+      "Sand",
+      "Plast"
+    ],
+    "correct": 0,
+    "explanation": "Växter använder solljus i fotosyntesen.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-039",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vilket är det största talet?",
+    "answers": [
+      "100",
+      "75",
+      "50",
+      "25"
+    ],
+    "correct": 0,
+    "explanation": "100 är störst.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-040",
+    "category": "Barnquiz",
+    "difficulty": "medium",
+    "ageMin": 7,
+    "ageMax": 9,
+    "question": "Vad heter en unge till en katt?",
+    "answers": [
+      "Kattunge",
+      "Kalv",
+      "Föl",
+      "Kulting"
+    ],
+    "correct": 0,
+    "explanation": "En ung katt kallas kattunge.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-041",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken är världens största ocean?",
+    "answers": [
+      "Stilla havet",
+      "Atlanten",
+      "Indiska oceanen",
+      "Norra ishavet"
+    ],
+    "correct": 0,
+    "explanation": "Stilla havet är världens största ocean.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-042",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Hur mycket är 25 % av 100?",
+    "answers": [
+      "25",
+      "20",
+      "50",
+      "75"
+    ],
+    "correct": 0,
+    "explanation": "25 % av 100 är 25.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-043",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad heter processen där växter använder ljus för att bilda energi?",
+    "answers": [
+      "Fotosyntes",
+      "Förbränning",
+      "Erosion",
+      "Kondensation"
+    ],
+    "correct": 0,
+    "explanation": "Fotosyntes använder ljusenergi för att bilda energirika ämnen.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-044",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken planet är störst i solsystemet?",
+    "answers": [
+      "Jupiter",
+      "Mars",
+      "Jorden",
+      "Venus"
+    ],
+    "correct": 0,
+    "explanation": "Jupiter är solsystemets största planet.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-045",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad är 8 × 7?",
+    "answers": [
+      "56",
+      "54",
+      "64",
+      "48"
+    ],
+    "correct": 0,
+    "explanation": "8 × 7 = 56.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-046",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilket land har huvudstaden Paris?",
+    "answers": [
+      "Frankrike",
+      "Belgien",
+      "Spanien",
+      "Portugal"
+    ],
+    "correct": 0,
+    "explanation": "Paris är Frankrikes huvudstad.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-047",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad kallas en triangel med tre lika långa sidor?",
+    "answers": [
+      "Liksidig triangel",
+      "Rätvinklig triangel",
+      "Likbent triangel",
+      "Kvadrat"
+    ],
+    "correct": 0,
+    "explanation": "En liksidig triangel har tre lika långa sidor.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-048",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilket grundämne har kemiska beteckningen O?",
+    "answers": [
+      "Syre",
+      "Guld",
+      "Järn",
+      "Kol"
+    ],
+    "correct": 0,
+    "explanation": "O är kemisk beteckning för syre.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-049",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Hur många grader är en rät vinkel?",
+    "answers": [
+      "90",
+      "45",
+      "180",
+      "360"
+    ],
+    "correct": 0,
+    "explanation": "En rät vinkel är 90 grader.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-050",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken är Sveriges längsta älv räknat som Klarälven–Göta älv-systemet?",
+    "answers": [
+      "Göta älv/Klarälven",
+      "Dalälven",
+      "Umeälven",
+      "Luleälven"
+    ],
+    "correct": 0,
+    "explanation": "Klarälven–Göta älv-systemet är Sveriges längsta vattendragssystem.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-051",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vem skrev böckerna om Pippi Långstrump?",
+    "answers": [
+      "Astrid Lindgren",
+      "Selma Lagerlöf",
+      "Tove Jansson",
+      "August Strindberg"
+    ],
+    "correct": 0,
+    "explanation": "Astrid Lindgren skapade Pippi Långstrump.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-052",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad är 144 ÷ 12?",
+    "answers": [
+      "12",
+      "10",
+      "14",
+      "16"
+    ],
+    "correct": 0,
+    "explanation": "144 ÷ 12 = 12.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-053",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilket organ pumpar runt blodet i kroppen?",
+    "answers": [
+      "Hjärtat",
+      "Lungan",
+      "Magsäcken",
+      "Njuren"
+    ],
+    "correct": 0,
+    "explanation": "Hjärtat pumpar blod genom kroppen.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-054",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken världsdel är störst till ytan?",
+    "answers": [
+      "Asien",
+      "Europa",
+      "Afrika",
+      "Australien/Oceanien"
+    ],
+    "correct": 0,
+    "explanation": "Asien är den största världsdelen till ytan.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-055",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad är en synonym till snabb?",
+    "answers": [
+      "Fort",
+      "Långsam",
+      "Tyst",
+      "Tung"
+    ],
+    "correct": 0,
+    "explanation": "Fort kan betyda snabb.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-056",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Hur många sidor har en hexagon?",
+    "answers": [
+      "6",
+      "5",
+      "7",
+      "8"
+    ],
+    "correct": 0,
+    "explanation": "En hexagon har sex sidor.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-057",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken gas behöver människor för cellandningen?",
+    "answers": [
+      "Syre",
+      "Helium",
+      "Väte",
+      "Neon"
+    ],
+    "correct": 0,
+    "explanation": "Människor behöver syre för cellandningen.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-058",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilket årtionde började år 2000?",
+    "answers": [
+      "2000-talet",
+      "1990-talet",
+      "2010-talet",
+      "1980-talet"
+    ],
+    "correct": 0,
+    "explanation": "År 2000 inleder 2000-talet i vanlig årtiondesbenämning.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-059",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vad är 3/4 som procent?",
+    "answers": [
+      "75 %",
+      "25 %",
+      "50 %",
+      "80 %"
+    ],
+    "correct": 0,
+    "explanation": "3 ÷ 4 = 0,75 = 75 %.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-060",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 10,
+    "ageMax": 12,
+    "question": "Vilken kompassriktning ligger mittemot öster?",
+    "answers": [
+      "Väster",
+      "Norr",
+      "Söder",
+      "Nordost"
+    ],
+    "correct": 0,
+    "explanation": "Väster ligger mittemot öster.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-061",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilket grundämne har atomnummer 6?",
+    "answers": [
+      "Kol",
+      "Syre",
+      "Kväve",
+      "Väte"
+    ],
+    "correct": 0,
+    "explanation": "Kol har atomnummer 6.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-062",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är 15 % av 240?",
+    "answers": [
+      "36",
+      "24",
+      "30",
+      "48"
+    ],
+    "correct": 0,
+    "explanation": "0,15 × 240 = 36.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-063",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken kraft håller planeterna i bana runt solen?",
+    "answers": [
+      "Gravitation",
+      "Magnetism",
+      "Friktion",
+      "Lyftkraft"
+    ],
+    "correct": 0,
+    "explanation": "Solens gravitation håller planeterna i sina banor.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-064",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken är huvudstaden i Kanada?",
+    "answers": [
+      "Ottawa",
+      "Toronto",
+      "Vancouver",
+      "Montréal"
+    ],
+    "correct": 0,
+    "explanation": "Ottawa är Kanadas huvudstad.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-065",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är x om 3x + 6 = 21?",
+    "answers": [
+      "5",
+      "3",
+      "7",
+      "9"
+    ],
+    "correct": 0,
+    "explanation": "3x = 15, alltså x = 5.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-066",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken del av cellen innehåller normalt huvuddelen av arvsmassan i en eukaryot cell?",
+    "answers": [
+      "Cellkärnan",
+      "Cellmembranet",
+      "Ribosomen",
+      "Cytoplasman"
+    ],
+    "correct": 0,
+    "explanation": "I eukaryota celler finns huvuddelen av DNA:t i cellkärnan.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-067",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad kallas övergången från vätska till gas?",
+    "answers": [
+      "Förångning",
+      "Kondensation",
+      "Frysning",
+      "Smältning"
+    ],
+    "correct": 0,
+    "explanation": "När en vätska blir gas kallas det förångning.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-068",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilket språk har flest modersmålstalare i världen?",
+    "answers": [
+      "Mandarin-kinesiska",
+      "Engelska",
+      "Spanska",
+      "Franska"
+    ],
+    "correct": 0,
+    "explanation": "Mandarin-kinesiska har flest modersmålstalare.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-069",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är hypotenusan i en rätvinklig triangel?",
+    "answers": [
+      "Sidan mittemot den räta vinkeln",
+      "Den kortaste sidan",
+      "En av kateterna",
+      "Höjden i triangeln"
+    ],
+    "correct": 0,
+    "explanation": "Hypotenusan ligger mittemot den räta vinkeln.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-070",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken svensk kemist instiftade Nobelpriset genom sitt testamente?",
+    "answers": [
+      "Alfred Nobel",
+      "Anders Celsius",
+      "Carl von Linné",
+      "Svante Arrhenius"
+    ],
+    "correct": 0,
+    "explanation": "Alfred Nobels testamente lade grunden för Nobelprisen.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-071",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Hur mycket är 2³ × 2²?",
+    "answers": [
+      "32",
+      "16",
+      "64",
+      "8"
+    ],
+    "correct": 0,
+    "explanation": "2³ × 2² = 2⁵ = 32.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-072",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad mäts i enheten volt?",
+    "answers": [
+      "Elektrisk spänning",
+      "Elektrisk ström",
+      "Effekt",
+      "Resistans"
+    ],
+    "correct": 0,
+    "explanation": "Volt är enheten för elektrisk spänning.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-073",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilket organ sköter huvuddelen av avgiftningen av ämnen i blodet?",
+    "answers": [
+      "Levern",
+      "Hjärtat",
+      "Lungan",
+      "Bukspottkörteln"
+    ],
+    "correct": 0,
+    "explanation": "Levern har en central roll i kroppens nedbrytning och avgiftning av ämnen.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-074",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad kallas en berättelse där djur ofta agerar som människor och som har en sensmoral?",
+    "answers": [
+      "Fabel",
+      "Biografi",
+      "Nyhetsartikel",
+      "Manual"
+    ],
+    "correct": 0,
+    "explanation": "En fabel är en kort berättelse med sensmoral, ofta med djur som gestalter.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-075",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad är medelvärdet av 4, 8 och 12?",
+    "answers": [
+      "8",
+      "6",
+      "10",
+      "12"
+    ],
+    "correct": 0,
+    "explanation": "(4 + 8 + 12) ÷ 3 = 8.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-076",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken kontinent ligger både på norra och södra halvklotet och genomkorsas av ekvatorn?",
+    "answers": [
+      "Afrika",
+      "Europa",
+      "Antarktis",
+      "Australien"
+    ],
+    "correct": 0,
+    "explanation": "Ekvatorn går genom Afrika.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-077",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad innebär demokrati i grundläggande mening?",
+    "answers": [
+      "Folket har inflytande över hur landet styrs",
+      "En person bestämmer allt",
+      "Inga val hålls",
+      "Lagar gäller bara vissa"
+    ],
+    "correct": 0,
+    "explanation": "Demokrati bygger på folkstyre och politiskt deltagande.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-078",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vilken molekylformel har vatten?",
+    "answers": [
+      "H₂O",
+      "CO₂",
+      "O₂",
+      "NaCl"
+    ],
+    "correct": 0,
+    "explanation": "Vatten består av två väteatomer och en syreatom: H₂O.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-079",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Om en vara kostar 400 kr och sänks med 20 %, vad kostar den efter sänkningen?",
+    "answers": [
+      "320 kr",
+      "300 kr",
+      "340 kr",
+      "380 kr"
+    ],
+    "correct": 0,
+    "explanation": "20 % av 400 kr är 80 kr, så 400 − 80 = 320 kr.",
+    "topic": "Blandat"
+  },
+  {
+    "id": "kids-080",
+    "category": "Barnquiz",
+    "difficulty": "hard",
+    "ageMin": 13,
+    "ageMax": 15,
+    "question": "Vad kallas jordens yttersta fasta lager tillsammans med övre delen av manteln?",
+    "answers": [
+      "Litosfären",
+      "Atmosfären",
+      "Hydrosfären",
+      "Kärnan"
+    ],
+    "correct": 0,
+    "explanation": "Litosfären består av jordskorpan och den översta fasta delen av manteln.",
+    "topic": "Blandat"
+  }
+]

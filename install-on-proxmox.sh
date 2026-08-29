@@ -9,4 +9,4 @@ tar -C "$ROOT" -czf /tmp/resequiz-project.tgz app deploy scripts
 pct push "$CTID" /tmp/resequiz-project.tgz "$TMP/project.tgz"
 pct exec "$CTID" -- bash -lc "rm -rf '$TMP/project' && mkdir -p '$TMP/project' && tar -xzf '$TMP/project.tgz' -C '$TMP/project' && '$TMP/project/scripts/install-in-lxc.sh' '$TMP/project/app'"
 IP="$(pct exec "$CTID" -- hostname -I | awk '{print $1}')"
-echo "Resequiz installerad: http://${IP}:3000/"
+echo "Quiz installerad: http://${IP}:3000/"

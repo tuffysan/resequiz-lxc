@@ -1,14 +1,24 @@
 {
-  "name": "Resequiz",
-  "short_name": "Resequiz",
-  "description": "Resequiz – resequiz för mobilen",
+  "name": "Quiz",
+  "short_name": "Quiz",
+  "description": "Quiz för kunskap, resor, barn och multiplayer",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#f4f7fb",
   "theme_color": "#1684d6",
   "icons": [
-    {"src":"/icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
-    {"src":"/icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ]
 }

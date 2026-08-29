@@ -1,62 +1,40 @@
-# Resequiz Mobile First v19.1.0
+# Quiz v19.4.0
 
-This release is a phone-first UI rebuild. It keeps the v19 server/data model while replacing the main mobile experience for Home, Solo, Multiplayer, Results and Admin.
+Quiz är en responsiv PWA för soloquiz och realtidsquiz med flera deltagare.
 
-## v19.1.0 highlights
-- 320–430 px is the primary layout.
-- One-column quiz answers and full-width primary actions.
-- Compact sticky app header and safe-area bottom navigation.
-- Faster Home screen with the play action above the fold.
-- Cleaner Solo and Multiplayer flows for thumb use.
-- Admin no longer renders 22k+ questions into the DOM: search + batches of 40.
-- Fixed installer service typo (`resequizz` -> `resequiz`).
-- Existing persistent question bank in `/var/lib/resequiz` is preserved.
+## Nytt i 19.4.0
 
-# Resequiz 19.0.0 — Mobile First Complete
+- Frågevyn visar endast själva frågan, eventuell bild och svarsalternativen.
+- Bildfrågor visar fältet `visual` och uppgraderingen försöker återställa både bildmetadata och äldre `media-packs`.
+- Administration kräver inloggning. Första gången används installationsnyckeln för att skapa ett lösenord.
+- Admin har en statistiköversikt med spel, spelare, frågebank, barnfrågor, bildfrågor, träffsäkerhet, 30-dagarstrend, spellägen och aktiva spelare.
+- Språk kan växlas mellan svenska och engelska.
+- Tema kan växlas mellan system, ljust och mörkt.
+- Offline-spel för soloquiz använder en lokalt sparad frågebank.
+- Barnquiz har åldersanpassning och temaval.
+- Appikonen används för PWA, Apple Touch Icon och favicon.
 
-Ett komplett, fristående Resequiz-projekt där **mobiltelefonen är huvudplattform**. Tablet och desktop är progressiva förbättringar, inte utgångsläget.
+## Installation
 
-## Ingår
-
-- Soloquiz med kategori, antal frågor, direkt feedback och resultatsparning.
-- Realtime multiplayer via Socket.IO med rumskod, värd, spelare, timer, poäng och resultattavla.
-- Resultat/Hall of Fame och övergripande statistik.
-- Mobilanpassad frågeeditor/admin med skapa, redigera och ta bort.
-- PWA/service worker för app-liknande upplevelse och cache av kärnsidor.
-- JSON-baserad persistent lagring som är enkel att säkerhetskopiera och migrera.
-- Proxmox/LXC-installation, systemd-service och backupscript.
-- Test för atomisk JSON-lagring.
-
-## Mobile-first-principer
-
-Bas-CSS är för 320–768 px. Alla huvudflöden är enkolumn, svarsknappar är stora, formulär är fullbredd, navigationen sitter fast i nederkant, viewport använder `viewport-fit=cover` och UI tar hänsyn till safe-area. Först vid `min-width: 769px` introduceras fler kolumner och desktop-layout.
-
-## Lokal körning
-
-```bash
-cd app
-npm install
-npm test
-npm start
-```
-
-Öppna `http://localhost:3000`.
-
-## Installera på befintlig Proxmox CT 135
-
-Kör från projektets rot på Proxmox-hosten:
+På Proxmox-hosten:
 
 ```bash
 chmod +x install-on-proxmox.sh scripts/*.sh
 ./install-on-proxmox.sh 135
 ```
 
-Projektet installeras i `/opt/resequiz`, data i `/var/lib/resequiz` och systemd-tjänsten heter `resequiz.service`.
+Efter första starten skrivs admin-installationsnyckeln ut av installeraren. Den kan även läsas i containern med:
 
-## Data
+```bash
+cat /var/lib/resequiz/admin-setup-key
+```
 
-Frågor ligger i `/var/lib/resequiz/questions.json` efter installation. Installationsscriptet bevarar en redan migrerad frågebank. Om det hittar den gamla v18-banken i `/opt/resequiz/data/questions.json` konverterar det automatiskt legacy-fälten (`c/q/a/r/f/d`) till v19-formatet (`category/question/answers/correct/explanation/difficulty`) och skriver den till `/var/lib/resequiz/questions.json`. Du kan även köra `node scripts/import-legacy-questions.js <source.json> <dest.json>` manuellt.
+Tekniska sökvägar och tjänstenamnet behålls som `/opt/resequiz`, `/var/lib/resequiz` och `resequiz.service` för att befintliga installationer ska kunna uppgraderas utan datamigrering av systemnivån.
 
-## Admin-säkerhet
+## Uppdatering från GitHub
 
-Som standard är admin öppen för enkel lokal installation. Sätt `RESEQUIZ_ADMIN_TOKEN` och ändra `allowGuestAdmin` till `false` i settings för skyddad API-access. Nästa naturliga produktionssteg är sessionsbaserad login i UI.
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/tuffysan/resequiz-lxc/main/update-from-github.sh)"
+```
+
+Den persistenta frågebanken och resultatdata bevaras vid uppdatering.

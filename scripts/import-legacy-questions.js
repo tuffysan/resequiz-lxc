@@ -19,7 +19,11 @@ for(const x of raw){
     question:clean(x.question??x.q),
     answers:answers.map(clean),
     correct,
-    explanation:clean(x.explanation??x.f)
+    explanation:clean(x.explanation??x.f),
+    visual:clean(x.visual??x.image??x.imageUrl??x.image_url),
+    subtype:clean(x.subtype??x.type),
+    factKey:clean(x.factKey),
+    family:clean(x.family)
   };
   if(!q.question||q.answers.length<2||!Number.isInteger(q.correct)||q.correct<0||q.correct>=q.answers.length)continue;
   out.push(q);
