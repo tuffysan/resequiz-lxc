@@ -10,7 +10,7 @@ pct exec "$CTID" -- env LANG=C.UTF-8 LC_ALL=C.UTF-8 bash -lc '
 set -e
 printf "Resequiz service: "; systemctl is-active resequiz
 printf "Nginx service:    "; systemctl is-active nginx
-printf "Health:           "; curl -fsS http://127.0.0.1:3000/health; echo
-printf "Socket.IO:        "; S=$(curl -fsS "http://127.0.0.1:3000/socket.io/?EIO=4&transport=polling"); [[ "$S" == 0\{* ]] && echo OK || { echo FEL; exit 1; }
+printf "Health:           "; curl -fsS http://127.1.0.1:3000/health; echo
+printf "Socket.IO:        "; S=$(curl -fsS "http://127.1.0.1:3000/socket.io/?EIO=4&transport=polling"); [[ "$S" == 0\{* ]] && echo OK || { echo FEL; exit 1; }
 printf "Admin key file:   "; [[ -s /root/resequiz-admin-key.txt || -s /etc/resequiz.env ]] && echo OK || { echo SAKNAS; exit 1; }
 '

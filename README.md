@@ -1,4 +1,16 @@
-# Resequiz 6.2 – På väg
+# Resequiz 7.1 – Balanced Question Bank
+
+Version 7.1 balanserar **spelupplevelsen**, inte genom att fylla banken med tusentals repetitiva mallfrågor utan genom kategori-rättvis frågeuttagning. När flera kategorier är valda plockas frågor round-robin mellan tillgängliga kategorier, så stora banker som Hjärngympa och Världen inte kan dominera ett blandat quiz. Samma princip används online och offline. En vald enskild kategori använder naturligtvis hela sin egen bank.
+
+**Frågebanken är fortsatt 10 500 frågor** och no-repeat, kvalitetspoäng och smart svårighetsgrad fungerar som tidigare. Hjärngympa är fortsatt avmarkerad som standard offline.
+
+# Resequiz 7.1 – Mega Question Bank
+
+**10 500 lokala frågor** med strikt no-repeat, svensk spelupplevelse och full kompatibilitet med Solo, På väg, Rese quiz och Game Director.
+
+# Resequiz 7.1 – Solo Edition
+
+Nytt i 6.3 är ett komplett **🧠 Solo-läge**. Från startsidan kan en spelare välja **Spela själv**, skapa ett rum och starta direkt utan andra deltagare. Samma quizupplägg, Director, statistik, achievements, kartor, bilder och musik fungerar i solo. Moment som kräver motståndare, exempelvis duell och buzzerfinal, anpassas automatiskt till solo-utmaningar. Prediction/reactions döljs när de inte tillför något och slutskärmen visar spelarens eget resultat. Det går fortfarande att bjuda in andra från sololobbyn med kod eller QR innan start.
 
 Nytt i 6.2 är upplägget **🚌 På väg**, optimerat för längre resor med tåg, buss, flyg eller bilpassagerare. Det använder 30 varierade frågor i lugnt tempo, 45 sekunders svarstid, frågor på mobilerna utan krav på TV, inga speed-/buzzer-rundor, inga power-ups och naturliga rundpauser. Quizet är avsett för bilens passagerare – aldrig för föraren under körning.
 
@@ -48,7 +60,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/tuffysan/resequiz-lxc/ma
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/tuffysan/resequiz-lxc/main/update-from-github.sh)"
 ```
 
-Efter uppdateringen ska `/health` rapportera `6.2.0`.
+Efter uppdateringen ska `/health` rapportera `7.1.0`.
 
 ## Kontroll
 

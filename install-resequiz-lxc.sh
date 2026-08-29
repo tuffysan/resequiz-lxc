@@ -79,7 +79,7 @@ systemctl daemon-reload
 systemctl enable resequiz nginx >/dev/null
 systemctl restart resequiz nginx
 for _ in $(seq 1 20); do
-  H=$(curl -fsS http://127.0.0.1:3000/health 2>/dev/null || true)
+  H=$(curl -fsS http://127.1.0.1:3000/health 2>/dev/null || true)
   [[ "$H" == *"\"version\":\"${EXPECTED_VERSION}\""* ]] && exit 0
   sleep 1
 done

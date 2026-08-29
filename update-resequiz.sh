@@ -91,7 +91,7 @@ systemctl restart nginx
 # Wait for application startup and verify exact expected version.
 HEALTH=""
 for _ in $(seq 1 20); do
-  HEALTH=$(curl -fsS http://127.0.0.1:3000/health 2>/dev/null || true)
+  HEALTH=$(curl -fsS http://127.1.0.1:3000/health 2>/dev/null || true)
   if [[ "$HEALTH" == *"\"ok\":true"* ]]; then break; fi
   sleep 1
 done
@@ -109,7 +109,7 @@ if [[ "$HEALTH" != *"\"version\":\"${EXPECTED_VERSION}\""* ]]; then
   exit 1
 fi
 
-SOCKET=$(curl -fsS "http://127.0.0.1:3000/socket.io/?EIO=4&transport=polling" 2>/dev/null || true)
+SOCKET=$(curl -fsS "http://127.1.0.1:3000/socket.io/?EIO=4&transport=polling" 2>/dev/null || true)
 if [[ "$SOCKET" != 0\{* ]]; then
   echo "Socket.IO-kontrollen misslyckades." >&2
   exit 1

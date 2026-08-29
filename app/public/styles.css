@@ -182,3 +182,6 @@ textarea{width:100%;font:inherit;color:var(--text);background:var(--surface2);bo
 
 /* 6.2 På väg */
 .journey-note{margin:10px 0 4px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:rgba(59,130,246,.08);color:var(--muted);font-size:13px;line-height:1.45}.journey-note b{color:var(--text)}
+
+/* 6.3 Solo */
+.home-primary-actions .solo-home{grid-column:1/-1;max-width:340px;justify-self:center;width:100%}.solo-mode-note{padding:10px 14px;border-radius:12px;background:rgba(124,58,237,.12);color:#c4b5fd;font-weight:800}.mode-switch button:disabled{opacity:.45;cursor:not-allowed}
