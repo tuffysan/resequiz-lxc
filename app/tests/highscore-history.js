@@ -1,0 +1,11 @@
+const fs=require('fs'),path=require('path'),assert=require('assert');
+const root=path.join(__dirname,'..');
+const server=fs.readFileSync(path.join(root,'server.js'),'utf8');
+const history=fs.readFileSync(path.join(root,'public','history.js'),'utf8');
+assert(server.includes('function historyFromGames()'),'games fallback missing');
+assert(server.includes('function effectiveHistory()'),'effective history missing');
+assert(server.includes('const h=effectiveHistory(),by={}'),'Hall of Fame does not use effective history');
+assert(history.includes("getJson('/api/highscores'"),'history page does not load highscores');
+assert(history.includes('HÖGSTA POÄNG'),'highest score section missing');
+assert(history.includes('AbortController'),'history timeout missing');
+console.log('High Score / Hall of Fame regression: OK');

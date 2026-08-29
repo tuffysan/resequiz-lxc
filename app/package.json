@@ -1,6 +1,6 @@
 {
   "name": "resequiz-server",
-  "version": "17.7.2",
+  "version": "17.7.4",
   "private": true,
   "type": "commonjs",
   "scripts": {
@@ -18,7 +18,8 @@
     "test:16": "node tests/v16-experience.js",
     "test:leagues": "node tests/leagues.js",
     "test:unique-facts": "node tests/unique-fact-coverage.js",
-    "test:admin-auth": "node tests/admin-account-auth.js"
+    "test:admin-auth": "node tests/admin-account-auth.js",
+    "test:highscore": "node tests/highscore-history.js"
   },
   "dependencies": {
     "express": "^4.21.2",

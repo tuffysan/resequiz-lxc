@@ -3,6 +3,8 @@ Description=Resequiz realtime server
 After=network.target
 
 [Service]
+TimeoutStopSec=10s
+KillMode=mixed
 Type=simple
 User=resequiz
 Group=resequiz
