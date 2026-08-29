@@ -1,63 +1,62 @@
-# Resequiz Mobile
+# Resequiz Mobile First v19.1.0
 
-Mobilapp för https://quiz.nilsson.ink med mobil-först native skal och återanvändning av den befintliga spelmotorn.
+This release is a phone-first UI rebuild. It keeps the v19 server/data model while replacing the main mobile experience for Home, Solo, Multiplayer, Results and Admin.
+
+## v19.1.0 highlights
+- 320–430 px is the primary layout.
+- One-column quiz answers and full-width primary actions.
+- Compact sticky app header and safe-area bottom navigation.
+- Faster Home screen with the play action above the fold.
+- Cleaner Solo and Multiplayer flows for thumb use.
+- Admin no longer renders 22k+ questions into the DOM: search + batches of 40.
+- Fixed installer service typo (`resequizz` -> `resequiz`).
+- Existing persistent question bank in `/var/lib/resequiz` is preserved.
+
+# Resequiz 19.0.0 — Mobile First Complete
+
+Ett komplett, fristående Resequiz-projekt där **mobiltelefonen är huvudplattform**. Tablet och desktop är progressiva förbättringar, inte utgångsläget.
 
 ## Ingår
 
-- Native mobil-startsida
-- Starta quizkväll
-- Gå med via rumskod
-- Spela själv
-- Quizmaster
-- Hall of Fame
-- Android back-knapp
-- Delning
-- Fel/offline-vy
-- Externa länkar öppnas utanför appen
-- Cookies/local storage bevaras i WebView för spelsessioner
-- Android APK-profil i `eas.json`
+- Soloquiz med kategori, antal frågor, direkt feedback och resultatsparning.
+- Realtime multiplayer via Socket.IO med rumskod, värd, spelare, timer, poäng och resultattavla.
+- Resultat/Hall of Fame och övergripande statistik.
+- Mobilanpassad frågeeditor/admin med skapa, redigera och ta bort.
+- PWA/service worker för app-liknande upplevelse och cache av kärnsidor.
+- JSON-baserad persistent lagring som är enkel att säkerhetskopiera och migrera.
+- Proxmox/LXC-installation, systemd-service och backupscript.
+- Test för atomisk JSON-lagring.
 
-## Kör på Android
+## Mobile-first-principer
 
-1. Installera Node.js.
-2. Packa upp projektet.
-3. Kör:
+Bas-CSS är för 320–768 px. Alla huvudflöden är enkolumn, svarsknappar är stora, formulär är fullbredd, navigationen sitter fast i nederkant, viewport använder `viewport-fit=cover` och UI tar hänsyn till safe-area. Först vid `min-width: 769px` introduceras fler kolumner och desktop-layout.
+
+## Lokal körning
 
 ```bash
+cd app
 npm install
-npx expo start
+npm test
+npm start
 ```
 
-Installera Expo Go på Android och skanna QR-koden.
+Öppna `http://localhost:3000`.
 
-## Bygg riktig APK
+## Installera på befintlig Proxmox CT 135
+
+Kör från projektets rot på Proxmox-hosten:
 
 ```bash
-npm install
-npm install -g eas-cli
-eas login
-eas build --platform android --profile preview
+chmod +x install-on-proxmox.sh scripts/*.sh
+./install-on-proxmox.sh 135
 ```
 
-Profilen `preview` skapar APK. `production` skapar Android App Bundle (AAB) för Google Play.
+Projektet installeras i `/opt/resequiz`, data i `/var/lib/resequiz` och systemd-tjänsten heter `resequiz.service`.
 
-## App-ID
+## Data
 
-Android package:
-`ink.nilsson.resequiz`
+Frågor ligger i `/var/lib/resequiz/questions.json` efter installation. Installationsscriptet bevarar en redan migrerad frågebank. Om det hittar den gamla v18-banken i `/opt/resequiz/data/questions.json` konverterar det automatiskt legacy-fälten (`c/q/a/r/f/d`) till v19-formatet (`category/question/answers/correct/explanation/difficulty`) och skriver den till `/var/lib/resequiz/questions.json`. Du kan även köra `node scripts/import-legacy-questions.js <source.json> <dest.json>` manuellt.
 
-iOS bundle identifier:
-`ink.nilsson.resequiz`
+## Admin-säkerhet
 
-## Server
-
-Alla spelvyer använder:
-`https://quiz.nilsson.ink`
-
-Ändra `BASE_URL` högst upp i `App.tsx` om serveradressen ändras.
-
-## Arkitektur
-
-Appens navigation och startsida är native React Native. Befintliga live-spelvyer laddas i en inbyggd WebView, vilket gör att webbens rum, realtid, frågor och sessionslogik kan användas direkt utan en separat mobil-backend.
-
-Nästa naturliga steg för en helt native spelmotor är att exponera samma REST/WebSocket-protokoll som webbklienten använder och ersätta WebView-skärmen stegvis.
+Som standard är admin öppen för enkel lokal installation. Sätt `RESEQUIZ_ADMIN_TOKEN` och ändra `allowGuestAdmin` till `false` i settings för skyddad API-access. Nästa naturliga produktionssteg är sessionsbaserad login i UI.

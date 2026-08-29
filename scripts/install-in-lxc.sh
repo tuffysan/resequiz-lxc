@@ -24,6 +24,6 @@ elif [ -f /tmp/rq-legacy-questions.json ]; then
 fi
 chown -R resequiz:resequiz "$APP" "$DATA"
 cp "$(dirname "$0")/../deploy/resequiz.service" /etc/systemd/system/resequiz.service
-systemctl daemon-reload; systemctl enable --now resequizz
+systemctl daemon-reload; systemctl enable --now resequiz
 sleep 2
 curl -fsS http://127.0.0.1:3000/health; echo

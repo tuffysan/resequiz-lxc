@@ -7,7 +7,7 @@ const express = require('express');
 const { Server } = require('socket.io');
 const { readJson, writeJsonAtomic, ensureDir } = require('./storage');
 
-const VERSION='19.0.0';
+const VERSION='19.1.0';
 const PORT=Number(process.env.PORT||3000);
 const HOST=process.env.HOST||'0.0.0.0';
 const DATA_DIR=process.env.RESEQUIZ_DATA_DIR||path.join(__dirname,'data');
