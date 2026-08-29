@@ -25,11 +25,13 @@ if [[ "$(pct status "$CTID" | awk '{print $2}')" != "running" ]]; then
 fi
 
 echo "Uppdaterar Resequiz till v${VERSION} i CT ${CTID}..."
+echo "[1/8] Förbereder container och distributionspaket..."
 pct set "$CTID" --hostname resequiz >/dev/null
 TMP_TGZ="$(mktemp /tmp/resequiz-app.XXXXXX.tgz)"
 trap 'rm -f "$TMP_TGZ"' EXIT
 
 tar -C "$DIR/app" -czf "$TMP_TGZ" .
+echo "[2/8] Kopierar programfiler till CT ${CTID}..."
 pct push "$CTID" "$TMP_TGZ" /tmp/resequiz-app.tgz
 pct push "$CTID" "$DIR/resequiz.service" /etc/systemd/system/resequiz.service
 pct push "$CTID" "$DIR/resequiz.nginx" /etc/nginx/sites-available/resequiz
@@ -38,12 +40,15 @@ pct push "$CTID" "$DIR/resequiz.nginx" /etc/nginx/sites-available/resequiz
 # resequiz.service belongs to the container, not to the Proxmox host.
 pct exec "$CTID" -- env EXPECTED_VERSION="$VERSION" ROTATE_ADMIN_KEY="$ROTATE_ADMIN_KEY" LANG=C.UTF-8 LC_ALL=C.UTF-8 bash -lc '
 set -euo pipefail
+step(){ echo "[$1/8] $2"; }
+step 3 "Säkerhetskopierar nuvarande installation..."
 export LANG=C.UTF-8 LC_ALL=C.UTF-8
 printf "LANG=C.UTF-8\nLC_ALL=C.UTF-8\n" > /etc/default/locale
 
 BACKUP=/opt/resequiz.rollback
 rm -rf "$BACKUP"
 if [[ -d /opt/resequiz && -n "$(ls -A /opt/resequiz 2>/dev/null)" ]]; then cp -a /opt/resequiz "$BACKUP"; fi
+step 4 "Stoppar tjänsten och installerar programfiler..."
 systemctl stop resequiz 2>/dev/null || true
 mkdir -p /opt/resequiz /var/lib/resequiz /var/lib/resequiz/media
 id resequiz >/dev/null 2>&1 || useradd --system --home /opt/resequiz --shell /usr/sbin/nologin resequiz
@@ -75,12 +80,14 @@ rm -f /tmp/resequiz-app.tgz
 cd /opt/resequiz
 
 # Controlled production install. Avoid audit --force / automatic breaking upgrades.
+step 5 "Installerar/verifierar Node.js-beroenden (detta kan ta en stund)..."
 npm install --omit=dev --no-audit --no-fund --loglevel=error
 chown -R resequiz:resequiz /opt/resequiz
 
 rm -f /etc/nginx/sites-enabled/default
 ln -sf /etc/nginx/sites-available/resequiz /etc/nginx/sites-enabled/resequiz
 nginx -t
+step 6 "Startar om Resequiz och nginx..."
 
 # Reload unit definitions before enable/restart.
 systemctl daemon-reload
@@ -89,6 +96,7 @@ systemctl restart resequiz
 systemctl restart nginx
 
 # Wait for application startup and verify exact expected version.
+step 7 "Väntar på servern och kör health check..."
 HEALTH=""
 for _ in $(seq 1 20); do
   HEALTH=$(curl -fsS http://127.1.0.1:3000/health 2>/dev/null || true)
@@ -109,6 +117,15 @@ if [[ "$HEALTH" != *"\"version\":\"${EXPECTED_VERSION}\""* ]]; then
   exit 1
 fi
 
+step 8 "Verifierar Admin-API och realtidsanslutning..."
+ADMIN_STATUS=$(curl -fsS http://127.1.0.1:3000/api/admin/status 2>/dev/null || true)
+if [[ "$ADMIN_STATUS" != *"\"version\":\"${EXPECTED_VERSION}\""* ]]; then
+  echo "Admin-API-kontrollen misslyckades. Webb och server kan ha olika version." >&2
+  echo "Svar: $ADMIN_STATUS" >&2
+  if [[ -d /opt/resequiz.rollback ]]; then rm -rf /opt/resequiz/*; cp -a /opt/resequiz.rollback/. /opt/resequiz/; chown -R resequiz:resequiz /opt/resequiz; systemctl restart resequiz; fi
+  exit 1
+fi
+
 SOCKET=$(curl -fsS "http://127.1.0.1:3000/socket.io/?EIO=4&transport=polling" 2>/dev/null || true)
 if [[ "$SOCKET" != 0\{* ]]; then
   echo "Socket.IO-kontrollen misslyckades." >&2
@@ -117,6 +134,7 @@ fi
 
 rm -rf /opt/resequiz.rollback
 echo "$HEALTH"
+echo "Admin API: OK (${EXPECTED_VERSION})"
 echo "Socket.IO: OK"
 '
 

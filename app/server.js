@@ -41,7 +41,7 @@ const ACTIVE_ROOMS_FILE=path.join(DATA_DIR,'active-rooms.json');
 const QUARANTINE_FILE=path.join(DATA_DIR,'question-quarantine.json');
 const GROUPS_FILE=path.join(DATA_DIR,'groups.json');
 const ADMIN_AUTH_FILE=path.join(DATA_DIR,'admin-auth.json');
-const APP_VERSION = '17.7.0';
+const APP_VERSION = '17.7.2';
 const ADMIN_KEY=String(process.env.RESEQUIZ_ADMIN_KEY||'').trim();
 const storage=createStorage(DATA_DIR);
 
@@ -647,6 +647,18 @@ app.get('/api/admin/packs',requireAdmin,(req,res)=>res.json(readJson(PACK_FILE,[
 app.post('/api/admin/packs',requireAdmin,(req,res)=>{const arr=readJson(PACK_FILE,[]),p={id:cleanId(req.body.id)||`pack-${Date.now()}`,name:clean(req.body.name,60),description:clean(req.body.description,200),categories:Array.isArray(req.body.categories)?req.body.categories.map(x=>clean(x,50)):[],difficulty:['easy','medium','hard','mixed'].includes(req.body.difficulty)?req.body.difficulty:'mixed'};arr.push(p);writeJson(PACK_FILE,arr);res.json({ok:true,pack:p})});
 app.get('/api/admin/rqpack/export',requireAdmin,(req,res)=>{const id=cleanId(req.query.id),packs=readJson(PACK_FILE,[]),pack=id?packs.find(x=>x.id===id):null;if(id&&!pack)return res.status(404).json({ok:false,error:'Paketet hittades inte.'});const data={format:'resequiz-rqpack',version:1,appVersion:APP_VERSION,createdAt:new Date().toISOString(),pack:pack||{id:'all-custom',name:'Alla egna frågor',description:'Export från Resequiz'},questions:readJson(CUSTOM_FILE,[]),plans:readJson(PLAN_FILE,[])};res.setHeader('Content-Disposition',`attachment; filename=${cleanId(pack?.id||'resequiz-custom')}.rqpack`);res.type('application/json').send(JSON.stringify(data,null,2))});
 app.post('/api/admin/rqpack/import',rateLimit('rqpack',20,10*60*1000),requireAdmin,(req,res)=>{const x=req.body;if(!x||x.format!=='resequiz-rqpack'||x.version!==1)return res.status(400).json({ok:false,error:'Ogiltigt .rqpack-format.'});const incoming=Array.isArray(x.questions)?x.questions.slice(0,5000).map(normalizeQuestion):[],cur=readJson(CUSTOM_FILE,[]),ids=new Set(cur.map(q=>q.id));let added=0;for(const q of incoming)if(q.q&&q.a.length>=2&&!ids.has(q.id)){cur.push(q);ids.add(q.id);added++}writeJson(CUSTOM_FILE,cur);if(x.pack&&x.pack.name){const ps=readJson(PACK_FILE,[]);const p={id:cleanId(x.pack.id)||`pack-${Date.now()}`,name:clean(x.pack.name,60),description:clean(x.pack.description,200),categories:Array.isArray(x.pack.categories)?x.pack.categories.map(c=>clean(c,50)):[],difficulty:['easy','medium','hard','mixed'].includes(x.pack.difficulty)?x.pack.difficulty:'mixed'};if(!ps.some(y=>y.id===p.id))ps.push(p);writeJson(PACK_FILE,ps)}res.json({ok:true,added,total:cur.length})});
+
+
+// API routes must always return JSON. This also makes mixed-version deployments
+// obvious instead of leaking Express' default HTML 404 page to the browser.
+app.use('/api',(req,res)=>res.status(404).json({
+  ok:false,
+  error:`API-endpoint saknas: ${req.method} ${req.originalUrl}. Kontrollera att webb- och serverversionen är samma och kör uppdateringen igen.`,
+  code:'API_ROUTE_NOT_FOUND',
+  version:APP_VERSION,
+  method:req.method,
+  path:req.originalUrl
+}));
 
 io.on('connection',socket=>{
  socket.on('createRoom',(d,cb=()=>{})=>{const name=clean(d?.name,20),sid=cleanId(d?.sessionId),avatar=cleanAvatar(d?.avatar);if(!name||!sid)return cb({ok:false,error:'Namn saknas.'});const r=makeRoom(name,sid);r.players[0].name=uniqueNickname(r,name,sid);r.players[0].avatar=avatar;r.players[0].socketId=socket.id;socket.join(r.code);cb({ok:true,code:r.code,hostToken:r.hostToken,room:roomPublic(r)});emitRoom(r)});
