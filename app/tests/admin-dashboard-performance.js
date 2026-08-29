@@ -1,0 +1,13 @@
+const fs=require('fs');
+const path=require('path');
+const s=fs.readFileSync(path.join(__dirname,'..','server.js'),'utf8');
+const start=s.indexOf("app.get('/api/admin/dashboard'");
+const end=s.indexOf("app.get('/api/admin/backup'", start);
+if(start<0||end<0) throw new Error('admin dashboard route not found');
+const r=s.slice(start,end);
+if(r.includes('questionHealthItem(q,metrics,ratings,questionVerifications())')) throw new Error('questionVerifications is still called inside dashboard map');
+if(r.includes('questionQuality(q,metrics)')) throw new Error('questionQuality still reloads ratings per question');
+if(!r.includes('vers=questionVerifications()')) throw new Error('verification registry is not loaded once');
+if(!r.includes('questionQuality(q,metrics,ratings)')) throw new Error('ratings object is not reused');
+if(!r.includes('health=qs.map')) throw new Error('dashboard does not reuse loaded question list');
+console.log('Admin dashboard performance regression: OK');
