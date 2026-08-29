@@ -12,6 +12,7 @@
 ./app/package.json
 ./app/public/admin.html
 ./app/public/css/app.css
+./app/public/help.html
 ./app/public/icons/apple-touch-icon.png
 ./app/public/icons/favicon-32.png
 ./app/public/icons/icon-192.png
@@ -19,6 +20,7 @@
 ./app/public/index.html
 ./app/public/js/admin.js
 ./app/public/js/common.js
+./app/public/js/help.js
 ./app/public/js/home.js
 ./app/public/js/online.js
 ./app/public/js/play.js

@@ -1,4 +1,4 @@
-# Quiz v19.8.0
+# Quiz v19.8.1
 
 Mobil-först PWA för soloquiz, Barnquiz, offline-spel och realtime multiplayer.
 
@@ -50,3 +50,10 @@ systemctl restart resequiz
 ```
 
 `verified: true` tillsammans med `verificationLevel: "source-backed"` betyder att frågan är byggd från strukturerade källdata. Det är inte samma sak som manuell redaktionell granskning av varje enskild fråga.
+
+## Nytt i 19.8.1
+
+- Ny mobilanpassad hjälp direkt från startsidan och Inställningar.
+- Hjälpen beskriver spelstart, svårighetsgrad, upplägg, Barnquiz, multiplayer, offline-läge, highscore, rekord/awards, frivilliga konton, badges, språk/tema, bildfrågor och administration.
+- Hjälpsidan finns på svenska, engelska, spanska och tyska och följer valt språk.
+- Hjälpsidan och dess JavaScript ingår i PWA-cachen och fungerar därför offline.
