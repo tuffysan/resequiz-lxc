@@ -1,8 +1,8 @@
 {
   "name": "quiz",
-  "version": "20.0.0",
+  "version": "21.0.0",
   "private": true,
-  "description": "Quiz 20 – progression, badges, adaptive play, question quality and mobile-first profiles",
+  "description": "Quiz 21 – Play, Progress and Quality with Daily Quiz, progression, reports and safer upgrades",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

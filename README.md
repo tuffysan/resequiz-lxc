@@ -1,29 +1,32 @@
-# Quiz 20.0.0
+# Quiz 21.0.0
 
-Quiz 20 is the progression and quality release.
+Quiz 21 bygger vidare på Quiz 20 med tre fokus: **PLAY, PROGRESS, QUALITY**.
 
-## Highlights
-- Guest play remains the default: no account required.
-- Optional player accounts with XP, levels, streaks, category progress and badges.
-- Next-badge progress so players can see what to unlock next.
-- Existing awards and records remain.
-- Adaptive solo selection for signed-in players reduces recently seen questions.
-- Difficulty and game format are selected before play.
-- Mobile-first question view still shows only image (when relevant), question and answers while answering.
-- Admin Question Quality Engine detects incomplete questions, duplicate answers, invalid answer keys, missing verification metadata, broken local images and exact duplicate question text.
-- Question quality score and review list in Admin.
-- SQLite analytics foundation at `/var/lib/resequiz/quiz.db` using Node 22 built-in SQLite; existing JSON data remains compatible and is indexed on startup.
-- Existing languages, Spanish variants, offline mode, highscores, Barnquiz images, multiplayer and help remain.
+## Nytt i Quiz 21
 
-## Upgrade
-Push this release to the GitHub repository and run the normal updater on the Proxmox host.
+- **Daily Quiz**: samma 10 källbaserade/verifierade frågor för alla varje UTC-dag, egen dagsstatus och topplista.
+- **Personlig startsida**: inloggade ser XP, level, streak och nästa badge direkt. Gästspel är fortfarande förstklassigt och kräver inget konto.
+- **Progression**: XP, levels, kategoriutveckling, streaks, badges, awards och personliga rekord från Quiz 20 finns kvar och lyfts tydligare.
+- **Highscore 2.0**: filtrera Alla tider/Idag/7 dagar/30 dagar, kategori, svårighet och upplägg.
+- **Rapportera fråga** direkt efter ett svar. Admin får en rapportkö och kan markera rapporter lösta.
+- **Frågestatistik** i SQLite: antal svar, rättprocent, rapporter och senaste visning byggs upp per fråga.
+- **Question Quality Engine** fortsätter kontrollera ofullständiga frågor, dubbletter, svarsfel, verifieringsmetadata och trasiga bilder.
+- **Offline**: befintligt offlinepaket och Barnquiz-bilder behålls; startsidan visar offline tydligt.
+- **Säkrare uppdatering**: installationsskriptet tar automatisk backup av `/var/lib/resequiz` före uppdatering och behåller fem senaste pre-upgrade-backuper.
+- Mobil-first, multiplayer, Barnquiz, bildfrågor, språk/tema, admin-login och hjälp finns kvar.
+
+## Installation på Proxmox
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/tuffysan/resequiz-lxc/main/update-from-github.sh)"
+chmod +x install-on-proxmox.sh scripts/*.sh
+./install-on-proxmox.sh 135
 ```
 
-Verify:
+Efter installation:
+
 ```bash
 pct exec 135 -- curl -fsS http://127.0.0.1:3000/health
+pct exec 135 -- curl -fsS http://127.0.0.1:3000/api/daily/status
 ```
-Expected version: `20.0.0`.
+
+Båda ska svara utan fel och `/health` ska visa version `21.0.0`.

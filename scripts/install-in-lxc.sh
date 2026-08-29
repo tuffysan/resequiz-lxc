@@ -10,6 +10,14 @@ if ! command -v node >/dev/null || [ "$(node -p 'process.versions.node.split(`.`
 fi
 id resequiz >/dev/null 2>&1 || useradd --system --home /nonexistent --shell /usr/sbin/nologin resequiz
 mkdir -p "$APP" "$DATA"
+# Quiz 21: automatic pre-upgrade backup.
+mkdir -p /var/backups/resequiz
+if [ -d "$DATA" ] && [ "$(find "$DATA" -mindepth 1 -maxdepth 1 2>/dev/null | head -1)" ]; then
+  BACKUP="/var/backups/resequiz/pre-upgrade-$(date +%Y%m%d-%H%M%S).tgz"
+  tar -czf "$BACKUP" -C /var/lib resequiz || true
+  echo "Backup före uppdatering: $BACKUP"
+  ls -1t /var/backups/resequiz/pre-upgrade-*.tgz 2>/dev/null | tail -n +6 | xargs -r rm -f
+fi
 # Preserve legacy media assets before deployment.
 rm -rf /tmp/quiz-media-keep
 if [ -d "$APP/public/media-packs" ]; then
@@ -32,7 +40,7 @@ cp "$(dirname "$0")/question-bank-report.js" "$APP/tools/" 2>/dev/null || true
 cp "$SRC/data/child-questions.json" "$APP/data/child-questions.json"
 cd "$APP"
 if [ -f package-lock.json ]; then npm ci --omit=dev; else npm install --omit=dev; fi
-for f in questions.json results.json settings.json users.json; do [ -f "$DATA/$f" ] || cp "$SRC/data/$f" "$DATA/$f"; done
+for f in questions.json results.json settings.json users.json question-reports.json; do [ -f "$DATA/$f" ] || cp "$SRC/data/$f" "$DATA/$f"; done
 # Migrate old visible product title while preserving the rest of the user's settings.
 node - "$DATA/settings.json" <<'NODE'
 const fs=require('fs');
