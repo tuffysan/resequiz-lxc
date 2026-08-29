@@ -1,4 +1,8 @@
-# Resequiz 8.0 – Smart Game Night
+## Resequiz 9.0 – Smart Quiz Engine
+
+See `SMART-QUIZ-ENGINE-9.0.md` for the quality, recovery, host-migration, Quiz DNA, Admin Center and E2E improvements.
+
+# Resequiz 9.0 – Smart Game Night
 
 **Frågebank från 7.5:** 1 800 ytterligare frågor/frågevarianter har lagts till – 120 i varje kategori utom Världen och Hjärngympa. De två stora kategorierna är helt oförändrade. Quiet Mode, Balance Engine, Solo, På väg, Rese quiz och Game Director finns kvar.
 
@@ -90,7 +94,7 @@ CTID=135 ./check-resequiz.sh
 cd app
 npm test
 ```
-## Resequiz 8.0 – Smart Game Night
+## Resequiz 9.0 – Smart Game Night
 
 Version 8.0 fokuserar på att göra spelet smartare bakom kulisserna och enklare framför spelarna:
 
