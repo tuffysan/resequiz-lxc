@@ -1,0 +1,9 @@
+Resequiz 7.5.0 - Expanded Category Bank
+
+Totalt: 13 141 frågor
+Nytt i 7.5: 1 800 ytterligare frågor/frågevarianter
+Världen: 2 462 (oförändrat)
+Hjärngympa: 4 988 (oförändrat)
+
+Övriga 15 kategorier: +120 vardera.
+Quiet Mode och Balance Engine är kvar.

@@ -1,14 +1,30 @@
-# Resequiz 7.1 – Balanced Question Bank
+# Resequiz 8.0 – Smart Game Night
 
-Version 7.1 balanserar **spelupplevelsen**, inte genom att fylla banken med tusentals repetitiva mallfrågor utan genom kategori-rättvis frågeuttagning. När flera kategorier är valda plockas frågor round-robin mellan tillgängliga kategorier, så stora banker som Hjärngympa och Världen inte kan dominera ett blandat quiz. Samma princip används online och offline. En vald enskild kategori använder naturligtvis hela sin egen bank.
+**Frågebank från 7.5:** 1 800 ytterligare frågor/frågevarianter har lagts till – 120 i varje kategori utom Världen och Hjärngympa. De två stora kategorierna är helt oförändrade. Quiet Mode, Balance Engine, Solo, På väg, Rese quiz och Game Director finns kvar.
+
+# Resequiz 7.4 – Quiet Mode
+
+**Nytt i 7.4:** Ljudfrågor är av som standard. I lobbyn finns ett tydligt 🔇 Ljudfrågor-val som kan slås på med ett tryck. Valet sparas på enheten. När ljud är av filtrerar servern bort alla frågor med ljud och ersätter dem med ljudlösa frågor även i upplägg. Offline-läget har samma kontroll.
+
+# Resequiz 7.3 – Visual & Music Expansion
+
+Version 7.3 bygger vidare på den balanserade 7.2-banken med **124 nya riktiga mediafrågor**: 100 nya lokala flaggbilder i Bildrunda och 24 nya lokalt syntetiserade melodiklippsfrågor i Musikquiz. Alla media fungerar utan externa tjänster och följer med offlinepaketet. Totalt innehåller banken **11 341 frågor**, varav Bildrunda har 220 och Musikquiz 48. Hjärngympa är oförändrad.
+
+# Tidigare: Resequiz 7.2 – Expanded Balanced Question Bank
+
+7.2 fyller på de mindre kategorierna med nya faktabaserade svenska frågor. Hjärngympa har inte fått några nya frågor i denna expansion. Balance Engine från 7.1 finns kvar.
+
+# Resequiz 7.2 – Balanced Question Bank
+
+Version 7.2 balanserar **spelupplevelsen**, inte genom att fylla banken med tusentals repetitiva mallfrågor utan genom kategori-rättvis frågeuttagning. När flera kategorier är valda plockas frågor round-robin mellan tillgängliga kategorier, så stora banker som Hjärngympa och Världen inte kan dominera ett blandat quiz. Samma princip används online och offline. En vald enskild kategori använder naturligtvis hela sin egen bank.
 
 **Frågebanken är fortsatt 10 500 frågor** och no-repeat, kvalitetspoäng och smart svårighetsgrad fungerar som tidigare. Hjärngympa är fortsatt avmarkerad som standard offline.
 
-# Resequiz 7.1 – Mega Question Bank
+# Resequiz 7.2 – Mega Question Bank
 
 **10 500 lokala frågor** med strikt no-repeat, svensk spelupplevelse och full kompatibilitet med Solo, På väg, Rese quiz och Game Director.
 
-# Resequiz 7.1 – Solo Edition
+# Resequiz 7.2 – Solo Edition
 
 Nytt i 6.3 är ett komplett **🧠 Solo-läge**. Från startsidan kan en spelare välja **Spela själv**, skapa ett rum och starta direkt utan andra deltagare. Samma quizupplägg, Director, statistik, achievements, kartor, bilder och musik fungerar i solo. Moment som kräver motståndare, exempelvis duell och buzzerfinal, anpassas automatiskt till solo-utmaningar. Prediction/reactions döljs när de inte tillför något och slutskärmen visar spelarens eget resultat. Det går fortfarande att bjuda in andra från sololobbyn med kod eller QR innan start.
 
@@ -60,7 +76,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/tuffysan/resequiz-lxc/ma
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/tuffysan/resequiz-lxc/main/update-from-github.sh)"
 ```
 
-Efter uppdateringen ska `/health` rapportera `7.1.0`.
+Efter uppdateringen ska `/health` rapportera `7.2.0`.
 
 ## Kontroll
 
@@ -74,3 +90,20 @@ CTID=135 ./check-resequiz.sh
 cd app
 npm test
 ```
+## Resequiz 8.0 – Smart Game Night
+
+Version 8.0 fokuserar på att göra spelet smartare bakom kulisserna och enklare framför spelarna:
+
+- **Starta bästa quizet** ger en enkel rekommenderad väg in i spelet.
+- **Game Director 2.0** kombinerar automatisk pacing, dramatik och adaptiv svårighetsgrad.
+- **Smart frågeurval** balanserar kategorier, kvalitet, nyligen spelade frågor och liknande formuleringar.
+- **Question Health** samlar speldata och frivilliga 👍/👎-omdömen för kvalitetsgranskning.
+- **Spelarprofiler, rivaliteter och säsonger** bygger historik utan obligatoriskt konto.
+- **Maps 3.0** visar alla spelares markeringar, rätt plats och ranking efter kartfrågor.
+- **Bildreveal** stöder zoom, pixel/blur och silhuett-effekter.
+- **Miljöval** Hemma/Fest/Bland folk/På väg anpassar upplevelsen; ljud stängs automatiskt av i offentliga miljöer och på väg.
+- **Förladdning av media** för kommande frågor gör korta nätverksstörningar mindre märkbara utan att exponera svar.
+- **Resultatkort** kan exporteras som PNG, och profiler kan exporteras som JSON-backup.
+- **Diagnostik** finns på `/api/diagnostics` för snabb kontroll av version, uptime, minne och datakatalog.
+
+Målet är att fler funktioner ska skötas automatiskt, medan huvudflödet för användaren hålls så enkelt som möjligt.

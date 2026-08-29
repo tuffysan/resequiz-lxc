@@ -4,4 +4,4 @@ Packa upp hela ZIP-filen i roten av `tuffysan/resequiz-lxc` och ersätt tidigare
 
 # Publicera Resequiz 6.0
 
-Packa upp ZIP-filen i rooten av `tuffysan/resequiz-lxc`, commit och push. Kör sedan det vanliga update-from-github-kommandot på Proxmox. `/health` ska rapportera `7.1.0`.
+Packa upp ZIP-filen i rooten av `tuffysan/resequiz-lxc`, commit och push. Kör sedan det vanliga update-from-github-kommandot på Proxmox. `/health` ska rapportera `7.2.0`.
