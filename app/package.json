@@ -1,8 +1,8 @@
 {
   "name": "quiz",
-  "version": "21.0.1",
+  "version": "21.1.0",
   "private": true,
-  "description": "Quiz 21 – Play, Progress and Quality with Daily Quiz, progression, reports and safer upgrades",
+  "description": "Quiz 21.1 – Multiplayer & UX with QR lobby, display mode, offline manager and regression checks",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "express": "^5.1.0",
-    "socket.io": "^4.8.1"
+    "socket.io": "^4.8.1",
+    "qrcode": "^1.5.4"
   }
 }

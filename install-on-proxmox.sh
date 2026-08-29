@@ -2,6 +2,8 @@
 set -Eeuo pipefail
 CTID="${1:-135}"; ROOT="$(cd "$(dirname "$0")" && pwd)"; TMP="/tmp/resequiz-v19"
 command -v pct >/dev/null || { echo "Kör på Proxmox-hosten." >&2; exit 1; }
+chmod +x "$ROOT/scripts/release-regression-check.sh"
+"$ROOT/scripts/release-regression-check.sh" "$ROOT"
 pct status "$CTID" >/dev/null
 pct exec "$CTID" -- mkdir -p "$TMP"
 pct push "$CTID" "$ROOT/app/package.json" "$TMP/package.json"
