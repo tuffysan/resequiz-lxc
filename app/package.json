@@ -1,8 +1,8 @@
 {
   "name": "quiz",
-  "version": "19.8.1",
+  "version": "20.0.0",
   "private": true,
-  "description": "Quiz with age-adapted children categories, realtime multiplayer, offline play and administration",
+  "description": "Quiz 20 – progression, badges, adaptive play, question quality and mobile-first profiles",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

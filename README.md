@@ -1,59 +1,29 @@
-# Quiz v19.8.1
+# Quiz 20.0.0
 
-Mobil-först PWA för soloquiz, Barnquiz, offline-spel och realtime multiplayer.
+Quiz 20 is the progression and quality release.
 
-## Nytt i 19.8.0
+## Highlights
+- Guest play remains the default: no account required.
+- Optional player accounts with XP, levels, streaks, category progress and badges.
+- Next-badge progress so players can see what to unlock next.
+- Existing awards and records remain.
+- Adaptive solo selection for signed-in players reduces recently seen questions.
+- Difficulty and game format are selected before play.
+- Mobile-first question view still shows only image (when relevant), question and answers while answering.
+- Admin Question Quality Engine detects incomplete questions, duplicate answers, invalid answer keys, missing verification metadata, broken local images and exact duplicate question text.
+- Question quality score and review list in Admin.
+- SQLite analytics foundation at `/var/lib/resequiz/quiz.db` using Node 22 built-in SQLite; existing JSON data remains compatible and is indexed on startup.
+- Existing languages, Spanish variants, offline mode, highscores, Barnquiz images, multiplayer and help remain.
 
-### Frågebank
-- Ny källbaserad frågebyggare försöker nå **minst 520 verifierade/source-backed frågor per kategori**.
-- Byggaren använder Wikidata Query Service för strukturerade fakta och sparar källa på varje genererad fråga.
-- Kategorierna omfattar även Hjärngympa och Världen i denna version.
-- Hjärngympa verifieras deterministiskt genom beräkning i stället för extern källa.
-- Byggaren är idempotent: samma fråga läggs inte till flera gånger.
-- Om Wikidata är tillfälligt otillgängligt fortsätter installationen och byggaren kan köras igen senare.
-- Rapportverktyg: `node /opt/resequiz/tools/question-bank-report.js /var/lib/resequiz/questions.json`.
-
-### Barnquiz med bilder
-- Barnquiz innehåller nu **625 frågor**.
-- **Samtliga 625 Barnquiz-frågor har en bild**.
-- Bilderna är lokala SVG-filer under `public/media-packs/kids-v1980/` och fungerar därför även utan extern bildserver.
-- Barnbilderna precachas för offline-läge.
-- Frågorna täcker Blandat, Djur, Disney/barnfilm, Geografi, Fotboll, Natur och Matematik.
-
-### Frivilliga användarkonton och badges
-- Det går fortfarande att spela helt som gäst utan konto.
-- Frivillig registrering med användarnamn, visningsnamn och lösenord.
-- Inloggade resultat kopplas till användaren och ger en personlig statistikprofil.
-- Profilen visar spel, bästa resultat, snitt, senaste resultat och badges.
-- Badges inkluderar första quizet, 5/10/25 spel, full pott, kategoriutforskare, allround och starkt resultat på svår nivå.
-- Befintliga resultatawards för personbästa, Quiz-rekord, kategorirekord och 100 % finns kvar.
-
-## Installation
-
-På Proxmox-hosten:
+## Upgrade
+Push this release to the GitHub repository and run the normal updater on the Proxmox host.
 
 ```bash
-chmod +x install-on-proxmox.sh scripts/*.sh
-./install-on-proxmox.sh 135
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/tuffysan/resequiz-lxc/main/update-from-github.sh)"
 ```
 
-Den vanliga GitHub-uppdateraren fungerar när release-filerna ligger på `main`.
-
-## Bygg om verifierad frågebank manuellt
-
-I CT 135, från en release-mapp som innehåller skriptet:
-
+Verify:
 ```bash
-node /opt/resequiz/tools/expand-source-backed-questions.js /var/lib/resequiz/questions.json 520
-node /opt/resequiz/tools/question-bank-report.js /var/lib/resequiz/questions.json
-systemctl restart resequiz
+pct exec 135 -- curl -fsS http://127.0.0.1:3000/health
 ```
-
-`verified: true` tillsammans med `verificationLevel: "source-backed"` betyder att frågan är byggd från strukturerade källdata. Det är inte samma sak som manuell redaktionell granskning av varje enskild fråga.
-
-## Nytt i 19.8.1
-
-- Ny mobilanpassad hjälp direkt från startsidan och Inställningar.
-- Hjälpen beskriver spelstart, svårighetsgrad, upplägg, Barnquiz, multiplayer, offline-läge, highscore, rekord/awards, frivilliga konton, badges, språk/tema, bildfrågor och administration.
-- Hjälpsidan finns på svenska, engelska, spanska och tyska och följer valt språk.
-- Hjälpsidan och dess JavaScript ingår i PWA-cachen och fungerar därför offline.
+Expected version: `20.0.0`.

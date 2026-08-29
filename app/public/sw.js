@@ -1,4 +1,4 @@
-const CACHE='quiz-v1981';
+const CACHE='quiz-v2000';
 const CORE=['/','/play.html','/results.html','/online.html','/admin.html','/profile.html','/help.html','/css/app.css','/js/common.js','/js/home.js','/js/play.js','/js/results.js','/js/online.js','/js/admin.js','/js/profile.js','/js/help.js','/js/pwa.js','/manifest.webmanifest','/icons/icon-192.png','/icons/icon-512.png','/icons/apple-touch-icon.png','/icons/favicon-32.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE&&k!=='quiz-media-v1981').map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
