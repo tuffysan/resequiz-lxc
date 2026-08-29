@@ -3,7 +3,11 @@ set -euo pipefail
 
 CTID="${CTID:-135}"
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-VERSION="$(tr -d '[:space:]' < "$DIR/VERSION")"
+VERSION="$(sed -n 's/^[[:space:]]*"version"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' "$DIR/app/package.json" | head -n1)"
+if [[ -z "$VERSION" ]]; then
+  echo "Kunde inte läsa version från app/package.json." >&2
+  exit 1
+fi
 ROTATE_ADMIN_KEY="${ROTATE_ADMIN_KEY:-0}"
 
 if [[ $EUID -ne 0 ]]; then
@@ -49,7 +53,7 @@ BACKUP=/opt/resequiz.rollback
 rm -rf "$BACKUP"
 if [[ -d /opt/resequiz && -n "$(ls -A /opt/resequiz 2>/dev/null)" ]]; then cp -a /opt/resequiz "$BACKUP"; fi
 step 4 "Stoppar tjänsten och installerar programfiler..."
-systemctl stop resequiz 2>/dev/null || true
+timeout 15 systemctl stop resequiz 2>/dev/null || { systemctl kill -s SIGKILL resequiz 2>/dev/null || true; sleep 1; }
 mkdir -p /opt/resequiz /var/lib/resequiz /var/lib/resequiz/media
 id resequiz >/dev/null 2>&1 || useradd --system --home /opt/resequiz --shell /usr/sbin/nologin resequiz
 chown -R resequiz:resequiz /var/lib/resequiz
