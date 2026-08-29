@@ -10,3 +10,11 @@
 - Versions-/PWA-cache bump till 18.0.2.
 
 Detta eliminerar den O(N × filstorlek)-kodväg som blockerade Node event loop och gjorde att även billiga endpoints som `/health` och `/api/admin/status` timeoutade medan dashboarden byggdes.
+
+## State/navigation and UI version hotfix
+
+- Starting a new Solo, Best Quiz or Join flow now clears any stale saved room before Socket.IO reconnect logic runs.
+- After creating or joining a room, the launch query string is removed so a page refresh can safely rejoin the active room.
+- Corrected stale visible version labels in generated result cards to 18.0.2.
+- HTML is served with no-cache/no-store while versioned static assets remain cacheable.
+- Bumped the PWA/service-worker cache namespace and frontend cache-buster to `1802-statefix1`.

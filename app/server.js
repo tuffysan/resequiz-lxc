@@ -660,7 +660,7 @@ function requireAdmin(req,res,next){if(!adminAllowed(req))return res.status(401)
 
 ensureDataDir();
 app.use('/media',express.static(MEDIA_DIR,{maxAge:'7d'}));
-app.use(express.static(PUBLIC,{maxAge:'1h'}));
+app.use(express.static(PUBLIC,{maxAge:'1h',setHeaders:(res,filePath)=>{if(/\.html$/i.test(filePath))res.setHeader('Cache-Control','no-cache, no-store, must-revalidate');}}));
 app.get('/health',(req,res)=>res.json({ok:true,version:APP_VERSION,rooms:rooms.size,questions:BASE_QUESTION_COUNT,status:'healthy'}));
 app.get('/api/questions/meta',(req,res)=>{const x=catalogueSummary();res.json({version:APP_VERSION,questions:x.questions,categories:x.categories,difficulties:['easy','medium','hard'],packs:allPacks()})});
 app.get('/api/highscores',(req,res)=>res.json(hallOfFame()));
