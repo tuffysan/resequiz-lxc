@@ -1,0 +1,103 @@
+{
+  "reviewDate": "2026-08-30",
+  "total": 30629,
+  "statusCounts": {
+    "reference-verified": 10849,
+    "reviewed-pass": 14085,
+    "deterministic-verified": 5457,
+    "corrected": 125,
+    "quarantined": 113
+  },
+  "corrections": 125,
+  "structuralErrorsAfter": 0,
+  "quarantined": 113,
+  "categories": {
+    "80/90/00-talet": {
+      "reviewed-pass": 1010,
+      "reference-verified": 429,
+      "corrected": 70,
+      "quarantined": 3
+    },
+    "Allmänbildning": {
+      "reference-verified": 761,
+      "reviewed-pass": 731,
+      "quarantined": 28
+    },
+    "Bildrunda": {
+      "reviewed-pass": 1001,
+      "reference-verified": 3
+    },
+    "Djur & natur": {
+      "reviewed-pass": 1002,
+      "corrected": 5
+    },
+    "Film & TV": {
+      "reviewed-pass": 1007,
+      "reference-verified": 1015,
+      "quarantined": 4
+    },
+    "Fotboll": {
+      "reviewed-pass": 1010,
+      "reference-verified": 258
+    },
+    "Historia": {
+      "reviewed-pass": 1004
+    },
+    "Hjärngympa": {
+      "deterministic-verified": 5457
+    },
+    "Mat & dryck": {
+      "reviewed-pass": 1007,
+      "quarantined": 24,
+      "reference-verified": 200
+    },
+    "Musik": {
+      "reviewed-pass": 1003,
+      "corrected": 2,
+      "reference-verified": 312,
+      "quarantined": 3
+    },
+    "Musikquiz": {
+      "reviewed-pass": 1010,
+      "reference-verified": 600,
+      "quarantined": 28
+    },
+    "Onödigt vetande": {
+      "reviewed-pass": 982,
+      "corrected": 15,
+      "reference-verified": 803,
+      "quarantined": 9
+    },
+    "Resor": {
+      "reference-verified": 1119,
+      "reviewed-pass": 401
+    },
+    "Sport": {
+      "reviewed-pass": 985,
+      "corrected": 20,
+      "reference-verified": 1201,
+      "quarantined": 11
+    },
+    "Sverige": {
+      "reviewed-pass": 1004,
+      "reference-verified": 906
+    },
+    "Vetenskap & teknik": {
+      "reference-verified": 1044,
+      "reviewed-pass": 466
+    },
+    "Världen": {
+      "reference-verified": 2198,
+      "reviewed-pass": 462,
+      "corrected": 13,
+      "quarantined": 3
+    }
+  },
+  "methodology": {
+    "deterministic": "Every arithmetic question was recomputed.",
+    "reference": "Country/language/currency/calling-code/ISO/ccTLD/element facts were checked against structured reference datasets; source-backed Wikidata rows received source-metadata/internal-consistency review.",
+    "manual": "Remaining canonical facts were semantic-reviewed. This is review, not independent source proof.",
+    "quarantine": "Ambiguous or malformed source-generated questions were excluded rather than guessed."
+  },
+  "structuralErrors": []
+}

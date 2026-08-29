@@ -4,6 +4,8 @@ ROOT="${1:-$(cd "$(dirname "$0")/.." && pwd)}"
 ROOT="$(cd "$ROOT" && pwd)"
 cd "$ROOT/app"
 node --check server.js
+node --check question-verification.js
+node --check ../scripts/verify-question-bank.js
 for f in public/js/*.js; do node --check "$f"; done
 bash "$ROOT/scripts/release-regression-check.sh" "$ROOT"
 bash "$ROOT/scripts/check-localization.sh"

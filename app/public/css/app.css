@@ -131,3 +131,6 @@ body:has(.question-only-screen) .question-only-screen{min-height:100dvh;padding-
 .admin-export-persistent{margin:14px 0 10px!important;border:2px solid var(--primary,#1684d6)!important;position:relative!important;z-index:5!important;display:flex!important;visibility:visible!important;opacity:1!important}
 .admin-export-persistent a.btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;text-decoration:none!important;min-height:48px!important}
 @media(max-width:560px){.admin-export-persistent{display:grid!important}.admin-export-persistent a.btn{width:100%!important;white-space:normal!important;text-align:center!important}}
+
+/* Quiz 24.1 verification center */
+.verification-row{display:grid;gap:8px;padding:14px 0;border-bottom:1px solid var(--line)}.verification-row:last-child{border-bottom:0}.verification-source-verified{border-color:#22c55e}.verification-deterministic{border-color:#0ea5e9}.verification-needs-review{border-color:#f59e0b}.verification-quarantined{border-color:#ef4444}.verification-legacy-verified{border-color:#a78bfa}@media(max-width:520px){.verification-row .actions{display:grid;grid-template-columns:1fr}.verification-row .btn{width:100%;min-height:48px}}

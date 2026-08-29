@@ -39,7 +39,7 @@ grep -q 'adaptiveQuestions' "$ROOT/app/server.js" || fail 'adaptiv repetition sa
 
 echo 'Release regression check: OK – Quiz 24.0 core features present'
 # Quiz 23.0 regression markers
-grep -q "24.0.5" "$ROOT/app/package.json"
+grep -q "24.1.1" "$ROOT/app/package.json"
 grep -q "review_schedule" "$ROOT/app/database.js"
 grep -q "/api/users/insights" "$ROOT/app/server.js"
 grep -q "SQLite preflight OK" "$ROOT/scripts/install-in-lxc.sh"
@@ -70,3 +70,20 @@ grep -q "questions-production.json.gz" "$ROOT/app/public/admin.html" || fail 'ad
 grep -q 'adminPersistentExport' "$ROOT/app/public/admin.html"
 grep -q 'questions-production.json.gz' "$ROOT/app/public/admin.html"
 grep -q 'quiz_admin_session' "$ROOT/app/server.js"
+
+grep -q "require('./question-verification')" "$ROOT/app/server.js"
+grep -q "/api/admin/verification" "$ROOT/app/server.js"
+grep -q "Verifieringscenter" "$ROOT/app/public/js/admin.js"
+grep -q "playableQuestions" "$ROOT/app/server.js"
+# Quiz 24.1.1 bundled fact-reviewed production bank
+test -s "$ROOT/app/data/questions-production-factchecked.json.gz" || { echo 'Faktagranskad produktionsbank saknas' >&2; exit 1; }
+grep -q 'apply-bundled-factchecked-bank.js' "$ROOT/scripts/install-in-lxc.sh" || { echo 'Installer hook för faktagranskad bank saknas' >&2; exit 1; }
+grep -q 'EXPECTED\|expected=30629' "$ROOT/scripts/apply-bundled-factchecked-bank.js" || { echo 'Validering av faktagranskad bank saknas' >&2; exit 1; }
+node - "$ROOT/app/data/questions-production-factchecked.json.gz" <<'NODE'
+const fs=require('fs'),zlib=require('zlib');
+const a=JSON.parse(zlib.gunzipSync(fs.readFileSync(process.argv[2])).toString('utf8'));
+if(!Array.isArray(a)||a.length!==30629)throw new Error(`Fel antal paketerade frågor: ${a?.length}`);
+const q=a.filter(x=>x.quarantined).length;
+if(q!==113)throw new Error(`Fel antal karantänfrågor: ${q}`);
+console.log(`Bundled fact-review gate OK – ${a.length} frågor, ${q} i karantän`);
+NODE

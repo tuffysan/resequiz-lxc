@@ -58,6 +58,8 @@ rsync -a --delete --exclude data/ "$SRC/" "$APP/"
 mkdir -p "$APP/data" "$APP/tools"
 cp "$(dirname "$0")/expand-source-backed-questions.js" "$APP/tools/" 2>/dev/null || true
 cp "$(dirname "$0")/question-bank-report.js" "$APP/tools/" 2>/dev/null || true
+cp "$(dirname "$0")/verify-question-bank.js" "$APP/tools/" 2>/dev/null || true
+cp "$(dirname "$0")/apply-bundled-factchecked-bank.js" "$APP/tools/" 2>/dev/null || true
 cp "$(dirname "$0")/sync-question-bank.sh" "$APP/tools/" 2>/dev/null || true
 chmod +x "$APP/tools/sync-question-bank.sh" 2>/dev/null || true
 cp "$SRC/data/child-questions.json" "$APP/data/child-questions.json"
@@ -98,6 +100,25 @@ if [ -f "$SRC/data/verified-questions.json" ]; then node "$(dirname "$0")/merge-
 if [ -f "$APP/scripts/migrate-question-intelligence.js" ]; then
   echo "Kör Question Intelligence-migrering..."
   node "$APP/scripts/migrate-question-intelligence.js" "$DATA/questions.json" || { echo "Varning: Question Intelligence-migrering misslyckades; befintlig frågebank lämnas kvar." >&2; }
+fi
+
+# Quiz 24.1.1: merge the bundled, fully reviewed production snapshot into the live bank.
+# Existing questions not present in the reviewed snapshot are preserved, so background sync cannot be lost.
+if [ -f "$SRC/data/questions-production-factchecked.json.gz" ] && [ -f "$APP/tools/apply-bundled-factchecked-bank.js" ]; then
+  echo "Installerar faktagranskad frågebank (30 629 granskade frågor)..."
+  (cd "$APP" && node "$APP/tools/apply-bundled-factchecked-bank.js" "$DATA/questions.json" "$SRC/data/questions-production-factchecked.json.gz") || {
+    echo "Fel: faktagranskad frågebank kunde inte installeras. Uppdateringen avbryts för att skydda produktionsdata." >&2
+    if [ -n "$APPBAK" ] && [ -f "$APPBAK" ]; then rm -rf "$APP"; tar -xzf "$APPBAK" -C /opt; fi
+    systemctl restart resequiz 2>/dev/null || true
+    exit 1
+  }
+fi
+
+# Quiz 24.1: annotate verification status and quarantine only structurally invalid questions.
+# Pre-upgrade backup above plus this script's own backup protect the persistent bank.
+if [ -f "$DATA/questions.json" ] && [ -f "$APP/tools/verify-question-bank.js" ]; then
+  echo "Kör säker frågeverifieringsanalys..."
+  (cd "$APP" && node "$APP/tools/verify-question-bank.js" "$DATA/questions.json" --apply) || { echo "Varning: verifieringsanalysen misslyckades; installationen fortsätter med befintlig bank." >&2; }
 fi
 
 # Quiz 23 preflight: migrate a COPY of the existing SQLite database before touching the live DB.
