@@ -39,7 +39,7 @@ grep -q 'adaptiveQuestions' "$ROOT/app/server.js" || fail 'adaptiv repetition sa
 
 echo 'Release regression check: OK – Quiz 24.0 core features present'
 # Quiz 23.0 regression markers
-grep -q "24.0.0" "$ROOT/app/package.json"
+grep -q "24.0.1" "$ROOT/app/package.json"
 grep -q "review_schedule" "$ROOT/app/database.js"
 grep -q "/api/users/insights" "$ROOT/app/server.js"
 grep -q "SQLite preflight OK" "$ROOT/scripts/install-in-lxc.sh"
