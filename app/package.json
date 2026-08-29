@@ -1,6 +1,6 @@
 {
   "name": "resequiz-server",
-  "version": "17.6.0",
+  "version": "17.6.2",
   "private": true,
   "type": "commonjs",
   "scripts": {
