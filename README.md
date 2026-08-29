@@ -1,34 +1,53 @@
-# Quiz 22.0.1 – Play & Progress
+# Quiz 22.1.0 – Question Intelligence
 
-Quiz 22 bygger vidare på Quiz 21.1 utan att ta bort kärnfunktioner. Fokus är snabbare spelstart, personlig utveckling, återkommande spel, bättre multiplayer och högre frågekvalitet.
+Quiz 22.1 fokuserar på frågekvalitet, dubbletter, factKey, adaptiv repetition och ett bättre administrativt hälsoläge för frågebanken.
 
-## Nytt i Quiz 22
+## Nyheter
 
-- Ny mobil-först startsida med **Spela nu / Quick Play** och senaste spelinställningar.
-- **Daily Quiz 2.0**: samma frågor för alla, första registrerade försöket räknas på dagens topplista, placering, percentil och Daily-streak.
-- **Träningsläge** som prioriterar tidigare felbesvarade frågor och bygger frågehistorik i SQLite.
-- **Kategori-mastery**: Nybörjare, Brons, Silver, Guld, Expert och Mästare.
-- Ny resultatskärm med XP/nivå, mastery, awards och tydliga nästa steg.
-- **Quiz Duel**: asynkron utmaning med delningslänk och exakt samma frågor för deltagarna.
-- **Veckoutmaningar** med synlig progression.
-- Utökat badge-system med fler spel-, nivå-, streak-, XP-, Daily-, multiplayer-, duel- och kategoriutmärkelser.
-- Multiplayer-konton följer nu med via user token så multiplayer kan ge progression till rätt användare.
-- Multiplayer-värden kan låsa lobby, ta bort spelare och spela igen med samma grupp.
-- Party/Storbild finns kvar tillsammans med QR-kod, delning och direktlänk till rummet.
-- **Question Quality 2.0**: rättprocent, svarstid, rapporter och automatisk flaggning av statistiska avvikelser.
-- Frågor har förberedd mediaarkitektur för `image`, `audio` och `video`.
-- Admin visar system/SQLite-status och kan skapa/ladda ned backup.
-- PWA visar uppdateringsbanner och stöder enkel haptisk feedback på enheter som kan vibrera.
-- Offline, Barnquiz, språk, highscore, profil, admin och befintlig frågebank är bevarade.
-- Utökad release-regressionskontroll samt runtime smoke/E2E-testskript.
+- Permanent migrering av frågetext: kända presentationsprefix tas bort ur den persistenta frågebanken, inte bara vid rendering.
+- Extra språkfixar för äldre genererade frågor, t.ex. `Vad är rätt svar: betyder ...` → `Vad betyder ...` och `Hur lyder rätt svar på detta: många ...` → `Hur många ...`.
+- `factKey` skapas automatiskt för frågor som saknar det. Befintliga factKey/family bevaras.
+- Lokal semantisk dubblettanalys med tokenlikhet inom kategori. Inga frågor raderas automatiskt.
+- Question Quality analyserar även dåliga svarsalternativ, tomma/dubbla alternativ, rätt svar som avslöjas i frågan, längdavvikelser och generiska quizformuleringar.
+- SQLite `question_metrics` sparar svarsfördelning per alternativ (A–F), rättprocent, rapporter och svarstid.
+- Statistikvarningar fortsätter flagga extrema rättprocenter och rapporterade frågor.
+- Adaptivt solo använder riktig frågehistorik: felaktiga svar blir aktuella igen tidigare, korrekt besvarade frågor får längre intervall, osedda frågor prioriteras.
+- Träningsläget använder spaced-repetition-liknande intervall och prioriterar frågor där användaren haft problem.
+- Admin → Frågebank · Hälsokontroll visar totalt, godkända, behöver granskas, möjliga dubbletter, statistikvarningar och rapporterade frågor.
+- Admin kan köra “Rensa frågor & skapa factKey” manuellt.
+- Admin-frågeredigering visar `factKey`.
+- Rapporter-vyn visar möjliga semantiska dubbletter.
+- Cacheversion uppdaterad till 22.1 för att undvika gammal klientkod.
+- Release-regressionstest utökat med Question Intelligence, factKey, semantisk dubblettkontroll och adaptiv repetition.
 
-## Data och SQLite
+## Säker migrering
 
-Quiz 22 utökar SQLite med resultatindex, frågemätvärden, frågehistorik, achievements-grund, Daily-attempts och duel-index. Befintliga JSON-filer behålls under övergången för kompatibilitet, import/export, felsäkerhet och för att inte riskera den befintliga installationen vid uppgradering.
+Vid installation gör updateraren först den vanliga pre-upgrade-backupen. Därefter körs `migrate-question-intelligence.js` på `/var/lib/resequiz/questions.json`. Migreringsskriptet skapar dessutom en egen tidsstämplad `.bak` av frågebanken innan den ändrar något.
 
-## Installation via GitHub
+Migreringen raderar inte frågor och ändrar inte facit eller svarsalternativ. Den rensar kända presentationstexter och fyller i saknade factKey.
 
-När innehållet i denna release finns i `main`:
+## Manuell analys/migrering
+
+```bash
+pct exec 135 -- bash -lc '
+node /opt/resequiz/scripts/migrate-question-intelligence.js \
+  /var/lib/resequiz/questions.json --dry-run
+'
+```
+
+Kör permanent:
+
+```bash
+pct exec 135 -- bash -lc '
+node /opt/resequiz/scripts/migrate-question-intelligence.js \
+  /var/lib/resequiz/questions.json
+systemctl restart resequiz
+'
+```
+
+## Installera via GitHub
+
+När filerna ligger på `main`:
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/tuffysan/resequiz-lxc/main/update-from-github.sh)"
@@ -40,21 +59,8 @@ Verifiera:
 pct exec 135 -- curl -fsS http://127.0.0.1:3000/health
 ```
 
-Förväntad version: `22.0.1`.
+Förväntad version: `22.1.0`.
 
-## Releasekontroller
+## Viktigt om “semantiska dubbletter”
 
-```bash
-./scripts/release-regression-check.sh .
-cd app
-npm test
-npm run smoke
-```
-
-`npm run smoke` startar en tillfällig lokal Quiz-process och testar health, meta, Daily Quiz, solo start/check och Quiz Duel via riktiga HTTP-anrop.
-
-
-## 22.0.1
-- Rensar legacy-prefixet “I en quiz:” och närliggande varianter så endast själva frågan visas.
-- Rensningen sker både server-side och i klienten, inklusive redan cachelagrade offlinefrågor.
-- Regressionstest stoppar release om rensningen saknas.
+22.1 använder en lokal, deterministisk likhetsanalys och factKey – inte en extern AI-tjänst. Resultatet är därför en granskningskö, inte automatisk borttagning. Det är avsiktligt för att inte riskera att olika fakta raderas bara för att frågorna råkar vara språkligt lika.

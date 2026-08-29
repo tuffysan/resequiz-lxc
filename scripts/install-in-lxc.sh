@@ -72,6 +72,13 @@ fi
 if [ -f /tmp/rq-legacy-questions.json ]; then node "$(dirname "$0")/repair-legacy-question-media.js" "$DATA/questions.json" /tmp/rq-legacy-questions.json || true; fi
 # Merge the curated verified question pack into an existing persistent bank, idempotently.
 if [ -f "$SRC/data/verified-questions.json" ]; then node "$(dirname "$0")/merge-verified-questions.js" "$DATA/questions.json" "$SRC/data/verified-questions.json"; fi
+# Quiz 22.1 Question Intelligence: permanently clean presentation wrappers and assign missing factKey values.
+# The migration writes its own timestamped backup of questions.json before changing the persistent bank.
+if [ -f "$APP/scripts/migrate-question-intelligence.js" ]; then
+  echo "Kör Question Intelligence-migrering..."
+  node "$APP/scripts/migrate-question-intelligence.js" "$DATA/questions.json" || { echo "Varning: Question Intelligence-migrering misslyckades; befintlig frågebank lämnas kvar." >&2; }
+fi
+
 # Quiz 22: source-backed expansion runs separately and never blocks a healthy upgrade.
 # A retrying, cached background job continues the bank after the app is healthy.
 if [ -d /tmp/quiz-media-keep/media-packs ]; then mkdir -p "$APP/public"; cp -a /tmp/quiz-media-keep/media-packs "$APP/public/"; fi

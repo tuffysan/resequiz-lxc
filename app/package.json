@@ -1,8 +1,8 @@
 {
   "name": "quiz",
-  "version": "22.0.1",
+  "version": "22.1.0",
   "private": true,
-  "description": "Quiz 22 – Play & Progress: Quick Play, Daily 2.0, Training, Mastery, Duels, Party Mode, Quality 2.0 and regression tests",
+  "description": "Quiz 22.1 – Question Intelligence: permanent cleanup, factKey, duplicate detection, quality health, adaptive repetition and answer analytics",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

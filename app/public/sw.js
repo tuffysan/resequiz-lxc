@@ -1,7 +1,7 @@
-const CACHE='quiz-v2201';
+const CACHE='quiz-v2210';
 const CORE=['/','/play.html','/results.html','/online.html','/admin.html','/profile.html','/offline.html','/help.html','/duel.html','/css/app.css','/js/common.js','/js/home.js','/js/play.js','/js/results.js','/js/online.js','/js/admin.js','/js/profile.js','/js/offline.js','/js/help.js','/js/duel.js','/js/pwa.js','/manifest.webmanifest','/icons/icon-192.png','/icons/icon-512.png','/icons/apple-touch-icon.png','/icons/favicon-32.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
-self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE&&k!=='quiz-media-v2201').map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
-self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;const u=new URL(e.request.url);if(u.origin!==location.origin)return;e.respondWith(fetch(e.request).then(r=>{if(r.ok&&(u.pathname.startsWith('/media-packs/')||CORE.includes(u.pathname))){const copy=r.clone();caches.open(u.pathname.startsWith('/media-packs/')?'quiz-media-v2201':CACHE).then(c=>c.put(e.request,copy)).catch(()=>{})}return r}).catch(async()=>await caches.match(e.request)||await caches.match(u.pathname)||new Response('Offline',{status:503})))})
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE&&k!=='quiz-media-v2210').map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;const u=new URL(e.request.url);if(u.origin!==location.origin)return;e.respondWith(fetch(e.request).then(r=>{if(r.ok&&(u.pathname.startsWith('/media-packs/')||CORE.includes(u.pathname))){const copy=r.clone();caches.open(u.pathname.startsWith('/media-packs/')?'quiz-media-v2210':CACHE).then(c=>c.put(e.request,copy)).catch(()=>{})}return r}).catch(async()=>await caches.match(e.request)||await caches.match(u.pathname)||new Response('Offline',{status:503})))})
 
 self.addEventListener('message',e=>{if(e.data?.type==='SKIP_WAITING')self.skipWaiting()});

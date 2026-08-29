@@ -27,7 +27,14 @@ grep -q 'mediaType' "$ROOT/app/server.js" || fail 'mediaarkitektur saknas'
 grep -q '/duel.html' "$ROOT/app/public/sw.js" || fail 'duel-sidan cachelagras inte'
 grep -q 'SKIP_WAITING' "$ROOT/app/public/sw.js" || fail 'PWA update flow saknas'
 
-grep -q 'i\\s+en\\s+quiz' "$ROOT/app/server.js" || fail 'Frågeprefix I en quiz rensas inte server-side'
+grep -q 'i\\s+en\\s+quiz' "$ROOT/app/question-intelligence.js" || fail 'Frågeprefix I en quiz rensas inte i Question Intelligence'
 grep -q 'questionText' "$ROOT/app/public/js/common.js" || fail 'Klientrensning av frågeprefix saknas'
 
-echo 'Release regression check: OK – Quiz 22 core features present'
+
+grep -q '/api/admin/question-health' "$ROOT/app/server.js" || fail 'Question Health saknas'
+grep -q '/api/admin/question-intelligence/migrate' "$ROOT/app/server.js" || fail 'Question Intelligence migration endpoint saknas'
+grep -q 'deriveFactKey' "$ROOT/app/question-intelligence.js" || fail 'factKey-motor saknas'
+grep -q 'similarity' "$ROOT/app/question-intelligence.js" || fail 'semantisk dubblettkontroll saknas'
+grep -q 'adaptiveQuestions' "$ROOT/app/server.js" || fail 'adaptiv repetition saknas'
+
+echo 'Release regression check: OK – Quiz 22.1 core features present'
