@@ -1,0 +1,30 @@
+{
+  "version": "17.2.0",
+  "totalQuestions": 10861,
+  "added": 838,
+  "addedNewFacts": 0,
+  "addedVerifiedVariants": 838,
+  "excludedCategories": [
+    "Världen",
+    "Hjärngympa"
+  ],
+  "categories": {
+    "Världen": 2255,
+    "Allmänbildning": 286,
+    "Sverige": 200,
+    "Sport": 200,
+    "Mat & dryck": 200,
+    "Resor": 444,
+    "Vetenskap & teknik": 294,
+    "Hjärngympa": 4937,
+    "Bildrunda": 445,
+    "Musikquiz": 200,
+    "Fotboll": 200,
+    "Historia": 200,
+    "Musik": 200,
+    "Film & TV": 200,
+    "Onödigt vetande": 200,
+    "Djur & natur": 200,
+    "80/90/00-talet": 200
+  }
+}

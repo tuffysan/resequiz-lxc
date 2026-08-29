@@ -1,0 +1,4 @@
+const fs=require('fs'),path=require('path');
+const root=path.join(__dirname,'..'),server=fs.readFileSync(path.join(root,'server.js'),'utf8'),online=fs.readFileSync(path.join(root,'public','online.js'),'utf8'),page=fs.readFileSync(path.join(root,'public','leagues.html'),'utf8');
+const checks=[['LEAGUES_FILE',server.includes("leagues.json")],['public API',server.includes("/api/leagues")],['create API',server.includes("/api/admin/leagues")],['game scoring',server.includes('updateCustomLeague(r)')],['lobby selector',online.includes('id="league"')],['start setting',online.includes("league:advanced?document.getElementById('league').value")],['league page',page.includes('Resequiz – Ligor')],['backup',server.includes("'leagues.json'")]];
+for(const [n,ok] of checks){if(!ok){console.error('FAIL',n);process.exit(1)}console.log('OK',n)}

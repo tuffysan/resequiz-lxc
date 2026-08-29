@@ -1,0 +1,29 @@
+{
+  "version": "16.8.0",
+  "addedNewFacts": 150,
+  "totalQuestions": 9509,
+  "categories": {
+    "80/90/00-talet": 81,
+    "Allmänbildning": 210,
+    "Bildrunda": 410,
+    "Djur & natur": 140,
+    "Film & TV": 90,
+    "Fotboll": 95,
+    "Historia": 87,
+    "Hjärngympa": 4937,
+    "Mat & dryck": 90,
+    "Musik": 90,
+    "Musikquiz": 118,
+    "Onödigt vetande": 88,
+    "Resor": 420,
+    "Sport": 90,
+    "Sverige": 90,
+    "Vetenskap & teknik": 218,
+    "Världen": 2255
+  },
+  "excludedCategories": [
+    "Världen",
+    "Hjärngympa"
+  ],
+  "verification": "source-verified-curated"
+}

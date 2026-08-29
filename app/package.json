@@ -1,6 +1,6 @@
 {
   "name": "resequiz-server",
-  "version": "16.3.0",
+  "version": "17.6.0",
   "private": true,
   "type": "commonjs",
   "scripts": {
@@ -15,7 +15,9 @@
     "test:hardening": "node tests/hardening.js",
     "test:chaos": "node tests/chaos-lab.js",
     "test:fact-report": "node tests/fact-verification.js",
-    "test:16": "node tests/v16-experience.js"
+    "test:16": "node tests/v16-experience.js",
+    "test:leagues": "node tests/leagues.js",
+    "test:unique-facts": "node tests/unique-fact-coverage.js"
   },
   "dependencies": {
     "express": "^4.21.2",

@@ -1,0 +1,50 @@
+{
+  "version": "17.3.0",
+  "totalQuestions": 22192,
+  "addedVerifiedVariants": 11331,
+  "addedNewFacts": 0,
+  "targetPerIncludedCategory": 1000,
+  "excludedCategories": [
+    "Världen",
+    "Hjärngympa"
+  ],
+  "countsBefore": {
+    "Världen": 2255,
+    "Allmänbildning": 286,
+    "Sverige": 200,
+    "Sport": 200,
+    "Mat & dryck": 200,
+    "Resor": 444,
+    "Vetenskap & teknik": 294,
+    "Hjärngympa": 4937,
+    "Bildrunda": 445,
+    "Musikquiz": 200,
+    "Fotboll": 200,
+    "Historia": 200,
+    "Musik": 200,
+    "Film & TV": 200,
+    "Onödigt vetande": 200,
+    "Djur & natur": 200,
+    "80/90/00-talet": 200
+  },
+  "countsAfter": {
+    "80/90/00-talet": 1000,
+    "Allmänbildning": 1000,
+    "Bildrunda": 1000,
+    "Djur & natur": 1000,
+    "Film & TV": 1000,
+    "Fotboll": 1000,
+    "Historia": 1000,
+    "Hjärngympa": 4937,
+    "Mat & dryck": 1000,
+    "Musik": 1000,
+    "Musikquiz": 1000,
+    "Onödigt vetande": 1000,
+    "Resor": 1000,
+    "Sport": 1000,
+    "Sverige": 1000,
+    "Vetenskap & teknik": 1000,
+    "Världen": 2255
+  },
+  "note": "Expansionen når 1000 frågor per kategori genom verifierade alternativa formuleringar. De är inte 11 331 nya faktapunkter; factKey/family och variantOf bevarar sambandet till källfaktum."
+}

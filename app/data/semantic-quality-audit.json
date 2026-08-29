@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-29T06:32:30.339Z",
-  "questions": 8459,
+  "generatedAt": "2026-08-29T07:37:58.354Z",
+  "questions": 22192,
   "issues": 0,
-  "nearDuplicateCandidates": 18447,
+  "nearDuplicateCandidates": 47842,
   "issueBreakdown": {},
   "items": [],
   "nearDuplicates": [
@@ -348,6 +348,41 @@
       "similarity": 1,
       "qa": "Pretoria är huvudstad i vilket land?",
       "qb": "Vilket land har Pretoria som huvudstad?"
+    },
+    {
+      "a": "q226",
+      "b": "q11809",
+      "similarity": 1,
+      "qa": "Vad är Sveriges högsta berg?",
+      "qb": "Vilket berg är Sveriges högsta?"
+    },
+    {
+      "a": "q12651",
+      "b": "q12918",
+      "similarity": 1,
+      "qa": "Hur många poäng är en touchdown värd i amerikansk fotboll före extrapoäng?",
+      "qb": "Hur många poäng är en touchdown värd före extrapoäng i amerikansk fotboll?"
+    },
+    {
+      "a": "q242",
+      "b": "q11831",
+      "similarity": 1,
+      "qa": "Hur många hål har en standardrunda golf?",
+      "qb": "Hur många hål har en standardrunda i golf?"
+    },
+    {
+      "a": "q262",
+      "b": "q12853",
+      "similarity": 1,
+      "qa": "Vilket land förknippas paella med?",
+      "qb": "Vilket land förknippas med paella?"
+    },
+    {
+      "a": "q334",
+      "b": "q11758",
+      "similarity": 1,
+      "qa": "Vilket organ pumpar blodet runt kroppen?",
+      "qb": "Vilket organ pumpar runt blodet i kroppen?"
     },
     {
       "a": "q3026",
@@ -6970,41 +7005,6 @@
       "similarity": 1,
       "qa": "I ett kemiskt uttryck ser du N. Vilket grundämne avses?",
       "qb": "I ett kemiskt uttryck ser du Pt. Vilket grundämne avses?"
-    },
-    {
-      "a": "q3049",
-      "b": "q3174",
-      "similarity": 1,
-      "qa": "I ett kemiskt uttryck ser du N. Vilket grundämne avses?",
-      "qb": "I ett kemiskt uttryck ser du U. Vilket grundämne avses?"
-    },
-    {
-      "a": "q3054",
-      "b": "q3059",
-      "similarity": 1,
-      "qa": "I ett kemiskt uttryck ser du O. Vilket grundämne avses?",
-      "qb": "I ett kemiskt uttryck ser du Na. Vilket grundämne avses?"
-    },
-    {
-      "a": "q3054",
-      "b": "q3064",
-      "similarity": 1,
-      "qa": "I ett kemiskt uttryck ser du O. Vilket grundämne avses?",
-      "qb": "I ett kemiskt uttryck ser du Mg. Vilket grundämne avses?"
-    },
-    {
-      "a": "q3054",
-      "b": "q3069",
-      "similarity": 1,
-      "qa": "I ett kemiskt uttryck ser du O. Vilket grundämne avses?",
-      "qb": "I ett kemiskt uttryck ser du Al. Vilket grundämne avses?"
-    },
-    {
-      "a": "q3054",
-      "b": "q3074",
-      "similarity": 1,
-      "qa": "I ett kemiskt uttryck ser du O. Vilket grundämne avses?",
-      "qb": "I ett kemiskt uttryck ser du Si. Vilket grundämne avses?"
     }
   ]
 }

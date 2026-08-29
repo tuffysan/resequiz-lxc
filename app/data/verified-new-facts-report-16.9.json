@@ -1,0 +1,29 @@
+{
+  "version": "17.0.0",
+  "added": 175,
+  "total": 9684,
+  "categoriesAdded": {
+    "80/90/00-talet": 15,
+    "Allmänbildning": 15,
+    "Djur & natur": 15,
+    "Film & TV": 15,
+    "Fotboll": 15,
+    "Historia": 15,
+    "Mat & dryck": 15,
+    "Musik": 15,
+    "Musikquiz": 15,
+    "Onödigt vetande": 15,
+    "Resor": 15,
+    "Sport": 15,
+    "Sverige": 15,
+    "Vetenskap & teknik": 15,
+    "Bildrunda": 15
+  },
+  "excluded": [
+    "Världen",
+    "Hjärngympa"
+  ],
+  "method": "new curated facts; media categories use verified local assets",
+  "date": "2026-08-29",
+  "removedAsExistingPromptDuplicates": 50
+}

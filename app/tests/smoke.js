@@ -1,12 +1,12 @@
 const fs=require('fs'),path=require('path');
-const root=path.join(__dirname,'..');const q=JSON.parse(fs.readFileSync(path.join(root,'data','questions.json'),'utf8'));
+const root=path.join(__dirname,'..');const pkg=require(path.join(root,'package.json'));const q=JSON.parse(fs.readFileSync(path.join(root,'data','questions.json'),'utf8'));
 function ok(v,m){if(!v){console.error('FAIL:',m);process.exit(1)}}
 ok(q.length>=7000,'question bank');ok(new Set(q.map(x=>x.id)).size===q.length,'unique ids');
 for(const x of q){ok(x.id&&x.q&&Array.isArray(x.a)&&x.a.length>=2,'question schema '+x.id);ok(Number.isInteger(x.r)&&x.r>=0&&x.r<x.a.length,'correct index '+x.id)}
 const pub=path.join(root,'public');for(const f of ['index.html','online.html','display.html','admin.html','styles.css','online.js','display.js','sw.js','world-map.svg'])ok(fs.existsSync(path.join(pub,f)),f);
-const server=fs.readFileSync(path.join(root,'server.js'),'utf8');for(const marker of ['16.3.0','resequiz-night','journey-night','journey:true','soloMode:r.players.length===1','smartPick(','balanceTeams(','/api/admin/backup','/api/admin/restore','QUESTION_METRICS_FILE','QUESTION_RATINGS_FILE','/api/question-rating','/api/seasons','/api/diagnostics','directorLevel:3'])ok(server.includes(marker),marker);
+const server=fs.readFileSync(path.join(root,'server.js'),'utf8');for(const marker of [pkg.version,'resequiz-night','journey-night','journey:true','soloMode:r.players.length===1','smartPick(','balanceTeams(','/api/admin/backup','/api/admin/restore','QUESTION_METRICS_FILE','QUESTION_RATINGS_FILE','/api/question-rating','/api/seasons','/api/diagnostics','directorLevel:3'])ok(server.includes(marker),marker);
 const online=fs.readFileSync(path.join(pub,'online.js'),'utf8');for(const marker of ['shareCode','shareQr','Dela QR','resequiz-night','journey-night','På väg','Starta soloquiz','room.players.length===1'])ok(online.includes(marker),marker);
-console.log(JSON.stringify({ok:true,questions:q.length,uniqueIds:new Set(q.map(x=>x.id)).size,version:'16.3.0'}));
+console.log(JSON.stringify({ok:true,questions:q.length,uniqueIds:new Set(q.map(x=>x.id)).size,version:pkg.version}));
 
 // v7.2 balance-engine presence checks
 const fs2=require('fs'), path2=require('path');

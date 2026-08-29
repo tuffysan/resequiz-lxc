@@ -1,0 +1,124 @@
+{
+  "version": "16.6.0",
+  "generatedAt": "2026-08-29T17:30:00+00:00",
+  "activeQuestions": 8759,
+  "addedQuestions": 300,
+  "addedByCategory": {
+    "80/90/00-talet": 20,
+    "Allmänbildning": 20,
+    "Bildrunda": 20,
+    "Djur & natur": 20,
+    "Film & TV": 20,
+    "Fotboll": 20,
+    "Historia": 20,
+    "Mat & dryck": 20,
+    "Musik": 20,
+    "Musikquiz": 20,
+    "Onödigt vetande": 20,
+    "Resor": 20,
+    "Sport": 20,
+    "Sverige": 20,
+    "Vetenskap & teknik": 20
+  },
+  "activeByCategory": {
+    "80/90/00-talet": 31,
+    "Allmänbildning": 160,
+    "Bildrunda": 360,
+    "Djur & natur": 90,
+    "Film & TV": 40,
+    "Fotboll": 45,
+    "Historia": 37,
+    "Hjärngympa": 4937,
+    "Mat & dryck": 40,
+    "Musik": 40,
+    "Musikquiz": 68,
+    "Onödigt vetande": 38,
+    "Resor": 370,
+    "Sport": 40,
+    "Sverige": 40,
+    "Vetenskap & teknik": 168,
+    "Världen": 2255
+  },
+  "excludedCategories": [
+    "Världen",
+    "Hjärngympa"
+  ],
+  "verificationPolicy": "Hand-curated, source-backed additions. Media categories use existing verified local media plus external fact cross-check for second-order questions.",
+  "sourceGroups": {
+    "Resor": {
+      "source": "UNESCO World Heritage Centre + official destination references",
+      "sourceType": "external-source-cross-check",
+      "url": "https://whc.unesco.org/"
+    },
+    "Bildrunda": {
+      "source": "Existing verified image manifest + WWF species reference",
+      "sourceType": "media-and-source-cross-check",
+      "url": "https://www.wwf.se/djur/arter/"
+    },
+    "Vetenskap & teknik": {
+      "source": "NASA Science + IUPAC",
+      "sourceType": "primary-source-cross-check",
+      "url": "https://science.nasa.gov/solar-system/solar-system-facts/ ; https://iupac.org/what-we-do/periodic-table-of-elements/"
+    },
+    "Allmänbildning": {
+      "source": "NASA + NobelPrize.org + ECB + Oscars.org",
+      "sourceType": "multi-primary-source-cross-check",
+      "url": "https://science.nasa.gov/ ; https://www.nobelprize.org/about/ ; https://www.ecb.europa.eu/euro/changeover/2002/html/index.en.html ; https://www.oscars.org/"
+    },
+    "Djur & natur": {
+      "source": "WWF Sverige + Naturvårdsverket",
+      "sourceType": "external-source-cross-check",
+      "url": "https://www.wwf.se/djur/arter/ ; https://www.naturvardsverket.se/amnesomraden/biologisk-mangfald/"
+    },
+    "Musikquiz": {
+      "source": "Existing verified synthetic audio manifest + composer/work cross-check",
+      "sourceType": "media-and-source-cross-check",
+      "url": "https://www.britannica.com/art/music"
+    },
+    "Fotboll": {
+      "source": "The IFAB Laws of the Game 2026/27",
+      "sourceType": "primary-source-cross-check",
+      "url": "https://www.theifab.com/laws/latest/"
+    },
+    "Sverige": {
+      "source": "SCB + Sveriges riksdag + Sweden.se",
+      "sourceType": "primary-source-cross-check",
+      "url": "https://www.scb.se/ ; https://www.riksdagen.se/ ; https://sweden.se/"
+    },
+    "Sport": {
+      "source": "Olympics.com sport reference + international rules",
+      "sourceType": "primary-source-cross-check",
+      "url": "https://olympics.com/"
+    },
+    "Mat & dryck": {
+      "source": "FAO + Livsmedelsverket + encyclopedic food reference",
+      "sourceType": "external-source-cross-check",
+      "url": "https://www.fao.org/ ; https://www.livsmedelsverket.se/"
+    },
+    "Musik": {
+      "source": "Britannica music reference + Grammy reference",
+      "sourceType": "external-source-cross-check",
+      "url": "https://www.britannica.com/art/music ; https://www.grammy.com/"
+    },
+    "Film & TV": {
+      "source": "Academy of Motion Picture Arts and Sciences / Oscars.org",
+      "sourceType": "primary-source-cross-check",
+      "url": "https://www.oscars.org/"
+    },
+    "Onödigt vetande": {
+      "source": "NASA + NobelPrize.org + ECB + Oscars.org + WWF",
+      "sourceType": "multi-primary-source-cross-check",
+      "url": "https://science.nasa.gov/ ; https://www.nobelprize.org/ ; https://www.ecb.europa.eu/ ; https://www.oscars.org/ ; https://www.wwf.se/"
+    },
+    "Historia": {
+      "source": "National Archives + NobelPrize.org + NASA history",
+      "sourceType": "primary-source-cross-check",
+      "url": "https://www.archives.gov/ ; https://www.nobelprize.org/ ; https://www.nasa.gov/history/"
+    },
+    "80/90/00-talet": {
+      "source": "Primary company/institution history sources",
+      "sourceType": "primary-source-cross-check",
+      "url": "https://www.apple.com/newsroom/ ; https://www.ecb.europa.eu/ ; https://www.microsoft.com/ ; https://about.google/"
+    }
+  }
+}
