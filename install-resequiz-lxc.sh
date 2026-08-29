@@ -2,7 +2,7 @@
 set -euo pipefail
 
 CTID="${CTID:-135}"
-HOSTNAME="${HOSTNAME:-resequiz}"
+HOSTNAME="resequiz"
 BRIDGE="${BRIDGE:-vmbr0}"
 STORAGE="${STORAGE:-local-lvm}"
 DISK_GB="${DISK_GB:-8}"
@@ -13,6 +13,7 @@ TEMPLATE="${TEMPLATE:-debian-12-standard_12.12-1_amd64.tar.zst}"
 NET="${NET:-name=eth0,bridge=${BRIDGE},ip=dhcp,type=veth}"
 PASSWORD="${PASSWORD:-}"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+VERSION="$(tr -d '[:space:]' < "$SCRIPT_DIR/VERSION")"
 
 if [[ $EUID -ne 0 ]]; then echo "Kör scriptet som root på Proxmox-värden." >&2; exit 1; fi
 if ! command -v pct >/dev/null 2>&1; then echo "pct saknas. Scriptet ska köras på en Proxmox VE-värd." >&2; exit 1; fi
@@ -39,20 +40,58 @@ for _ in {1..30}; do
   sleep 2
 done
 
-pct exec "$CTID" -- bash -lc 'export DEBIAN_FRONTEND=noninteractive; apt-get update; apt-get install -y nodejs npm nginx ca-certificates curl qrencode; useradd --system --home /opt/resequiz --shell /usr/sbin/nologin resequiz 2>/dev/null || true; mkdir -p /opt/resequiz /var/lib/resequiz /var/lib/resequiz/media; chown -R resequiz:resequiz /var/lib/resequiz; KEY=$(head -c 48 /dev/urandom | base64 | tr -dc A-Za-z0-9 | head -c 24); echo "RESEQUIZ_ADMIN_KEY=$KEY" > /etc/resequiz.env; chmod 640 /etc/resequiz.env'
+pct exec "$CTID" -- env LANG=C.UTF-8 LC_ALL=C.UTF-8 bash -lc '
+set -euo pipefail
+export DEBIAN_FRONTEND=noninteractive LANG=C.UTF-8 LC_ALL=C.UTF-8
+printf "LANG=C.UTF-8\nLC_ALL=C.UTF-8\n" > /etc/default/locale
+apt-get update
+apt-get install -y nodejs npm nginx ca-certificates curl qrencode
+useradd --system --home /opt/resequiz --shell /usr/sbin/nologin resequiz 2>/dev/null || true
+mkdir -p /opt/resequiz /var/lib/resequiz /var/lib/resequiz/media
+chown -R resequiz:resequiz /var/lib/resequiz
+KEY=$(od -An -N24 -tx1 /dev/urandom | tr -d " \n")
+printf "RESEQUIZ_ADMIN_KEY=%s\n" "$KEY" > /etc/resequiz.env
+chmod 640 /etc/resequiz.env
+printf "%s\n" "$KEY" > /root/resequiz-admin-key.txt
+chmod 600 /root/resequiz-admin-key.txt
+'
 
-tar -C "$SCRIPT_DIR/app" -czf /tmp/resequiz-app.tgz .
-pct push "$CTID" /tmp/resequiz-app.tgz /tmp/resequiz-app.tgz
+TMP_TGZ="$(mktemp /tmp/resequiz-app.XXXXXX.tgz)"
+trap 'rm -f "$TMP_TGZ"' EXIT
+tar -C "$SCRIPT_DIR/app" -czf "$TMP_TGZ" .
+pct push "$CTID" "$TMP_TGZ" /tmp/resequiz-app.tgz
 pct push "$CTID" "$SCRIPT_DIR/resequiz.service" /etc/systemd/system/resequiz.service
 pct push "$CTID" "$SCRIPT_DIR/resequiz.nginx" /etc/nginx/sites-available/resequiz
-rm -f /tmp/resequiz-app.tgz
 
-pct exec "$CTID" -- bash -lc 'set -e; rm -rf /opt/resequiz/*; tar -xzf /tmp/resequiz-app.tgz -C /opt/resequiz; cd /opt/resequiz; npm install --omit=dev; chown -R resequiz:resequiz /opt/resequiz; rm -f /etc/nginx/sites-enabled/default; ln -sf /etc/nginx/sites-available/resequiz /etc/nginx/sites-enabled/resequiz; nginx -t; systemctl daemon-reload; systemctl enable --now resequiz nginx; systemctl restart nginx'
+pct exec "$CTID" -- env EXPECTED_VERSION="$VERSION" LANG=C.UTF-8 LC_ALL=C.UTF-8 bash -lc '
+set -euo pipefail
+export LANG=C.UTF-8 LC_ALL=C.UTF-8
+rm -rf /opt/resequiz/*
+tar -xzf /tmp/resequiz-app.tgz -C /opt/resequiz
+rm -f /tmp/resequiz-app.tgz
+cd /opt/resequiz
+npm install --omit=dev --no-audit --no-fund --loglevel=error
+chown -R resequiz:resequiz /opt/resequiz
+rm -f /etc/nginx/sites-enabled/default
+ln -sf /etc/nginx/sites-available/resequiz /etc/nginx/sites-enabled/resequiz
+nginx -t
+systemctl daemon-reload
+systemctl enable resequiz nginx >/dev/null
+systemctl restart resequiz nginx
+for _ in $(seq 1 20); do
+  H=$(curl -fsS http://127.0.0.1:3000/health 2>/dev/null || true)
+  [[ "$H" == *"\"version\":\"${EXPECTED_VERSION}\""* ]] && exit 0
+  sleep 1
+done
+echo "Resequiz startade inte med förväntad version ${EXPECTED_VERSION}." >&2
+journalctl -u resequiz -n 80 --no-pager >&2 || true
+exit 1
+'
 
 IP="$(pct exec "$CTID" -- hostname -I | awk '{print $1}')"
 echo
 echo "============================================================"
-echo " Resequiz LXC installerad"
+echo " Resequiz v${VERSION} installerad"
 echo "============================================================"
 echo " CTID:        $CTID"
 echo " Hostname:    $HOSTNAME"
@@ -62,9 +101,6 @@ echo " Online:      http://${IP:-CONTAINER-IP}/online.html"
 echo " Offline/PWA: http://${IP:-CONTAINER-IP}/offline.html"
 echo " Health:      http://${IP:-CONTAINER-IP}/health"
 echo " Admin:       http://${IP:-CONTAINER-IP}/admin.html"
-echo -n " Adminnyckel: "
-pct exec "$CTID" -- bash -lc '. /etc/resequiz.env; echo "$RESEQUIZ_ADMIN_KEY"'
+echo " Adminnyckeln lagras säkert i containern och skrivs inte ut automatiskt."
+echo " Visa vid behov: pct exec $CTID -- cat /root/resequiz-admin-key.txt"
 echo "============================================================"
-echo "Tips: För PWA-installation över Internet bör du lägga HTTPS framför"
-echo "tjänsten, t.ex. via din befintliga reverse proxy. På lokalt nätverk"
-echo "kan quizet användas i webbläsaren direkt."
