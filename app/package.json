@@ -1,8 +1,8 @@
 {
   "name": "quiz",
-  "version": "22.1.1",
+  "version": "23.0.0",
   "private": true,
-  "description": "Quiz 22.1.1 – Question Intelligence hotfix: permanent cleanup, factKey, duplicate detection, quality health, adaptive repetition and answer analytics",
+  "description": "Quiz 23.0.0 – Game Experience, Smart Review, player insights, safer upgrades and enhanced multiplayer controls",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

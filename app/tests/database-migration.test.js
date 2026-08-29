@@ -28,7 +28,7 @@ test('upgrades legacy Quiz SQLite schema before creating mode index', {skip:!Dat
   assert.ok(metricCols.includes('answer_5'));
   assert.equal(db.prepare('SELECT name FROM result_index WHERE id=?').get('legacy-1').name,'Legacy');
   assert.ok(db.prepare("SELECT name FROM sqlite_master WHERE type='index' AND name='ix_result_mode'").get());
-  assert.equal(db.prepare('SELECT version FROM schema_info').get().version,2211);
+  assert.equal(db.prepare('SELECT version FROM schema_info').get().version,2300);
   db.close();
   fs.rmSync(dir,{recursive:true,force:true});
 });

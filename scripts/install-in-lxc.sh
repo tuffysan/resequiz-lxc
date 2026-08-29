@@ -10,6 +10,14 @@ if ! command -v node >/dev/null || [ "$(node -p 'process.versions.node.split(`.`
 fi
 id resequiz >/dev/null 2>&1 || useradd --system --home /nonexistent --shell /usr/sbin/nologin resequiz
 mkdir -p "$APP" "$DATA"
+# Quiz 23: keep a deployable snapshot of the previous application for automatic rollback.
+APPBAK=""
+if [ -f "$APP/package.json" ]; then
+  APPBAK="/var/backups/resequiz/app-pre-$(date +%Y%m%d-%H%M%S).tgz"
+  mkdir -p /var/backups/resequiz
+  tar -czf "$APPBAK" -C /opt resequiz || APPBAK=""
+  [ -n "$APPBAK" ] && echo "App-backup före uppdatering: $APPBAK"
+fi
 # Quiz 22.1.1 hotfix: stop the service before backing up SQLite so WAL/SHM are consistent.
 # This also stops a 22.0/22.1 restart loop before deployment.
 systemctl stop resequiz 2>/dev/null || true
@@ -92,6 +100,32 @@ if [ -f "$APP/scripts/migrate-question-intelligence.js" ]; then
   node "$APP/scripts/migrate-question-intelligence.js" "$DATA/questions.json" || { echo "Varning: Question Intelligence-migrering misslyckades; befintlig frågebank lämnas kvar." >&2; }
 fi
 
+# Quiz 23 preflight: migrate a COPY of the existing SQLite database before touching the live DB.
+if [ -f "$DATA/quiz.db" ]; then
+  PREFLIGHT="$(mktemp -d /tmp/quiz-db-preflight.XXXXXX)"
+  cp -a "$DATA/quiz.db" "$PREFLIGHT/quiz.db"
+  [ -f "$DATA/quiz.db-wal" ] && cp -a "$DATA/quiz.db-wal" "$PREFLIGHT/quiz.db-wal" || true
+  [ -f "$DATA/quiz.db-shm" ] && cp -a "$DATA/quiz.db-shm" "$PREFLIGHT/quiz.db-shm" || true
+  if ! node - "$PREFLIGHT" <<'NODE'
+const dir=process.argv[2];
+const {openQuizDb}=require('/opt/resequiz/database.js');
+const db=openQuizDb(dir);
+if(!db)throw new Error('SQLite är inte tillgängligt');
+const v=db.prepare('SELECT version FROM schema_info LIMIT 1').get()?.version;
+if(v!==2300)throw new Error(`Fel schemasversion efter preflight: ${v}`);
+db.close();
+console.log('SQLite preflight OK, schema',v);
+NODE
+  then
+    rm -rf "$PREFLIGHT"
+    echo "Fel: SQLite-preflight misslyckades. Den befintliga tjänsten/databasen har inte migrerats." >&2
+    if [ -n "$APPBAK" ] && [ -f "$APPBAK" ]; then rm -rf "$APP"; tar -xzf "$APPBAK" -C /opt; fi
+    systemctl restart resequiz 2>/dev/null || true
+    exit 1
+  fi
+  rm -rf "$PREFLIGHT"
+fi
+
 # Quiz 22: source-backed expansion runs separately and never blocks a healthy upgrade.
 # A retrying, cached background job continues the bank after the app is healthy.
 if [ -d /tmp/quiz-media-keep/media-packs ]; then mkdir -p "$APP/public"; cp -a /tmp/quiz-media-keep/media-packs "$APP/public/"; fi
@@ -117,6 +151,19 @@ if [ "$RUNNING_VERSION" != "$EXPECTED_VERSION" ]; then
   echo "Fel: tjänsten kör version ${RUNNING_VERSION:-okänd}, väntade ${EXPECTED_VERSION}." >&2
   systemctl --no-pager --full status resequiz >&2 || true
   journalctl -u resequiz -n 80 --no-pager >&2 || true
+  echo "Quiz 23: återställer föregående appversion automatiskt..." >&2
+  systemctl stop resequiz 2>/dev/null || true
+  if [ -n "${SQLBAK:-}" ] && [ -d "${SQLBAK:-}" ]; then
+    rm -f "$DATA/quiz.db" "$DATA/quiz.db-wal" "$DATA/quiz.db-shm"
+    cp -a "$SQLBAK"/quiz.db* "$DATA/" 2>/dev/null || true
+  fi
+  if [ -n "${APPBAK:-}" ] && [ -f "${APPBAK:-}" ]; then
+    rm -rf "$APP"
+    tar -xzf "$APPBAK" -C /opt
+    chown -R resequiz:resequiz "$APP" "$DATA"
+    systemctl restart resequiz 2>/dev/null || true
+    echo "Rollback utförd. Föregående Quiz-version har återställts." >&2
+  fi
   exit 1
 fi
 printf '%s\n' "$HEALTH"
