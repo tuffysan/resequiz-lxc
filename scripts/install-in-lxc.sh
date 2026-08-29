@@ -10,7 +10,7 @@ if ! command -v node >/dev/null || [ "$(node -p 'process.versions.node.split(`.`
 fi
 id resequiz >/dev/null 2>&1 || useradd --system --home /nonexistent --shell /usr/sbin/nologin resequiz
 mkdir -p "$APP" "$DATA"
-# Quiz 21: automatic pre-upgrade backup.
+# Quiz 22: automatic pre-upgrade backup.
 mkdir -p /var/backups/resequiz
 if [ -d "$DATA" ] && [ "$(find "$DATA" -mindepth 1 -maxdepth 1 2>/dev/null | head -1)" ]; then
   BACKUP="/var/backups/resequiz/pre-upgrade-$(date +%Y%m%d-%H%M%S).tgz"
@@ -72,7 +72,7 @@ fi
 if [ -f /tmp/rq-legacy-questions.json ]; then node "$(dirname "$0")/repair-legacy-question-media.js" "$DATA/questions.json" /tmp/rq-legacy-questions.json || true; fi
 # Merge the curated verified question pack into an existing persistent bank, idempotently.
 if [ -f "$SRC/data/verified-questions.json" ]; then node "$(dirname "$0")/merge-verified-questions.js" "$DATA/questions.json" "$SRC/data/verified-questions.json"; fi
-# Quiz 21.0.1: source-backed expansion no longer blocks upgrades.
+# Quiz 22: source-backed expansion runs separately and never blocks a healthy upgrade.
 # A retrying, cached background job continues the bank after the app is healthy.
 if [ -d /tmp/quiz-media-keep/media-packs ]; then mkdir -p "$APP/public"; cp -a /tmp/quiz-media-keep/media-packs "$APP/public/"; fi
 chown -R resequiz:resequiz "$APP" "$DATA"

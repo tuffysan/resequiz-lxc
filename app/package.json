@@ -1,13 +1,14 @@
 {
   "name": "quiz",
-  "version": "21.1.0",
+  "version": "22.0.1",
   "private": true,
-  "description": "Quiz 21.1 – Multiplayer & UX with QR lobby, display mode, offline manager and regression checks",
+  "description": "Quiz 22 – Play & Progress: Quick Play, Daily 2.0, Training, Mastery, Duels, Party Mode, Quality 2.0 and regression tests",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
-    "test": "node --test tests/*.test.js"
+    "test": "node --test tests/*.test.js",
+    "smoke": "node scripts/smoke-e2e.js"
   },
   "engines": {
     "node": ">=20"
