@@ -9,6 +9,6 @@ done
 for lang in en es de; do
   grep -q "^[[:space:]]*$lang:" app/public/js/i18n-ui.js || { echo "Missing $lang translations"; exit 1; }
 done
-grep -q "const VERSION='24.1.1'" app/server.js
+grep -q "const VERSION='24.1.2'" app/server.js
 grep -q "quiz-v2411" app/public/sw.js
 echo 'Localization regression: OK – shared UI translation layer loaded on all pages'

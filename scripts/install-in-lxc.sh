@@ -102,7 +102,7 @@ if [ -f "$APP/scripts/migrate-question-intelligence.js" ]; then
   node "$APP/scripts/migrate-question-intelligence.js" "$DATA/questions.json" || { echo "Varning: Question Intelligence-migrering misslyckades; befintlig frågebank lämnas kvar." >&2; }
 fi
 
-# Quiz 24.1.1: merge the bundled, fully reviewed production snapshot into the live bank.
+# Quiz 24.1.2: merge the bundled, fully reviewed production snapshot into the live bank.
 # Existing questions not present in the reviewed snapshot are preserved, so background sync cannot be lost.
 if [ -f "$SRC/data/questions-production-factchecked.json.gz" ] && [ -f "$APP/tools/apply-bundled-factchecked-bank.js" ]; then
   echo "Installerar faktagranskad frågebank (30 629 granskade frågor)..."

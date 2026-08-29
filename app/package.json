@@ -1,8 +1,8 @@
 {
   "name": "quiz",
-  "version": "24.1.1",
+  "version": "24.1.2",
   "private": true,
-  "description": "Quiz 24.1.1 – Complete UI localization hotfix for Swedish, English, Spanish and German",
+  "description": "Quiz 24.1.2 – Complete UI localization hotfix for Swedish, English, Spanish and German",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
