@@ -241,7 +241,7 @@ html[data-theme="light"] input,html[data-theme="light"] select{background:#fff;c
 @media(max-width:640px){.wheel-actions{grid-template-columns:1fr}.wheel-stage{width:min(500px,94vw)}.wheel-pointer{font-size:34px}.wheel-winner{font-size:16px}}
 
 /* =========================================================
-   Resequiz 18.0.3 — Mobile-first usability pass
+   Resequiz 18.0.4 — Mobile-first usability pass
    Larger typography, controls and full-width layouts on phones
    ========================================================= */
 @media (max-width: 640px) {
@@ -324,4 +324,140 @@ html[data-theme="light"] input,html[data-theme="light"] select{background:#fff;c
   .primary, .secondary, .danger, .text-btn, a.primary, a.secondary { font-size: 16px; }
   .question { font-size: 25px; }
   .room-code { font-size: 52px; }
+}
+
+/* =========================================================
+   Resequiz 18.0.4 — true phone layout
+   Uses the whole phone viewport and prioritises touch targets.
+   ========================================================= */
+@media (max-width: 768px) {
+  html { font-size: 18px; }
+  body { min-height: 100dvh; overflow-x: hidden; }
+  .app-shell {
+    width: 100%;
+    min-height: 100dvh;
+    max-width: none;
+    padding: 0 14px max(18px, env(safe-area-inset-bottom));
+  }
+  main { width: 100%; }
+
+  .topbar {
+    position: relative;
+    min-height: 76px;
+    padding: 12px 2px 10px;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .brand .eyebrow { font-size: 12px; }
+  .brand h1 { font-size: 22px; white-space: normal; }
+  .top-actions { display: flex; gap: 8px; align-items: center; }
+  .icon-btn, .admin-access { min-width: 52px; height: 52px; border-radius: 16px; }
+
+  .home-hero {
+    min-height: calc(100dvh - 118px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 28px 20px 22px;
+    border-radius: 24px;
+  }
+  .home-hero .badge {
+    align-self: flex-start;
+    font-size: 11px;
+    padding: 7px 11px;
+  }
+  .home-hero h2 {
+    font-size: clamp(38px, 11vw, 52px);
+    line-height: .98;
+    margin: 16px 0 14px;
+  }
+  .home-hero > p {
+    font-size: 18px;
+    line-height: 1.45;
+    margin: 0 0 20px;
+  }
+
+  .v9-home-actions {
+    width: 100%;
+    max-width: none;
+    margin: 10px 0 18px;
+    gap: 12px;
+  }
+  .v9-home-actions .v9-main,
+  .home-hero .v9-main.primary {
+    width: 100%;
+    min-height: 68px;
+    padding: 16px 18px;
+    border-radius: 18px;
+    font-size: 18px;
+    letter-spacing: .01em;
+  }
+  .home-hero .v9-main.primary {
+    min-height: 76px;
+    font-size: 20px;
+  }
+
+  .last-winner { margin: 10px 0 14px; font-size: 15px; }
+  .v9-more { width: 100%; max-width: none; }
+  .v9-more summary { min-height: 48px; display: grid; place-items: center; font-size: 16px; }
+  .home-more-options { grid-template-columns: 1fr; }
+  .home-more-options a { min-height: 64px; padding: 14px 16px; }
+  .home-more-options b { font-size: 17px; }
+  .home-more-options small { font-size: 14px; }
+
+  footer, .footer { display: none; }
+
+  /* Online flow */
+  .online-shell { width: 100%; padding: 0; }
+  .entry-card, .lobby-hero, .easy-setup, .game-show-card, .winner {
+    width: 100%; max-width: none;
+  }
+  .entry-card { padding: 28px 20px; }
+  .entry-card h2 { font-size: clamp(38px, 10.5vw, 50px); }
+  .entry-card p { font-size: 18px; }
+  .big-field span { font-size: 15px; }
+  .big-field input, input, select, textarea { min-height: 62px; font-size: 19px; border-radius: 16px; }
+
+  .primary, .secondary, .danger, .text-btn,
+  a.primary, a.secondary {
+    min-height: 60px;
+    font-size: 18px;
+    border-radius: 17px;
+  }
+  .primary.xl, .start-game { min-height: 72px; font-size: 20px; }
+
+  .question { font-size: clamp(30px, 8.5vw, 40px); line-height: 1.12; }
+  .answers { grid-template-columns: 1fr; gap: 12px; }
+  .answer { min-height: 82px; padding: 18px; font-size: 18px; border-radius: 19px; }
+  .answer span { width: 32px; height: 32px; font-size: 16px; }
+  .question-media { min-height: 170px; border-radius: 22px; }
+  .statusline, .answer-status { font-size: 15px; }
+
+  .room-code { font-size: clamp(64px, 22vw, 96px); }
+  .qr-wrap img { width: min(62vw, 240px); }
+  .player-live, .rank-row { padding: 15px; font-size: 17px; }
+  .feature-grid > div { padding: 18px; }
+  .feature-grid b { font-size: 17px; }
+  .feature-grid small { font-size: 15px; }
+
+  .rq-settings-button {
+    width: 56px; height: 56px;
+    right: 14px;
+    bottom: max(14px, env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 420px) {
+  .app-shell { padding-left: 10px; padding-right: 10px; }
+  .topbar { min-height: 70px; }
+  .brand h1 { font-size: 20px; }
+  .home-hero { min-height: calc(100dvh - 104px); padding: 24px 16px 18px; }
+  .home-hero h2 { font-size: 40px; }
+  .home-hero > p { font-size: 17px; }
+  .v9-home-actions .v9-main { min-height: 66px; font-size: 17px; }
+  .home-hero .v9-main.primary { min-height: 74px; font-size: 19px; }
+  .question { font-size: 30px; }
+  .answer { min-height: 78px; font-size: 17px; }
 }
