@@ -7,7 +7,7 @@ const crypto=require('crypto');
 const {Server}=require('socket.io');
 const {readJson,writeJsonAtomic,ensureDir}=require('./storage');
 
-const VERSION='19.6.0',PORT=Number(process.env.PORT||3000),HOST=process.env.HOST||'0.0.0.0';
+const VERSION='19.6.1',PORT=Number(process.env.PORT||3000),HOST=process.env.HOST||'0.0.0.0';
 const DATA_DIR=process.env.RESEQUIZ_DATA_DIR||path.join(__dirname,'data');
 const QUESTIONS_FILE=path.join(DATA_DIR,'questions.json'),RESULTS_FILE=path.join(DATA_DIR,'results.json'),SETTINGS_FILE=path.join(DATA_DIR,'settings.json');
 const CHILD_QUESTIONS_FILE=path.join(__dirname,'data','child-questions.json');

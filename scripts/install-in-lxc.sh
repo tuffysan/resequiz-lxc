@@ -31,6 +31,18 @@ cp "$SRC/data/child-questions.json" "$APP/data/child-questions.json"
 cd "$APP"
 if [ -f package-lock.json ]; then npm ci --omit=dev; else npm install --omit=dev; fi
 for f in questions.json results.json settings.json; do [ -f "$DATA/$f" ] || cp "$SRC/data/$f" "$DATA/$f"; done
+# Migrate old visible product title while preserving the rest of the user's settings.
+node - "$DATA/settings.json" <<'NODE'
+const fs=require('fs');
+const f=process.argv[2];
+try {
+  const s=JSON.parse(fs.readFileSync(f,'utf8'));
+  if (!s.title || /^resequiz$/i.test(String(s.title).trim())) s.title='Quiz';
+  fs.writeFileSync(f, JSON.stringify(s,null,2)+'\n');
+} catch(e) {
+  console.error('Kunde inte migrera settings.json:', e.message);
+}
+NODE
 # Create the first-run admin setup key explicitly so it never depends on service startup timing.
 [ -f "$DATA/admin-auth.json" ] || printf '{"passwordHash":"","passwordSalt":"","updatedAt":null}\n' > "$DATA/admin-auth.json"
 ADMIN_HAS_PASSWORD="$(node -e 'const fs=require("fs");try{const a=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));process.stdout.write(a.passwordHash?"yes":"no")}catch(e){process.stdout.write("no")}' "$DATA/admin-auth.json")"
@@ -49,8 +61,25 @@ if [ -f /tmp/rq-legacy-questions.json ]; then node "$(dirname "$0")/repair-legac
 if [ -d /tmp/quiz-media-keep/media-packs ]; then mkdir -p "$APP/public"; cp -a /tmp/quiz-media-keep/media-packs "$APP/public/"; fi
 chown -R resequiz:resequiz "$APP" "$DATA"
 cp "$(dirname "$0")/../deploy/resequiz.service" /etc/systemd/system/resequiz.service
-systemctl daemon-reload; systemctl enable --now resequiz
-sleep 2
-curl -fsS http://127.0.0.1:3000/health; echo
+systemctl daemon-reload
+systemctl enable resequiz >/dev/null
+# Viktigt: enable --now startar inte om en redan körande tjänst. Starta därför alltid om
+# tjänsten så att den nya server.js faktiskt laddas.
+systemctl restart resequiz
+EXPECTED_VERSION="$(node -p "require('$APP/package.json').version")"
+HEALTH=""
+for i in $(seq 1 20); do
+  HEALTH="$(curl -fsS http://127.0.0.1:3000/health 2>/dev/null || true)"
+  RUNNING_VERSION="$(printf '%s' "$HEALTH" | node -e 'let s="";process.stdin.on("data",d=>s+=d);process.stdin.on("end",()=>{try{process.stdout.write(JSON.parse(s).version||"")}catch(e){}})' 2>/dev/null || true)"
+  [ "$RUNNING_VERSION" = "$EXPECTED_VERSION" ] && break
+  sleep 1
+done
+if [ "$RUNNING_VERSION" != "$EXPECTED_VERSION" ]; then
+  echo "Fel: tjänsten kör version ${RUNNING_VERSION:-okänd}, väntade ${EXPECTED_VERSION}." >&2
+  systemctl --no-pager --full status resequiz >&2 || true
+  journalctl -u resequiz -n 80 --no-pager >&2 || true
+  exit 1
+fi
+printf '%s\n' "$HEALTH"
 ADMIN_CONFIGURED="$(node -e 'const fs=require("fs");try{const a=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));process.stdout.write(a.passwordHash?"yes":"no")}catch(e){process.stdout.write("no")}' "$DATA/admin-auth.json")"
 if [ "$ADMIN_CONFIGURED" = "no" ]; then echo; echo "Admin installationsnyckel: $(cat "$DATA/admin-setup-key")"; fi

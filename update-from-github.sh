@@ -22,6 +22,10 @@ META="$(pct exec "$CTID" -- curl -fsS http://127.0.0.1:3000/api/meta)"
 printf '%s\n' "$HEALTH"
 printf '%s\n' "$META"
 INSTALLED="$(pct exec "$CTID" -- node -p "require('/opt/resequiz/package.json').version")"
-[ "$INSTALLED" = "$VERSION" ] || { echo "Fel version installerad: ${INSTALLED}, väntade ${VERSION}" >&2; exit 1; }
+RUNNING="$(printf '%s' "$HEALTH" | node -e 'let s="";process.stdin.on("data",d=>s+=d);process.stdin.on("end",()=>{try{process.stdout.write(JSON.parse(s).version||"")}catch(e){}})')"
+META_VERSION="$(printf '%s' "$META" | node -e 'let s="";process.stdin.on("data",d=>s+=d);process.stdin.on("end",()=>{try{process.stdout.write(JSON.parse(s).version||"")}catch(e){}})')"
+[ "$INSTALLED" = "$VERSION" ] || { echo "Fel filversion installerad: ${INSTALLED}, väntade ${VERSION}" >&2; exit 1; }
+[ "$RUNNING" = "$VERSION" ] || { echo "Fel körande version: ${RUNNING:-okänd}, väntade ${VERSION}" >&2; exit 1; }
+[ "$META_VERSION" = "$VERSION" ] || { echo "Fel API-version: ${META_VERSION:-okänd}, väntade ${VERSION}" >&2; exit 1; }
 pct exec "$CTID" -- systemctl is-active --quiet resequiz
-printf '\nQuiz v%s är installerad och kör i CT %s.\n' "$VERSION" "$CTID"
+printf '\nQuiz v%s är verifierad, installerad och kör i CT %s.\n' "$VERSION" "$CTID"

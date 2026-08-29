@@ -1,8 +1,8 @@
-# Quiz v19.6.0
+# Quiz v19.6.1
 
 Quiz är en responsiv PWA för soloquiz och realtidsquiz med flera deltagare.
 
-## Nytt i 19.6.0
+## Nytt i 19.6.1
 
 - Vid spelstart väljer användaren svårighetsgrad: Blandad, Lätt, Medel eller Svår.
 - Vid spelstart väljer användaren upplägg: Snabb (5 frågor), Standard (10), Lång (20) eller Utmaning (15 med kortare tid).
