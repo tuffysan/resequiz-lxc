@@ -7,20 +7,20 @@ const crypto=require('crypto');
 const {Server}=require('socket.io');
 const {readJson,writeJsonAtomic,ensureDir}=require('./storage');
 
-const VERSION='19.7.0',PORT=Number(process.env.PORT||3000),HOST=process.env.HOST||'0.0.0.0';
+const VERSION='19.8.0',PORT=Number(process.env.PORT||3000),HOST=process.env.HOST||'0.0.0.0';
 const DATA_DIR=process.env.RESEQUIZ_DATA_DIR||path.join(__dirname,'data');
-const QUESTIONS_FILE=path.join(DATA_DIR,'questions.json'),RESULTS_FILE=path.join(DATA_DIR,'results.json'),SETTINGS_FILE=path.join(DATA_DIR,'settings.json');
+const QUESTIONS_FILE=path.join(DATA_DIR,'questions.json'),RESULTS_FILE=path.join(DATA_DIR,'results.json'),SETTINGS_FILE=path.join(DATA_DIR,'settings.json'),USERS_FILE=path.join(DATA_DIR,'users.json');
 const CHILD_QUESTIONS_FILE=path.join(__dirname,'data','child-questions.json');
 const ADMIN_AUTH_FILE=path.join(DATA_DIR,'admin-auth.json'),ADMIN_SETUP_KEY_FILE=path.join(DATA_DIR,'admin-setup-key');
 const CHILD_TOPICS=['Blandat','Djur','Disney/barnfilm','Geografi','Fotboll','Natur','Matematik'];
 ensureDir(DATA_DIR);
-for(const [f,d] of [[QUESTIONS_FILE,[]],[RESULTS_FILE,[]],[SETTINGS_FILE,{title:'Quiz',defaultQuestionCount:10,defaultSeconds:30,allowGuestAdmin:false}]])if(!fs.existsSync(f))writeJsonAtomic(f,d);
+for(const [f,d] of [[QUESTIONS_FILE,[]],[RESULTS_FILE,[]],[USERS_FILE,[]],[SETTINGS_FILE,{title:'Quiz',defaultQuestionCount:10,defaultSeconds:30,allowGuestAdmin:false}]])if(!fs.existsSync(f))writeJsonAtomic(f,d);
 if(!fs.existsSync(ADMIN_SETUP_KEY_FILE))fs.writeFileSync(ADMIN_SETUP_KEY_FILE,crypto.randomBytes(9).toString('base64url').toUpperCase()+'\n',{mode:0o600});
 if(!fs.existsSync(ADMIN_AUTH_FILE))writeJsonAtomic(ADMIN_AUTH_FILE,{passwordHash:'',passwordSalt:'',updatedAt:null});
 
 const app=express(),server=http.createServer(app),io=new Server(server,{serveClient:true});
 app.disable('x-powered-by');app.use(express.json({limit:'1mb'}));app.use(express.static(path.join(__dirname,'public'),{extensions:['html']}));
-const questions=()=>readJson(QUESTIONS_FILE,[]),results=()=>readJson(RESULTS_FILE,[]),settings=()=>readJson(SETTINGS_FILE,{}),childQuestions=()=>readJson(CHILD_QUESTIONS_FILE,[]);
+const questions=()=>readJson(QUESTIONS_FILE,[]),results=()=>readJson(RESULTS_FILE,[]),users=()=>readJson(USERS_FILE,[]),settings=()=>readJson(SETTINGS_FILE,{}),childQuestions=()=>readJson(CHILD_QUESTIONS_FILE,[]);
 const safe=s=>String(s??'').trim(),shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 const normalizeAge=a=>Math.min(15,Math.max(4,Number(a)||8));
 const normalizeTopic=t=>CHILD_TOPICS.includes(t)?t:'Blandat';
@@ -68,6 +68,30 @@ app.post('/api/admin/auth/login',(req,res)=>{const cfg=authCfg(),password=String
 app.post('/api/admin/auth/logout',requireAdmin,(req,res)=>{sessions.delete(tokenFromReq(req));res.json({ok:true})});
 app.post('/api/admin/auth/password',requireAdmin,(req,res)=>{const password=String(req.body?.password||'');if(password.length<8)return res.status(400).json({ok:false,error:'Lösenordet måste vara minst 8 tecken.'});const salt=crypto.randomBytes(16).toString('hex');writeJsonAtomic(ADMIN_AUTH_FILE,{passwordSalt:salt,passwordHash:hashPassword(password,salt),updatedAt:new Date().toISOString()});sessions.clear();res.json({ok:true})});
 
+
+// Optional player accounts. Guests can always play without registering.
+const userSessions=new Map(),USER_SESSION_MS=30*24*60*60*1000;
+const normalizeUsername=v=>safe(v).toLowerCase().replace(/[^a-z0-9._-]/g,'').slice(0,24);
+const publicUser=u=>({id:u.id,username:u.username,displayName:u.displayName,createdAt:u.createdAt});
+const userFromReq=req=>{const token=(req.headers.authorization||'').replace(/^Bearer\s+/i,'').trim();const s=userSessions.get(token);if(!s)return null;if(s.expiresAt<Date.now()){userSessions.delete(token);return null}return users().find(u=>u.id===s.userId)||null};
+function playerBadges(userId){
+ const rs=results().filter(r=>r.userId===userId),badges=[];if(!rs.length)return badges;
+ const best=Math.max(...rs.map(resultPct)),games=rs.length,cats=new Set(rs.map(r=>r.category).filter(Boolean));
+ badges.push({id:'first-game',icon:'🎮',name:'Första quizet',detail:'Spelade första registrerade quizet'});
+ if(games>=5)badges.push({id:'five-games',icon:'⭐',name:'Quizkompis',detail:'5 spelade quiz'});
+ if(games>=10)badges.push({id:'ten-games',icon:'🏅',name:'Quizvana',detail:'10 spelade quiz'});
+ if(games>=25)badges.push({id:'twentyfive-games',icon:'🏆',name:'Quizmästare',detail:'25 spelade quiz'});
+ if(best===100)badges.push({id:'perfect',icon:'💯',name:'Full pott',detail:'100 % i ett quiz'});
+ if(cats.size>=5)badges.push({id:'explorer',icon:'🧭',name:'Utforskare',detail:'Spelat minst 5 kategorier'});
+ if(cats.size>=10)badges.push({id:'allrounder',icon:'🌟',name:'Allround',detail:'Spelat minst 10 kategorier'});
+ const hard=rs.some(r=>r.difficulty==='hard'&&resultPct(r)>=80);if(hard)badges.push({id:'hard-80',icon:'🧠',name:'Svårslagen',detail:'Minst 80 % på svår nivå'});
+ return badges;
+}
+app.post('/api/users/register',(req,res)=>{const username=normalizeUsername(req.body?.username),displayName=safe(req.body?.displayName||req.body?.username).slice(0,30),password=String(req.body?.password||'');if(username.length<3)return res.status(400).json({ok:false,error:'Användarnamnet måste vara minst 3 tecken.'});if(password.length<8)return res.status(400).json({ok:false,error:'Lösenordet måste vara minst 8 tecken.'});const all=users();if(all.some(u=>u.username===username))return res.status(409).json({ok:false,error:'Användarnamnet finns redan.'});const salt=crypto.randomBytes(16).toString('hex'),u={id:crypto.randomUUID(),username,displayName:displayName||username,passwordSalt:salt,passwordHash:hashPassword(password,salt),createdAt:new Date().toISOString()};all.push(u);writeJsonAtomic(USERS_FILE,all);const token=crypto.randomBytes(32).toString('base64url');userSessions.set(token,{userId:u.id,expiresAt:Date.now()+USER_SESSION_MS});res.status(201).json({ok:true,token,user:publicUser(u),badges:[]})});
+app.post('/api/users/login',(req,res)=>{const username=normalizeUsername(req.body?.username),password=String(req.body?.password||''),u=users().find(x=>x.username===username);if(!u)return res.status(401).json({ok:false,error:'Fel användarnamn eller lösenord.'});const actual=hashPassword(password,u.passwordSalt);if(actual.length!==u.passwordHash.length||!crypto.timingSafeEqual(Buffer.from(actual),Buffer.from(u.passwordHash)))return res.status(401).json({ok:false,error:'Fel användarnamn eller lösenord.'});const token=crypto.randomBytes(32).toString('base64url');userSessions.set(token,{userId:u.id,expiresAt:Date.now()+USER_SESSION_MS});res.json({ok:true,token,user:publicUser(u),badges:playerBadges(u.id)})});
+app.post('/api/users/logout',(req,res)=>{const token=(req.headers.authorization||'').replace(/^Bearer\s+/i,'').trim();if(token)userSessions.delete(token);res.json({ok:true})});
+app.get('/api/users/me',(req,res)=>{const u=userFromReq(req);if(!u)return res.status(401).json({ok:false,error:'Inte inloggad.'});const rs=results().filter(r=>r.userId===u.id),best=rs.length?Math.max(...rs.map(resultPct)):0,average=rs.length?Math.round(rs.reduce((a,r)=>a+resultPct(r),0)/rs.length):0;res.json({ok:true,user:publicUser(u),stats:{games:rs.length,best,average,categories:new Set(rs.map(r=>r.category).filter(Boolean)).size},badges:playerBadges(u.id),recent:rs.slice(-10).reverse()})});
+
 const resultPct=r=>r.total?Math.round((Number(r.score)||0)/(Number(r.total)||1)*100):0;
 function awardsForResult(candidate,history){
  const pct=resultPct(candidate),name=safe(candidate.name).toLocaleLowerCase('sv-SE'),cat=safe(candidate.category)||'Blandat';
@@ -89,7 +113,7 @@ app.get('/api/questions',(req,res)=>{let qs=questions();if(req.query.category)qs
 app.post('/api/solo/start',(req,res)=>{const b=req.body||{},count=Math.min(40,Math.max(3,Number(b.count)||10));let qs=b.category==='Barnquiz'?questionsForAge(b.age,b.topic):questions();if(b.category&&b.category!=='Barnquiz')qs=qs.filter(q=>q.category===b.category);res.json({ok:true,category:b.category||'',age:b.category==='Barnquiz'?normalizeAge(b.age):null,topic:b.category==='Barnquiz'?normalizeTopic(b.topic):null,questions:shuffle(qs).slice(0,count).map(publicQuestion)})});
 app.post('/api/solo/check',(req,res)=>{const q=[...questions(),...childQuestions()].find(x=>x.id===req.body?.questionId);if(!q)return res.status(404).json({ok:false,error:'Frågan finns inte'});const answerIndex=Number(req.body?.answerIndex);res.json({ok:true,correct:answerIndex===Number(q.correct),correctIndex:Number(q.correct),explanation:q.explanation||''})});
 app.get('/api/results',(req,res)=>res.json(results().slice(-100).reverse()));
-app.post('/api/results',(req,res)=>{const b=req.body||{},r=saveResult({id:crypto.randomUUID(),name:safe(b.name)||'Gäst',score:Number(b.score)||0,total:Math.max(1,Number(b.total)||1),mode:safe(b.mode)||'solo',category:safe(b.category),topic:safe(b.topic),age:b.age?normalizeAge(b.age):null,difficulty:safe(b.difficulty)||'mixed',format:safe(b.format)||'standard',at:new Date().toISOString()});res.status(201).json({ok:true,result:r,awards:r.awards})});
+app.post('/api/results',(req,res)=>{const b=req.body||{},u=userFromReq(req),r=saveResult({id:crypto.randomUUID(),userId:u?.id||null,name:u?.displayName||safe(b.name)||'Gäst',score:Number(b.score)||0,total:Math.max(1,Number(b.total)||1),mode:safe(b.mode)||'solo',category:safe(b.category),topic:safe(b.topic),age:b.age?normalizeAge(b.age):null,difficulty:safe(b.difficulty)||'mixed',format:safe(b.format)||'standard',at:new Date().toISOString()});res.status(201).json({ok:true,result:r,awards:r.awards,badges:u?playerBadges(u.id):[]})});
 app.get('/api/stats',(req,res)=>{const rs=results(),played=rs.length,avg=played?rs.reduce((a,r)=>a+(r.score/r.total),0)/played:0,best=played?Math.max(...rs.map(r=>r.score/r.total)):0;res.json({played,average:Math.round(avg*100),best:Math.round(best*100),questions:questions().length})});
 app.get('/api/highscores',(req,res)=>{const rs=results(),players=new Map();for(const r of rs){const key=safe(r.name).toLocaleLowerCase('sv-SE')||'gäst',p=players.get(key)||{name:r.name||'Gäst',games:0,best:0,averageSum:0};const v=resultPct(r);p.games++;p.best=Math.max(p.best,v);p.averageSum+=v;players.set(key,p)}const leaders=[...players.values()].map(p=>({name:p.name,games:p.games,best:p.best,average:Math.round(p.averageSum/p.games)})).sort((a,b)=>b.best-a.best||b.average-a.average||b.games-a.games);const bestRow=rs.length?[...rs].sort((a,b)=>resultPct(b)-resultPct(a)||new Date(a.at)-new Date(b.at))[0]:null;const mostGames=leaders.length?[...leaders].sort((a,b)=>b.games-a.games||b.best-a.best)[0]:null;res.json({ok:true,leaders,records:{globalBest:bestRow?{name:bestRow.name,value:resultPct(bestRow),at:bestRow.at}:null,mostGames:mostGames?{name:mostGames.name,games:mostGames.games}:null}})});
 

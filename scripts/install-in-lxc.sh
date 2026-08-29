@@ -26,11 +26,13 @@ if ! grep -q '"visual"' /tmp/rq-legacy-questions.json 2>/dev/null; then
   if [ -n "$LEGACY_SOURCE" ]; then cp "$LEGACY_SOURCE" /tmp/rq-legacy-questions.json; fi
 fi
 rsync -a --delete --exclude data/ "$SRC/" "$APP/"
-mkdir -p "$APP/data"
+mkdir -p "$APP/data" "$APP/tools"
+cp "$(dirname "$0")/expand-source-backed-questions.js" "$APP/tools/" 2>/dev/null || true
+cp "$(dirname "$0")/question-bank-report.js" "$APP/tools/" 2>/dev/null || true
 cp "$SRC/data/child-questions.json" "$APP/data/child-questions.json"
 cd "$APP"
 if [ -f package-lock.json ]; then npm ci --omit=dev; else npm install --omit=dev; fi
-for f in questions.json results.json settings.json; do [ -f "$DATA/$f" ] || cp "$SRC/data/$f" "$DATA/$f"; done
+for f in questions.json results.json settings.json users.json; do [ -f "$DATA/$f" ] || cp "$SRC/data/$f" "$DATA/$f"; done
 # Migrate old visible product title while preserving the rest of the user's settings.
 node - "$DATA/settings.json" <<'NODE'
 const fs=require('fs');
@@ -60,6 +62,12 @@ fi
 if [ -f /tmp/rq-legacy-questions.json ]; then node "$(dirname "$0")/repair-legacy-question-media.js" "$DATA/questions.json" /tmp/rq-legacy-questions.json || true; fi
 # Merge the curated verified question pack into an existing persistent bank, idempotently.
 if [ -f "$SRC/data/verified-questions.json" ]; then node "$(dirname "$0")/merge-verified-questions.js" "$DATA/questions.json" "$SRC/data/verified-questions.json"; fi
+# Expand source-backed questions from Wikidata. This is best-effort: network/rate-limit failures never break the app update.
+# The builder is idempotent and skips categories that already reached the target.
+if [ -f "$(dirname "$0")/expand-source-backed-questions.js" ]; then
+  echo "Försöker bygga minst 520 källbaserade frågor per kategori..."
+  node "$(dirname "$0")/expand-source-backed-questions.js" "$DATA/questions.json" 520 || echo "Varning: alla kategorier nådde inte 520 källbaserade frågor denna körning. Kör skriptet igen senare."
+fi
 if [ -d /tmp/quiz-media-keep/media-packs ]; then mkdir -p "$APP/public"; cp -a /tmp/quiz-media-keep/media-packs "$APP/public/"; fi
 chown -R resequiz:resequiz "$APP" "$DATA"
 cp "$(dirname "$0")/../deploy/resequiz.service" /etc/systemd/system/resequiz.service
