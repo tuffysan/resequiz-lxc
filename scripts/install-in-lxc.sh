@@ -10,6 +10,9 @@ if ! command -v node >/dev/null || [ "$(node -p 'process.versions.node.split(`.`
 fi
 id resequiz >/dev/null 2>&1 || useradd --system --home /nonexistent --shell /usr/sbin/nologin resequiz
 mkdir -p "$APP" "$DATA"
+# Quiz 22.1.1 hotfix: stop the service before backing up SQLite so WAL/SHM are consistent.
+# This also stops a 22.0/22.1 restart loop before deployment.
+systemctl stop resequiz 2>/dev/null || true
 # Quiz 22: automatic pre-upgrade backup.
 mkdir -p /var/backups/resequiz
 if [ -d "$DATA" ] && [ "$(find "$DATA" -mindepth 1 -maxdepth 1 2>/dev/null | head -1)" ]; then
@@ -17,6 +20,16 @@ if [ -d "$DATA" ] && [ "$(find "$DATA" -mindepth 1 -maxdepth 1 2>/dev/null | hea
   tar -czf "$BACKUP" -C /var/lib resequiz || true
   echo "Backup före uppdatering: $BACKUP"
   ls -1t /var/backups/resequiz/pre-upgrade-*.tgz 2>/dev/null | tail -n +6 | xargs -r rm -f
+fi
+# Dedicated SQLite snapshot. Copy db + WAL/SHM together while service is stopped.
+if [ -f "$DATA/quiz.db" ]; then
+  SQLBAK="/var/backups/resequiz/sqlite-pre-$(date +%Y%m%d-%H%M%S)"
+  mkdir -p "$SQLBAK"
+  cp -a "$DATA/quiz.db" "$SQLBAK/"
+  [ -f "$DATA/quiz.db-wal" ] && cp -a "$DATA/quiz.db-wal" "$SQLBAK/" || true
+  [ -f "$DATA/quiz.db-shm" ] && cp -a "$DATA/quiz.db-shm" "$SQLBAK/" || true
+  echo "SQLite-backup före migrering: $SQLBAK"
+  ls -1dt /var/backups/resequiz/sqlite-pre-* 2>/dev/null | tail -n +6 | xargs -r rm -rf
 fi
 # Preserve legacy media assets before deployment.
 rm -rf /tmp/quiz-media-keep

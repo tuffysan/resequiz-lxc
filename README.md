@@ -1,4 +1,4 @@
-# Quiz 22.1.0 – Question Intelligence
+# Quiz 22.1.1 – Question Intelligence
 
 Quiz 22.1 fokuserar på frågekvalitet, dubbletter, factKey, adaptiv repetition och ett bättre administrativt hälsoläge för frågebanken.
 
@@ -59,8 +59,16 @@ Verifiera:
 pct exec 135 -- curl -fsS http://127.0.0.1:3000/health
 ```
 
-Förväntad version: `22.1.0`.
+Förväntad version: `22.1.1`.
 
 ## Viktigt om “semantiska dubbletter”
 
 22.1 använder en lokal, deterministisk likhetsanalys och factKey – inte en extern AI-tjänst. Resultatet är därför en granskningskö, inte automatisk borttagning. Det är avsiktligt för att inte riskera att olika fakta raderas bara för att frågorna råkar vara språkligt lika.
+
+## 22.1.1 hotfix – SQLite startup
+
+22.1.1 fixes the startup regression seen on upgraded installations where an older `result_index` table did not yet contain `mode`. 22.0/22.1 created the `ix_result_mode` index before adding the missing column, causing `ERR_SQLITE_ERROR: no such column: mode` and a systemd restart loop.
+
+The migration now creates base tables first, adds all missing legacy columns, and only then creates indexes. Existing result and analytics data is preserved. The installer stops the service before backup, takes a dedicated consistent SQLite snapshot (`quiz.db`, WAL and SHM when present), and then starts and health-verifies the new version.
+
+A migration regression test creates a legacy database schema and verifies that it can be upgraded to 22.1.1 while preserving existing rows.

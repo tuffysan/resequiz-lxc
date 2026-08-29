@@ -1,8 +1,8 @@
 {
   "name": "quiz",
-  "version": "22.1.0",
+  "version": "22.1.1",
   "private": true,
-  "description": "Quiz 22.1 – Question Intelligence: permanent cleanup, factKey, duplicate detection, quality health, adaptive repetition and answer analytics",
+  "description": "Quiz 22.1.1 – Question Intelligence hotfix: permanent cleanup, factKey, duplicate detection, quality health, adaptive repetition and answer analytics",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
