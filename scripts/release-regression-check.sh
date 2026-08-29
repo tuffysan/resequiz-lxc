@@ -39,7 +39,7 @@ grep -q 'adaptiveQuestions' "$ROOT/app/server.js" || fail 'adaptiv repetition sa
 
 echo 'Release regression check: OK – Quiz 24.0 core features present'
 # Quiz 23.0 regression markers
-grep -q "24.0.4" "$ROOT/app/package.json"
+grep -q "24.0.5" "$ROOT/app/package.json"
 grep -q "review_schedule" "$ROOT/app/database.js"
 grep -q "/api/users/insights" "$ROOT/app/server.js"
 grep -q "SQLite preflight OK" "$ROOT/scripts/install-in-lxc.sh"
@@ -67,6 +67,6 @@ grep -q 'remainingMs' "$ROOT/app/server.js"
 grep -q "/api/admin/questions/export" "$ROOT/app/server.js" || fail 'export av produktionsfrågor saknas'
 grep -q "questions-production.json.gz" "$ROOT/app/public/admin.html" || fail 'admin-knapp för frågeexport saknas'
 
-grep -q 'adminPersistentExport' app/public/admin.html
-grep -q 'questions-production.json.gz' app/public/admin.html
-grep -q 'quiz_admin_session' app/server.js
+grep -q 'adminPersistentExport' "$ROOT/app/public/admin.html"
+grep -q 'questions-production.json.gz' "$ROOT/app/public/admin.html"
+grep -q 'quiz_admin_session' "$ROOT/app/server.js"
