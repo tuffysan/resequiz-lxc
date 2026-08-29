@@ -1,0 +1,2572 @@
+[
+  {
+    "id": "verified-20260829-0001",
+    "category": "Allmänbildning",
+    "difficulty": "easy",
+    "question": "Hur många minuter är en timme?",
+    "answers": [
+      "60",
+      "30",
+      "90",
+      "100"
+    ],
+    "correct": 0,
+    "explanation": "En timme består av 60 minuter.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0002",
+    "category": "Allmänbildning",
+    "difficulty": "easy",
+    "question": "Vilket grundämne har kemisk beteckning O?",
+    "answers": [
+      "Guld",
+      "Järn",
+      "Väte",
+      "Syre"
+    ],
+    "correct": 3,
+    "explanation": "O är den kemiska beteckningen för syre.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0003",
+    "category": "Allmänbildning",
+    "difficulty": "easy",
+    "question": "Hur många sidor har en hexagon?",
+    "answers": [
+      "7",
+      "8",
+      "6",
+      "5"
+    ],
+    "correct": 2,
+    "explanation": "En hexagon är en sexhörning.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0004",
+    "category": "Allmänbildning",
+    "difficulty": "easy",
+    "question": "Vilken planet ligger närmast solen?",
+    "answers": [
+      "Jorden",
+      "Merkurius",
+      "Venus",
+      "Mars"
+    ],
+    "correct": 1,
+    "explanation": "Merkurius är planeten närmast solen.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://science.nasa.gov/"
+  },
+  {
+    "id": "verified-20260829-0005",
+    "category": "Allmänbildning",
+    "difficulty": "easy",
+    "question": "Vilket organ pumpar blod genom kroppen?",
+    "answers": [
+      "Hjärtat",
+      "Levern",
+      "Lungan",
+      "Njuren"
+    ],
+    "correct": 0,
+    "explanation": "Hjärtat pumpar blod genom cirkulationssystemet.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0006",
+    "category": "Allmänbildning",
+    "difficulty": "medium",
+    "question": "Vilket århundrade tillhör år 1905?",
+    "answers": [
+      "1800-talet",
+      "2000-talet",
+      "1700-talet",
+      "1900-talet"
+    ],
+    "correct": 3,
+    "explanation": "År 1905 ligger i 1900-talet.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0007",
+    "category": "Allmänbildning",
+    "difficulty": "easy",
+    "question": "Hur många grader är en rät vinkel?",
+    "answers": [
+      "180",
+      "360",
+      "90",
+      "45"
+    ],
+    "correct": 2,
+    "explanation": "En rät vinkel är 90 grader.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0008",
+    "category": "Allmänbildning",
+    "difficulty": "medium",
+    "question": "Vad mäts i volt?",
+    "answers": [
+      "Frekvens",
+      "Elektrisk spänning",
+      "Effekt",
+      "Resistans"
+    ],
+    "correct": 1,
+    "explanation": "Volt är SI-enheten för elektrisk spänning.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0009",
+    "category": "Allmänbildning",
+    "difficulty": "medium",
+    "question": "Vilket språk har flest modersmålstalare i världen?",
+    "answers": [
+      "Mandarin-kinesiska",
+      "Engelska",
+      "Spanska",
+      "Franska"
+    ],
+    "correct": 0,
+    "explanation": "Mandarin-kinesiska har flest modersmålstalare.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0010",
+    "category": "Allmänbildning",
+    "difficulty": "easy",
+    "question": "Vad är H2O?",
+    "answers": [
+      "Syre",
+      "Väteperoxid",
+      "Koldioxid",
+      "Vatten"
+    ],
+    "correct": 3,
+    "explanation": "H2O är den kemiska formeln för vatten.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0011",
+    "category": "Djur & natur",
+    "difficulty": "easy",
+    "question": "Vilket är världens största nu levande djur?",
+    "answers": [
+      "Valhaj",
+      "Giraff",
+      "Blåvalen",
+      "Afrikansk elefant"
+    ],
+    "correct": 2,
+    "explanation": "Blåvalen är det största kända nu levande djuret.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0012",
+    "category": "Djur & natur",
+    "difficulty": "easy",
+    "question": "Vilket däggdjur kan flyga aktivt?",
+    "answers": [
+      "Struts",
+      "Fladdermus",
+      "Flygekorre",
+      "Pingvin"
+    ],
+    "correct": 1,
+    "explanation": "Fladdermöss är de enda däggdjuren med verklig aktiv flygförmåga.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0013",
+    "category": "Djur & natur",
+    "difficulty": "easy",
+    "question": "Vad kallas en grodas unge?",
+    "answers": [
+      "Grodyngel",
+      "Kalv",
+      "Kulting",
+      "Kid"
+    ],
+    "correct": 0,
+    "explanation": "Grodans larvstadium kallas grodyngel.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0014",
+    "category": "Djur & natur",
+    "difficulty": "easy",
+    "question": "Vilket djur är snabbast på land?",
+    "answers": [
+      "Lejon",
+      "Häst",
+      "Struts",
+      "Gepard"
+    ],
+    "correct": 3,
+    "explanation": "Geparden är det snabbaste landdjuret över korta sträckor.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0015",
+    "category": "Djur & natur",
+    "difficulty": "medium",
+    "question": "Vilken grupp tillhör spindlar?",
+    "answers": [
+      "Kräftdjur",
+      "Blötdjur",
+      "Spindeldjur",
+      "Insekter"
+    ],
+    "correct": 2,
+    "explanation": "Spindlar tillhör klassen spindeldjur, Arachnida.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0016",
+    "category": "Djur & natur",
+    "difficulty": "easy",
+    "question": "Hur många ben har en vuxen insekt?",
+    "answers": [
+      "10",
+      "6",
+      "4",
+      "8"
+    ],
+    "correct": 1,
+    "explanation": "Vuxna insekter har tre benpar, alltså sex ben.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0017",
+    "category": "Djur & natur",
+    "difficulty": "easy",
+    "question": "Vilket träd producerar ekollon?",
+    "answers": [
+      "Ek",
+      "Björk",
+      "Gran",
+      "Asp"
+    ],
+    "correct": 0,
+    "explanation": "Ekens frukt är ekollonet.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0018",
+    "category": "Djur & natur",
+    "difficulty": "medium",
+    "question": "Vad heter processen där växter använder ljus för att bilda kemisk energi?",
+    "answers": [
+      "Fermentation",
+      "Osmos",
+      "Transpiration",
+      "Fotosyntes"
+    ],
+    "correct": 3,
+    "explanation": "Fotosyntesen omvandlar ljusenergi till kemiskt bunden energi.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0019",
+    "category": "Djur & natur",
+    "difficulty": "easy",
+    "question": "Vilken fågel är störst av nu levande fåglar?",
+    "answers": [
+      "Kungsörn",
+      "Albatross",
+      "Struts",
+      "Emu"
+    ],
+    "correct": 2,
+    "explanation": "Strutsen är den största nu levande fågeln.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0020",
+    "category": "Djur & natur",
+    "difficulty": "medium",
+    "question": "Är koraller djur eller växter?",
+    "answers": [
+      "Alger",
+      "Djur",
+      "Växter",
+      "Svampar"
+    ],
+    "correct": 1,
+    "explanation": "Koraller är kolonier av små nässeldjur.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0021",
+    "category": "Fotboll",
+    "difficulty": "easy",
+    "question": "Hur många spelare har ett lag normalt på planen vid avspark?",
+    "answers": [
+      "11",
+      "9",
+      "10",
+      "12"
+    ],
+    "correct": 0,
+    "explanation": "Ett lag spelar normalt med elva spelare inklusive målvakten.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.theifab.com/laws/latest/"
+  },
+  {
+    "id": "verified-20260829-0022",
+    "category": "Fotboll",
+    "difficulty": "medium",
+    "question": "Hur långt är det från straffpunkten till mållinjen?",
+    "answers": [
+      "9,15 meter",
+      "10 meter",
+      "12 meter",
+      "11 meter"
+    ],
+    "correct": 3,
+    "explanation": "Straffpunkten ligger 11 meter från mållinjen.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.theifab.com/laws/latest/"
+  },
+  {
+    "id": "verified-20260829-0023",
+    "category": "Fotboll",
+    "difficulty": "medium",
+    "question": "Hur långt från bollen ska motståndarna stå vid en frispark?",
+    "answers": [
+      "7,5 meter",
+      "11 meter",
+      "9,15 meter",
+      "5 meter"
+    ],
+    "correct": 2,
+    "explanation": "Spelarna ska normalt vara minst 9,15 meter från bollen.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.theifab.com/laws/latest/"
+  },
+  {
+    "id": "verified-20260829-0024",
+    "category": "Fotboll",
+    "difficulty": "easy",
+    "question": "Vilket kort används för utvisning?",
+    "answers": [
+      "Blått kort",
+      "Rött kort",
+      "Gult kort",
+      "Grönt kort"
+    ],
+    "correct": 1,
+    "explanation": "Rött kort innebär utvisning enligt fotbollens spelregler.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.theifab.com/laws/latest/"
+  },
+  {
+    "id": "verified-20260829-0025",
+    "category": "Fotboll",
+    "difficulty": "medium",
+    "question": "Får en målvakt ta upp en avsiktlig bakåtpassning med händerna?",
+    "answers": [
+      "Nej",
+      "Ja, alltid",
+      "Ja, i straffområdet",
+      "Ja, efter domarens signal"
+    ],
+    "correct": 0,
+    "explanation": "Målvakten får inte hantera en avsiktlig spark från en lagkamrat med händerna.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.theifab.com/laws/latest/"
+  },
+  {
+    "id": "verified-20260829-0026",
+    "category": "Fotboll",
+    "difficulty": "easy",
+    "question": "Hur många halvlekar har en ordinarie fotbollsmatch?",
+    "answers": [
+      "3",
+      "4",
+      "1",
+      "2"
+    ],
+    "correct": 3,
+    "explanation": "Ordinarie speltid består av två halvlekar.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.theifab.com/laws/latest/"
+  },
+  {
+    "id": "verified-20260829-0027",
+    "category": "Fotboll",
+    "difficulty": "easy",
+    "question": "Hur lång är en ordinarie halvlek i seniorfotboll?",
+    "answers": [
+      "40 minuter",
+      "60 minuter",
+      "45 minuter",
+      "30 minuter"
+    ],
+    "correct": 2,
+    "explanation": "En ordinarie halvlek är 45 minuter.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.theifab.com/laws/latest/"
+  },
+  {
+    "id": "verified-20260829-0028",
+    "category": "Fotboll",
+    "difficulty": "medium",
+    "question": "Kan ett mål göras direkt från en hörnspark?",
+    "answers": [
+      "Bara i förlängning",
+      "Ja",
+      "Nej",
+      "Bara efter nick"
+    ],
+    "correct": 1,
+    "explanation": "Reglerna tillåter mål direkt från hörnspark mot motståndarlaget.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.theifab.com/laws/latest/"
+  },
+  {
+    "id": "verified-20260829-0029",
+    "category": "Fotboll",
+    "difficulty": "easy",
+    "question": "Vad kallas regelbrottet när en anfallare befinner sig otillåtet placerad när bollen spelas?",
+    "answers": [
+      "Offside",
+      "Hands",
+      "Obstruktion",
+      "Inspark"
+    ],
+    "correct": 0,
+    "explanation": "Offsideregeln reglerar anfallarens position när en lagkamrat spelar bollen.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.theifab.com/laws/latest/"
+  },
+  {
+    "id": "verified-20260829-0030",
+    "category": "Fotboll",
+    "difficulty": "easy",
+    "question": "Hur många domare är obligatoriskt angivna på planen som huvuddomare under matchen?",
+    "answers": [
+      "2",
+      "3",
+      "4",
+      "1"
+    ],
+    "correct": 3,
+    "explanation": "En match leds av en huvuddomare; assisterande funktionärer kan också utses.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.theifab.com/laws/latest/"
+  },
+  {
+    "id": "verified-20260829-0031",
+    "category": "Sverige",
+    "difficulty": "easy",
+    "question": "Hur många ledamöter har Sveriges riksdag?",
+    "answers": [
+      "350",
+      "401",
+      "349",
+      "299"
+    ],
+    "correct": 2,
+    "explanation": "Sveriges riksdag har 349 ledamöter.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.riksdagen.se/"
+  },
+  {
+    "id": "verified-20260829-0032",
+    "category": "Sverige",
+    "difficulty": "easy",
+    "question": "Hur ofta hålls ordinarie val till riksdagen?",
+    "answers": [
+      "Vart femte år",
+      "Vart fjärde år",
+      "Vartannat år",
+      "Vart tredje år"
+    ],
+    "correct": 1,
+    "explanation": "Riksdagens ledamöter väljs vart fjärde år.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.riksdagen.se/"
+  },
+  {
+    "id": "verified-20260829-0033",
+    "category": "Sverige",
+    "difficulty": "easy",
+    "question": "Vilken är Sveriges huvudstad?",
+    "answers": [
+      "Stockholm",
+      "Göteborg",
+      "Malmö",
+      "Uppsala"
+    ],
+    "correct": 0,
+    "explanation": "Stockholm är Sveriges huvudstad.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0034",
+    "category": "Sverige",
+    "difficulty": "easy",
+    "question": "Vilken är Sveriges största sjö till ytan?",
+    "answers": [
+      "Vättern",
+      "Mälaren",
+      "Hjälmaren",
+      "Vänern"
+    ],
+    "correct": 3,
+    "explanation": "Vänern är Sveriges största sjö till ytan.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0035",
+    "category": "Sverige",
+    "difficulty": "medium",
+    "question": "Vad heter Sveriges högsta berg?",
+    "answers": [
+      "Sarektjåkkå",
+      "Helags",
+      "Kebnekaise",
+      "Åreskutan"
+    ],
+    "correct": 2,
+    "explanation": "Kebnekaise är Sveriges högsta bergsmassiv med landets högsta topp.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0036",
+    "category": "Sverige",
+    "difficulty": "easy",
+    "question": "Vilken svensk ö är störst?",
+    "answers": [
+      "Hisingen",
+      "Gotland",
+      "Öland",
+      "Orust"
+    ],
+    "correct": 1,
+    "explanation": "Gotland är Sveriges största ö.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0037",
+    "category": "Sverige",
+    "difficulty": "easy",
+    "question": "Vilken valuta används i Sverige?",
+    "answers": [
+      "Svensk krona",
+      "Euro",
+      "Dansk krona",
+      "Franc"
+    ],
+    "correct": 0,
+    "explanation": "Sveriges valuta är svensk krona, SEK.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0038",
+    "category": "Sverige",
+    "difficulty": "easy",
+    "question": "Vilket hav ligger öster om stora delar av Sverige?",
+    "answers": [
+      "Nordsjön",
+      "Medelhavet",
+      "Svarta havet",
+      "Östersjön"
+    ],
+    "correct": 3,
+    "explanation": "Östersjön ligger öster om stora delar av Sverige.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0039",
+    "category": "Sverige",
+    "difficulty": "hard",
+    "question": "Hur många världsarv har Sverige på UNESCO:s världsarvslista enligt UNESCO?",
+    "answers": [
+      "12",
+      "20",
+      "15",
+      "10"
+    ],
+    "correct": 2,
+    "explanation": "UNESCO listar 15 svenska världsarv.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://whc.unesco.org/"
+  },
+  {
+    "id": "verified-20260829-0040",
+    "category": "Sverige",
+    "difficulty": "medium",
+    "question": "Vilken stad förknippas med universitetet grundat 1477, Sveriges äldsta universitet?",
+    "answers": [
+      "Umeå",
+      "Uppsala",
+      "Lund",
+      "Stockholm"
+    ],
+    "correct": 1,
+    "explanation": "Uppsala universitet grundades 1477.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.uu.se/"
+  },
+  {
+    "id": "verified-20260829-0041",
+    "category": "Vetenskap & teknik",
+    "difficulty": "easy",
+    "question": "Hur många planeter finns i solsystemet?",
+    "answers": [
+      "8",
+      "7",
+      "9",
+      "10"
+    ],
+    "correct": 0,
+    "explanation": "NASA anger åtta planeter i solsystemet.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://science.nasa.gov/"
+  },
+  {
+    "id": "verified-20260829-0042",
+    "category": "Vetenskap & teknik",
+    "difficulty": "easy",
+    "question": "Vilken planet är störst i solsystemet?",
+    "answers": [
+      "Saturnus",
+      "Neptunus",
+      "Jorden",
+      "Jupiter"
+    ],
+    "correct": 3,
+    "explanation": "Jupiter är solsystemets största planet.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://science.nasa.gov/"
+  },
+  {
+    "id": "verified-20260829-0043",
+    "category": "Vetenskap & teknik",
+    "difficulty": "easy",
+    "question": "Vilken planet är känd för sina tydliga ringar?",
+    "answers": [
+      "Merkurius",
+      "Venus",
+      "Saturnus",
+      "Mars"
+    ],
+    "correct": 2,
+    "explanation": "Saturnus har det mest framträdande ringsystemet.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://science.nasa.gov/"
+  },
+  {
+    "id": "verified-20260829-0044",
+    "category": "Vetenskap & teknik",
+    "difficulty": "medium",
+    "question": "Vad är ljusets hastighet i vakuum ungefär?",
+    "answers": [
+      "3 000 000 km/s",
+      "300 000 km/s",
+      "30 000 km/s",
+      "3 000 km/s"
+    ],
+    "correct": 1,
+    "explanation": "Ljusets hastighet är cirka 299 792 km/s.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0045",
+    "category": "Vetenskap & teknik",
+    "difficulty": "medium",
+    "question": "Vilken SI-enhet används för elektrisk ström?",
+    "answers": [
+      "Ampere",
+      "Volt",
+      "Watt",
+      "Ohm"
+    ],
+    "correct": 0,
+    "explanation": "Ampere är SI-enheten för elektrisk ström.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0046",
+    "category": "Vetenskap & teknik",
+    "difficulty": "easy",
+    "question": "Vad står CPU för?",
+    "answers": [
+      "Computer Power Utility",
+      "Central Program Upload",
+      "Core Processing User",
+      "Central Processing Unit"
+    ],
+    "correct": 3,
+    "explanation": "CPU står för Central Processing Unit.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0047",
+    "category": "Vetenskap & teknik",
+    "difficulty": "easy",
+    "question": "Vilket talssystem använder endast siffrorna 0 och 1?",
+    "answers": [
+      "Hexadecimalt",
+      "Oktalt",
+      "Binärt",
+      "Decimalt"
+    ],
+    "correct": 2,
+    "explanation": "Det binära talsystemet använder 0 och 1.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0048",
+    "category": "Vetenskap & teknik",
+    "difficulty": "medium",
+    "question": "Vilken gas utgör störst del av jordens atmosfär?",
+    "answers": [
+      "Argon",
+      "Kväve",
+      "Syre",
+      "Koldioxid"
+    ],
+    "correct": 1,
+    "explanation": "Kväve utgör omkring 78 procent av atmosfären.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0049",
+    "category": "Vetenskap & teknik",
+    "difficulty": "medium",
+    "question": "Vad mäts i hertz?",
+    "answers": [
+      "Frekvens",
+      "Spänning",
+      "Energi",
+      "Temperatur"
+    ],
+    "correct": 0,
+    "explanation": "Hertz är enheten för frekvens.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0050",
+    "category": "Vetenskap & teknik",
+    "difficulty": "medium",
+    "question": "Vilken dvärgplanet klassades som planet fram till 2006?",
+    "answers": [
+      "Ceres",
+      "Eris",
+      "Haumea",
+      "Pluto"
+    ],
+    "correct": 3,
+    "explanation": "IAU:s definition 2006 gjorde att Pluto klassades som dvärgplanet.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://science.nasa.gov/"
+  },
+  {
+    "id": "verified-20260829-0051",
+    "category": "Historia",
+    "difficulty": "easy",
+    "question": "Vilket år började andra världskriget i Europa?",
+    "answers": [
+      "1941",
+      "1945",
+      "1939",
+      "1918"
+    ],
+    "correct": 2,
+    "explanation": "Tysklands invasion av Polen 1 september 1939 markerar krigsutbrottet i Europa.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0052",
+    "category": "Historia",
+    "difficulty": "easy",
+    "question": "Vilket år föll Berlinmuren?",
+    "answers": [
+      "1993",
+      "1989",
+      "1987",
+      "1991"
+    ],
+    "correct": 1,
+    "explanation": "Berlinmuren öppnades den 9 november 1989.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0053",
+    "category": "Historia",
+    "difficulty": "medium",
+    "question": "Vilken civilisation byggde Machu Picchu?",
+    "answers": [
+      "Inkariket",
+      "Romarriket",
+      "Aztekerna",
+      "Vikingarna"
+    ],
+    "correct": 0,
+    "explanation": "Machu Picchu byggdes under Inkariket.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://whc.unesco.org/"
+  },
+  {
+    "id": "verified-20260829-0054",
+    "category": "Historia",
+    "difficulty": "easy",
+    "question": "Vem var den första människan på månen?",
+    "answers": [
+      "Buzz Aldrin",
+      "Yuri Gagarin",
+      "John Glenn",
+      "Neil Armstrong"
+    ],
+    "correct": 3,
+    "explanation": "Neil Armstrong blev den första människan på månen 1969.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://science.nasa.gov/"
+  },
+  {
+    "id": "verified-20260829-0055",
+    "category": "Historia",
+    "difficulty": "medium",
+    "question": "Vilket år upplöstes Sovjetunionen?",
+    "answers": [
+      "1993",
+      "1999",
+      "1991",
+      "1989"
+    ],
+    "correct": 2,
+    "explanation": "Sovjetunionen upplöstes i december 1991.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0056",
+    "category": "Historia",
+    "difficulty": "easy",
+    "question": "Vilket antikt folk byggde Colosseum?",
+    "answers": [
+      "Fenicierna",
+      "Romarna",
+      "Grekerna",
+      "Egyptierna"
+    ],
+    "correct": 1,
+    "explanation": "Colosseum byggdes i Rom under det romerska kejsardömet.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0057",
+    "category": "Historia",
+    "difficulty": "medium",
+    "question": "Vem var Sveriges kung när regalskeppet Vasa sjönk 1628?",
+    "answers": [
+      "Gustav II Adolf",
+      "Karl XII",
+      "Gustav Vasa",
+      "Karl XI"
+    ],
+    "correct": 0,
+    "explanation": "Vasa sjönk 1628 under Gustav II Adolfs regering.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.vasamuseet.se/"
+  },
+  {
+    "id": "verified-20260829-0058",
+    "category": "Historia",
+    "difficulty": "easy",
+    "question": "Vilket år nådde Columbus Karibien på sin första resa?",
+    "answers": [
+      "1453",
+      "1517",
+      "1588",
+      "1492"
+    ],
+    "correct": 3,
+    "explanation": "Columbus första resa nådde Karibien 1492.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0059",
+    "category": "Historia",
+    "difficulty": "easy",
+    "question": "Vilket år slutade första världskriget?",
+    "answers": [
+      "1916",
+      "1920",
+      "1918",
+      "1914"
+    ],
+    "correct": 2,
+    "explanation": "Vapenstilleståndet trädde i kraft 11 november 1918.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0060",
+    "category": "Historia",
+    "difficulty": "medium",
+    "question": "Vilken stad begravdes av Vesuvius utbrott år 79?",
+    "answers": [
+      "Alexandria",
+      "Pompeji",
+      "Sparta",
+      "Troja"
+    ],
+    "correct": 1,
+    "explanation": "Pompeji begravdes vid Vesuvius utbrott år 79.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://whc.unesco.org/"
+  },
+  {
+    "id": "verified-20260829-0061",
+    "category": "Mat & dryck",
+    "difficulty": "easy",
+    "question": "Vilken baljväxt är huvudingrediens i klassisk hummus?",
+    "answers": [
+      "Kikärta",
+      "Lins",
+      "Kidneyböna",
+      "Sojaböna"
+    ],
+    "correct": 0,
+    "explanation": "Hummus görs traditionellt på kikärter och tahini.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0062",
+    "category": "Mat & dryck",
+    "difficulty": "easy",
+    "question": "Vilken ost används traditionellt i en grekisk sallad?",
+    "answers": [
+      "Brie",
+      "Cheddar",
+      "Gouda",
+      "Feta"
+    ],
+    "correct": 3,
+    "explanation": "Feta är den traditionella osten i grekisk sallad.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0063",
+    "category": "Mat & dryck",
+    "difficulty": "easy",
+    "question": "Vad är huvudingrediensen i guacamole?",
+    "answers": [
+      "Gurka",
+      "Paprika",
+      "Avokado",
+      "Tomat"
+    ],
+    "correct": 2,
+    "explanation": "Guacamole baseras på avokado.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0064",
+    "category": "Mat & dryck",
+    "difficulty": "easy",
+    "question": "Vilket spannmål görs traditionell risotto av?",
+    "answers": [
+      "Råg",
+      "Ris",
+      "Korn",
+      "Havre"
+    ],
+    "correct": 1,
+    "explanation": "Risotto är en italiensk risrätt.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0065",
+    "category": "Mat & dryck",
+    "difficulty": "easy",
+    "question": "Vad kallas den japanska gröna kryddpastan som ofta serveras till sushi?",
+    "answers": [
+      "Wasabi",
+      "Miso",
+      "Tahini",
+      "Harissa"
+    ],
+    "correct": 0,
+    "explanation": "Wasabi serveras ofta som stark krydda till sushi.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0066",
+    "category": "Mat & dryck",
+    "difficulty": "medium",
+    "question": "Vilken frukt används i en klassisk tarte Tatin?",
+    "answers": [
+      "Päron",
+      "Persika",
+      "Plommon",
+      "Äpple"
+    ],
+    "correct": 3,
+    "explanation": "Klassisk tarte Tatin är en upp-och-nedvänd äppeltarte.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0067",
+    "category": "Mat & dryck",
+    "difficulty": "easy",
+    "question": "Vilken råvara görs tofu främst av?",
+    "answers": [
+      "Ris",
+      "Potatis",
+      "Sojabönor",
+      "Kikärter"
+    ],
+    "correct": 2,
+    "explanation": "Tofu framställs av koagulerad sojadryck från sojabönor.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0068",
+    "category": "Mat & dryck",
+    "difficulty": "medium",
+    "question": "Vilken italiensk dessert betyder ungefär ”dra mig upp”?",
+    "answers": [
+      "Cannoli",
+      "Tiramisu",
+      "Panna cotta",
+      "Gelato"
+    ],
+    "correct": 1,
+    "explanation": "Namnet tiramisu kommer från italienskans uttryck för att pigga upp.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0069",
+    "category": "Mat & dryck",
+    "difficulty": "medium",
+    "question": "Vilken krydda ger klassisk paella sin gula färg och karakteristiska arom?",
+    "answers": [
+      "Saffran",
+      "Kanel",
+      "Dill",
+      "Kummin"
+    ],
+    "correct": 0,
+    "explanation": "Saffran är en klassisk smaksättare i paella.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0070",
+    "category": "Mat & dryck",
+    "difficulty": "easy",
+    "question": "Vad är mozzarella traditionellt för typ av livsmedel?",
+    "answers": [
+      "Bröd",
+      "Korv",
+      "Pasta",
+      "Ost"
+    ],
+    "correct": 3,
+    "explanation": "Mozzarella är en italiensk färskost.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0071",
+    "category": "Resor",
+    "difficulty": "medium",
+    "question": "Vilken IATA-kod har Köpenhamns flygplats?",
+    "answers": [
+      "KAS",
+      "COP",
+      "CPH",
+      "CPN"
+    ],
+    "correct": 2,
+    "explanation": "Köpenhamns flygplats använder IATA-koden CPH.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.iata.org/"
+  },
+  {
+    "id": "verified-20260829-0072",
+    "category": "Resor",
+    "difficulty": "easy",
+    "question": "Vilken stad är Portugals huvudstad?",
+    "answers": [
+      "Coimbra",
+      "Lissabon",
+      "Porto",
+      "Faro"
+    ],
+    "correct": 1,
+    "explanation": "Lissabon är Portugals huvudstad.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0073",
+    "category": "Resor",
+    "difficulty": "easy",
+    "question": "På vilken ö ligger Palma?",
+    "answers": [
+      "Mallorca",
+      "Menorca",
+      "Ibiza",
+      "Teneriffa"
+    ],
+    "correct": 0,
+    "explanation": "Palma ligger på Mallorca.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0074",
+    "category": "Resor",
+    "difficulty": "easy",
+    "question": "Vilken valuta används i Spanien?",
+    "answers": [
+      "Peso",
+      "Franc",
+      "Krona",
+      "Euro"
+    ],
+    "correct": 3,
+    "explanation": "Spanien använder euro.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0075",
+    "category": "Resor",
+    "difficulty": "medium",
+    "question": "Vilken stad har flygplatskoden LHR?",
+    "answers": [
+      "Rom",
+      "Dublin",
+      "London",
+      "Paris"
+    ],
+    "correct": 2,
+    "explanation": "LHR är IATA-koden för London Heathrow.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.iata.org/"
+  },
+  {
+    "id": "verified-20260829-0076",
+    "category": "Resor",
+    "difficulty": "easy",
+    "question": "I vilket land ligger Dubrovnik?",
+    "answers": [
+      "Grekland",
+      "Kroatien",
+      "Slovenien",
+      "Montenegro"
+    ],
+    "correct": 1,
+    "explanation": "Dubrovnik ligger i Kroatien.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://whc.unesco.org/"
+  },
+  {
+    "id": "verified-20260829-0077",
+    "category": "Resor",
+    "difficulty": "easy",
+    "question": "Vilken stad är känd för Sagrada Família?",
+    "answers": [
+      "Barcelona",
+      "Madrid",
+      "Sevilla",
+      "Valencia"
+    ],
+    "correct": 0,
+    "explanation": "Sagrada Família ligger i Barcelona.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://whc.unesco.org/"
+  },
+  {
+    "id": "verified-20260829-0078",
+    "category": "Resor",
+    "difficulty": "easy",
+    "question": "Vilken stad ligger närmast pyramiderna i Giza?",
+    "answers": [
+      "Luxor",
+      "Alexandria",
+      "Aswan",
+      "Kairo"
+    ],
+    "correct": 3,
+    "explanation": "Giza ligger i Kairos storstadsområde.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0079",
+    "category": "Resor",
+    "difficulty": "medium",
+    "question": "I vilket land ligger Petra?",
+    "answers": [
+      "Libanon",
+      "Oman",
+      "Jordanien",
+      "Egypten"
+    ],
+    "correct": 2,
+    "explanation": "Petra ligger i Jordanien.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://whc.unesco.org/"
+  },
+  {
+    "id": "verified-20260829-0080",
+    "category": "Resor",
+    "difficulty": "easy",
+    "question": "Vilken stad är huvudstad på Island?",
+    "answers": [
+      "Selfoss",
+      "Reykjavík",
+      "Akureyri",
+      "Keflavík"
+    ],
+    "correct": 1,
+    "explanation": "Reykjavík är Islands huvudstad.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0081",
+    "category": "Sport",
+    "difficulty": "easy",
+    "question": "Hur många ringar finns i den olympiska symbolen?",
+    "answers": [
+      "5",
+      "4",
+      "6",
+      "7"
+    ],
+    "correct": 0,
+    "explanation": "Den olympiska symbolen består av fem sammanlänkade ringar.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.olympics.com/"
+  },
+  {
+    "id": "verified-20260829-0082",
+    "category": "Sport",
+    "difficulty": "medium",
+    "question": "Hur många poäng är en touchdown värd före extrapoäng i amerikansk fotboll?",
+    "answers": [
+      "3",
+      "5",
+      "7",
+      "6"
+    ],
+    "correct": 3,
+    "explanation": "En touchdown ger sex poäng.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0083",
+    "category": "Sport",
+    "difficulty": "easy",
+    "question": "Hur många spelare från ett lag är på planen samtidigt i basket?",
+    "answers": [
+      "6",
+      "7",
+      "5",
+      "4"
+    ],
+    "correct": 2,
+    "explanation": "Ett basketlag har fem spelare på planen.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0084",
+    "category": "Sport",
+    "difficulty": "easy",
+    "question": "I vilken sport används termerna birdie och eagle?",
+    "answers": [
+      "Cricket",
+      "Golf",
+      "Tennis",
+      "Badminton"
+    ],
+    "correct": 1,
+    "explanation": "Birdie och eagle är golfresultat relativt par.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0085",
+    "category": "Sport",
+    "difficulty": "medium",
+    "question": "Hur många set måste en herrspelare vinna i en Grand Slam-match i singel?",
+    "answers": [
+      "3",
+      "2",
+      "4",
+      "5"
+    ],
+    "correct": 0,
+    "explanation": "Herrsingel i Grand Slam spelas bäst av fem set, alltså tre för seger.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.itftennis.com/"
+  },
+  {
+    "id": "verified-20260829-0086",
+    "category": "Sport",
+    "difficulty": "easy",
+    "question": "Vilken sport använder en puck?",
+    "answers": [
+      "Handboll",
+      "Volleyboll",
+      "Baseboll",
+      "Ishockey"
+    ],
+    "correct": 3,
+    "explanation": "Ishockey spelas med puck.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0087",
+    "category": "Sport",
+    "difficulty": "medium",
+    "question": "Hur lång är ett maraton enligt standarddistansen?",
+    "answers": [
+      "41,2 km",
+      "45 km",
+      "42,195 km",
+      "40 km"
+    ],
+    "correct": 2,
+    "explanation": "Maratondistansen är 42,195 kilometer.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://worldathletics.org/"
+  },
+  {
+    "id": "verified-20260829-0088",
+    "category": "Sport",
+    "difficulty": "easy",
+    "question": "Vilken färg har ledartröjan i Tour de France?",
+    "answers": [
+      "Svart",
+      "Gul",
+      "Röd",
+      "Blå"
+    ],
+    "correct": 1,
+    "explanation": "Totalledaren i Tour de France bär den gula tröjan.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.letour.fr/"
+  },
+  {
+    "id": "verified-20260829-0089",
+    "category": "Sport",
+    "difficulty": "medium",
+    "question": "I vilken sport används redskapet florett?",
+    "answers": [
+      "Fäktning",
+      "Bågskytte",
+      "Rodd",
+      "Gymnastik"
+    ],
+    "correct": 0,
+    "explanation": "Florett är ett av tre vapen i sportfäktning.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.olympics.com/"
+  },
+  {
+    "id": "verified-20260829-0090",
+    "category": "Sport",
+    "difficulty": "easy",
+    "question": "Hur många hål består en standardrond golf normalt av?",
+    "answers": [
+      "9",
+      "12",
+      "20",
+      "18"
+    ],
+    "correct": 3,
+    "explanation": "En standardrond golf består normalt av 18 hål.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0091",
+    "category": "Film & TV",
+    "difficulty": "easy",
+    "question": "Vilken filmserie har karaktären Indiana Jones?",
+    "answers": [
+      "Rocky",
+      "Jurassic Park",
+      "Indiana Jones",
+      "Star Wars"
+    ],
+    "correct": 2,
+    "explanation": "Indiana Jones är huvudfigur i filmserien med samma namn.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.oscars.org/"
+  },
+  {
+    "id": "verified-20260829-0092",
+    "category": "Film & TV",
+    "difficulty": "medium",
+    "question": "Vem regisserade filmen Titanic från 1997?",
+    "answers": [
+      "Peter Jackson",
+      "James Cameron",
+      "Steven Spielberg",
+      "Ridley Scott"
+    ],
+    "correct": 1,
+    "explanation": "James Cameron skrev och regisserade Titanic.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.oscars.org/"
+  },
+  {
+    "id": "verified-20260829-0093",
+    "category": "Film & TV",
+    "difficulty": "hard",
+    "question": "Vilken film vann Oscar för bästa film vid galan 1998?",
+    "answers": [
+      "Titanic",
+      "Good Will Hunting",
+      "L.A. Confidential",
+      "As Good as It Gets"
+    ],
+    "correct": 0,
+    "explanation": "Titanic vann Best Picture vid den 70:e Oscarsgalan.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.oscars.org/"
+  },
+  {
+    "id": "verified-20260829-0094",
+    "category": "Film & TV",
+    "difficulty": "easy",
+    "question": "Vilken fiktiv skola går Harry Potter på?",
+    "answers": [
+      "Narnia",
+      "Nevermore",
+      "Xavier Institute",
+      "Hogwarts"
+    ],
+    "correct": 3,
+    "explanation": "Harry Potter går på Hogwarts skola för häxkonster och trolldom.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.wizardingworld.com/"
+  },
+  {
+    "id": "verified-20260829-0095",
+    "category": "Film & TV",
+    "difficulty": "easy",
+    "question": "Vilken TV-serie utspelar sig till stor del på kontoret Dunder Mifflin?",
+    "answers": [
+      "Seinfeld",
+      "Lost",
+      "The Office",
+      "Friends"
+    ],
+    "correct": 2,
+    "explanation": "Dunder Mifflin är företaget i den amerikanska serien The Office.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0096",
+    "category": "Film & TV",
+    "difficulty": "easy",
+    "question": "Vilken animerad film har systrarna Elsa och Anna?",
+    "answers": [
+      "Modig",
+      "Frost",
+      "Moana",
+      "Encanto"
+    ],
+    "correct": 1,
+    "explanation": "Elsa och Anna är huvudkaraktärer i Disneys Frost.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.disney.com/"
+  },
+  {
+    "id": "verified-20260829-0097",
+    "category": "Film & TV",
+    "difficulty": "easy",
+    "question": "Vad heter hobern som bär ringen mot Mordor?",
+    "answers": [
+      "Frodo Bagger",
+      "Bilbo Bagger",
+      "Sam Gamgi",
+      "Pippin Took"
+    ],
+    "correct": 0,
+    "explanation": "Frodo är ringbäraren i Sagan om ringen.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0098",
+    "category": "Film & TV",
+    "difficulty": "easy",
+    "question": "Vilken filmfigur säger ofta att han är ”Bond, James Bond”?",
+    "answers": [
+      "Jason Bourne",
+      "Ethan Hunt",
+      "Rocky Balboa",
+      "James Bond"
+    ],
+    "correct": 3,
+    "explanation": "James Bond presenterar sig återkommande på detta sätt.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.007.com/"
+  },
+  {
+    "id": "verified-20260829-0099",
+    "category": "Film & TV",
+    "difficulty": "easy",
+    "question": "Vilken TV-serie följer familjerna Stark, Lannister och Targaryen?",
+    "answers": [
+      "Succession",
+      "Vikings",
+      "Game of Thrones",
+      "The Crown"
+    ],
+    "correct": 2,
+    "explanation": "Dessa familjer är centrala i Game of Thrones.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.hbo.com/game-of-thrones"
+  },
+  {
+    "id": "verified-20260829-0100",
+    "category": "Film & TV",
+    "difficulty": "easy",
+    "question": "Vilken filmstudio skapade Toy Story?",
+    "answers": [
+      "Aardman",
+      "Pixar",
+      "DreamWorks",
+      "Studio Ghibli"
+    ],
+    "correct": 1,
+    "explanation": "Toy Story var Pixars första långfilm.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.pixar.com/"
+  },
+  {
+    "id": "verified-20260829-0101",
+    "category": "Musik",
+    "difficulty": "easy",
+    "question": "Hur många strängar har en vanlig gitarr?",
+    "answers": [
+      "6",
+      "4",
+      "5",
+      "8"
+    ],
+    "correct": 0,
+    "explanation": "En standardgitarr har sex strängar.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0102",
+    "category": "Musik",
+    "difficulty": "easy",
+    "question": "Vilket instrument har normalt 88 tangenter i konsertutförande?",
+    "answers": [
+      "Fiol",
+      "Trumpet",
+      "Klarinett",
+      "Piano"
+    ],
+    "correct": 3,
+    "explanation": "Ett modernt standardpiano har 88 tangenter.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0103",
+    "category": "Musik",
+    "difficulty": "easy",
+    "question": "Vilken svensk grupp vann Eurovision 1974 med Waterloo?",
+    "answers": [
+      "Ace of Base",
+      "Europe",
+      "ABBA",
+      "Roxette"
+    ],
+    "correct": 2,
+    "explanation": "ABBA vann Eurovision Song Contest 1974 med Waterloo.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://eurovision.tv/"
+  },
+  {
+    "id": "verified-20260829-0104",
+    "category": "Musik",
+    "difficulty": "easy",
+    "question": "Vilket instrument spelas med stråke och har fyra strängar i standardutförande?",
+    "answers": [
+      "Trombon",
+      "Fiol",
+      "Flöjt",
+      "Piano"
+    ],
+    "correct": 1,
+    "explanation": "Fiolen har fyra strängar och spelas ofta med stråke.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0105",
+    "category": "Musik",
+    "difficulty": "medium",
+    "question": "Vad kallas den högsta vanliga kvinnliga sångstämman?",
+    "answers": [
+      "Sopran",
+      "Alt",
+      "Tenor",
+      "Bas"
+    ],
+    "correct": 0,
+    "explanation": "Sopran är den högsta vanliga kvinnliga rösttypen.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0106",
+    "category": "Musik",
+    "difficulty": "easy",
+    "question": "Vilken artist gav ut albumet Thriller?",
+    "answers": [
+      "Prince",
+      "David Bowie",
+      "Elton John",
+      "Michael Jackson"
+    ],
+    "correct": 3,
+    "explanation": "Michael Jackson gav ut Thriller 1982.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.grammy.com/"
+  },
+  {
+    "id": "verified-20260829-0107",
+    "category": "Musik",
+    "difficulty": "easy",
+    "question": "Vilken grupp bestod av John Lennon, Paul McCartney, George Harrison och Ringo Starr?",
+    "answers": [
+      "Queen",
+      "The Who",
+      "The Beatles",
+      "The Rolling Stones"
+    ],
+    "correct": 2,
+    "explanation": "De fyra utgjorde den klassiska Beatles-uppsättningen.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0108",
+    "category": "Musik",
+    "difficulty": "easy",
+    "question": "Vad kallas en grupp med fyra musiker?",
+    "answers": [
+      "Sextett",
+      "Kvartett",
+      "Trio",
+      "Kvintett"
+    ],
+    "correct": 1,
+    "explanation": "En kvartett består av fyra musiker.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0109",
+    "category": "Musik",
+    "difficulty": "medium",
+    "question": "Vilken nyckel används ofta för högre tonlägen i noter?",
+    "answers": [
+      "G-klav",
+      "F-klav",
+      "C-klav",
+      "B-klav"
+    ],
+    "correct": 0,
+    "explanation": "G-klaven, diskantklaven, används ofta för högre register.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0110",
+    "category": "Musik",
+    "difficulty": "easy",
+    "question": "Vilken familj tillhör trumpet?",
+    "answers": [
+      "Träblåsinstrument",
+      "Stråkinstrument",
+      "Slagverk",
+      "Bleckblåsinstrument"
+    ],
+    "correct": 3,
+    "explanation": "Trumpeten är ett bleckblåsinstrument.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0111",
+    "category": "Musikquiz",
+    "difficulty": "easy",
+    "question": "Vilken grupp framförde Dancing Queen?",
+    "answers": [
+      "Boney M.",
+      "Bee Gees",
+      "ABBA",
+      "Queen"
+    ],
+    "correct": 2,
+    "explanation": "Dancing Queen är en låt av ABBA.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.grammy.com/"
+  },
+  {
+    "id": "verified-20260829-0112",
+    "category": "Musikquiz",
+    "difficulty": "easy",
+    "question": "Vem sjöng Purple Rain?",
+    "answers": [
+      "Sting",
+      "Prince",
+      "George Michael",
+      "David Bowie"
+    ],
+    "correct": 1,
+    "explanation": "Purple Rain skrevs och framfördes av Prince.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.grammy.com/"
+  },
+  {
+    "id": "verified-20260829-0113",
+    "category": "Musikquiz",
+    "difficulty": "easy",
+    "question": "Vilken artist är känd för låten Like a Prayer?",
+    "answers": [
+      "Madonna",
+      "Cher",
+      "Cyndi Lauper",
+      "Whitney Houston"
+    ],
+    "correct": 0,
+    "explanation": "Like a Prayer är en Madonna-låt.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.grammy.com/"
+  },
+  {
+    "id": "verified-20260829-0114",
+    "category": "Musikquiz",
+    "difficulty": "easy",
+    "question": "Vilken grupp gjorde Bohemian Rhapsody?",
+    "answers": [
+      "The Beatles",
+      "U2",
+      "Aerosmith",
+      "Queen"
+    ],
+    "correct": 3,
+    "explanation": "Bohemian Rhapsody spelades in av Queen.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0115",
+    "category": "Musikquiz",
+    "difficulty": "easy",
+    "question": "Vem framförde Rolling in the Deep?",
+    "answers": [
+      "Rihanna",
+      "Dua Lipa",
+      "Adele",
+      "Beyoncé"
+    ],
+    "correct": 2,
+    "explanation": "Rolling in the Deep är en låt av Adele.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.grammy.com/"
+  },
+  {
+    "id": "verified-20260829-0116",
+    "category": "Musikquiz",
+    "difficulty": "medium",
+    "question": "Vilken artist gav ut Born in the U.S.A.?",
+    "answers": [
+      "Bryan Adams",
+      "Bruce Springsteen",
+      "Billy Joel",
+      "Bon Jovi"
+    ],
+    "correct": 1,
+    "explanation": "Born in the U.S.A. är titelspåret på Springsteens album från 1984.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.grammy.com/"
+  },
+  {
+    "id": "verified-20260829-0117",
+    "category": "Musikquiz",
+    "difficulty": "easy",
+    "question": "Vilken grupp framförde Smells Like Teen Spirit?",
+    "answers": [
+      "Nirvana",
+      "Pearl Jam",
+      "Metallica",
+      "R.E.M."
+    ],
+    "correct": 0,
+    "explanation": "Smells Like Teen Spirit är en Nirvana-låt.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.grammy.com/"
+  },
+  {
+    "id": "verified-20260829-0118",
+    "category": "Musikquiz",
+    "difficulty": "easy",
+    "question": "Vem sjöng I Will Always Love You i den kända versionen från The Bodyguard?",
+    "answers": [
+      "Mariah Carey",
+      "Céline Dion",
+      "Tina Turner",
+      "Whitney Houston"
+    ],
+    "correct": 3,
+    "explanation": "Whitney Houstons version blev en stor hit genom The Bodyguard.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.grammy.com/"
+  },
+  {
+    "id": "verified-20260829-0119",
+    "category": "Musikquiz",
+    "difficulty": "easy",
+    "question": "Vilken svensk grupp gjorde The Final Countdown?",
+    "answers": [
+      "Kent",
+      "The Cardigans",
+      "Europe",
+      "Roxette"
+    ],
+    "correct": 2,
+    "explanation": "The Final Countdown är en låt av svenska Europe.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0120",
+    "category": "Musikquiz",
+    "difficulty": "easy",
+    "question": "Vilken artist är känd som ”The King of Pop”?",
+    "answers": [
+      "Freddie Mercury",
+      "Michael Jackson",
+      "Elvis Presley",
+      "Prince"
+    ],
+    "correct": 1,
+    "explanation": "Michael Jackson har länge kallats The King of Pop.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.grammy.com/"
+  },
+  {
+    "id": "verified-20260829-0121",
+    "category": "Onödigt vetande",
+    "difficulty": "medium",
+    "question": "Hur många hjärtan har en bläckfisk?",
+    "answers": [
+      "3",
+      "1",
+      "2",
+      "4"
+    ],
+    "correct": 0,
+    "explanation": "Bläckfiskar har tre hjärtan.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0122",
+    "category": "Onödigt vetande",
+    "difficulty": "medium",
+    "question": "Vilken färg har isbjörnens hud under pälsen?",
+    "answers": [
+      "Vit",
+      "Rosa",
+      "Blå",
+      "Svart"
+    ],
+    "correct": 3,
+    "explanation": "Isbjörnens hud är svart under den genomskinliga pälsen.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0123",
+    "category": "Onödigt vetande",
+    "difficulty": "easy",
+    "question": "Hur många benpar har en spindel?",
+    "answers": [
+      "5",
+      "6",
+      "4",
+      "3"
+    ],
+    "correct": 2,
+    "explanation": "Spindlar har åtta ben, alltså fyra benpar.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0124",
+    "category": "Onödigt vetande",
+    "difficulty": "hard",
+    "question": "Vilket djur har fingeravtryck som kan likna människans?",
+    "answers": [
+      "Lemur",
+      "Koala",
+      "Känguru",
+      "Panda"
+    ],
+    "correct": 1,
+    "explanation": "Koalor har mycket människolika fingeravtryck.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0125",
+    "category": "Onödigt vetande",
+    "difficulty": "hard",
+    "question": "Vilken bokstav finns inte i något kemiskt grundämnes internationella symbol?",
+    "answers": [
+      "J",
+      "Q",
+      "X",
+      "Z"
+    ],
+    "correct": 0,
+    "explanation": "Bokstaven J används inte i de officiella grundämnessymbolerna.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://iupac.org/"
+  },
+  {
+    "id": "verified-20260829-0126",
+    "category": "Onödigt vetande",
+    "difficulty": "medium",
+    "question": "Hur många prickar finns totalt på en vanlig sexsidig tärning?",
+    "answers": [
+      "18",
+      "24",
+      "36",
+      "21"
+    ],
+    "correct": 3,
+    "explanation": "Sidorna 1+2+3+4+5+6 ger totalt 21 prickar.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0127",
+    "category": "Onödigt vetande",
+    "difficulty": "hard",
+    "question": "Vad kallas rädslan för långa ord ironiskt nog ofta?",
+    "answers": [
+      "Acrophobia",
+      "Claustrophobia",
+      "Hippopotomonstrosesquipedaliophobia",
+      "Arachnophobia"
+    ],
+    "correct": 2,
+    "explanation": "Det långa ordet används populärt för rädsla för långa ord.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0128",
+    "category": "Onödigt vetande",
+    "difficulty": "medium",
+    "question": "Vilket däggdjur har längst dräktighetstid?",
+    "answers": [
+      "Häst",
+      "Afrikansk elefant",
+      "Blåval",
+      "Giraff"
+    ],
+    "correct": 1,
+    "explanation": "Elefanter har omkring 22 månaders dräktighet, längst bland däggdjur.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0129",
+    "category": "Onödigt vetande",
+    "difficulty": "easy",
+    "question": "Hur många rutor har ett schackbräde?",
+    "answers": [
+      "64",
+      "49",
+      "72",
+      "81"
+    ],
+    "correct": 0,
+    "explanation": "Ett schackbräde är 8×8 rutor, alltså 64.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0130",
+    "category": "Onödigt vetande",
+    "difficulty": "medium",
+    "question": "Vilket är det enda däggdjuret som lägger ägg tillsammans med myrpiggsvin?",
+    "answers": [
+      "Bäver",
+      "Utter",
+      "Mullvad",
+      "Näbbdjur"
+    ],
+    "correct": 3,
+    "explanation": "Näbbdjur och myrpiggsvin är kloakdjur som lägger ägg.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0131",
+    "category": "80/90/00-talet",
+    "difficulty": "easy",
+    "question": "Vilket årtionde lanserades den första iPhonen?",
+    "answers": [
+      "1990-talet",
+      "2010-talet",
+      "2000-talet",
+      "1980-talet"
+    ],
+    "correct": 2,
+    "explanation": "Den första iPhonen presenterades 2007.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.apple.com/newsroom/"
+  },
+  {
+    "id": "verified-20260829-0132",
+    "category": "80/90/00-talet",
+    "difficulty": "easy",
+    "question": "Vilket årtionde föll Berlinmuren?",
+    "answers": [
+      "2000-talet",
+      "1980-talet",
+      "1970-talet",
+      "1990-talet"
+    ],
+    "correct": 1,
+    "explanation": "Berlinmuren öppnades 1989.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "verified-20260829-0133",
+    "category": "80/90/00-talet",
+    "difficulty": "easy",
+    "question": "Vilket årtionde lanserades Windows 95?",
+    "answers": [
+      "1990-talet",
+      "1980-talet",
+      "2000-talet",
+      "2010-talet"
+    ],
+    "correct": 0,
+    "explanation": "Windows 95 lanserades 1995.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.microsoft.com/"
+  },
+  {
+    "id": "verified-20260829-0134",
+    "category": "80/90/00-talet",
+    "difficulty": "easy",
+    "question": "Vilket årtionde hade filmen Titanic premiär?",
+    "answers": [
+      "1980-talet",
+      "2000-talet",
+      "2010-talet",
+      "1990-talet"
+    ],
+    "correct": 3,
+    "explanation": "Titanic hade premiär 1997.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.oscars.org/"
+  },
+  {
+    "id": "verified-20260829-0135",
+    "category": "80/90/00-talet",
+    "difficulty": "medium",
+    "question": "Vilket årtionde bildades Google?",
+    "answers": [
+      "2000-talet",
+      "2010-talet",
+      "1990-talet",
+      "1980-talet"
+    ],
+    "correct": 2,
+    "explanation": "Google grundades 1998.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://about.google/"
+  },
+  {
+    "id": "verified-20260829-0136",
+    "category": "80/90/00-talet",
+    "difficulty": "medium",
+    "question": "Vilket årtionde vann Sverige Eurovision med Carola och Fångad av en stormvind?",
+    "answers": [
+      "2010-talet",
+      "1990-talet",
+      "1980-talet",
+      "2000-talet"
+    ],
+    "correct": 1,
+    "explanation": "Carola vann Eurovision 1991.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://eurovision.tv/"
+  },
+  {
+    "id": "verified-20260829-0137",
+    "category": "80/90/00-talet",
+    "difficulty": "medium",
+    "question": "Vilket årtionde lanserades Nintendo Game Boy?",
+    "answers": [
+      "1980-talet",
+      "1990-talet",
+      "2000-talet",
+      "2010-talet"
+    ],
+    "correct": 0,
+    "explanation": "Game Boy lanserades i Japan 1989.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.nintendo.com/"
+  },
+  {
+    "id": "verified-20260829-0138",
+    "category": "80/90/00-talet",
+    "difficulty": "easy",
+    "question": "Vilket årtionde startade Wikipedia?",
+    "answers": [
+      "1980-talet",
+      "1990-talet",
+      "2010-talet",
+      "2000-talet"
+    ],
+    "correct": 3,
+    "explanation": "Wikipedia startade 2001.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.wikipedia.org/"
+  },
+  {
+    "id": "verified-20260829-0139",
+    "category": "80/90/00-talet",
+    "difficulty": "easy",
+    "question": "Vilket årtionde gav Michael Jackson ut Thriller?",
+    "answers": [
+      "1990-talet",
+      "2000-talet",
+      "1980-talet",
+      "1970-talet"
+    ],
+    "correct": 2,
+    "explanation": "Thriller gavs ut 1982.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.grammy.com/"
+  },
+  {
+    "id": "verified-20260829-0140",
+    "category": "80/90/00-talet",
+    "difficulty": "easy",
+    "question": "Vilket årtionde hade den första Harry Potter-filmen premiär?",
+    "answers": [
+      "2010-talet",
+      "2000-talet",
+      "1980-talet",
+      "1990-talet"
+    ],
+    "correct": 1,
+    "explanation": "Harry Potter and the Philosopher’s Stone hade premiär 2001.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.oscars.org/"
+  },
+  {
+    "id": "verified-20260829-0141",
+    "category": "Bildrunda",
+    "difficulty": "easy",
+    "question": "Vilket lands flagga visas på bilden?",
+    "answers": [
+      "Sverige",
+      "Finland",
+      "Norge",
+      "Danmark"
+    ],
+    "correct": 0,
+    "explanation": "Bilden visar sveriges flagga.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://commons.wikimedia.org/wiki/Main_Page",
+    "visual": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20Sweden.svg",
+    "subtype": "image"
+  },
+  {
+    "id": "verified-20260829-0142",
+    "category": "Bildrunda",
+    "difficulty": "easy",
+    "question": "Vilket lands flagga visas på bilden?",
+    "answers": [
+      "Sydkorea",
+      "Kina",
+      "Thailand",
+      "Japan"
+    ],
+    "correct": 3,
+    "explanation": "Bilden visar japans flagga.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://commons.wikimedia.org/wiki/Main_Page",
+    "visual": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20Japan.svg",
+    "subtype": "image"
+  },
+  {
+    "id": "verified-20260829-0143",
+    "category": "Bildrunda",
+    "difficulty": "easy",
+    "question": "Vilket lands flagga visas på bilden?",
+    "answers": [
+      "Österrike",
+      "Peru",
+      "Kanada",
+      "USA"
+    ],
+    "correct": 2,
+    "explanation": "Bilden visar kanadas flagga.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://commons.wikimedia.org/wiki/Main_Page",
+    "visual": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20Canada.svg",
+    "subtype": "image"
+  },
+  {
+    "id": "verified-20260829-0144",
+    "category": "Bildrunda",
+    "difficulty": "easy",
+    "question": "Vilket lands flagga visas på bilden?",
+    "answers": [
+      "Mexiko",
+      "Brasilien",
+      "Argentina",
+      "Portugal"
+    ],
+    "correct": 1,
+    "explanation": "Bilden visar brasiliens flagga.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://commons.wikimedia.org/wiki/Main_Page",
+    "visual": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20Brazil.svg",
+    "subtype": "image"
+  },
+  {
+    "id": "verified-20260829-0145",
+    "category": "Bildrunda",
+    "difficulty": "easy",
+    "question": "Vilket lands flagga visas på bilden?",
+    "answers": [
+      "Spanien",
+      "Portugal",
+      "Italien",
+      "Rumänien"
+    ],
+    "correct": 0,
+    "explanation": "Bilden visar spaniens flagga.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://commons.wikimedia.org/wiki/Main_Page",
+    "visual": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20Spain.svg",
+    "subtype": "image"
+  },
+  {
+    "id": "verified-20260829-0146",
+    "category": "Bildrunda",
+    "difficulty": "easy",
+    "question": "Vilket lands flagga visas på bilden?",
+    "answers": [
+      "Belgien",
+      "Frankrike",
+      "Nederländerna",
+      "Tyskland"
+    ],
+    "correct": 3,
+    "explanation": "Bilden visar tysklands flagga.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://commons.wikimedia.org/wiki/Main_Page",
+    "visual": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20Germany.svg",
+    "subtype": "image"
+  },
+  {
+    "id": "verified-20260829-0147",
+    "category": "Bildrunda",
+    "difficulty": "easy",
+    "question": "Vilket lands flagga visas på bilden?",
+    "answers": [
+      "Italien",
+      "Irland",
+      "Frankrike",
+      "Nederländerna"
+    ],
+    "correct": 2,
+    "explanation": "Bilden visar frankrikes flagga.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://commons.wikimedia.org/wiki/Main_Page",
+    "visual": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20France.svg",
+    "subtype": "image"
+  },
+  {
+    "id": "verified-20260829-0148",
+    "category": "Bildrunda",
+    "difficulty": "easy",
+    "question": "Vilket lands flagga visas på bilden?",
+    "answers": [
+      "Ungern",
+      "Italien",
+      "Irland",
+      "Mexiko"
+    ],
+    "correct": 1,
+    "explanation": "Bilden visar italiens flagga.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://commons.wikimedia.org/wiki/Main_Page",
+    "visual": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20Italy.svg",
+    "subtype": "image"
+  },
+  {
+    "id": "verified-20260829-0149",
+    "category": "Bildrunda",
+    "difficulty": "easy",
+    "question": "Vilket lands flagga visas på bilden?",
+    "answers": [
+      "Norge",
+      "Danmark",
+      "Island",
+      "Finland"
+    ],
+    "correct": 0,
+    "explanation": "Bilden visar norges flagga.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://commons.wikimedia.org/wiki/Main_Page",
+    "visual": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20Norway.svg",
+    "subtype": "image"
+  },
+  {
+    "id": "verified-20260829-0150",
+    "category": "Bildrunda",
+    "difficulty": "easy",
+    "question": "Vilket lands flagga visas på bilden?",
+    "answers": [
+      "Australien",
+      "Nya Zeeland",
+      "USA",
+      "Storbritannien"
+    ],
+    "correct": 3,
+    "explanation": "Bilden visar storbritanniens flagga.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://commons.wikimedia.org/wiki/Main_Page",
+    "visual": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20the%20United%20Kingdom.svg",
+    "subtype": "image"
+  }
+]

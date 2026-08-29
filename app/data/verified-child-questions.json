@@ -1,0 +1,402 @@
+[
+  {
+    "id": "kid-verified-20260829-001",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "ageMin": 4,
+    "ageMax": 6,
+    "difficulty": "easy",
+    "question": "Vilket djur säger ofta ”mjau”?",
+    "answers": [
+      "Katt",
+      "Hund",
+      "Ko",
+      "Häst"
+    ],
+    "correct": 0,
+    "explanation": "Katter jamar.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "kid-verified-20260829-002",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "ageMin": 4,
+    "ageMax": 6,
+    "difficulty": "easy",
+    "question": "Vad blir 2 + 2?",
+    "answers": [
+      "3",
+      "5",
+      "6",
+      "4"
+    ],
+    "correct": 3,
+    "explanation": "2 + 2 = 4.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "kid-verified-20260829-003",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "ageMin": 4,
+    "ageMax": 6,
+    "difficulty": "easy",
+    "question": "Vilken färg har gräs oftast när det växer och mår bra?",
+    "answers": [
+      "Lila",
+      "Svart",
+      "Grönt",
+      "Blått"
+    ],
+    "correct": 2,
+    "explanation": "Klorofyll gör att friskt gräs oftast ser grönt ut.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "kid-verified-20260829-004",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "ageMin": 4,
+    "ageMax": 6,
+    "difficulty": "easy",
+    "question": "Vad heter landet vi bor i om vi är i Sverige?",
+    "answers": [
+      "Japan",
+      "Sverige",
+      "Spanien",
+      "Norge"
+    ],
+    "correct": 1,
+    "explanation": "Sverige är landets namn.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "kid-verified-20260829-005",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "ageMin": 4,
+    "ageMax": 6,
+    "difficulty": "easy",
+    "question": "Vad sparkar man på i fotboll?",
+    "answers": [
+      "En boll",
+      "En puck",
+      "En fjäderboll",
+      "En sten"
+    ],
+    "correct": 0,
+    "explanation": "Fotboll spelas med en boll.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.theifab.com/laws/latest/"
+  },
+  {
+    "id": "kid-verified-20260829-006",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "ageMin": 7,
+    "ageMax": 9,
+    "difficulty": "easy",
+    "question": "Hur många ben har en spindel?",
+    "answers": [
+      "6",
+      "4",
+      "10",
+      "8"
+    ],
+    "correct": 3,
+    "explanation": "Spindlar har åtta ben.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "kid-verified-20260829-007",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "ageMin": 7,
+    "ageMax": 9,
+    "difficulty": "easy",
+    "question": "Vad blir 7 × 3?",
+    "answers": [
+      "20",
+      "24",
+      "21",
+      "18"
+    ],
+    "correct": 2,
+    "explanation": "7 × 3 = 21.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "kid-verified-20260829-008",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "ageMin": 7,
+    "ageMax": 9,
+    "difficulty": "easy",
+    "question": "Vilken planet bor vi på?",
+    "answers": [
+      "Jupiter",
+      "Jorden",
+      "Mars",
+      "Venus"
+    ],
+    "correct": 1,
+    "explanation": "Människor lever på planeten Jorden.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://science.nasa.gov/"
+  },
+  {
+    "id": "kid-verified-20260829-009",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "ageMin": 7,
+    "ageMax": 9,
+    "difficulty": "easy",
+    "question": "Vilken stad är Sveriges huvudstad?",
+    "answers": [
+      "Stockholm",
+      "Malmö",
+      "Göteborg",
+      "Uppsala"
+    ],
+    "correct": 0,
+    "explanation": "Stockholm är Sveriges huvudstad.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "kid-verified-20260829-010",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "ageMin": 7,
+    "ageMax": 9,
+    "difficulty": "easy",
+    "question": "Hur många spelare har ett fotbollslag normalt på planen?",
+    "answers": [
+      "9",
+      "10",
+      "12",
+      "11"
+    ],
+    "correct": 3,
+    "explanation": "Ett lag spelar normalt med elva spelare.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.theifab.com/laws/latest/"
+  },
+  {
+    "id": "kid-verified-20260829-011",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "ageMin": 10,
+    "ageMax": 12,
+    "difficulty": "medium",
+    "question": "Vilket är världens största nu levande djur?",
+    "answers": [
+      "Giraff",
+      "Valhaj",
+      "Blåval",
+      "Elefant"
+    ],
+    "correct": 2,
+    "explanation": "Blåvalen är störst av nu levande djur.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "kid-verified-20260829-012",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "ageMin": 10,
+    "ageMax": 12,
+    "difficulty": "medium",
+    "question": "Vad är 25 procent av 100?",
+    "answers": [
+      "75",
+      "25",
+      "20",
+      "50"
+    ],
+    "correct": 1,
+    "explanation": "25 procent av 100 är 25.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "kid-verified-20260829-013",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "ageMin": 10,
+    "ageMax": 12,
+    "difficulty": "medium",
+    "question": "Vad kallas växternas process där ljus används för att bilda energi?",
+    "answers": [
+      "Fotosyntes",
+      "Osmos",
+      "Erosion",
+      "Kondensation"
+    ],
+    "correct": 0,
+    "explanation": "Processen kallas fotosyntes.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "kid-verified-20260829-014",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "ageMin": 10,
+    "ageMax": 12,
+    "difficulty": "medium",
+    "question": "Vilket land ligger direkt väster om Sverige?",
+    "answers": [
+      "Finland",
+      "Danmark",
+      "Estland",
+      "Norge"
+    ],
+    "correct": 3,
+    "explanation": "Norge ligger väster om Sverige.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "kid-verified-20260829-015",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "ageMin": 10,
+    "ageMax": 12,
+    "difficulty": "medium",
+    "question": "Vilket kort betyder utvisning i fotboll?",
+    "answers": [
+      "Grönt",
+      "Blått",
+      "Rött",
+      "Gult"
+    ],
+    "correct": 2,
+    "explanation": "Rött kort innebär utvisning.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.theifab.com/laws/latest/"
+  },
+  {
+    "id": "kid-verified-20260829-016",
+    "category": "Barnquiz",
+    "topic": "Djur",
+    "ageMin": 13,
+    "ageMax": 15,
+    "difficulty": "medium",
+    "question": "Vilken djurklass tillhör valar?",
+    "answers": [
+      "Groddjur",
+      "Däggdjur",
+      "Fiskar",
+      "Kräldjur"
+    ],
+    "correct": 1,
+    "explanation": "Valar är däggdjur och andas med lungor.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "kid-verified-20260829-017",
+    "category": "Barnquiz",
+    "topic": "Matematik",
+    "ageMin": 13,
+    "ageMax": 15,
+    "difficulty": "medium",
+    "question": "Vad är kvadratroten ur 144?",
+    "answers": [
+      "12",
+      "10",
+      "14",
+      "16"
+    ],
+    "correct": 0,
+    "explanation": "12 × 12 = 144.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "kid-verified-20260829-018",
+    "category": "Barnquiz",
+    "topic": "Natur",
+    "ageMin": 13,
+    "ageMax": 15,
+    "difficulty": "medium",
+    "question": "Vilken gas utgör störst del av jordens atmosfär?",
+    "answers": [
+      "Syre",
+      "Koldioxid",
+      "Väte",
+      "Kväve"
+    ],
+    "correct": 3,
+    "explanation": "Kväve utgör ungefär 78 procent av atmosfären.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "kid-verified-20260829-019",
+    "category": "Barnquiz",
+    "topic": "Geografi",
+    "ageMin": 13,
+    "ageMax": 15,
+    "difficulty": "medium",
+    "question": "Vilket hav ligger mellan Sverige och bland annat Finland och Baltikum?",
+    "answers": [
+      "Svarta havet",
+      "Adriatiska havet",
+      "Östersjön",
+      "Nordsjön"
+    ],
+    "correct": 2,
+    "explanation": "Östersjön ligger öster om Sverige.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.britannica.com/"
+  },
+  {
+    "id": "kid-verified-20260829-020",
+    "category": "Barnquiz",
+    "topic": "Fotboll",
+    "ageMin": 13,
+    "ageMax": 15,
+    "difficulty": "medium",
+    "question": "Hur långt från bollen ska motståndarna normalt stå vid frispark?",
+    "answers": [
+      "11 meter",
+      "9,15 meter",
+      "5 meter",
+      "7 meter"
+    ],
+    "correct": 1,
+    "explanation": "Spelreglerna anger normalt minst 9,15 meter.",
+    "verified": true,
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.theifab.com/laws/latest/"
+  }
+]

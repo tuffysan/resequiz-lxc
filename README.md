@@ -1,8 +1,8 @@
-# Quiz v19.6.2
+# Quiz v19.7.0
 
 Quiz är en responsiv PWA för soloquiz och realtidsquiz med flera deltagare.
 
-## Nytt i 19.6.2
+## Nytt i 19.7.0
 
 - Vid spelstart väljer användaren svårighetsgrad: Blandad, Lätt, Medel eller Svår.
 - Vid spelstart väljer användaren upplägg: Snabb (5 frågor), Standard (10), Lång (20) eller Utmaning (15 med kortare tid).
@@ -31,6 +31,15 @@ cat /var/lib/resequiz/admin-setup-key
 ```
 
 
-## v19.6.2
+## v19.7.0
 - Visar endast själva frågan genom att ta bort kända äldre presentationsprefix vid serverns publicering av frågor.
 - Gäller solo, multiplayer och offline-paket utan att skriva om den permanenta frågebanken.
+
+## v19.7.0 – verifierat frågepaket
+
+- 150 handkuraterade och källmärkta frågor: 10 i varje ordinarie kategori utom Hjärngympa och Världen.
+- 20 nya verifierade Barnquiz-frågor för åldrarna 4–15.
+- Bildrunda innehåller 10 flaggfrågor med verifierade flaggbilder från Wikimedia Commons.
+- Varje ny fråga har `verified`, `verifiedAt` och `source`.
+- Uppdateraren slår ihop frågepaketet idempotent med `/var/lib/resequiz/questions.json`; befintlig frågebank skrivs inte över.
+- Hjärngympa och Världen får inga nya frågor från detta paket.

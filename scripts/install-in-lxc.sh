@@ -58,6 +58,8 @@ elif [ -f /tmp/rq-legacy-questions.json ]; then
 fi
 # Restore legacy question image metadata that v19.0-19.3 importers did not preserve.
 if [ -f /tmp/rq-legacy-questions.json ]; then node "$(dirname "$0")/repair-legacy-question-media.js" "$DATA/questions.json" /tmp/rq-legacy-questions.json || true; fi
+# Merge the curated verified question pack into an existing persistent bank, idempotently.
+if [ -f "$SRC/data/verified-questions.json" ]; then node "$(dirname "$0")/merge-verified-questions.js" "$DATA/questions.json" "$SRC/data/verified-questions.json"; fi
 if [ -d /tmp/quiz-media-keep/media-packs ]; then mkdir -p "$APP/public"; cp -a /tmp/quiz-media-keep/media-packs "$APP/public/"; fi
 chown -R resequiz:resequiz "$APP" "$DATA"
 cp "$(dirname "$0")/../deploy/resequiz.service" /etc/systemd/system/resequiz.service
