@@ -12,7 +12,7 @@ const {readJson,writeJsonAtomic,ensureDir}=require('./storage');
 const {openQuizDb,indexResults}=require('./database');
 const {cleanQuestionText,normalizeText,similarity,deriveFactKey,answerQuality,wordingQuality,distractorQuality,qualityScore,inferSubtopic}=require('./question-intelligence');
 
-const VERSION='24.0.2',PORT=Number(process.env.PORT||3000),HOST=process.env.HOST||'0.0.0.0';
+const VERSION='24.0.3',PORT=Number(process.env.PORT||3000),HOST=process.env.HOST||'0.0.0.0';
 const DATA_DIR=process.env.RESEQUIZ_DATA_DIR||path.join(__dirname,'data');
 const QUESTIONS_FILE=path.join(DATA_DIR,'questions.json'),RESULTS_FILE=path.join(DATA_DIR,'results.json'),SETTINGS_FILE=path.join(DATA_DIR,'settings.json'),USERS_FILE=path.join(DATA_DIR,'users.json'),REPORTS_FILE=path.join(DATA_DIR,'question-reports.json'),DUELS_FILE=path.join(DATA_DIR,'duels.json');
 const CHILD_QUESTIONS_FILE=path.join(__dirname,'data','child-questions.json');
