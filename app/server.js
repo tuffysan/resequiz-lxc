@@ -43,7 +43,7 @@ const ACTIVE_ROOMS_FILE=path.join(DATA_DIR,'active-rooms.json');
 const QUARANTINE_FILE=path.join(DATA_DIR,'question-quarantine.json');
 const GROUPS_FILE=path.join(DATA_DIR,'groups.json');
 const ADMIN_AUTH_FILE=path.join(DATA_DIR,'admin-auth.json');
-const APP_VERSION = '18.0.2';
+const APP_VERSION = '18.0.3';
 const ADMIN_KEY=String(process.env.RESEQUIZ_ADMIN_KEY||'').trim();
 const storage=createStorage(DATA_DIR);
 

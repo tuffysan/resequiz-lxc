@@ -239,3 +239,89 @@ html[data-theme="light"] input,html[data-theme="light"] select{background:#fff;c
 /* Resequiz 18.0 — Spin the Wheel team draw */
 .wheel-modal{width:min(820px,100%);text-align:center}.wheel-modal h2{margin-top:8px}.wheel-toolbar{display:flex;gap:10px;align-items:end;justify-content:center;flex-wrap:wrap;margin:12px 0}.wheel-toolbar label{min-width:150px;text-align:left;font-size:12px;font-weight:850;color:var(--muted)}.wheel-toolbar label span{display:block;margin-bottom:6px}.wheel-toolbar.standalone{justify-content:flex-start}.wheel-stage{position:relative;width:min(560px,88vw);aspect-ratio:1;margin:12px auto 16px}.wheel-stage canvas{display:block;width:100%;height:100%;filter:drop-shadow(0 18px 35px rgba(0,0,0,.35))}.wheel-pointer{position:absolute;z-index:3;left:50%;top:-9px;transform:translateX(-50%);font-size:42px;line-height:1;color:#fff;text-shadow:0 4px 10px #000}.wheel-winner{min-height:58px;display:flex;align-items:center;justify-content:center;gap:7px;margin:10px auto;padding:12px 16px;border-radius:16px;background:rgba(124,58,237,.12);border:1px solid rgba(167,139,250,.25);font-size:18px}.wheel-winner strong{color:#67e8f9}.wheel-actions{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:9px;margin:12px 0}.wheel-team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px;text-align:left}.wheel-team{padding:14px;border-radius:15px;background:var(--surface2);border:1px solid var(--line)}.wheel-team b{display:block;margin-bottom:8px;color:#c4b5fd}.wheel-team div{line-height:1.65}.wheel-names{width:100%;min-height:190px;resize:vertical;padding:14px;border-radius:15px;border:1px solid rgba(148,163,184,.22);background:#0b1220;color:var(--text);font:inherit;line-height:1.55}.wheel-names:focus{outline:none;border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.16)}
 @media(max-width:640px){.wheel-actions{grid-template-columns:1fr}.wheel-stage{width:min(500px,94vw)}.wheel-pointer{font-size:34px}.wheel-winner{font-size:16px}}
+
+/* =========================================================
+   Resequiz 18.0.3 — Mobile-first usability pass
+   Larger typography, controls and full-width layouts on phones
+   ========================================================= */
+@media (max-width: 640px) {
+  html { font-size: 17px; }
+  body { min-width: 0; }
+  .app-shell { width: 100%; max-width: none; padding: 0 10px 28px; }
+  .topbar { min-height: 64px; gap: 10px; padding: 8px 0; }
+  .brand h1, h1 { font-size: 19px; }
+  .eyebrow { font-size: 11px; letter-spacing: .14em; }
+  .icon-btn { width: 48px; height: 48px; border-radius: 15px; }
+
+  .card { margin: 10px 0; padding: 18px 16px; border-radius: 18px; }
+  .hero, .home-hero { padding: 26px 16px; }
+  h2, .entry-card h2 { font-size: clamp(30px, 9vw, 40px); line-height: 1.04; }
+  h3 { font-size: 20px; }
+  p, .muted, .section-sub { font-size: 16px; }
+
+  .primary, .secondary, .danger, .text-btn,
+  a.primary, a.secondary {
+    min-height: 56px;
+    font-size: 17px;
+    border-radius: 16px;
+    padding: 14px 16px;
+  }
+  .primary.xl, .start-game { min-height: 64px; font-size: 19px; }
+
+  .v9-home-actions, .home-primary-actions, .online-actions,
+  .host-actions, .lobby-footer-actions, .install-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+  .v9-home-actions > *, .home-primary-actions > *, .online-actions > *,
+  .host-actions > *, .lobby-footer-actions > *, .install-actions > * {
+    width: 100%; min-width: 0;
+  }
+
+  .entry-card { width: 100%; max-width: none; margin: 8px 0; padding: 24px 16px; }
+  .big-field, .avatar-details, .join-simple { max-width: none; width: 100%; }
+  .big-field input, input, select, textarea { min-height: 56px; font-size: 18px; }
+  .avatar-grid { grid-template-columns: repeat(4, minmax(0,1fr)); gap: 9px; }
+  .avatar-choice { min-height: 52px; font-size: 24px; }
+
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .feature-grid, .preset-grid, .quickstart-grid, .settings-grid,
+  .setup-grid, .mode-grid, .category-grid, .admin-grid,
+  .score-breakdown, .team-score-grid { grid-template-columns: 1fr; }
+  .feature-grid > div { min-height: 0; padding: 16px; }
+
+  .section-head { flex-direction: column; align-items: stretch; }
+  .ready-pill, .recommended-pill { align-self: flex-start; }
+  .qr-wrap, .qr-wrap.compact { flex-direction: column; text-align: center; }
+  .qr-wrap img { width: min(58vw, 210px); height: auto; }
+  .room-code { font-size: clamp(54px, 20vw, 88px); letter-spacing: .08em; overflow-wrap: anywhere; }
+
+  .question { font-size: clamp(26px, 7.5vw, 34px); margin: 16px 0 18px; }
+  .question-media { min-height: 120px; margin: 12px 0; padding: 14px; }
+  .answers { grid-template-columns: 1fr; gap: 10px; }
+  .answer { min-height: 72px; font-size: 17px; padding: 16px; }
+  .game-head { gap: 8px; }
+  .turn-badge { font-size: 11px; }
+  .timer-wrap { min-width: 56px; }
+
+  .winner { padding: 28px 16px; }
+  .trophy { font-size: 58px; }
+  .rank-row { grid-template-columns: 40px minmax(0,1fr) auto; padding: 12px 10px; }
+  .feature-grid small, .rank-row small { font-size: 14px; }
+
+  .footer, footer { font-size: 12px; padding-bottom: max(10px, env(safe-area-inset-bottom)); }
+  .ux-toast { left: 10px; right: 10px; bottom: calc(14px + env(safe-area-inset-bottom)); transform: translateY(30px); width: auto; text-align: center; }
+  .ux-toast.show { transform: translateY(0); }
+}
+
+@media (max-width: 390px) {
+  html { font-size: 16px; }
+  .app-shell { padding-left: 8px; padding-right: 8px; }
+  .card { padding: 16px 13px; }
+  h2, .entry-card h2 { font-size: 30px; }
+  .primary, .secondary, .danger, .text-btn, a.primary, a.secondary { font-size: 16px; }
+  .question { font-size: 25px; }
+  .room-code { font-size: 52px; }
+}
