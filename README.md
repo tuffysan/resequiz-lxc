@@ -1,8 +1,8 @@
-# Quiz v19.4.0
+# Quiz v19.5.0
 
 Quiz är en responsiv PWA för soloquiz och realtidsquiz med flera deltagare.
 
-## Nytt i 19.4.0
+## Nytt i 19.5.0
 
 - Frågevyn visar endast själva frågan, eventuell bild och svarsalternativen.
 - Bildfrågor visar fältet `visual` och uppgraderingen försöker återställa både bildmetadata och äldre `media-packs`.
