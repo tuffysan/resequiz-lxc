@@ -2,6 +2,7 @@
 'use strict';
 const fs=require('fs');
 const path=require('path');
+const crypto=require('crypto');
 const [,,questionsFile,targetArg='520']=process.argv;
 if(!questionsFile){console.error('Usage: expand-source-backed-questions.js <questions.json> [target-per-category]');process.exit(2)}
 const TARGET=Math.max(100,Number(targetArg)||520);
@@ -27,15 +28,41 @@ function add(category,question,correct,wrong,extra={}){
   fp.add(key);ids.add(id);return true;
 }
 function pick(values,correct,n=3){const uniq=[...new Set(values.map(String).filter(x=>x&&x!==String(correct)))];let out=[];for(let i=0;i<uniq.length&&out.length<n;i++){const idx=Math.abs((String(correct).charCodeAt(i%String(correct).length)||17)*31+i*17)%uniq.length;const v=uniq[idx];if(!out.includes(v))out.push(v)}for(const v of uniq){if(out.length>=n)break;if(!out.includes(v))out.push(v)}return out.slice(0,n)}
+const CACHE_DIR=process.env.QUIZ_SOURCE_CACHE||path.join(path.dirname(questionsFile),'source-cache');
+const CACHE_MAX_AGE_MS=Number(process.env.QUIZ_SOURCE_CACHE_DAYS||30)*86400000;
+const REQUEST_DELAY_MS=Number(process.env.QUIZ_SOURCE_DELAY_MS||1200);
+const MAX_ATTEMPTS=Math.max(1,Number(process.env.QUIZ_SOURCE_RETRIES||4));
+const TIMEOUT_MS=Math.max(10000,Number(process.env.QUIZ_SOURCE_TIMEOUT_MS||45000));
+fs.mkdirSync(CACHE_DIR,{recursive:true});
+let lastRequestAt=0;
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function cacheFile(q){return path.join(CACHE_DIR,crypto.createHash('sha256').update(q).digest('hex')+'.json')}
+function readCache(q,allowStale=false){
+  const f=cacheFile(q); try{const st=fs.statSync(f);if(!allowStale&&Date.now()-st.mtimeMs>CACHE_MAX_AGE_MS)return null;const j=JSON.parse(fs.readFileSync(f,'utf8'));return Array.isArray(j.rows)?j.rows:null}catch{return null}
+}
+function writeCache(q,rows){const f=cacheFile(q),tmp=f+'.tmp';fs.writeFileSync(tmp,JSON.stringify({savedAt:new Date().toISOString(),rows}));fs.renameSync(tmp,f)}
 async function sparql(name,q){
+  const cached=readCache(q,false);
+  if(cached){console.log(`Cache ${name}: ${cached.length} poster`);return cached}
   const url=endpoint+'?format=json&query='+encodeURIComponent(q);
-  const ctrl=new AbortController(); const timer=setTimeout(()=>ctrl.abort(),15000);
-  try{
-    const r=await fetch(url,{headers:{'User-Agent':'Quiz/19.8 source-backed question builder (self-hosted educational quiz)','Accept':'application/sparql-results+json'},signal:ctrl.signal});
-    if(!r.ok)throw new Error(`${r.status} ${r.statusText}`);
-    const j=await r.json(); const rows=(j.results?.bindings||[]).map(x=>Object.fromEntries(Object.entries(x).map(([k,v])=>[k,v.value])));
-    console.log(`Källa ${name}: ${rows.length} poster`);return rows;
-  } finally {clearTimeout(timer)}
+  let lastError;
+  for(let attempt=1;attempt<=MAX_ATTEMPTS;attempt++){
+    const wait=Math.max(0,REQUEST_DELAY_MS-(Date.now()-lastRequestAt));if(wait)await sleep(wait);
+    const ctrl=new AbortController();const timer=setTimeout(()=>ctrl.abort(),TIMEOUT_MS);lastRequestAt=Date.now();
+    try{
+      const r=await fetch(url,{headers:{'User-Agent':'Quiz/21.0.1 source-backed question builder (self-hosted educational quiz)','Accept':'application/sparql-results+json'},signal:ctrl.signal});
+      if(!r.ok)throw new Error(`${r.status} ${r.statusText}`);
+      const j=await r.json();const rows=(j.results?.bindings||[]).map(x=>Object.fromEntries(Object.entries(x).map(([k,v])=>[k,v.value])));
+      writeCache(q,rows);console.log(`Källa ${name}: ${rows.length} poster`);return rows;
+    }catch(e){
+      lastError=e;const retryable=e.name==='AbortError'||/429|502|503|504|aborted|fetch failed/i.test(String(e.message));
+      console.warn(`Källa ${name}: försök ${attempt}/${MAX_ATTEMPTS} misslyckades: ${e.message}`);
+      if(!retryable||attempt===MAX_ATTEMPTS)break;
+      await sleep(Math.min(15000,1000*Math.pow(2,attempt-1)));
+    }finally{clearTimeout(timer)}
+  }
+  const stale=readCache(q,true);if(stale){console.warn(`Källa ${name}: använder sparad cache efter nätverksfel (${stale.length} poster).`);return stale}
+  throw lastError||new Error('Källan kunde inte hämtas');
 }
 const label=`SERVICE wikibase:label { bd:serviceParam wikibase:language "sv,en". }`;
 async function main(){

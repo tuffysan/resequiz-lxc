@@ -3,7 +3,7 @@ set -Eeuo pipefail
 SRC="${1:-$(cd "$(dirname "$0")/../app" && pwd)}"; APP=/opt/resequiz; DATA=/var/lib/resequiz
 [ "$(id -u)" = 0 ] || { echo "Kör som root i LXC." >&2; exit 1; }
 apt-get update
-apt-get install -y ca-certificates curl rsync
+apt-get install -y ca-certificates curl rsync util-linux
 if ! command -v node >/dev/null || [ "$(node -p 'process.versions.node.split(`.`)[0]')" -lt 20 ]; then
   curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
   apt-get install -y nodejs
@@ -37,6 +37,8 @@ rsync -a --delete --exclude data/ "$SRC/" "$APP/"
 mkdir -p "$APP/data" "$APP/tools"
 cp "$(dirname "$0")/expand-source-backed-questions.js" "$APP/tools/" 2>/dev/null || true
 cp "$(dirname "$0")/question-bank-report.js" "$APP/tools/" 2>/dev/null || true
+cp "$(dirname "$0")/sync-question-bank.sh" "$APP/tools/" 2>/dev/null || true
+chmod +x "$APP/tools/sync-question-bank.sh" 2>/dev/null || true
 cp "$SRC/data/child-questions.json" "$APP/data/child-questions.json"
 cd "$APP"
 if [ -f package-lock.json ]; then npm ci --omit=dev; else npm install --omit=dev; fi
@@ -70,16 +72,15 @@ fi
 if [ -f /tmp/rq-legacy-questions.json ]; then node "$(dirname "$0")/repair-legacy-question-media.js" "$DATA/questions.json" /tmp/rq-legacy-questions.json || true; fi
 # Merge the curated verified question pack into an existing persistent bank, idempotently.
 if [ -f "$SRC/data/verified-questions.json" ]; then node "$(dirname "$0")/merge-verified-questions.js" "$DATA/questions.json" "$SRC/data/verified-questions.json"; fi
-# Expand source-backed questions from Wikidata. This is best-effort: network/rate-limit failures never break the app update.
-# The builder is idempotent and skips categories that already reached the target.
-if [ -f "$(dirname "$0")/expand-source-backed-questions.js" ]; then
-  echo "Försöker bygga minst 520 källbaserade frågor per kategori..."
-  node "$(dirname "$0")/expand-source-backed-questions.js" "$DATA/questions.json" 520 || echo "Varning: alla kategorier nådde inte 520 källbaserade frågor denna körning. Kör skriptet igen senare."
-fi
+# Quiz 21.0.1: source-backed expansion no longer blocks upgrades.
+# A retrying, cached background job continues the bank after the app is healthy.
 if [ -d /tmp/quiz-media-keep/media-packs ]; then mkdir -p "$APP/public"; cp -a /tmp/quiz-media-keep/media-packs "$APP/public/"; fi
 chown -R resequiz:resequiz "$APP" "$DATA"
 cp "$(dirname "$0")/../deploy/resequiz.service" /etc/systemd/system/resequiz.service
+cp "$(dirname "$0")/../deploy/quiz-question-sync.service" /etc/systemd/system/quiz-question-sync.service
+cp "$(dirname "$0")/../deploy/quiz-question-sync.timer" /etc/systemd/system/quiz-question-sync.timer
 systemctl daemon-reload
+systemctl enable --now quiz-question-sync.timer >/dev/null
 systemctl enable resequiz >/dev/null
 # Viktigt: enable --now startar inte om en redan körande tjänst. Starta därför alltid om
 # tjänsten så att den nya server.js faktiskt laddas.
@@ -101,3 +102,7 @@ fi
 printf '%s\n' "$HEALTH"
 ADMIN_CONFIGURED="$(node -e 'const fs=require("fs");try{const a=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));process.stdout.write(a.passwordHash?"yes":"no")}catch(e){process.stdout.write("no")}' "$DATA/admin-auth.json")"
 if [ "$ADMIN_CONFIGURED" = "no" ]; then echo; echo "Admin installationsnyckel: $(cat "$DATA/admin-setup-key")"; fi
+
+# Start one completion pass after a successful upgrade, without delaying deployment.
+systemctl start --no-block quiz-question-sync.service || true
+echo "Frågebankssynk startad i bakgrunden (daglig timer 03:30 är aktiverad)."

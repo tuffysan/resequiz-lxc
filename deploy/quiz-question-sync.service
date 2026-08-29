@@ -1,0 +1,11 @@
+[Unit]
+Description=Quiz source-backed question bank sync
+After=network-online.target resequiz.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/resequiz/tools/sync-question-bank.sh
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7

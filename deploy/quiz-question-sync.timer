@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily Quiz question bank completion
+
+[Timer]
+OnCalendar=*-*-* 03:30:00
+Persistent=true
+RandomizedDelaySec=900
+Unit=quiz-question-sync.service
+
+[Install]
+WantedBy=timers.target
