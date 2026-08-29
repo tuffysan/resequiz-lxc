@@ -12,7 +12,7 @@ const {readJson,writeJsonAtomic,ensureDir}=require('./storage');
 const {openQuizDb,indexResults}=require('./database');
 const {cleanQuestionText,normalizeText,similarity,deriveFactKey,answerQuality,wordingQuality,distractorQuality,qualityScore,inferSubtopic}=require('./question-intelligence');
 
-const VERSION='24.0.3',PORT=Number(process.env.PORT||3000),HOST=process.env.HOST||'0.0.0.0';
+const VERSION='24.0.4',PORT=Number(process.env.PORT||3000),HOST=process.env.HOST||'0.0.0.0';
 const DATA_DIR=process.env.RESEQUIZ_DATA_DIR||path.join(__dirname,'data');
 const QUESTIONS_FILE=path.join(DATA_DIR,'questions.json'),RESULTS_FILE=path.join(DATA_DIR,'results.json'),SETTINGS_FILE=path.join(DATA_DIR,'settings.json'),USERS_FILE=path.join(DATA_DIR,'users.json'),REPORTS_FILE=path.join(DATA_DIR,'question-reports.json'),DUELS_FILE=path.join(DATA_DIR,'duels.json');
 const CHILD_QUESTIONS_FILE=path.join(__dirname,'data','child-questions.json');
@@ -42,13 +42,14 @@ const sessions=new Map(),SESSION_MS=12*60*60*1000;
 const authCfg=()=>readJson(ADMIN_AUTH_FILE,{passwordHash:'',passwordSalt:''});
 const hasAdminPassword=()=>!!authCfg().passwordHash;
 const hashPassword=(password,salt)=>crypto.scryptSync(String(password),salt,64).toString('hex');
-const tokenFromReq=req=>(req.headers.authorization||'').replace(/^Bearer\s+/i,'').trim();
+const cookieValue=(req,name)=>{const raw=String(req.headers.cookie||'');for(const part of raw.split(';')){const i=part.indexOf('=');if(i<0)continue;if(part.slice(0,i).trim()===name){try{return decodeURIComponent(part.slice(i+1).trim())}catch{return part.slice(i+1).trim()}}}return ''};
+const tokenFromReq=req=>(req.headers.authorization||'').replace(/^Bearer\s+/i,'').trim()||cookieValue(req,'quiz_admin_session');
 const adminAllowed=req=>{const token=tokenFromReq(req),exp=sessions.get(token);if(!token||!exp)return false;if(exp<Date.now()){sessions.delete(token);return false}return true};
 const requireAdmin=(req,res,next)=>adminAllowed(req)?next():res.status(401).json({ok:false,error:'Logga in som administratör.'});
 app.get('/api/admin/auth/status',(req,res)=>res.json({ok:true,configured:hasAdminPassword(),authenticated:adminAllowed(req)}));
 app.post('/api/admin/auth/setup',(req,res)=>{if(hasAdminPassword())return res.status(409).json({ok:false,error:'Administratörslösenord är redan skapat.'});const key=safe(req.body?.key),password=String(req.body?.password||'');const expected=safe(fs.readFileSync(ADMIN_SETUP_KEY_FILE,'utf8'));const kb=Buffer.from(key),eb=Buffer.from(expected);if(!key||kb.length!==eb.length||!crypto.timingSafeEqual(kb,eb))return res.status(403).json({ok:false,error:'Fel installationsnyckel.'});if(password.length<8)return res.status(400).json({ok:false,error:'Lösenordet måste vara minst 8 tecken.'});const salt=crypto.randomBytes(16).toString('hex');writeJsonAtomic(ADMIN_AUTH_FILE,{passwordSalt:salt,passwordHash:hashPassword(password,salt),updatedAt:new Date().toISOString()});res.json({ok:true})});
-app.post('/api/admin/auth/login',(req,res)=>{const cfg=authCfg(),password=String(req.body?.password||'');if(!cfg.passwordHash)return res.status(409).json({ok:false,error:'Admin är inte konfigurerad ännu.'});const actual=hashPassword(password,cfg.passwordSalt);if(actual.length!==cfg.passwordHash.length||!crypto.timingSafeEqual(Buffer.from(actual),Buffer.from(cfg.passwordHash)))return res.status(401).json({ok:false,error:'Fel lösenord.'});const token=crypto.randomBytes(32).toString('base64url');sessions.set(token,Date.now()+SESSION_MS);res.json({ok:true,token,expiresIn:SESSION_MS/1000})});
-app.post('/api/admin/auth/logout',requireAdmin,(req,res)=>{sessions.delete(tokenFromReq(req));res.json({ok:true})});
+app.post('/api/admin/auth/login',(req,res)=>{const cfg=authCfg(),password=String(req.body?.password||'');if(!cfg.passwordHash)return res.status(409).json({ok:false,error:'Admin är inte konfigurerad ännu.'});const actual=hashPassword(password,cfg.passwordSalt);if(actual.length!==cfg.passwordHash.length||!crypto.timingSafeEqual(Buffer.from(actual),Buffer.from(cfg.passwordHash)))return res.status(401).json({ok:false,error:'Fel lösenord.'});const token=crypto.randomBytes(32).toString('base64url');sessions.set(token,Date.now()+SESSION_MS);res.setHeader('Set-Cookie',`quiz_admin_session=${encodeURIComponent(token)}; Path=/; HttpOnly; SameSite=Strict; Max-Age=${Math.floor(SESSION_MS/1000)}`);res.json({ok:true,token,expiresIn:SESSION_MS/1000})});
+app.post('/api/admin/auth/logout',requireAdmin,(req,res)=>{sessions.delete(tokenFromReq(req));res.setHeader('Set-Cookie','quiz_admin_session=; Path=/; HttpOnly; SameSite=Strict; Max-Age=0');res.json({ok:true})});
 app.post('/api/admin/auth/password',requireAdmin,(req,res)=>{const password=String(req.body?.password||'');if(password.length<8)return res.status(400).json({ok:false,error:'Lösenordet måste vara minst 8 tecken.'});const salt=crypto.randomBytes(16).toString('hex');writeJsonAtomic(ADMIN_AUTH_FILE,{passwordSalt:salt,passwordHash:hashPassword(password,salt),updatedAt:new Date().toISOString()});sessions.clear();res.json({ok:true})});
 
 

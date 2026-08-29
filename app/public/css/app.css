@@ -124,5 +124,10 @@ body:has(.question-only-screen) .question-only-screen{min-height:100dvh;padding-
 
 .host-question-tools{position:absolute;right:10px;top:10px;display:flex;gap:6px;z-index:3}.question-card-clean{position:relative}
 
-/* 24.0.3: always-visible admin production-bank export */
+/* 24.0.4: always-visible admin production-bank export */
 .admin-export-card{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:12px 0;padding:14px 16px}.admin-export-card>div{display:grid;gap:3px}.admin-export-card .btn{min-height:48px;white-space:nowrap}@media(max-width:560px){.admin-export-card{display:grid}.admin-export-card .btn{width:100%}}
+
+/* 24.0.4: persistent admin question-bank export, rendered in HTML (not JS) */
+.admin-export-persistent{margin:14px 0 10px!important;border:2px solid var(--primary,#1684d6)!important;position:relative!important;z-index:5!important;display:flex!important;visibility:visible!important;opacity:1!important}
+.admin-export-persistent a.btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;text-decoration:none!important;min-height:48px!important}
+@media(max-width:560px){.admin-export-persistent{display:grid!important}.admin-export-persistent a.btn{width:100%!important;white-space:normal!important;text-align:center!important}}
