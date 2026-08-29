@@ -4,6 +4,7 @@ const http=require('http');
 const path=require('path');
 const fs=require('fs');
 const crypto=require('crypto');
+const zlib=require('zlib');
 const {execFileSync}=require('child_process');
 const QRCode=require('qrcode');
 const {Server}=require('socket.io');
@@ -11,7 +12,7 @@ const {readJson,writeJsonAtomic,ensureDir}=require('./storage');
 const {openQuizDb,indexResults}=require('./database');
 const {cleanQuestionText,normalizeText,similarity,deriveFactKey,answerQuality,wordingQuality,distractorQuality,qualityScore,inferSubtopic}=require('./question-intelligence');
 
-const VERSION='24.0.1',PORT=Number(process.env.PORT||3000),HOST=process.env.HOST||'0.0.0.0';
+const VERSION='24.0.2',PORT=Number(process.env.PORT||3000),HOST=process.env.HOST||'0.0.0.0';
 const DATA_DIR=process.env.RESEQUIZ_DATA_DIR||path.join(__dirname,'data');
 const QUESTIONS_FILE=path.join(DATA_DIR,'questions.json'),RESULTS_FILE=path.join(DATA_DIR,'results.json'),SETTINGS_FILE=path.join(DATA_DIR,'settings.json'),USERS_FILE=path.join(DATA_DIR,'users.json'),REPORTS_FILE=path.join(DATA_DIR,'question-reports.json'),DUELS_FILE=path.join(DATA_DIR,'duels.json');
 const CHILD_QUESTIONS_FILE=path.join(__dirname,'data','child-questions.json');
@@ -291,6 +292,26 @@ app.get('/api/admin/reports',requireAdmin,(req,res)=>{const qs=new Map([...quest
 app.post('/api/admin/reports/:id/resolve',requireAdmin,(req,res)=>{const all=reports(),r=all.find(x=>x.id===req.params.id);if(!r)return res.sendStatus(404);r.status=safe(req.body?.status)||'resolved';r.resolvedAt=new Date().toISOString();writeJsonAtomic(REPORTS_FILE,all);res.json({ok:true})});
 app.get('/api/admin/question-metrics',requireAdmin,(req,res)=>{if(!quizDb)return res.json({ok:true,rows:[]});try{const qmap=new Map(questions().map(q=>[q.id,q]));const rows=quizDb.prepare('SELECT question_id,times_shown,times_correct,reported,last_seen,answer_0,answer_1,answer_2,answer_3,answer_4,answer_5,total_response_ms FROM question_metrics ORDER BY reported DESC,times_shown DESC LIMIT 500').all().map(x=>({...x,question:qmap.get(x.question_id)?.question||'',category:qmap.get(x.question_id)?.category||'',correctRate:x.times_shown?Math.round(x.times_correct/x.times_shown*100):null,avgResponseMs:x.times_shown?Math.round(x.total_response_ms/x.times_shown):null,answers:[x.answer_0,x.answer_1,x.answer_2,x.answer_3,x.answer_4,x.answer_5]}));res.json({ok:true,rows})}catch{res.json({ok:true,rows:[]})}});
 app.get('/api/admin/quality/anomalies',requireAdmin,(req,res)=>{const qmap=new Map(questions().map(q=>[q.id,q]));res.json({ok:true,rows:qualityAnomalies().map(x=>({...x,question:qmap.get(x.question_id)?.question||'',category:qmap.get(x.question_id)?.category||''}))})});
+// Export the authoritative persistent production question bank for offline verification.
+// The response is streamed as gzip so even very large banks do not need to be buffered in memory.
+app.get('/api/admin/questions/export',requireAdmin,(req,res)=>{
+ if(!fs.existsSync(QUESTIONS_FILE))return res.status(404).json({ok:false,error:'Frågebanken hittades inte.'});
+ try{
+  const stat=fs.statSync(QUESTIONS_FILE);
+  res.status(200);
+  res.setHeader('Content-Type','application/gzip');
+  res.setHeader('Content-Disposition','attachment; filename=\"questions-production.json.gz\"');
+  res.setHeader('Cache-Control','no-store');
+  res.setHeader('X-Quiz-Question-Source',QUESTIONS_FILE);
+  res.setHeader('X-Quiz-Uncompressed-Bytes',String(stat.size));
+  const input=fs.createReadStream(QUESTIONS_FILE);
+  const gzip=zlib.createGzip({level:zlib.constants.Z_BEST_COMPRESSION});
+  const fail=err=>{console.error('Question bank export failed:',err);if(!res.headersSent)res.status(500).json({ok:false,error:'Kunde inte exportera frågebanken.'});else res.destroy(err)};
+  input.on('error',fail);gzip.on('error',fail);
+  input.pipe(gzip).pipe(res);
+ }catch(e){if(!res.headersSent)res.status(500).json({ok:false,error:e.message})}
+});
+
 app.get('/api/admin/system',requireAdmin,(req,res)=>{let dbSize=0;try{dbSize=fs.statSync(path.join(DATA_DIR,'quiz.db')).size}catch{}let backups=[];const dir='/var/backups/resequiz';try{backups=fs.readdirSync(dir).filter(x=>x.endsWith('.tgz')).sort().reverse().slice(0,10).map(name=>({name,size:fs.statSync(path.join(dir,name)).size}))}catch{}res.json({ok:true,version:VERSION,node:process.version,dataDir:DATA_DIR,database:{enabled:!!quizDb,size:dbSize},counts:{questions:questions().length,users:users().length,results:results().length,reports:reports().filter(x=>x.status==='open').length,duels:duels().length},backups})});
 app.post('/api/admin/backup',requireAdmin,(req,res)=>{try{const dir='/var/backups/resequiz';fs.mkdirSync(dir,{recursive:true});const stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\..+/,'').replace('T','-'),name=`manual-${stamp}.tgz`,file=path.join(dir,name);execFileSync('tar',['-czf',file,'-C',DATA_DIR,'.'],{timeout:120000});res.status(201).json({ok:true,name,size:fs.statSync(file).size})}catch(e){res.status(500).json({ok:false,error:e.message})}});
 app.get('/api/admin/backup/:name',requireAdmin,(req,res)=>{const name=path.basename(req.params.name);if(!/^[-A-Za-z0-9_.]+\.tgz$/.test(name))return res.sendStatus(400);const file=path.join('/var/backups/resequiz',name);if(!fs.existsSync(file))return res.sendStatus(404);res.download(file,name)});
