@@ -1,3 +1,15 @@
+# Resequiz 6.2 – På väg
+
+Nytt i 6.2 är upplägget **🚌 På väg**, optimerat för längre resor med tåg, buss, flyg eller bilpassagerare. Det använder 30 varierade frågor i lugnt tempo, 45 sekunders svarstid, frågor på mobilerna utan krav på TV, inga speed-/buzzer-rundor, inga power-ups och naturliga rundpauser. Quizet är avsett för bilens passagerare – aldrig för föraren under körning.
+
+# Resequiz 6.1 – Share & Rese quiz
+
+## Nytt i 6.1
+- Separat **Dela kod** för rumskoden.
+- Separat **Dela QR** som delar QR-bilden på kompatibla mobiler och annars sparar/öppnar den.
+- **Dela inbjudan** delar både kod och direktlänk.
+- Nytt upplägg **✈️ Rese quiz** med resor, världen, karta, risk och buzzerfinal.
+
 # Resequiz 6.0 – Game Director
 
 Resequiz 6.0 fokuserar på att vara enklare att starta men smartare under spelet. Originalets mörka design är kvar.
@@ -36,7 +48,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/tuffysan/resequiz-lxc/ma
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/tuffysan/resequiz-lxc/main/update-from-github.sh)"
 ```
 
-Efter uppdateringen ska `/health` rapportera `6.0.0`.
+Efter uppdateringen ska `/health` rapportera `6.2.0`.
 
 ## Kontroll
 
