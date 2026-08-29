@@ -1,18 +1,19 @@
-# Quiz v19.5.0
+# Quiz v19.6.0
 
 Quiz är en responsiv PWA för soloquiz och realtidsquiz med flera deltagare.
 
-## Nytt i 19.5.0
+## Nytt i 19.6.0
 
-- Frågevyn visar endast själva frågan, eventuell bild och svarsalternativen.
-- Bildfrågor visar fältet `visual` och uppgraderingen försöker återställa både bildmetadata och äldre `media-packs`.
-- Administration kräver inloggning. Första gången används installationsnyckeln för att skapa ett lösenord.
-- Admin har en statistiköversikt med spel, spelare, frågebank, barnfrågor, bildfrågor, träffsäkerhet, 30-dagarstrend, spellägen och aktiva spelare.
-- Språk kan växlas mellan svenska och engelska.
-- Tema kan växlas mellan system, ljust och mörkt.
-- Offline-spel för soloquiz använder en lokalt sparad frågebank.
-- Barnquiz har åldersanpassning och temaval.
-- Appikonen används för PWA, Apple Touch Icon och favicon.
+- Vid spelstart väljer användaren svårighetsgrad: Blandad, Lätt, Medel eller Svår.
+- Vid spelstart väljer användaren upplägg: Snabb (5 frågor), Standard (10), Lång (20) eller Utmaning (15 med kortare tid).
+- Samma val finns när man skapar ett multiplayer-rum.
+- Svenska, English, Español och Deutsch används genom hela huvudflödet: startsida, spelstart, multiplayer, resultat/highscore, navigation och meddelanden.
+- Español har regionala varianter för Spanien, Mexiko, Argentina, Colombia, Chile, Peru, Uruguay och USA/Latino.
+- Offline-läge har en tydlig genväg på startsidan och kan startas explicit även när telefonen fortfarande har internet.
+- Highscore och rekord har en egen tydlig genväg och förbättrad topplista.
+- Awards delas ut när en spelare sätter nytt personbästa, nytt globalt Quiz-rekord, nytt kategorirekord eller får 100%.
+- Awards sparas med resultatet och visas i resultatlistan.
+- Barnquiz, bildfrågor, tema, admin-login och adminstatistik finns kvar.
 
 ## Installation
 
@@ -23,18 +24,8 @@ chmod +x install-on-proxmox.sh scripts/*.sh
 ./install-on-proxmox.sh 135
 ```
 
-Efter första starten skrivs admin-installationsnyckeln ut av installeraren. Den kan även läsas i containern med:
+Admin-installationsnyckeln finns i:
 
 ```bash
 cat /var/lib/resequiz/admin-setup-key
 ```
-
-Tekniska sökvägar och tjänstenamnet behålls som `/opt/resequiz`, `/var/lib/resequiz` och `resequiz.service` för att befintliga installationer ska kunna uppgraderas utan datamigrering av systemnivån.
-
-## Uppdatering från GitHub
-
-```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/tuffysan/resequiz-lxc/main/update-from-github.sh)"
-```
-
-Den persistenta frågebanken och resultatdata bevaras vid uppdatering.

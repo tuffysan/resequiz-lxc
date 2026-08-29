@@ -31,6 +31,14 @@ cp "$SRC/data/child-questions.json" "$APP/data/child-questions.json"
 cd "$APP"
 if [ -f package-lock.json ]; then npm ci --omit=dev; else npm install --omit=dev; fi
 for f in questions.json results.json settings.json; do [ -f "$DATA/$f" ] || cp "$SRC/data/$f" "$DATA/$f"; done
+# Create the first-run admin setup key explicitly so it never depends on service startup timing.
+[ -f "$DATA/admin-auth.json" ] || printf '{"passwordHash":"","passwordSalt":"","updatedAt":null}\n' > "$DATA/admin-auth.json"
+ADMIN_HAS_PASSWORD="$(node -e 'const fs=require("fs");try{const a=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));process.stdout.write(a.passwordHash?"yes":"no")}catch(e){process.stdout.write("no")}' "$DATA/admin-auth.json")"
+if [ "$ADMIN_HAS_PASSWORD" = "no" ] && [ ! -s "$DATA/admin-setup-key" ]; then
+  umask 077
+  if command -v openssl >/dev/null 2>&1; then openssl rand -base64 18 | tr -dc 'A-Za-z0-9' | head -c 16 > "$DATA/admin-setup-key"; else node -e 'process.stdout.write(require("crypto").randomBytes(12).toString("base64url").slice(0,16))' > "$DATA/admin-setup-key"; fi
+  echo >> "$DATA/admin-setup-key"
+fi
 if [ -f /tmp/rq-questions.keep ]; then
   mv /tmp/rq-questions.keep "$DATA/questions.json"
 elif [ -f /tmp/rq-legacy-questions.json ]; then
