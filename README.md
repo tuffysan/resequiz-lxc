@@ -1,8 +1,8 @@
-# Quiz v19.6.1
+# Quiz v19.6.2
 
 Quiz är en responsiv PWA för soloquiz och realtidsquiz med flera deltagare.
 
-## Nytt i 19.6.1
+## Nytt i 19.6.2
 
 - Vid spelstart väljer användaren svårighetsgrad: Blandad, Lätt, Medel eller Svår.
 - Vid spelstart väljer användaren upplägg: Snabb (5 frågor), Standard (10), Lång (20) eller Utmaning (15 med kortare tid).
@@ -29,3 +29,8 @@ Admin-installationsnyckeln finns i:
 ```bash
 cat /var/lib/resequiz/admin-setup-key
 ```
+
+
+## v19.6.2
+- Visar endast själva frågan genom att ta bort kända äldre presentationsprefix vid serverns publicering av frågor.
+- Gäller solo, multiplayer och offline-paket utan att skriva om den permanenta frågebanken.

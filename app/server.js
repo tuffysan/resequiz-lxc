@@ -26,7 +26,30 @@ const normalizeAge=a=>Math.min(15,Math.max(4,Number(a)||8));
 const normalizeTopic=t=>CHILD_TOPICS.includes(t)?t:'Blandat';
 const questionsForAge=(age,topic='Blandat')=>{age=normalizeAge(age);topic=normalizeTopic(topic);let pool=childQuestions().filter(q=>age>=q.ageMin&&age<=q.ageMax);if(topic!=='Blandat')pool=pool.filter(q=>q.topic===topic);return pool};
 const qVisual=q=>safe(q.visual??q.image??q.imageUrl??q.image_url);
-const publicQuestion=q=>({id:q.id,category:q.category,difficulty:q.difficulty,question:q.question,answers:q.answers,visual:qVisual(q),subtype:safe(q.subtype??q.type)});
+const cleanQuestionText=value=>{
+ let text=safe(value).trim();
+ // Older question banks sometimes stored presentation copy as part of the question.
+ // Strip only known leading wrappers; repeat so nested legacy wrappers are handled too.
+ const wrappers=[
+  /^vad\s+säger\s+dina\s+kunskaper\s*[–—:\-]\s*/i,
+  /^känner\s+du\s+till\s+svaret\s*[:–—\-]\s*/i,
+  /^kan\s+du\s+svaret\s*[:–—\-]\s*/i,
+  /^kan\s+du\s+räkna\s+ut\s+eller\s+ange\s+detta\s*[:–—\-]\s*/i,
+  /^vilket\s+alternativ\s+är\s+rätt\s*[:–—\-]\s*/i,
+  /^bildutmaning\s*[:–—\-]\s*/i,
+  /^kan\s+du\s+välja\s+rätt\s+alternativ\s*[:–—\-]\s*/i,
+  /^quizfråga\s*[:–—\-]\s*/i,
+  /^fråga\s*[:–—\-]\s*/i
+ ];
+ for(let pass=0;pass<4;pass++){
+  const before=text;
+  for(const re of wrappers) text=text.replace(re,'').trim();
+  if(text===before) break;
+ }
+ if(text) text=text.charAt(0).toUpperCase()+text.slice(1);
+ return text;
+};
+const publicQuestion=q=>({id:q.id,category:q.category,difficulty:q.difficulty,question:cleanQuestionText(q.question),answers:q.answers,visual:qVisual(q),subtype:safe(q.subtype??q.type)});
 const offlineQuestion=q=>({...publicQuestion(q),correct:Number(q.correct),explanation:q.explanation||'',ageMin:q.ageMin??null,ageMax:q.ageMax??null,topic:q.topic||''});
 const rooms=new Map();
 const publicRoom=r=>({code:r.code,phase:r.phase,hostId:r.hostId,questionIndex:r.questionIndex,total:r.quiz.length,seconds:r.seconds,category:r.category||'',age:r.age||null,topic:r.topic||'',difficulty:r.difficulty||'mixed',format:r.format||'standard',players:[...r.players.values()].map(p=>({id:p.id,name:p.name,avatar:p.avatar,score:p.score,answered:p.answered}))});

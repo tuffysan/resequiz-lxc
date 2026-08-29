@@ -1,6 +1,6 @@
 {
   "name": "quiz",
-  "version": "19.6.1",
+  "version": "19.6.2",
   "private": true,
   "description": "Quiz with age-adapted children categories, realtime multiplayer, offline play and administration",
   "main": "server.js",
